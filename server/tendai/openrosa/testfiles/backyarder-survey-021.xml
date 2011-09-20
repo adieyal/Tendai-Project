@@ -1,0 +1,1317 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Backyarder Survey 0.2.1</h:title>
+    <model>
+      <instance>
+        <data id="Backyarder0.2.1">
+          <start/>
+          <finish/>
+          <section_authenticate>
+            <username/>
+            <password/>
+          </section_authenticate>
+          <section_basic>
+            <area/>
+            <house_nr/>
+            <street_address/>
+            <survey_result/>
+            <result_other/>
+          </section_basic>
+          <section_dwelling>
+            <dwelling_type/>
+            <ownership_type/>
+            <renting_from/>
+            <renting_from_other/>
+          </section_dwelling>
+          <section_personal>
+            <tenant_first_name/>
+            <tenant_last_name/>
+            <tenant_id_nr/>
+            <tenant_dob/>
+            <tenant_phone/>
+            <tenant_cellno/>
+            <tenant_marital_status/>
+          </section_personal>
+          <section_household>
+            <length_of_stay/>
+            <num_family_members/>
+            <on_housing_database/>
+            <housing_database_months/>
+            <housing_database_years/>
+            <num_men/>
+            <num_women/>
+            <num_girls/>
+            <num_boys/>
+            <num_school_girls/>
+            <num_school_boys/>
+            <num_disabled_residents/>
+            <num_elderly_residents/>
+            <disability_details/>
+          </section_household>
+          <section_employment>
+            <num_employed/> 
+            <grant_maintenance/> 
+            <grant_childcare/> 
+            <grant_disability/> 
+            <grant_other/> 
+            <total_monthly_income/> 
+          </section_employment>
+          <section_employment2>
+            <repeatingFieldList jr:template="">>
+              <income_source/> 
+            </repeatingFieldList>
+          </section_employment2>
+          <section_property>
+            <living_conditions/> 
+            <previously_owned/> 
+            <previously_owned_specify/> 
+            <paying_rent/> 
+            <rent_how_much/> 
+            <rent_up_to_date/> 
+            <rent_not_up_to_date_reason/> 
+            <how_many_vehicles/> 
+            <space_utilisation/> 
+          </section_property>
+          <section_backyarders>
+            <have_backyarders/> 
+            <num_backyarders/> 
+            <backyarders_lease_agreement/> 
+            <backyarders_structure_permission/> 
+            <backyarders_structure_plan/> 
+            <backyarders_payment/> 
+            <backyarders_structure_separate/> 
+            <backyarders_structure_use/> 
+          </section_backyarders>
+          <section_services>
+            <do_you_have/> 
+            <num_refuse_bins/> 
+            <importance_all_services/> 
+            <importance_responsiveness/> 
+            <importance_reliability/> 
+            <access_water/> 
+            <access_toilet/> 
+            <access_toilet_where/> 
+            <disposal_waste_water/> 
+            <disposal_solid_waste/> 
+            <access_electricity/> 
+            <access_electricity_how/> 
+          </section_services>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="eng">
+          <!-- Common Definitions -->
+          <text id="/data/yes">
+            <value>Yes</value>
+          </text>
+          <text id="/data/no">
+            <value>No</value>
+          </text>
+          <text id="/data/poor">
+            <value>Poor</value>
+          </text>
+          <text id="/data/average">
+            <value>Average</value>
+          </text>
+          <text id="/data/good">
+            <value>Good</value>
+          </text>
+
+          <!-- Authentication Section -->
+          <text id="/data/section_authenticate:label">
+            <value>Login</value>
+          </text>
+          <text id="/data/section_authenticate/username:label">
+            <value>Username</value>
+          </text>
+          <text id="/data/section_authenticate/password:label">
+            <value>Password</value>
+          </text>
+
+          <!-- Basic Section -->
+          <text id="/data/section_basic:label">
+            <value>Basic</value>
+          </text>
+          <text id="/data/section_basic/area:label">
+            <value>Area</value>
+          </text>
+          <text id="/data/section_basic/area:hint">
+            <value/>
+          </text>
+          <text id="/data/section_basic/area:option0">
+            <value>Langa</value>
+          </text>
+          <text id="/data/section_basic/area:option1">
+            <value>Factreton</value>
+          </text>
+          <text id="/data/section_basic/area:option2">
+            <value>Hanover Park</value>
+          </text>
+          <text id="/data/section_basic/house_nr:label">
+            <value>House Number</value>
+          </text>
+          <text id="/data/section_basic/house_nr:hint">
+            <value/>
+          </text>
+          <text id="/data/section_basic/street_address:label">
+            <value>Street Address</value>
+          </text>
+          <text id="/data/section_basic/street_address:hint">
+            <value/>
+          </text>
+          <text id="/data/section_basic/survey_result:label">
+            <value>Result</value>
+          </text>
+          <text id="/data/section_basic/survey_result:hint">
+            <value/>
+          </text>
+          <text id="/data/section_basic/survey_result:option0">
+            <value>Completed</value>
+          </text>
+          <text id="/data/section_basic/survey_result:option1">
+            <value>No of household members at home at time of visit</value>
+          </text>
+          <text id="/data/section_basic/survey_result:option2">
+            <value>Entire household absent at time of visit</value>
+          </text>
+          <text id="/data/section_basic/survey_result:option3">
+            <value>Postponed</value>
+          </text>
+          <text id="/data/section_basic/survey_result:option4">
+            <value>Refused</value>
+          </text>
+          <text id="/data/section_basic/survey_result:option5">
+            <value>Dwelling vacant or address not a dwelling</value>
+          </text>
+          <text id="/data/section_basic/survey_result:option6">
+            <value>Dwelling not found</value>
+          </text>
+          <text id="/data/section_basic/survey_result:option7">
+            <value>Other (specify)</value>
+          </text>
+          <text id="/data/section_basic/result_other:label">
+            <value>Other Result (please specify)</value>
+          </text>
+          <!-- Dwelling Details -->
+          <text id="/data/section_dwelling:label">
+            <value>Section A: Dwelling</value>
+          </text>
+          <text id="/data/section_dwelling/dwelling_type:label">
+            <value>Dwelling type</value>
+          </text>
+          <text id="/data/section_dwelling/dwelling_type:option0">
+            <value>Single storey</value>
+          </text>
+          <text id="/data/section_dwelling/dwelling_type:option1">
+            <value>row house</value>
+          </text>
+          <text id="/data/section_dwelling/dwelling_type:option2">
+            <value>Double storey flat</value>
+          </text>
+          <text id="/data/section_dwelling/dwelling_type:option3">
+            <value>Triple storey flat</value>
+          </text>
+          <text id="/data/section_dwelling/dwelling_type:option4">
+            <value>Maisonette</value>
+          </text>
+          <text id="/data/section_dwelling/dwelling_type:option5">
+            <value>Free standing house</value>
+          </text>
+          <text id="/data/section_dwelling/dwelling_type:option6">
+            <value>Other</value>
+          </text>
+          <text id="/data/section_dwelling/ownership_type:label">
+            <value>Are you a home owner or tenant</value>
+          </text>
+          <text id="/data/section_dwelling/ownership_type:option0">
+            <value>Private Owner</value>
+          </text>
+          <text id="/data/section_dwelling/ownership_type:option1">
+            <value>Tenant/Renting</value>
+          </text>
+          <text id="/data/section_dwelling/renting_from:label">
+            <value>Who are you renting from?</value>
+          </text>
+          <text id="/data/section_dwelling/renting_from:option0">
+            <value>City</value>
+          </text>
+          <text id="/data/section_dwelling/renting_from:option1">
+            <value>Private Owner</value>
+          </text>
+          <text id="/data/section_dwelling/renting_from:option2">
+            <value>Other</value>
+          </text>
+          <text id="/data/section_dwelling/renting_from_other:label">
+            <value>Please specify who you are renting from.</value>
+          </text>
+
+          <!-- Personal Details Section -->
+          <text id="/data/section_personal:label">
+            <value>Section A: Personal Details</value>
+          </text>
+          <text id="/data/section_personal/tenant_first_name:label">
+            <value>First Name</value>
+          </text>
+          <text id="/data/section_personal/tenant_first_name:hint">
+            <value/>
+          </text>
+          <text id="/data/section_personal/tenant_last_name:label">
+            <value>Surname</value>
+          </text>
+          <text id="/data/section_personal/tenant_last_name:hint">
+            <value/>
+          </text>
+          <text id="/data/section_personal/tenant_id_nr:label">
+            <value>ID Number</value>
+          </text>
+          <text id="/data/section_personal/tenant_id_nr:hint">
+            <value/>
+          </text>
+          <text id="/data/section_personal/tenant_dob:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/section_personal/tenant_dob:hint">
+            <value/>
+          </text>
+          <text id="/data/section_personal/tenant_phone:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/data/section_personal/tenant_phone:hint">
+            <value/>
+          </text>
+          <text id="/data/section_personal/tenant_cellno:label">
+            <value>Cell Number</value>
+          </text>
+          <text id="/data/section_personal/tenant_cellno:hint">
+            <value/>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:label">
+            <value>Marital Status</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:hint">
+            <value/>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option0">
+            <value>Married in community of property</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option1">
+            <value>Married by antenuptial contract</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option2">
+            <value>Customary marriage</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option3">
+            <value>Common law partner</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option4">
+            <value>Widowed</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option5">
+            <value>Divorced with dependants</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option6">
+            <value>Separated</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option7">
+            <value>Single with dependants</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option8">
+            <value>Single without dependants</value>
+          </text>
+          <text id="/data/section_personal/tenant_marital_status:option9">
+            <value>Engaged to be married</value>
+          </text>
+          <!-- Household Details Section -->
+          <text id="/data/section_household:label">
+            <value>Section B: Household Details</value>
+          </text>
+          <text id="/data/section_household/length_of_stay:label">
+            <value>How long have you been staying in the house?</value>
+          </text>
+          <text id="/data/section_household/num_family_members:label">
+            <value>How many family members stay in the house?</value>
+          </text>
+          <text id="/data/section_household/on_housing_database:label">
+            <value>Are you on the housing database?</value>
+          </text>
+          <text id="/data/section_household/housing_database_months:label">
+            <value>Months</value>
+          </text>
+          <text id="/data/section_household/housing_database_years:label">
+            <value>Years</value>
+          </text>
+          <text id="/data/section_household/num_men:label">
+            <value>Number of adult males (over 18?) living in the main dwelling</value>
+          </text>
+          <text id="/data/section_household/num_women:label">
+            <value>Number of adult females living in the main dwelling</value>
+          </text>
+          <text id="/data/section_household/num_boys:label">
+            <value>Number of boys under six</value>
+          </text>
+          <text id="/data/section_household/num_girls:label">
+            <value>Number of girls under six</value>
+          </text>
+          <text id="/data/section_household/num_school_boys:label">
+            <value>Number of boys enrolled in school</value>
+          </text>
+          <text id="/data/section_household/num_school_girls:label">
+            <value>Number of girls enrolled in school</value>
+          </text>
+          <text id="/data/section_household/num_disabled_residents:label">
+            <value>Number of disabled residents residing in the main dwelling?</value>
+          </text>
+          <text id="/data/section_household/num_elderly_residents:label">
+            <value>Number of elderly residing in the main dwelling?</value>
+          </text>
+          <text id="/data/section_household/disability_details:label">
+            <value>Choose the disabilities or medical conditions that exist in the dwelling</value>
+          </text>
+          <text id="/data/section_household/disability_details:option0">
+            <value>Walking Aids</value>
+          </text>
+          <text id="/data/section_household/disability_details:option1">
+            <value>Wheel chair, partial, partial usage</value>
+          </text>
+          <text id="/data/section_household/disability_details:option2">
+            <value>Wheel chair - full time use</value>
+          </text>
+          <text id="/data/section_household/disability_details:option3">
+            <value>Partially/profound deaf</value>
+          </text>
+          <text id="/data/section_household/disability_details:option4">
+            <value>Partially/profound blind</value>
+          </text>
+          <text id="/data/section_household/disability_details:option5">
+            <value>Partial/total movement loss/paralysis in upper limb</value>
+          </text>
+
+          <!-- Employment Section -->
+          <text id="/data/section_employment:label">
+            <value>Section C: Employment/Income Details</value>
+          </text>
+          <text id="/data/section_employment/num_employed:label">
+            <value>How many people are employed in the main dwelling?</value>
+          </text>
+          <text id="/data/section_employment/income_source:label">
+            <value>Name the source of income for each of those employed</value>
+          </text>
+          <text id="/data/section_employment/income_source:option0">
+            <value>Salary</value>
+          </text>
+          <text id="/data/section_employment/income_source:option1">
+            <value>Self-employed</value>
+          </text>
+          <text id="/data/section_employment/income_source:option2">
+            <value>Investment</value>
+          </text>
+          <text id="/data/section_employment/income_source:option3">
+            <value>Pension</value>
+          </text>
+          <text id="/data/section_employment/income_source:option4">
+            <value>Part time</value>
+          </text>
+          <text id="/data/section_employment/grant_maintenance:label">
+            <value>How much money do you receive in the form of a maintenance grant?</value>
+          </text>
+          <text id="/data/section_employment/grant_childcare:label">
+            <value>How much money do you receive in the form of a childcare grant?</value>
+          </text>
+          <text id="/data/section_employment/grant_disability:label">
+            <value>How much money do you receive in the form of a disability grant?</value>
+          </text>
+          <text id="/data/section_employment/grant_other:label">
+            <value>How much money do you receive in the form of a other grants?</value>
+          </text>
+          <text id="/data/section_employment/total_monthly_income:label">
+            <value>What is the combined monthly household income per month?</value>
+          </text>
+
+          <!-- Property Section -->
+          <text id="/data/section_property:label">
+            <value>Section D: Property/Rental Information</value>
+          </text>
+          <text id="/data/section_property/living_conditions:label">
+            <value>Details of living conditions</value>
+          </text>
+          <text id="/data/section_property/previously_owned:label">
+            <value>Have you or your spouse/partner ever owned property before or now?</value>
+          </text>
+          <text id="/data/section_property/previously_owned_specify:label">
+            <value>Please specify (i'm guessing the nr of properties)</value>
+          </text>
+          <text id="/data/section_property/paying_rent:label">
+            <value>Are you paying rent?</value>
+          </text>
+          <text id="/data/section_property/rent_how_much:label">
+            <value>If yes, how much do you pay?</value>
+          </text>
+          <text id="/data/section_property/rent_up_to_date:label">
+            <value>Is your rent up to date?</value>
+          </text>
+          <text id="/data/section_property/rent_not_up_to_date_reason:label">
+            <value>If no, what is the reason for not paying?</value>
+          </text>
+          <text id="/data/section_property/rent_not_up_to_date_reason:option0">
+            <value>Refuse</value>
+          </text>
+          <text id="/data/section_property/rent_not_up_to_date_reason:option1">
+            <value>Unemployed</value>
+          </text>
+          <text id="/data/section_property/rent_not_up_to_date_reason:option2">
+            <value>Rent is too high</value>
+          </text>
+          <text id="/data/section_property/rent_not_up_to_date_reason:option3">
+            <value>Other</value>
+          </text>
+          <text id="/data/section_property/how_many_vehicles:label">
+            <value>How many vehicles do you own?</value>
+          </text>
+          <text id="/data/section_property/space_utilisation:label">
+            <value>How are open spaces utilised by the household?</value>
+          </text>
+          <text id="/data/section_property/space_utilisation:option0">
+            <value>Backyarder</value>
+          </text>
+          <text id="/data/section_property/space_utilisation:option1">
+            <value>Business</value>
+          </text>
+          <text id="/data/section_property/space_utilisation:option2">
+            <value>Other</value>
+          </text>
+
+          <!-- Backyarders Section -->
+          <text id="/data/section_backyarders:label">
+            <value>Section E: Backyarders Information</value>
+          </text>
+          <text id="/data/section_backyarders/have_backyarders:label">
+            <value>Do you have any backyarders?</value>
+          </text>
+          <text id="/data/section_backyarders/num_backyarders:label">
+            <value>How many backyarders?</value>
+          </text>
+          <text id="/data/section_backyarders/backyarders_lease_agreement:label">
+            <value>Do you have a lease agreement with the backyarders?</value>
+          </text>
+          <text id="/data/section_backyarders/backyarders_structure_permission:label">
+            <value>Was permission granted to erect any backyard structure?</value>
+          </text>
+          <text id="/data/section_backyarders/backyarders_structure_plan:label">
+            <value>Was a plan submitted to the City for the structure?</value>
+          </text>
+          <text id="/data/section_backyarders/backyarders_payment:label">
+            <value>To whom would you prefer the backyarders pay rent and services?</value>
+          </text>
+          <text id="/data/section_backyarders/backyarders_structure_separate:label">
+            <value>Is the structure attached to the main dwelling?</value>
+          </text>
+          <text id="/data/section_backyarders/backyarders_structure_use:label">
+            <value>What is the structure being used for?</value>
+          </text>
+
+          <!-- Services Section -->
+          <text id="/data/section_services:label">
+            <value>Section F: Services Information</value>
+          </text>
+          <text id="/data/section_services/do_you_have:label">
+            <value>Do you have</value>
+          </text>
+          <text id="/data/section_services/num_refuse_bins:label">
+            <value>How many refuse bins do you have?</value>
+          </text>
+          <text id="/data/section_services/importance_all_services:label">
+            <value>Rate your access to all services</value>
+          </text>
+          <text id="/data/section_services/importance_responsiveness:label">
+            <value>Rate the City's responsiveness to your needs</value>
+          </text>
+          <text id="/data/section_services/importance_reliability:label">
+            <value>Rate the reliability of overall service delivery</value>
+          </text>
+          <text id="/data/section_services/access_water:label">
+            <value>Do you have access to water?</value>
+          </text>
+          <text id="/data/section_services/access_toilet:label">
+            <value>Do you have access to a toilet?</value>
+          </text>
+          <text id="/data/section_services/access_toilet_where:label">
+            <value>Where is the toilet located?</value>
+          </text>
+          <text id="/data/section_services/access_toilet_where:option0">
+            <value>In main dwelling</value>
+          </text>
+          <text id="/data/section_services/access_toilet_where:option1">
+            <value>Outside</value>
+          </text>
+          <text id="/data/section_services/access_toilet_where:option2">
+            <value>Inside the structure</value>
+          </text>
+          <text id="/data/section_services/access_toilet_where:option3">
+            <value>Other</value>
+          </text>
+          <text id="/data/section_services/disposal_waste_water:label">
+            <value>How do you dispose of waste water?</value>
+          </text>
+          <text id="/data/section_services/disposal_solid_waste:label">
+            <value>How do you dispose of solid waste?</value>
+          </text>
+          <text id="/data/section_services/access_electricity:label">
+            <value>Do you have access to electricity?</value>
+          </text>
+          <text id="/data/section_services/access_electricity_how:label">
+            <value>How do you get access to electricity?</value>
+          </text>
+          <text id="/data/section_services/access_electricity_how:option0">
+            <value>Electricity box</value>
+          </text>
+          <text id="/data/section_services/access_electricity_how:option1">
+            <value>Linked to main dwelling</value>
+          </text>
+          <text id="/data/section_services/access_electricity_how:option2">
+            <value>Other</value>
+          </text>
+        </translation>
+      </itext>
+      <!-- record when the survey started -->
+      <bind nodeset="/data/start" type="time" jr:preload="timestamp" jr:preloadParams="start"/>
+      <!-- record when the survey ended -->
+      <bind nodeset="/data/finish" type="time" jr:preload="timestamp" jr:preloadParams="end"/>
+
+      <bind nodeset="/data/section_authenticate/username" type="string" required="true()"/>
+      <bind nodeset="/data/section_authenticate/password" type="string" required="true()"/>
+
+      <bind nodeset="/data/section_basic/area" type="select" required="true()"/>
+      <bind nodeset="/data/section_basic/house_nr" type="string"/>
+      <bind nodeset="/data/section_basic/street_address" type="string"/>
+      <bind nodeset="/data/section_basic/survey_result" type="select1" required="true()"/>
+      <bind nodeset="/data/section_basic/result_other" type="string" relevant="/data/section_basic/survey_result = '7'"/>
+
+      <bind nodeset="/data/section_dwelling/dwelling_type" type="select" constraint="regex(., '[^_]+')" jr:constraintMsg="Please select a dwelling type from the list"/>
+      <bind nodeset="/data/section_dwelling/ownership_type" type="select" constraint="regex(., '[^_]+')" jr:constraintMsg="Please select a value from the list"/>
+      <bind nodeset="/data/section_dwelling/renting_from" type="select" relevant="/data/section_dwelling/ownership_type = 'renting'" constraint="regex(., '[^_]+')" jr:constraintMsg="Please select a landlord type from the list"/>
+      <bind nodeset="/data/section_dwelling/renting_from_other" type="string" relevant="/data/section_dwelling/renting_from = 'other'"/>
+
+      <bind nodeset="/data/section_personal/tenant_first_name" type="string"/>
+      <bind nodeset="/data/section_personal/tenant_last_name" type="string"/>
+      <bind nodeset="/data/section_personal/tenant_id_nr" type="string" constraint="regex(., '^\d{13}$')" jr:constraintMsg="Invalid ID number"/>
+      <bind nodeset="/data/section_personal/tenant_dob" type="date"/>
+      <bind nodeset="/data/section_personal/tenant_phone" type="string"/>
+      <bind nodeset="/data/section_personal/tenant_cellno" type="string"/>
+      <bind nodeset="/data/section_personal/tenant_marital_status" type="select"/>
+
+      <bind nodeset="/data/section_household/length_of_stay" type="int"/>
+      <bind nodeset="/data/section_household/num_family_members" type="int"/>
+      <bind nodeset="/data/section_household/on_housing_database" type="select"/>
+      <bind nodeset="/data/section_household/housing_database_months" type="int"/>
+      <bind nodeset="/data/section_household/housing_database_years" type="int"/>
+      <bind nodeset="/data/section_household/num_men" type="int"/>
+      <bind nodeset="/data/section_household/num_women" type="int"/>
+      <bind nodeset="/data/section_household/num_boys" type="int"/>
+      <bind nodeset="/data/section_household/num_girls" type="int"/>
+      <bind nodeset="/data/section_household/num_school_boys" type="int"/>
+      <bind nodeset="/data/section_household/num_disabled_residents" type="int"/>
+      <bind nodeset="/data/section_household/num_elderly_residents" type="int"/>
+      <bind nodeset="/data/section_household/disability_details" type="select"/>
+
+      <bind nodeset="/data/section_employment/num_employed" type="int"/>
+      <bind nodeset="/data/section_employment2/repeatingFieldList"/>
+      <bind nodeset="/data/section_employment2/repeatingFieldList/income_source" type="select"/>
+      <bind nodeset="/data/section_employment/grant_maintenance" type="int"/>
+      <bind nodeset="/data/section_employment/grant_childcare" type="int"/>
+      <bind nodeset="/data/section_employment/grant_disability" type="int"/>
+      <bind nodeset="/data/section_employment/grant_other" type="int"/>
+      <bind nodeset="/data/section_employment/total_monthly_income" type="int"/>
+
+      <bind nodeset="/data/section_property/living_conditions" type="select"/>
+      <bind nodeset="/data/section_property/previously_owned" type="select"/>
+      <bind nodeset="/data/section_property/previously_owned_specify" type="select" relevant="/data/section_property/previously_owned = 'yes'"/>
+      <bind nodeset="/data/section_property/paying_rent" type="select"/>
+      <bind nodeset="/data/section_property/rent_how_much" type="int" relevant="/data/section_property/paying_rent = 'yes'"/>
+      <bind nodeset="/data/section_property/rent_up_to_date" type="select" relevant="/data/section_property/paying_rent = 'yes'"/>
+      <bind nodeset="/data/section_property/rent_not_up_to_date_reason" type="select" relevant="/data/section_property/paying_rent = 'yes' and /data/section_property/rent_up_to_date = 'no'"/>
+      <bind nodeset="/data/section_property/how_many_vehicles" type="select"/>
+      <bind nodeset="/data/section_property/space_utilisation" type="select"/>
+
+      <bind nodeset="/data/section_backyarders/have_backyarders" type="select1"/>
+      <bind nodeset="/data/section_backyarders/num_backyarders" type="int" relevant="/data/section_backyarders/have_backyarders='yes'" constraint=". &gt; 0" constraintMsg="Should have at least one backyarder" />
+      <bind nodeset="/data/section_backyarders/backyarders_lease_agreement" type="select" relevant="/data/section_backyarders/have_backyarders='yes'" />
+      <bind nodeset="/data/section_backyarders/backyarders_structure_permission" type="select" relevant="/data/section_backyarders/have_backyarders='yes'" />
+      <bind nodeset="/data/section_backyarders/backyarders_structure_plan" type="select" relevant="/data/section_backyarders/have_backyarders='yes' and /data/section_backyarders/backyarders_structure_permission = 'yes'" />
+      <bind nodeset="/data/section_backyarders/backyarders_payment" type="string" relevant="/data/section_backyarders/have_backyarders='yes'" />
+      <bind nodeset="/data/section_backyarders/backyarders_structure_separate" type="select" relevant="/data/section_backyarders/have_backyarders='yes'" />
+      <bind nodeset="/data/section_backyarders/backyarders_structure_use" type="string" relevant="/data/section_backyarders/have_backyarders='yes'" />
+
+      <bind nodeset="/data/section_services/do_you_have" type="select"/>
+      <bind nodeset="/data/section_services/num_refuse_bins" type="select"/>
+      <bind nodeset="/data/section_services/importance_all_services" type="select"/>
+      <bind nodeset="/data/section_services/importance_responsiveness" type="select"/>
+      <bind nodeset="/data/section_services/importance_reliability" type="select"/>
+      <bind nodeset="/data/section_services/access_water" type="select"/>
+      <bind nodeset="/data/section_services/access_toilet" type="select"/>
+      <bind nodeset="/data/section_services/access_toilet_where" type="select" relevant="/data/section_services/access_toilet='yes'"/>
+      <bind nodeset="/data/section_services/disposal_waste_water" type="select"/>
+      <bind nodeset="/data/section_services/disposal_solid_waste" type="select"/>
+      <bind nodeset="/data/section_services/access_electricity" type="select"/>
+      <bind nodeset="/data/section_services/access_electricity_how" type="select" relevant="/data/section_services/access_electricity='yes'"/>
+    </model>
+  </h:head>
+  <h:body>
+    <!-- authentication section -->
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/section_authenticate:label')"/>
+      <input ref="/data/section_authenticate/username">
+        <label ref="jr:itext('/data/section_authenticate/username:label')"/>
+      </input>
+      <secret ref="/data/section_authenticate/password">
+        <label ref="jr:itext('/data/section_authenticate/password:label')"/>
+      </secret>
+    </group>
+    <!-- basic section -->
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/section_basic:label')"/>
+      <select1 appearance="minimal" ref="/data/section_basic/area">
+        <label ref="jr:itext('/data/section_basic/area:label')"/>
+        <hint ref="jr:itext('/data/section_basic/area:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/section_basic/area:option0')"/>
+          <value>langa</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_basic/area:option1')"/>
+          <value>factreton</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_basic/area:option2')"/>
+          <value>hanover_park</value>
+        </item>
+      </select1>
+      <input ref="/data/section_basic/house_nr">
+        <label ref="jr:itext('/data/section_basic/house_nr:label')"/>
+        <hint ref="jr:itext('/data/section_basic/house_nr:hint')"/>
+      </input>
+      <input ref="/data/section_basic/street_address">
+        <label ref="jr:itext('/data/section_basic/street_address:label')"/>
+        <hint ref="jr:itext('/data/section_basic/street_address:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/section_basic/survey_result">
+        <label ref="jr:itext('/data/section_basic/survey_result:label')"/>
+        <hint ref="jr:itext('/data/section_basic/survey_result:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/section_basic/survey_result:option0')"/>
+          <value>0</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_basic/survey_result:option1')"/>
+          <value>1</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_basic/survey_result:option2')"/>
+          <value>2</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_basic/survey_result:option3')"/>
+          <value>3</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_basic/survey_result:option4')"/>
+          <value>4</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_basic/survey_result:option5')"/>
+          <value>5</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_basic/survey_result:option6')"/>
+          <value>6</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_basic/survey_result:option7')"/>
+          <value>7</value>
+        </item>
+      </select1>
+    </group>
+    <group>
+      <input ref="/data/section_basic/result_other">
+        <label ref="jr:itext('/data/section_basic/result_other:label')"/>
+      </input>
+    </group>
+
+    <!-- Section A: Dwelling -->
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/section_dwelling:label')"/>
+      <select1 appearance="minimal" ref="/data/section_dwelling/dwelling_type">
+        <label ref="jr:itext('/data/section_dwelling/dwelling_type:label')"/>
+        <item>
+          <label></label>
+          <value>_</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/dwelling_type:option0')"/>
+          <value>singlestorey</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/dwelling_type:option1')"/>
+          <value>rowhouse</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/dwelling_type:option2')"/>
+          <value>doublestorey</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/dwelling_type:option3')"/>
+          <value>triplestorey</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/dwelling_type:option4')"/>
+          <value>maisonette</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/dwelling_type:option5')"/>
+          <value>freestanding</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/dwelling_type:option6')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_dwelling/ownership_type">
+        <label ref="jr:itext('/data/section_dwelling/ownership_type:label')"/>
+        <item>
+          <label></label>
+          <value>_</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/ownership_type:option0')"/>
+          <value>owner</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/ownership_type:option1')"/>
+          <value>renting</value>
+        </item>
+      </select1>
+    </group>
+    <group>
+      <label ref="jr:itext('/data/section_dwelling:label')"/>
+      <select1 appearance="minimal" ref="/data/section_dwelling/renting_from">
+        <label ref="jr:itext('/data/section_dwelling/renting_from:label')"/>
+        <item>
+          <label></label>
+          <value>_</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/renting_from:option0')"/>
+          <value>city</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/renting_from:option1')"/>
+          <value>private</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_dwelling/renting_from:option2')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group>
+      <label ref="jr:itext('/data/section_dwelling:label')"/>
+      <input ref="/data/section_dwelling/renting_from_other">
+        <label ref="jr:itext('/data/section_dwelling/renting_from_other:label')"/>
+      </input>
+    </group>
+
+    <!-- personal section -->
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/section_personal:label')"/>
+      <input ref="/data/section_personal/tenant_first_name">
+        <label ref="jr:itext('/data/section_personal/tenant_first_name:label')"/>
+        <hint ref="jr:itext('/data/section_personal/tenant_first_name:hint')"/>
+      </input>
+      <input ref="/data/section_personal/tenant_last_name">
+        <label ref="jr:itext('/data/section_personal/tenant_last_name:label')"/>
+        <hint ref="jr:itext('/data/section_personal/tenant_last_name:hint')"/>
+      </input>
+      <input ref="/data/section_personal/tenant_id_nr">
+        <label ref="jr:itext('/data/section_personal/tenant_id_nr:label')"/>
+        <hint ref="jr:itext('/data/section_personal/tenant_id_nr:hint')"/>
+      </input>
+      <input ref="/data/section_personal/tenant_dob">
+        <label ref="jr:itext('/data/section_personal/tenant_dob:label')"/>
+        <hint ref="jr:itext('/data/section_personal/tenant_dob:hint')"/>
+      </input>
+      <input ref="/data/section_personal/tenant_phone">
+        <label ref="jr:itext('/data/section_personal/tenant_phone:label')"/>
+        <hint ref="jr:itext('/data/section_personal/tenant_phone:hint')"/>
+      </input>
+      <input ref="/data/section_personal/tenant_cellno">
+        <label ref="jr:itext('/data/section_personal/tenant_cellno:label')"/>
+        <hint ref="jr:itext('/data/section_personal/tenant_cellno:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/section_personal/tenant_marital_status">
+        <label ref="jr:itext('/data/section_personal/tenant_marital_status:label')"/>
+        <hint ref="jr:itext('/data/section_personal/tenant_marital_status:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option0')"/>
+          <value>cop</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option1')"/>
+          <value>anc</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option2')"/>
+          <value>customary</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option3')"/>
+          <value>commonlaw</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option4')"/>
+          <value>widowed</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option5')"/>
+          <value>divorcedwithdep</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option6')"/>
+          <value>separated</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option7')"/>
+          <value>singlewithdep</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option8')"/>
+          <value>singlewithoutdep</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_personal/tenant_marital_status:option9')"/>
+          <value>engaged</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/section_employment:label')"/>
+      <input ref="/data/section_employment/num_employed">
+        <label ref="jr:itext('/data/section_employment/num_employed:label')"/>
+      </input>
+      <input ref="/data/section_employment/grant_maintenance">
+        <label ref="jr:itext('/data/section_employment/grant_maintenance:label')"/>
+      </input>
+      <input ref="/data/section_employment/grant_childcare">
+        <label ref="jr:itext('/data/section_employment/grant_childcare:label')"/>
+      </input>
+      <input ref="/data/section_employment/grant_disability">
+        <label ref="jr:itext('/data/section_employment/grant_disability:label')"/>
+      </input>
+      <input ref="/data/section_employment/grant_other">
+        <label ref="jr:itext('/data/section_employment/grant_other:label')"/>
+      </input>
+      <input ref="/data/section_employment/total_monthly_income">
+        <label ref="jr:itext('/data/section_employment/total_monthly_income:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list">
+      <repeat nodeset="/data/section_employment2/repeatingFieldList" appearance="field-list">
+        <group appearance="field-list">
+          <select1 appearance="minimal" ref="/data/section_employment2/repeatingFieldList/income_source">
+            <label ref="jr:itext('/data/section_employment/income_source:label')"/>
+            <item>
+              <label ref="jr:itext('/data/section_employment/income_source:option0')"/>
+              <value>salary</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/data/section_employment/income_source:option1')"/>
+              <value>selfemployed</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/data/section_employment/income_source:option2')"/>
+              <value>investment</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/data/section_employment/income_source:option3')"/>
+              <value>pension</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/data/section_employment/income_source:option4')"/>
+              <value>parttime</value>
+            </item>
+          </select1>
+        </group>
+      </repeat>
+    </group>
+    <group>
+      <label ref="jr:itext('/data/section_property:label')"/>
+      <input ref="/data/section_property/living_conditions">
+        <label ref="jr:itext('/data/section_property/living_conditions:label')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/section_property/previously_owned">
+        <label ref="jr:itext('/data/section_property/previously_owned:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_property/previously_owned_specify">
+        <label ref="jr:itext('/data/section_property/previously_owned_specify:label')"/>
+        <item>
+          <label>1</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>2</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>3</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>4</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>5</label>
+          <value>5</value>
+        </item>
+        <item>
+          <label>More than 5</label>
+          <value>999</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_property/paying_rent">
+        <label ref="jr:itext('/data/section_property/paying_rent:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/section_property/rent_how_much">
+        <label ref="jr:itext('/data/section_property/rent_how_much:label')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/section_property/rent_up_to_date">
+        <label ref="jr:itext('/data/section_property/rent_up_to_date:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_property/rent_not_up_to_date_reason">
+        <label ref="jr:itext('/data/section_property/rent_not_up_to_date_reason:label')"/>
+        <item>
+          <label ref="jr:itext('/data/section_property/rent_not_up_to_date_reason:option0')"/>
+          <value>refuse</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_property/rent_not_up_to_date_reason:option1')"/>
+          <value>unemployed</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_property/rent_not_up_to_date_reason:option2')"/>
+          <value>toohigh</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_property/rent_not_up_to_date_reason:option3')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_property/how_many_vehicles">
+        <label ref="jr:itext('/data/section_property/how_many_vehicles:label')"/>
+        <item>
+          <label>0</label>
+          <value>0</value>
+        </item>
+        <item>
+          <label>1</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>2</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>3</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>4</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>5</label>
+          <value>5</value>
+        </item>
+        <item>
+          <label>More than 5</label>
+          <value>999</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_property/space_utilisation">
+        <label ref="jr:itext('/data/section_property/space_utilisation:label')"/>
+        <item>
+          <label ref="jr:itext('/data/section_property/space_utilisation:option0')"/>
+          <value>backyarder</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_property/space_utilisation:option1')"/>
+          <value>business</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_property/space_utilisation:option2')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group>
+      <label ref="jr:itext('/data/section_backyarders:label')"/>
+      <select1 appearance="minimal" ref="/data/section_backyarders/have_backyarders">
+        <label ref="jr:itext('/data/section_backyarders/have_backyarders:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group>
+      <input ref="/data/section_backyarders/num_backyarders">
+        <label ref="jr:itext('/data/section_backyarders/num_backyarders:label')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/section_backyarders/backyarders_lease_agreement">
+        <label ref="jr:itext('/data/section_backyarders/backyarders_lease_agreement:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_backyarders/backyarders_structure_permission">
+        <label ref="jr:itext('/data/section_backyarders/backyarders_structure_permission:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_backyarders/backyarders_structure_plan">
+        <label ref="jr:itext('/data/section_backyarders/backyarders_structure_plan:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/section_backyarders/backyarders_payment">
+        <label ref="jr:itext('/data/section_backyarders/backyarders_payment:label')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/section_backyarders/backyarders_structure_separate">
+        <label ref="jr:itext('/data/section_backyarders/backyarders_structure_separate:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/section_backyarders/backyarders_structure_use">
+        <label ref="jr:itext('/data/section_backyarders/backyarders_structure_use:label')"/>
+      </input>
+    </group>
+    <group>
+      <label ref="jr:itext('/data/section_services:label')"/>
+      <select1 appearance="minimal" ref="/data/section_services/do_you_have">
+        <label ref="jr:itext('/data/section_services/do_you_have:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_services/num_refuse_bins">
+        <label ref="jr:itext('/data/section_services/num_refuse_bins:label')"/>
+        <item>
+          <label>0</label>
+          <value>0</value>
+        </item>
+        <item>
+          <label>1</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>2</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>3</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>4</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>5</label>
+          <value>5</value>
+        </item>
+        <item>
+          <label>More than 5</label>
+          <value>999</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/section_services:label')"/>
+      <select1 appearance="minimal" ref="/data/section_services/importance_all_services">
+        <label ref="jr:itext('/data/section_services/importance_all_services:label')"/>
+        <item>
+          <label ref="jr:itext('/data/poor')"/>
+          <value>poor</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/average')"/>
+          <value>average</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/good')"/>
+          <value>good</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_services/importance_responsiveness">
+        <label ref="jr:itext('/data/section_services/importance_responsiveness:label')"/>
+        <item>
+          <label ref="jr:itext('/data/poor')"/>
+          <value>poor</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/average')"/>
+          <value>average</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/good')"/>
+          <value>good</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_services/importance_reliability">
+        <label ref="jr:itext('/data/section_services/importance_reliability:label')"/>
+        <item>
+          <label ref="jr:itext('/data/poor')"/>
+          <value>poor</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/average')"/>
+          <value>average</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/good')"/>
+          <value>good</value>
+        </item>
+      </select1>
+    </group>
+    <group>
+      <label ref="jr:itext('/data/section_services:label')"/>
+      <select1 appearance="minimal" ref="/data/section_services/access_water">
+        <label ref="jr:itext('/data/section_services/access_water:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_services/access_toilet">
+        <label ref="jr:itext('/data/section_services/access_toilet:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_services/access_toilet_where">
+        <label ref="jr:itext('/data/section_services/access_toilet_where:label')"/>
+        <item>
+          <label ref="jr:itext('/data/section_services/access_toilet_where:option0')"/>
+          <value>maindwelling</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_services/access_toilet_where:option1')"/>
+          <value>outside</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_services/access_toilet_where:option2')"/>
+          <value>inside</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_services/access_toilet_where:option3')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/section_services/disposal_waste_water">
+        <label ref="jr:itext('/data/section_services/disposal_waste_water:label')"/>
+      </input>
+      <input ref="/data/section_services/disposal_solid_waste">
+        <label ref="jr:itext('/data/section_services/disposal_solid_waste:label')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/section_services/access_electricity">
+        <label ref="jr:itext('/data/section_services/access_electricity:label')"/>
+        <item>
+          <label ref="jr:itext('/data/yes')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/no')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/section_services/access_electricity_how">
+        <label ref="jr:itext('/data/section_services/access_electricity_how:label')"/>
+        <item>
+          <label ref="jr:itext('/data/section_services/access_electricity_how:option0')"/>
+          <value>electricitybox</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_services/access_electricity_how:option1')"/>
+          <value>maindwelling</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_services/access_electricity_how:option2')"/>
+          <value>etc</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

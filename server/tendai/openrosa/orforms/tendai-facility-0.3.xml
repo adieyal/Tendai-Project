@@ -1,0 +1,268 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Tendai Facility</h:title>
+    <model>
+      <instance>
+        <data id="build_Tendai-Facility_1316515438">
+          <form_version>0.3</form_version>
+
+          <start_time/>
+          <end_time/>
+          <survey_date/>
+          <device_id/>
+          <subscriber_id/>
+          <sim_id/>
+          <phone_number/>
+
+          <facility_name/>
+          <facility_contact_nr/>
+          <facility_type/>
+          <facility_restock/>
+          <facility_restock_other/>
+          <facility_profile/>
+          <facility_location/>
+          <facility_photo1/>
+          <facility_photo2/>
+          <facility_photo3/>
+          <facility_photo4/>
+          <facility_description/>
+          <facility_services/>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="eng">
+          <text id="/data/facility_name:label">
+            <value>Enter facility name</value>
+          </text>
+          <text id="/data/facility_name:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_contact_nr:label">
+            <value>Enter facility contact number</value>
+          </text>
+          <text id="/data/facility_contact_nr:hint">
+            <value>e.g. +265112223333</value>
+          </text>
+          <text id="/data/facility_type:label">
+            <value>Choose a option that most suits this facility</value>
+          </text>
+          <text id="/data/facility_type:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_type:option0">
+            <value>Clinic</value>
+          </text>
+          <text id="/data/facility_type:option1">
+            <value>District Hospital</value>
+          </text>
+          <text id="/data/facility_type:option2">
+            <value>Regional Hospital</value>
+          </text>
+          <text id="/data/facility_restock:label">
+            <value>How often is this facility re-stocked</value>
+          </text>
+          <text id="/data/facility_restock:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_restock:option0">
+            <value>Daily</value>
+          </text>
+          <text id="/data/facility_restock:option1">
+            <value>Weekly</value>
+          </text>
+          <text id="/data/facility_restock:option2">
+            <value>Fortnightly</value>
+          </text>
+          <text id="/data/facility_restock:option3">
+            <value>Monthly</value>
+          </text>
+          <text id="/data/facility_restock:option4">
+            <value>Every second month</value>
+          </text>
+          <text id="/data/facility_restock:option5">
+            <value>Other</value>
+          </text>
+          <text id="/data/facility_restock_other:label">
+            <value>Please specify how often this facility is re-stocked</value>
+          </text>
+          <text id="/data/facility_restock_other:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_profile:label">
+            <value>Not sure what this is for - ask Daniel/Celestine</value>
+          </text>
+          <text id="/data/facility_profile:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_location:label">
+            <value>Capture GPS Coordinates</value>
+          </text>
+          <text id="/data/facility_location:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_photo1:label">
+            <value>Photo 1</value>
+          </text>
+          <text id="/data/facility_photo1:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_photo2:label">
+            <value>Photo 2</value>
+          </text>
+          <text id="/data/facility_photo2:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_photo3:label">
+            <value>Photo 3</value>
+          </text>
+          <text id="/data/facility_photo3:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_photo4:label">
+            <value>Photo 4</value>
+          </text>
+          <text id="/data/facility_photo4:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_description:label">
+            <value>Short description of facility (max 100 words)</value>
+          </text>
+          <text id="/data/facility_description:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_services:label">
+            <value>Select the services offered at this facility</value>
+          </text>
+          <text id="/data/facility_services:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_services:option0">
+            <value>Ask Celestine</value>
+          </text>
+          <text id="/data/facility_services:option1">
+            <value>Ask Daniel</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/start_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="start"/> 
+      <bind nodeset="/data/end_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="end"/> 
+      <bind nodeset="/data/survey_date" type="date" jr:preload="today" jr:preloadParams="end"/> 
+      <bind nodeset="/data/device_id" type="string" jr:preload="property" jr:preloadParams="deviceid"/> 
+      <bind nodeset="/data/subscriber_id" type="string" jr:preload="property" jr:preloadParams="subscriberid"/> 
+      <bind nodeset="/data/sim_id" type="string" jr:preload="property" jr:preloadParams="simserial"/>
+      <bind nodeset="/data/phone_number" type="string" jr:preload="property" jr:preloadParams="phonenumber"/>
+
+      <bind nodeset="/data/facility_name" type="string" required="true()"/>
+      <bind nodeset="/data/facility_contact_nr" type="string"/>
+      <bind nodeset="/data/facility_type" type="select1" required="true()"/>
+      <bind nodeset="/data/facility_restock" type="select1" required="true()"/>
+      <bind nodeset="/data/facility_restock_other" type="string" relevant="(/data/facility_restock = 'other')"/>
+      <bind nodeset="/data/facility_profile" type="string"/>
+      <bind nodeset="/data/facility_location" type="geopoint" required="true()"/>
+      <bind nodeset="/data/facility_photo1" type="binary"/>
+      <bind nodeset="/data/facility_photo2" type="binary" relevant="(/data/facility_photo1 != '')"/>
+      <bind nodeset="/data/facility_photo3" type="binary" relevant="(/data/facility_photo2 != '')"/>
+      <bind nodeset="/data/facility_photo4" type="binary" relevant="(/data/facility_photo3 != '')"/>
+      <bind nodeset="/data/facility_description" type="string" required="true()"/>
+      <bind nodeset="/data/facility_services" type="select"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/facility_name">
+      <label ref="jr:itext('/data/facility_name:label')"/>
+      <hint ref="jr:itext('/data/facility_name:hint')"/>
+    </input>
+    <input ref="/data/facility_contact_nr">
+      <label ref="jr:itext('/data/facility_contact_nr:label')"/>
+      <hint ref="jr:itext('/data/facility_contact_nr:hint')"/>
+    </input>
+    <select1 ref="/data/facility_type">
+      <label ref="jr:itext('/data/facility_type:label')"/>
+      <hint ref="jr:itext('/data/facility_type:hint')"/>
+      <item>
+        <label ref="jr:itext('/data/facility_type:option0')"/>
+        <value>clinic</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_type:option1')"/>
+        <value>district_hospital</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_type:option2')"/>
+        <value>regional_hospital</value>
+      </item>
+    </select1>
+    <select1 ref="/data/facility_restock">
+      <label ref="jr:itext('/data/facility_restock:label')"/>
+      <hint ref="jr:itext('/data/facility_restock:hint')"/>
+      <item>
+        <label ref="jr:itext('/data/facility_restock:option0')"/>
+        <value>daily</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_restock:option1')"/>
+        <value>weekly</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_restock:option2')"/>
+        <value>fortnightly</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_restock:option3')"/>
+        <value>monthly</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_restock:option4')"/>
+        <value>secondmonth</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_restock:option5')"/>
+        <value>other</value>
+      </item>
+    </select1>
+    <input ref="/data/facility_restock_other">
+      <label ref="jr:itext('/data/facility_restock_other:label')"/>
+      <hint ref="jr:itext('/data/facility_restock_other:hint')"/>
+    </input>
+    <input ref="/data/facility_profile">
+      <label ref="jr:itext('/data/facility_profile:label')"/>
+      <hint ref="jr:itext('/data/facility_profile:hint')"/>
+    </input>
+    <input ref="/data/facility_location">
+      <label ref="jr:itext('/data/facility_location:label')"/>
+      <hint ref="jr:itext('/data/facility_location:hint')"/>
+    </input>
+    <upload ref="/data/facility_photo1" mediatype="image/*">
+      <label ref="jr:itext('/data/facility_photo1:label')"/>
+      <hint ref="jr:itext('/data/facility_photo1:hint')"/>
+    </upload>
+    <upload ref="/data/facility_photo2" mediatype="image/*">
+      <label ref="jr:itext('/data/facility_photo2:label')"/>
+      <hint ref="jr:itext('/data/facility_photo2:hint')"/>
+    </upload>
+    <upload ref="/data/facility_photo3" mediatype="image/*">
+      <label ref="jr:itext('/data/facility_photo3:label')"/>
+      <hint ref="jr:itext('/data/facility_photo3:hint')"/>
+    </upload>
+    <upload ref="/data/facility_photo4" mediatype="image/*">
+      <label ref="jr:itext('/data/facility_photo4:label')"/>
+      <hint ref="jr:itext('/data/facility_photo4:hint')"/>
+    </upload>
+    <input ref="/data/facility_description">
+      <label ref="jr:itext('/data/facility_description:label')"/>
+      <hint ref="jr:itext('/data/facility_description:hint')"/>
+    </input>
+    <select ref="/data/facility_services">
+      <label ref="jr:itext('/data/facility_services:label')"/>
+      <hint ref="jr:itext('/data/facility_services:hint')"/>
+      <item>
+        <label ref="jr:itext('/data/facility_services:option0')"/>
+        <value>celestine</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_services:option1')"/>
+        <value>daniel</value>
+      </item>
+    </select>
+  </h:body>
+</h:html>

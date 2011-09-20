@@ -1,0 +1,11 @@
+### Install virtualenv and create environment
+pip install virtualenv
+export VIRTUALENV_HOME=$HOME/.virtualenv
+mkdir -p $VIRTUALENV_HOME
+virtualenv --no-site-packages $VIRTUALENV_HOME/tendai
+source $VIRTUALENV_HOME/tendai/bin/activate
+
+### install packages
+pip install -r requirements.txt
+
+
