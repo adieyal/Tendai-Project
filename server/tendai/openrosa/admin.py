@@ -25,6 +25,9 @@ def handle_uploaded_file(f, file):
     for chunk in f.chunks():
         file.write(chunk)
 
+class ORSubmissionMediaAdmin(admin.ModelAdmin):
+    pass
+
 class ORFormAdmin(admin.ModelAdmin):
     def upload_form(self, request, template_name="openrosa/form_upload.html"):
 
@@ -83,12 +86,6 @@ class ORFormAdmin(admin.ModelAdmin):
         )
         return my_urls + urls
 
-def value_or_none(els):
-    try:
-        return els[0].childNodes[0].nodeValue
-    except IndexError:
-        return None
-
 class ORFormSubmissionAdmin(admin.ModelAdmin):
     list_display = ('created_date', 'device_id', 'subscriber_id', 'sim_id')
     list_filter = ('form', 'device_id', 'subscriber_id', 'sim_id')
@@ -116,3 +113,4 @@ class ORFormSubmissionAdmin(admin.ModelAdmin):
 
 admin.site.register(models.ORForm, ORFormAdmin)
 admin.site.register(models.ORFormSubmission, ORFormSubmissionAdmin)
+admin.site.register(models.ORSubmissionMedia, ORSubmissionMediaAdmin)

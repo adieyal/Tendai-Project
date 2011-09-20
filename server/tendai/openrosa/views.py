@@ -57,12 +57,21 @@ def submission(request):
             file.write(chunk)
         file.close()
 
+    def create_media_folder(xml):
+        device_id = value_or_none(xml, "device_id")
+        if device_id:
+            path = os.path.join(settings.OPENROSA_IMAGES_DIR, device_id)
+            if not os.path.exists(path):
+                os.mkdir(path)
+            return path    
+        return None
+
     if request.method == "GET":
         response =  HttpResponse("", status=204) 
         url = "http://" + request.get_host() + reverse("openrosa_submission")
         response["Location"] = url
     elif request.method == "POST":
-        #import pdb; pdb.set_trace()
+
         form = forms.UploadORInstance(request.POST, request.FILES)
         if form.is_valid():
             f = tempfile.NamedTemporaryFile(
@@ -71,6 +80,7 @@ def submission(request):
 
             handle_uploaded_file(request.FILES["xml_submission_file"], f)
             dom = minidom.parse(f.name)
+
             data_elements = dom.getElementsByTagName("data")
             orform = None
             form_name = None
@@ -81,10 +91,21 @@ def submission(request):
                    orform = orforms[0]
 
             filename = os.path.basename(f.name)
-            new_model = models.ORFormSubmission.objects.create(
+            new_model, _ = models.ORFormSubmission.objects.get_or_create(
                 form=orform,
                 filename=filename
             )
+
+            media_dir = create_media_folder(dom)
+            for filename, stream in request.FILES.items():
+                if filename != "xml_submission_file":
+                    media_path = os.path.join(media_dir, filename)
+                    media_file = open(media_path, "w")
+                    handle_uploaded_file(stream, media_file)
+                    new_media, _ = models.ORSubmissionMedia.objects.get_or_create(
+                        submission=new_model,
+                        filename=filename
+                    )
 
         response = HttpResponse("", status=202) 
         

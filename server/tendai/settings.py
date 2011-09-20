@@ -153,3 +153,4 @@ LOGGING = {
 # These paths must be relative to the PROJECT ROOT
 OPENROSA_FORMS_DIR = os.path.join(PROJECT_ROOT, "openrosa", "orforms")
 OPENROSA_SUBMISSIONS_DIR = os.path.join(PROJECT_ROOT, "openrosa", "submissions")
+OPENROSA_IMAGES_DIR = os.path.join(PROJECT_ROOT, "openrosa", "submissions", "images")

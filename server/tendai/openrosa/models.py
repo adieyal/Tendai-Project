@@ -66,3 +66,13 @@ class ORFormSubmission(models.Model):
 
             self.save()
             
+class ORSubmissionMedia(models.Model):
+    submission = models.ForeignKey(ORFormSubmission)
+    filename = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.filename
+
+    class Meta:
+        verbose_name_plural = "OR Submission Media"
+        verbose_name = "OR Submission Media"
