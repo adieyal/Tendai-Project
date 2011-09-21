@@ -121,7 +121,7 @@ public abstract class QuestionWidget extends LinearLayout {
         if (s != null && !s.equals("")) {
             mHelpText = new TextView(getContext());
             mHelpText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, mQuestionFontsize - 5);
-            mHelpText.setPadding(0, -5, 0, 7);
+            mHelpText.setPadding(0, -2, 0, 7);
             // wrap to the widget of view
             mHelpText.setHorizontallyScrolling(false);
             mHelpText.setText(s);
