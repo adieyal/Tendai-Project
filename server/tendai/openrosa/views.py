@@ -14,6 +14,7 @@ from django.http import HttpResponseRedirect
 import models
 import forms
 from general.utils import value_or_none
+import signals
 
 def formXml(request):
     if request.method == "GET":
@@ -107,6 +108,7 @@ def submission(request):
                         filename=filename
                     )
 
+        signals.on_submission.send_robust(sender=models.ORFormSubmission, submission=new_model)
         response = HttpResponse("", status=202) 
         
     return response

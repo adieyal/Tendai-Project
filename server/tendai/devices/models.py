@@ -1,4 +1,5 @@
 from django.db import models
+from openrosa import models as ormodels
 
 class Organisation(models.Model):
     name = models.CharField(max_length=30)
@@ -20,3 +21,13 @@ class Device(models.Model):
 
     def __unicode__(self):
         return "%s" % self.device_id
+
+class SubmissionWorkerDevice(models.Model):
+    community_worker = models.ForeignKey(CommunityWorker, null=True)
+    device = models.ForeignKey(Device, null=True)
+    submission = models.ForeignKey(ormodels.ORFormSubmission, null=True)
+    # I don't like this field but adminmodels can't use date_hierarchy on a related object (submission)
+    created_date = models.DateTimeField(auto_now_add=True) 
+
+    def __unicode__(self):
+        return unicode(self.community_worker)
