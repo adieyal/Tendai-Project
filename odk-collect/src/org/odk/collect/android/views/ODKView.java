@@ -10,6 +10,7 @@ import org.odk.collect.android.widgets.QuestionWidget;
 import org.odk.collect.android.widgets.WidgetFactory;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -144,8 +145,9 @@ public class ODKView extends ScrollView implements OnLongClickListener {
         if (s.length() > 0) {
             TextView tv = new TextView(getContext());
             tv.setText(s.substring(0, s.length() - 3));
-            tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, TEXTSIZE - 7);
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, TEXTSIZE - 3);
             tv.setPadding(0, 0, 0, 5);
+            tv.setTypeface(null, Typeface.BOLD);
             mView.addView(tv, mLayout);
         }
     }
