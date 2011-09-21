@@ -3,8 +3,8 @@
     <h:title>Tendai Facility</h:title>
     <model>
       <instance>
-        <data id="build_Tendai-Facility_1316515438">
-          <form_version>0.3</form_version>
+        <data id="build_Tendai-Facility_1316577705">
+          <form_version>0.5</form_version>
 
           <start_time/>
           <end_time/>
@@ -15,8 +15,11 @@
           <phone_number/>
 
           <facility_name/>
+          <facility_name/>
           <facility_contact_nr/>
           <facility_type/>
+          <facility_type_other/>
+          <facility_type2/>
           <facility_restock/>
           <facility_restock_other/>
           <facility_profile/>
@@ -27,6 +30,9 @@
           <facility_photo4/>
           <facility_description/>
           <facility_services/>
+          <facility_nr_patients/>
+          <facility_coverage/>
+          <facility_patient_types/>
         </data>
       </instance>
       <itext>
@@ -44,19 +50,43 @@
             <value>e.g. +265112223333</value>
           </text>
           <text id="/data/facility_type:label">
-            <value>Choose a option that most suits this facility</value>
+            <value>Choose an option that most suits this facility</value>
           </text>
           <text id="/data/facility_type:hint">
             <value/>
           </text>
           <text id="/data/facility_type:option0">
-            <value>Clinic</value>
+            <value>Rural/Urban Clinic</value>
           </text>
           <text id="/data/facility_type:option1">
             <value>District Hospital</value>
           </text>
           <text id="/data/facility_type:option2">
-            <value>Regional Hospital</value>
+            <value>Ante-natal Clinic</value>
+          </text>
+          <text id="/data/facility_type:option3">
+            <value>Other</value>
+          </text>
+          <text id="/data/facility_type_other:label">
+            <value>Please specify what type of facility this is</value>
+          </text>
+          <text id="/data/facility_type_other:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_type2:label">
+            <value>What type of facility is this</value>
+          </text>
+          <text id="/data/facility_type2:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_type2:option0">
+            <value>Rural</value>
+          </text>
+          <text id="/data/facility_type2:option1">
+            <value>Urban</value>
+          </text>
+          <text id="/data/facility_type2:option2">
+            <value>Mission Facility</value>
           </text>
           <text id="/data/facility_restock:label">
             <value>How often is this facility re-stocked</value>
@@ -137,10 +167,52 @@
             <value/>
           </text>
           <text id="/data/facility_services:option0">
-            <value>Ask Celestine</value>
+            <value>Outpatients</value>
           </text>
           <text id="/data/facility_services:option1">
-            <value>Ask Daniel</value>
+            <value>Ante-natal</value>
+          </text>
+          <text id="/data/facility_services:option2">
+            <value>Well baby clinic</value>
+          </text>
+          <text id="/data/facility_services:option3">
+            <value>Diabetic Clinic</value>
+          </text>
+          <text id="/data/facility_services:option4">
+            <value>Dispensary</value>
+          </text>
+          <text id="/data/facility_services:option5">
+            <value>TB Clinic</value>
+          </text>
+          <text id="/data/facility_services:option6">
+            <value>HCT</value>
+          </text>
+          <text id="/data/facility_services:option7">
+            <value>ARV Dispensing</value>
+          </text>
+          <text id="/data/facility_nr_patients:label">
+            <value>Number of patients serviced daily</value>
+          </text>
+          <text id="/data/facility_nr_patients:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_coverage:label">
+            <value>Population Coverage</value>
+          </text>
+          <text id="/data/facility_coverage:hint">
+            <value>Number of patients this facility services</value>
+          </text>
+          <text id="/data/facility_patient_types:label">
+            <value>What types of patients use this facility</value>
+          </text>
+          <text id="/data/facility_patient_types:hint">
+            <value/>
+          </text>
+          <text id="/data/facility_patient_types:option0">
+            <value>Outpatients</value>
+          </text>
+          <text id="/data/facility_patient_types:option1">
+            <value>Other</value>
           </text>
         </translation>
       </itext>
@@ -155,6 +227,8 @@
       <bind nodeset="/data/facility_name" type="string" required="true()"/>
       <bind nodeset="/data/facility_contact_nr" type="string"/>
       <bind nodeset="/data/facility_type" type="select1" required="true()"/>
+      <bind nodeset="/data/facility_type_other" type="string" required="true()" relevant="(/data/facility_type = 'other')"/>
+      <bind nodeset="/data/facility_type2" type="select1" required="true()"/>
       <bind nodeset="/data/facility_restock" type="select1" required="true()"/>
       <bind nodeset="/data/facility_restock_other" type="string" relevant="(/data/facility_restock = 'other')"/>
       <bind nodeset="/data/facility_profile" type="string"/>
@@ -165,6 +239,9 @@
       <bind nodeset="/data/facility_photo4" type="binary" relevant="(/data/facility_photo3 != '')"/>
       <bind nodeset="/data/facility_description" type="string" required="true()"/>
       <bind nodeset="/data/facility_services" type="select"/>
+      <bind nodeset="/data/facility_nr_patients" type="int"/>
+      <bind nodeset="/data/facility_coverage" type="int"/>
+      <bind nodeset="/data/facility_patient_types" type="select"/>
     </model>
   </h:head>
   <h:body>
@@ -189,7 +266,31 @@
       </item>
       <item>
         <label ref="jr:itext('/data/facility_type:option2')"/>
-        <value>regional_hospital</value>
+        <value>ante-natal</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_type:option3')"/>
+        <value>other</value>
+      </item>
+    </select1>
+    <input ref="/data/facility_type_other">
+      <label ref="jr:itext('/data/facility_type_other:label')"/>
+      <hint ref="jr:itext('/data/facility_type_other:hint')"/>
+    </input>
+    <select1 ref="/data/facility_type2">
+      <label ref="jr:itext('/data/facility_type2:label')"/>
+      <hint ref="jr:itext('/data/facility_type2:hint')"/>
+      <item>
+        <label ref="jr:itext('/data/facility_type2:option0')"/>
+        <value>rural</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_type2:option1')"/>
+        <value>urban</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_type2:option2')"/>
+        <value>mission</value>
       </item>
     </select1>
     <select1 ref="/data/facility_restock">
@@ -257,11 +358,55 @@
       <hint ref="jr:itext('/data/facility_services:hint')"/>
       <item>
         <label ref="jr:itext('/data/facility_services:option0')"/>
-        <value>celestine</value>
+        <value>outpatients</value>
       </item>
       <item>
         <label ref="jr:itext('/data/facility_services:option1')"/>
-        <value>daniel</value>
+        <value>ante-natal</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_services:option2')"/>
+        <value>well_baby</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_services:option3')"/>
+        <value>diabetic</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_services:option4')"/>
+        <value>dispensary</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_services:option5')"/>
+        <value>tb</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_services:option6')"/>
+        <value>hct</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_services:option7')"/>
+        <value>arv</value>
+      </item>
+    </select>
+    <input ref="/data/facility_nr_patients">
+      <label ref="jr:itext('/data/facility_nr_patients:label')"/>
+      <hint ref="jr:itext('/data/facility_nr_patients:hint')"/>
+    </input>
+    <input ref="/data/facility_coverage">
+      <label ref="jr:itext('/data/facility_coverage:label')"/>
+      <hint ref="jr:itext('/data/facility_coverage:hint')"/>
+    </input>
+    <select ref="/data/facility_patient_types">
+      <label ref="jr:itext('/data/facility_patient_types:label')"/>
+      <hint ref="jr:itext('/data/facility_patient_types:hint')"/>
+      <item>
+        <label ref="jr:itext('/data/facility_patient_types:option0')"/>
+        <value>outpatients</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/facility_patient_types:option1')"/>
+        <value>other</value>
       </item>
     </select>
   </h:body>
