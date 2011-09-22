@@ -1,0 +1,1133 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Medicines Form</h:title>
+    <model>
+      <instance>
+        <data id="build_Untitled-Form_1316605403">
+          <form_version>0.2</form_version>
+
+          <start_time/>
+          <end_time/>
+          <survey_date/>
+          <device_id/>
+          <subscriber_id/>
+          <sim_id/>
+          <phone_number/>
+
+          <medicine_cotromoxazole_tablets>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_cotromoxazole_tablets>
+          <medicine_cotromoxazole_suspension>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_cotromoxazole_suspension>
+          <medicine_amoxycillin_capsules>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_amoxycillin_capsules>
+          <medicine_amoxycillin_suspension>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_amoxycillin_suspension>
+          <medicine_zinc_sulphate>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_zinc_sulphate>
+          <medicine_ors>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_ors>
+          <medicine_paracetamol_tablets>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_paracetamol_tablets>
+          <medicine_paracetamol_syrup>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_paracetamol_syrup>
+          <medicine_ferrous_sulphate>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_ferrous_sulphate>
+          <medicine_artemether>
+            <medicine_available/>
+            <stock_out_date/>
+            <medicine_price/>
+            <currency/>
+          </medicine_artemether>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="eng">
+          <!-- group headers -->
+          <text id="/data/medicine_cotromoxazole_tablets:label">
+            <value>Cotromoxazole 480mg tablets</value>
+          </text>
+          <text id="/data/medicine_cotromoxazole_suspension:label">
+            <value>Cotromoxazole 240mg suspension</value>
+          </text>
+          <text id="/data/medicine_amoxycillin_capsules:label">
+            <value>Amoxycillin 500mg capsules</value>
+          </text>
+          <text id="/data/medicine_amoxycillin_suspension:label">
+            <value>Amoxycillin 125mg/5ml suspension</value>
+          </text>
+          <text id="/data/medicine_zinc_sulphate:label">
+            <value>Zinc sulphate 20mg dispersible tablet</value>
+          </text>
+          <text id="/data/medicine_ors:label">
+            <value>Oral Rehydration Salts (WHO formula) sachet</value>
+          </text>
+          <text id="/data/medicine_paracetamol_tablets:label">
+            <value>Paracetamol 500mg tablets</value>
+          </text>
+          <text id="/data/medicine_paracetamol_syrup:label">
+            <value>Paracetamol 120mg/5ml syrup</value>
+          </text>
+          <text id="/data/medicine_ferrous_sulphate:label">
+            <value>Ferrous Sulphate + Folic acid 200-0,40mg tablets</value>
+          </text>
+          <text id="/data/medicine_artemether:label">
+            <value>Artemether + lumefantrine 20 + 120mg tablets</value>
+          </text>
+
+          <text id="/data/medicine_available:label">
+            <value>Please indicate the level of availability of this medicine</value>
+          </text>
+          <text id="/data/medicine_available:hint">
+            <value>
+Not Stocked - this medicine is not usually stocked at this facility<br/>
+Partially Available - stock is available but a stock-out is possible before the next re-stocking
+            </value>
+          </text>
+          <text id="/data/medicine_available:option0">
+            <value>Not Stocked</value>
+          </text>
+          <text id="/data/medicine_available:option1">
+            <value>Out of Stock</value>
+          </text>
+          <text id="/data/medicine_available:option2">
+            <value>Partially Available</value>
+          </text>
+          <text id="/data/medicine_available:option3">
+            <value>Fully Available</value>
+          </text>
+          <text id="/data/medicine_available:option4">
+            <value>Other</value>
+          </text>
+          <text id="/data/stock_out_date:label">
+            <value>Date this medicines went out of stock</value>
+          </text>
+          <text id="/data/stock_out_date:hint">
+            <value>Answer this question only if the medicine is out of stock. If only the month is known, select the first day of that month. </value>
+          </text>
+          <text id="/data/medicine_price:label">
+            <value>Price of medicine</value>
+          </text>
+          <text id="/data/medicine_price:hint">
+            <value>Specify price in local currency</value>
+          </text>
+          <text id="/data/currency:label">
+            <value>Currency</value>
+          </text>
+          <text id="/data/currency:hint">
+            <value>This should indicate the currency of the price quoted above</value>
+          </text>
+          <text id="/data/currency:option0">
+            <value>South African Rands</value>
+          </text>
+          <text id="/data/currency:option1">
+            <value>Lesotho Maloti</value>
+          </text>
+          <text id="/data/currency:option2">
+            <value>Botswana Pula</value>
+          </text>
+          <text id="/data/currency:bwp">
+            <value>Botswana Pula</value>
+          </text>
+          <text id="/data/currency:cdf">
+            <value>Congolese Franc</value>
+          </text>
+          <text id="/data/currency:euro">
+            <value>Euro</value>
+          </text>
+          <text id="/data/currency:lsl">
+            <value>Lesotho Maloti</value>
+          </text>
+          <text id="/data/currency:mwk">
+            <value>Malawi Kwacha</value>
+          </text>
+          <text id="/data/currency:mzm">
+            <value>Mozambique Metical</value>
+          </text>
+          <text id="/data/currency:gbp">
+            <value>Pound Sterling</value>
+          </text>
+          <text id="/data/currency:zar">
+            <value>South African Rand</value>
+          </text>
+          <text id="/data/currency:tzs">
+            <value>Tanzanian Shilling</value>
+          </text>
+          <text id="/data/currency:usd">
+            <value>US Dollar</value>
+          </text>
+          <text id="/data/currency:zmk">
+            <value>Zambian Kwacha</value>
+          </text>
+          <text id="/data/currency:other">
+            <value>Not Listed</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/start_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="start"/> 
+      <bind nodeset="/data/end_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="end"/> 
+      <bind nodeset="/data/survey_date" type="date" jr:preload="today" jr:preloadParams="end"/> 
+      <bind nodeset="/data/device_id" type="string" jr:preload="property" jr:preloadParams="deviceid"/> 
+      <bind nodeset="/data/subscriber_id" type="string" jr:preload="property" jr:preloadParams="subscriberid"/> 
+      <bind nodeset="/data/sim_id" type="string" jr:preload="property" jr:preloadParams="simserial"/>
+      <bind nodeset="/data/phone_number" type="string" jr:preload="property" jr:preloadParams="phonenumber"/>
+
+      <bind nodeset="/data/medicine_cotromoxazole_tablets/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_cotromoxazole_tablets/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_cotromoxazole_tablets/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_cotromoxazole_tablets/currency" type="select1" />
+
+      <bind nodeset="/data/medicine_cotromoxazole_suspension/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_cotromoxazole_suspension/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_cotromoxazole_suspension/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_cotromoxazole_suspension/currency" type="select1" />
+
+      <bind nodeset="/data/medicine_amoxycillin_capsules/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_amoxycillin_capsules/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_amoxycillin_capsules/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_amoxycillin_capsules/currency" type="select1" />
+
+      <bind nodeset="/data/medicine_amoxycillin_suspension/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_amoxycillin_suspension/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_amoxycillin_suspension/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_amoxycillin_suspension/currency" type="select1" />
+
+      <bind nodeset="/data/medicine_zinc_sulphate/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_zinc_sulphate/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_zinc_sulphate/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_zinc_sulphate/currency" type="select1" />
+
+      <bind nodeset="/data/medicine_ors/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_ors/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_ors/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_ors/currency" type="select1" />
+
+      <bind nodeset="/data/medicine_paracetamol_tablets/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_paracetamol_tablets/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_paracetamol_tablets/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_paracetamol_tablets/currency" type="select1" />
+
+      <bind nodeset="/data/medicine_paracetamol_syrup/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_paracetamol_syrup/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_paracetamol_syrup/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_paracetamol_syrup/currency" type="select1" />
+
+      <bind nodeset="/data/medicine_ferrous_sulphate/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_ferrous_sulphate/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_ferrous_sulphate/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_ferrous_sulphate/currency" type="select1" />
+
+      <bind nodeset="/data/medicine_artemether/medicine_available" type="select1" required="true()"/>
+      <bind nodeset="/data/medicine_artemether/stock_out_date" type="date" />
+      <bind nodeset="/data/medicine_artemether/medicine_price" type="decimal" />
+      <bind nodeset="/data/medicine_artemether/currency" type="select1" />
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_cotromoxazole_tablets:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_cotromoxazole_tablets/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_cotromoxazole_tablets/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_cotromoxazole_tablets/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_cotromoxazole_tablets/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_cotromoxazole_suspension:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_cotromoxazole_suspension/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_cotromoxazole_suspension/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_cotromoxazole_suspension/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_cotromoxazole_suspension/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_amoxycillin_capsules:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_amoxycillin_capsules/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_amoxycillin_capsules/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_amoxycillin_capsules/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_amoxycillin_capsules/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_amoxycillin_suspension:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_amoxycillin_suspension/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_amoxycillin_suspension/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_amoxycillin_suspension/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_amoxycillin_suspension/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_zinc_sulphate:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_zinc_sulphate/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_zinc_sulphate/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_zinc_sulphate/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_zinc_sulphate/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_ors:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_ors/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_ors/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_ors/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_ors/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_paracetamol_tablets:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_paracetamol_tablets/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_paracetamol_tablets/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_paracetamol_tablets/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_paracetamol_tablets/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_paracetamol_syrup:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_paracetamol_syrup/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_paracetamol_syrup/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_paracetamol_syrup/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_paracetamol_syrup/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_ferrous_sulphate:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_ferrous_sulphate/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_ferrous_sulphate/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_ferrous_sulphate/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_ferrous_sulphate/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine_artemether:label')"/>
+      <select1 appearance="minimal" ref="/data/medicine_artemether/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option0')"/>
+          <value>not_stocked</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>stock_out</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>partially_available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option3')"/>
+          <value>available</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option4')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine_artemether/stock_out_date">
+        <label ref="jr:itext('/data/stock_out_date:label')"/>
+        <hint ref="jr:itext('/data/stock_out_date:hint')"/>
+      </input>
+      <input ref="/data/medicine_artemether/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine_artemether/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:bwp')"/>
+          <value>bwp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:cdf')"/>
+          <value>cdf</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:euro')"/>
+          <value>euro</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:lsl')"/>
+          <value>lsl</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mwk')"/>
+          <value>mwk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:mzm')"/>
+          <value>mzm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:gbp')"/>
+          <value>gbp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zar')"/>
+          <value>zar</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:tzs')"/>
+          <value>tzs</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:usd')"/>
+          <value>usd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:zmk')"/>
+          <value>zmk</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/currency:other')"/>
+          <value>other</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>
