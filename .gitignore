@@ -2,5 +2,6 @@
 .*.swp
 *.class
 *.db
-submission_*.xml
 bin/
+server/tendai/openrosa/submissions/
+server/tendai/openrosa/orforms/
