@@ -62,10 +62,12 @@ def submission(request):
         device_id = value_or_none(xml, "device_id")
         if device_id:
             path = os.path.join(settings.OPENROSA_IMAGES_DIR, device_id)
-            if not os.path.exists(path):
-                os.mkdir(path)
-            return path    
-        return None
+        else:
+            path = os.path.join(settings.OPENROSA_IMAGES_DIR, "no_device_id")
+
+        if not os.path.exists(path):
+            os.mkdir(path)
+        return path    
 
     if request.method == "GET":
         response =  HttpResponse("", status=204) 
