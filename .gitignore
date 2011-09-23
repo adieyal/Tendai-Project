@@ -5,3 +5,4 @@
 bin/
 server/tendai/openrosa/submissions/
 server/tendai/openrosa/orforms/
+odk-collect/local.properties
