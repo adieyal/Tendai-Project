@@ -70,6 +70,20 @@ class ORSubmissionMedia(models.Model):
     submission = models.ForeignKey(ORFormSubmission)
     filename = models.CharField(max_length=30)
 
+    def get_absolute_url(self):
+        url = reverse("openrosa_media", kwargs={
+            "device_id" : self.submission.device_id, 
+            "filename" : self.filename
+        })
+        return url
+
+    def get_absolute_path(self):
+        media_dir = os.path.join(settings.OPENROSA_IMAGES_DIR, self.submission.device_id)
+        path = os.path.join(media_dir, self.filename)
+        if os.path.exists(path):
+            return path
+        return None
+
     def __unicode__(self):
         return self.filename
 

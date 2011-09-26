@@ -1,0 +1,22 @@
+{% load thumbnail %}
+<div class="ticker">
+    {% for story in stories %}
+    <div class="story">
+        <div class="thumbnail">
+            {% thumbnail story.photo "309x412" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"/>
+            {% empty %}
+            No image
+            {% endthumbnail %}
+        </div>
+        <div class="info">
+            <h2>{{ story.title }}</h2>
+            <span class="description">{{ story.description|default:"" }}</span>
+            <span class="date">Collected at: {{ story.date }}</span>
+            <span class="recorded_by">Recorded by: {{ story.name }}</span>
+            <span class="organisation">Organisation: {{ story.organisation }}</span>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    {% endfor %}
+</div>

@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 from django.template import Template, Context
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 
 import models
 import forms
@@ -144,3 +144,12 @@ def edit_submission_xml(request, object_id, template_name="openrosa/edit_submiss
             return HttpResponseRedirect("/admin/openrosa/orformsubmission")
         
     return direct_to_template(request, template=template_name, extra_context=extra_context)
+
+def show_media(request, device_id, filename):
+    media_dir = os.path.join(settings.OPENROSA_IMAGES_DIR, device_id)
+    path = os.path.join(media_dir, filename)
+    if os.path.exists(path):
+        return HttpResponse(open(path).read(), mimetype="image/jpg")
+
+    raise Http404
+    

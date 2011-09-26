@@ -75,6 +75,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_ROOT, "app"),
+    os.path.join(PROJECT_ROOT, "site_media"),
 )
 
 # List of finder classes that know how to find static files in
@@ -122,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'south',
+    'sorl.thumbnail',
 
     'general',
     'openrosa',
@@ -154,5 +156,5 @@ LOGGING = {
 # openrosa settings
 # These paths must be relative to the PROJECT ROOT
 OPENROSA_FORMS_DIR = os.path.join(PROJECT_ROOT, "openrosa", "orforms")
-OPENROSA_SUBMISSIONS_DIR = os.path.join(PROJECT_ROOT, "openrosa", "submissions")
-OPENROSA_IMAGES_DIR = os.path.join(PROJECT_ROOT, "openrosa", "submissions", "images")
+OPENROSA_SUBMISSIONS_DIR = os.path.join(MEDIA_ROOT, "openrosa", "submissions")
+OPENROSA_IMAGES_DIR = os.path.join(MEDIA_ROOT, "openrosa", "submissions", "images")

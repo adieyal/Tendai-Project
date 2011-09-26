@@ -1,0 +1,46 @@
+view plaincopy to clipboardprint?
+* { margin:0; padding:0; }  
+  
+#storylist {  
+    width:810px;  
+    background:#EAF4F5;  
+    padding:5px 5px 0;  
+    font-family:Verdana,Arial,Sans-Serif;  
+    font-size:12px;  
+    margin:20px auto;  
+}  
+  
+#storylist a { text-decoration:none; }  
+#storylist img { border: 2px solid #FFFFFF; }  
+  
+.ticker { width:800px; }  
+.ticker ul li{ list-style:none; display:block; padding-bottom:1px; margin-bottom:5px; }  
+.ticker .thumbnail { float:left; padding-right: 5px}  
+.ticker .info { float:rightright; }  
+.ticker .story {
+    clear: both;
+    margin: 5px;
+}
+
+.story {
+    border: solid 3px #787878;
+}
+
+.story .info h2 {
+    color: white;
+    background-color: #787878;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.story .info .description {
+    display: block;
+    margin-bottom: 10px;
+}
+.story .info .recorded_by, .story .info .organisation {
+    display: block;
+    font-style: italic; 
+}
+  
+.clear { clear: both; }  

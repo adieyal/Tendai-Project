@@ -1,2 +1,44 @@
-<h2>Download Android App</h2>
-<a href="{{ STATIC_URL }}tendai.apk">Download (v 0.5)</a>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css" media="screen" />  
+    <script src="{{ STATIC_URL }}js/jquery-1.6.4.js" type="text/javascript"></script>  
+
+    <script type="text/javascript">
+
+    function callAjax() {
+        $.ajax({
+            type: "GET",
+            url: "/stories/",
+            dataType: "html",
+            success: function(xml) {
+                $(".ticker").html(xml);
+            },
+            error: function(request, status, error) {
+            }
+        });    
+    };
+
+    $(document).ready(function() { 
+        callAjax();
+        setInterval(callAjax, 5000);
+    });
+
+    </script>
+
+</head>
+
+<body>
+
+    <a href="{{ STATIC_URL }}js/jquery-1.6.4.js">click</a>
+    <h2>Download Android App</h2>
+    <a href="{{ STATIC_URL }}tendai.apk">Download (v 0.5)</a>
+
+    <div id="storylist">
+        <h1>Recent Stories</h1>
+        <div class="ticker">
+        </div>
+    </div>
+
+</body>
+</html>
+
