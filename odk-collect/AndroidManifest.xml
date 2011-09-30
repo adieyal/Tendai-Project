@@ -9,7 +9,7 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="org.odk.collect.android"
-	android:versionCode="12" android:versionName="0.1.5">
+	android:versionCode="12" android:versionName="0.1.8">
 	<application
 		android:icon="@drawable/notes"
 		android:label="@string/app_name"
