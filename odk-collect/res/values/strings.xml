@@ -66,7 +66,7 @@
 <string name="enter">start</string>
 <string name="entering_repeat">Add Group</string>
 <string name="entering_repeat_ask">Add New Group?</string>
-<string name="enter_data">New Q\'aires</string>
+<string name="enter_data">New Qaires</string>
 <string name="enter_data_button">New Submission</string>
 <string name="enter_data_description">%s has been loaded.</string>
 <string name="enter_data_message">To navigate, swipe your finger horizontally on the screen as if turning pages in a book. Press the Menu button for more choices.</string>
@@ -103,7 +103,7 @@
 <string name="longitude">Longitude</string>
 <string name="main_menu">Main Menu</string>
 <string name="main_menu_details">Magnifying human resources\nwith technology</string>
-<string name="main_menu_message">Tendai Mobile Client v0.1.8</string>
+<string name="main_menu_message">Tendai Mobile Client v0.1.9</string>
 <string name="manage_files">Manage Questionnaires</string>
 <string name="mark_finished">Mark as Finished</string>
 <string name="no">No</string>
@@ -182,7 +182,7 @@
 <string name="change_font_size">Change font size</string>
 <string name="form_scan_starting">Scanning for forms...</string>
 <string name="form_scan_finished">Submission scanning completed</string>
-<string name="powered_by_odk">v0.1.8 - Powered by Open Data Kit</string>
+<string name="powered_by_odk">v0.1.9 - Powered by Open Data Kit</string>
 <string name="default_odk_formlist">/formList</string>
 <string name="default_odk_submission">/submission</string>
 <string name="access_error">Error while accessing %s: </string>
