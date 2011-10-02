@@ -925,7 +925,9 @@ public class FormEntryActivity extends Activity implements AnimationListener, Fo
                 }
                 break;
             case FormEntryController.ANSWER_REQUIRED_BUT_EMPTY:
-                constraintText = getString(R.string.required_answer_error);
+                if (constraintText == null) {
+                    constraintText = getString(R.string.required_answer_error);
+                }
                 break;
         }
 
