@@ -55,7 +55,7 @@
 <string name="discard_answer">Remove Response</string>
 <string name="discard_group">Remove Group</string>
 <string name="download">Get Selected</string>
-<string name="download_forms_result">Dowloading Submission Result</string>
+<string name="download_forms_result">Downloading Questionnaire Result</string>
 <string name="downloading_data">Connecting to Server</string>
 <string name="download_all_successful">All questionnaires downloaded successfully.</string>
 <string name="download_complete">Submission Get Complete</string>
@@ -66,7 +66,7 @@
 <string name="enter">start</string>
 <string name="entering_repeat">Add Group</string>
 <string name="entering_repeat_ask">Add New Group?</string>
-<string name="enter_data">New Submission</string>
+<string name="enter_data">New Q\'aires</string>
 <string name="enter_data_button">New Submission</string>
 <string name="enter_data_description">%s has been loaded.</string>
 <string name="enter_data_message">To navigate, swipe your finger horizontally on the screen as if turning pages in a book. Press the Menu button for more choices.</string>
@@ -95,7 +95,7 @@
 <string name="leaving_repeat">Add Group</string>
 <string name="leaving_repeat_ask">And One More Group?</string>
 <string name="list_failed_with_error">Submission listing failed. %s.</string>
-<string name="loading_form">Loading Submission</string>
+<string name="loading_form">Loading Questionnaire</string>
 <string name="load_remote_form_error">Error Getting Submission List</string>
 <string name="location_provider_accuracy">Using %1$s. Accuracy is %2$s m.</string>
 <string name="location_provider">Using %1$s provider. Please wait for greater accuracy.</string>
