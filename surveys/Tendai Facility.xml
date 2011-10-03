@@ -4,7 +4,7 @@
     <model>
       <instance>
         <data id="build_Tendai-Facility_1317444278">
-          <form_version>0.13</form_version>
+          <form_version>0.16</form_version>
 
           <start_time/>
           <end_time/>
@@ -16,7 +16,7 @@
 
           <section_name>
             <facility_name/>
-            <facility_district/>
+            <facility_district>Please select a facility</facility_district>
           </section_name>
           <section_contact>
             <postal_address/>
@@ -65,19 +65,22 @@
       <itext>
         <translation lang="eng">
           <text id="/data/section_name:label">
-            <value>Facility Name</value>
+            <value>Facility Location</value>
           </text>
           <text id="/data/section_name/facility_name:label">
-            <value>Enter facility name</value>
+            <value>Please enter in the facility name.</value>
           </text>
           <text id="/data/section_name/facility_name:hint">
             <value/>
           </text>
           <text id="/data/section_name/facility_district:label">
-            <value>Select district</value>
+            <value>Please select the district that the health facility is in.</value>
           </text>
           <text id="/data/section_name/facility_district:hint">
             <value/>
+          </text>
+          <text id="/data/section_name/facility_district:blank">
+            <value>Select a district</value>
           </text>
           <text id="/data/section_name/facility_district:option0">
             <value>Alfred Nzo</value>
@@ -236,58 +239,58 @@
             <value>Zululand</value>
           </text>
           <text id="/data/section_contact:label">
-            <value>Contact Details</value>
+            <value>Facility Contact Details</value>
           </text>
           <text id="/data/section_contact/postal_address:label">
-            <value>Enter facility postal address</value>
+            <value>Please enter in the facility postal address.</value>
           </text>
           <text id="/data/section_contact/postal_address:hint">
-            <value/>
+            <value>e.g. 43 James Street, Cotswold, Jamestown, 4631</value>
           </text>
           <text id="/data/section_contact/phone_number:label">
-            <value>Enter facility contact number</value>
+            <value>Please enter in the facility contact number.</value>
           </text>
           <text id="/data/section_contact/phone_number:hint">
-            <value>e.g. +265112223333</value>
+            <value>Include the international dialing code, e.g. +265112223333. Enter in none if no phone number available.</value>
           </text>
           <text id="/data/section_contact/email:label">
-            <value>Enter facility email address (if available)</value>
+            <value>Please enter facility email address.</value>
           </text>
           <text id="/data/section_contact/email:hint">
-            <value/>
+            <value>e.g. info@myclinic.net. Leave blank if unavailable.</value>
           </text>
           <text id="/data/section_respondent:label">
             <value>Respondent Details</value>
           </text>
           <text id="/data/section_respondent/respondent_name:label">
-            <value>Name of staff member completing this survey</value>
+            <value>Please enter the name of the staff member completing this survey.</value>
           </text>
           <text id="/data/section_respondent/respondent_name:hint">
             <value/>
           </text>
           <text id="/data/section_respondent/respondent_position:label">
-            <value>Position of Respondent</value>
+            <value>What is their position?</value>
           </text>
           <text id="/data/section_respondent/respondent_position:hint">
-            <value>e.g. facility manager, staff nurse, etc</value>
+            <value>e.g. facility manager, staff nurse, etc.</value>
           </text>
           <text id="/data/section_location:label">
             <value>Location</value>
           </text>
           <text id="/data/section_location/facility_location:label">
-            <value>Capture GPS Coordinates</value>
+            <value>Please capture GPS Coordinates.</value>
           </text>
           <text id="/data/section_location/facility_location:hint">
-            <value/>
+            <value>You will need to be outside in order to do this. Also make sure that your GPS reader is switched on (see the troubleshooting guide for details).</value>
           </text>
           <text id="/data/section_location/distance_to_town:label">
-            <value>Distance (km) from nearest town</value>
+            <value>What is the distance (km) to the nearest town?</value>
           </text>
           <text id="/data/section_location/distance_to_town:hint">
-            <value>a town is defined as a population &gt; 50,000</value>
+            <value>A town is defined as a population &gt; 50,000. If you are currently in a town, enter in 0.</value>
           </text>
           <text id="/data/section_location/town_name:label">
-            <value>Name of nearest town</value>
+            <value>What is the name of the nearest town?</value>
           </text>
           <text id="/data/section_location/town_name:hint">
             <value/>
@@ -296,19 +299,19 @@
             <value>Photos</value>
           </text>
           <text id="/data/section_photos/photo1:label">
-            <value>Photo of the front entrance</value>
+            <value>Please take a photo of the front entrance of the facility.</value>
           </text>
           <text id="/data/section_photos/photo1:hint">
             <value/>
           </text>
           <text id="/data/section_photos/photo2:label">
-            <value>Photo of the dispensary</value>
+            <value>Please take a photo of the dispensary.</value>
           </text>
           <text id="/data/section_photos/photo2:hint">
             <value/>
           </text>
           <text id="/data/section_photos/photo3:label">
-            <value>Any other photo of the facility</value>
+            <value>Take any other photo of the facility that might be important (optional).</value>
           </text>
           <text id="/data/section_photos/photo3:hint">
             <value/>
@@ -317,10 +320,13 @@
             <value>General Details</value>
           </text>
           <text id="/data/section_general/type_of_facility:label">
-            <value>Select the most appropriate option</value>
+            <value>What type of facility is this?</value>
           </text>
           <text id="/data/section_general/type_of_facility:hint">
             <value/>
+          </text>
+          <text id="/data/section_general/type_of_facility:blank">
+            <value>Select a facility type</value>
           </text>
           <text id="/data/section_general/type_of_facility:option0">
             <value>Government Hospital</value>
@@ -344,13 +350,13 @@
             <value>Other</value>
           </text>
           <text id="/data/section_general/facility_type_other:label">
-            <value>Please specify what type of facility this is?</value>
+            <value>If you specified other above, please explain what type of facility this is.</value>
           </text>
           <text id="/data/section_general/facility_type_other:hint">
             <value/>
           </text>
           <text id="/data/section_general/facility_description:label">
-            <value>Please provide a short description of the facility</value>
+            <value>Please provide a short description of the facility.</value>
           </text>
           <text id="/data/section_general/facility_description:hint">
             <value>(max 100 words)</value>
@@ -359,10 +365,10 @@
             <value>Services and Population</value>
           </text>
           <text id="/data/section_services/facility_services:label">
-            <value>Select the services offered at this facility</value>
+            <value>Please indicate which services this facility offers.</value>
           </text>
           <text id="/data/section_services/facility_services:hint">
-            <value/>
+            <value>Tick all of the most appropriate options</value>
           </text>
           <text id="/data/section_services/facility_services:option0">
             <value>Outpatients</value>
@@ -389,19 +395,19 @@
             <value>ARV Dispensing</value>
           </text>
           <text id="/data/section_services/facility_services_other:label">
-            <value>Add any other major services offered not listed above</value>
+            <value>Add any other major services offered not listed in the question above.</value>
           </text>
           <text id="/data/section_services/facility_services_other:hint">
             <value/>
           </text>
           <text id="/data/section_services/facility_coverage:label">
-            <value>Catchment population</value>
+            <value>What is the catchment population of this facility?</value>
           </text>
           <text id="/data/section_services/facility_coverage:hint">
-            <value>Number of patients this facility services</value>
+            <value>Approximate number of patients that this facility services.</value>
           </text>
           <text id="/data/section_services/facility_nr_patients:label">
-            <value>Number of patients serviced daily?</value>
+            <value>What is the average number of patients serviced daily at this facility?</value>
           </text>
           <text id="/data/section_services/facility_nr_patients:hint">
             <value/>
@@ -425,7 +431,7 @@
             <value>Is a list of medicines procured by the facility available?</value>
           </text>
           <text id="/data/section_medicines_list/list_available:hint">
-            <value/>
+            <value>If yes, please ask for a copy. This should be delivered to the Tendai project supervisor.</value>
           </text>
           <text id="/data/section_medicines_list/list_available:option0">
             <value>Yes</value>
@@ -440,22 +446,22 @@
             <value/>
           </text>
           <text id="/data/section_medicines_list/photo1:label">
-            <value>Photo of medicines list</value>
+            <value>Please take a photo of medicines list.</value>
           </text>
           <text id="/data/section_medicines_list/photo1:hint">
-            <value>Please ensure that the page is readable (page 1)</value>
+            <value>Ensure that the page is readable (page 1).</value>
           </text>
           <text id="/data/section_medicines_list/photo2:label">
-            <value>Photo of medicines list</value>
+            <value>Please take a photo of medicines list.</value>
           </text>
           <text id="/data/section_medicines_list/photo2:hint">
-            <value>Please ensure that the page is readable (page 2)</value>
+            <value>Ensure that the page is readable (page 2).</value>
           </text>
           <text id="/data/section_medicines_list/photo3:label">
             <value>Photo of medicines list</value>
           </text>
           <text id="/data/section_medicines_list/photo3:hint">
-            <value>Please ensure that the page is readable (page 3)</value>
+            <value>Ensure that the page is readable (page 3).</value>
           </text>
           <text id="/data/section_comments:label">
             <value>Comments</value>
@@ -476,10 +482,10 @@
       <bind nodeset="/data/sim_id" type="string" jr:preload="property" jr:preloadParams="simserial"/>
       <bind nodeset="/data/phone_number" type="string" jr:preload="property" jr:preloadParams="phonenumber"/>
 
-      <bind nodeset="/data/section_name/facility_name" type="string" required="true()"/>
-      <bind nodeset="/data/section_name/facility_district" type="select1"/>
-      <bind nodeset="/data/section_contact/postal_address" type="string"/>
-      <bind nodeset="/data/section_contact/phone_number" type="string"/>
+      <bind nodeset="/data/section_name/facility_name" type="string" required="true()" constraint=". != ''" jr:constraintMsg="Please fill in the facility name" />
+      <bind nodeset="/data/section_name/facility_district" type="select1" required="true()" constraint=". != 'blank'" jr:constraintMsg="Please select a district from the list"/>
+      <bind nodeset="/data/section_contact/postal_address" type="string" required="true()" constraint=". != ''" jr:constraintMsg="Please enter in the facility postal address"/>
+      <bind nodeset="/data/section_contact/phone_number" type="string" required="true()" constraint=". != ''" jr:constraintMsg="Please enter in the facility phone number"/>
       <bind nodeset="/data/section_contact/email" type="string"/>
       <bind nodeset="/data/section_respondent/respondent_name" type="string"/>
       <bind nodeset="/data/section_respondent/respondent_position" type="string"/>
@@ -489,7 +495,7 @@
       <bind nodeset="/data/section_photos/photo1" type="binary"/>
       <bind nodeset="/data/section_photos/photo2" type="binary"/>
       <bind nodeset="/data/section_photos/photo3" type="binary"/>
-      <bind nodeset="/data/section_general/type_of_facility" type="select1"/>
+      <bind nodeset="/data/section_general/type_of_facility" type="select1" required="true()" constraint=". != 'blank'" jr:constraintMsg="Please select a facility type from the list"/>
       <bind nodeset="/data/section_general/facility_type_other" type="string"/>
       <bind nodeset="/data/section_general/facility_description" type="string"/>
       <bind nodeset="/data/section_services/facility_services" type="select"/>
@@ -513,9 +519,13 @@
         <label ref="jr:itext('/data/section_name/facility_name:label')"/>
         <hint ref="jr:itext('/data/section_name/facility_name:hint')"/>
       </input>
-      <select1 ref="/data/section_name/facility_district">
+      <select1 ref="/data/section_name/facility_district" appearance="minimal">
         <label ref="jr:itext('/data/section_name/facility_district:label')"/>
         <hint ref="jr:itext('/data/section_name/facility_district:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/section_name/facility_district:blank')"/>
+          <value>blank</value>
+        </item>
         <item>
           <label ref="jr:itext('/data/section_name/facility_district:option0')"/>
           <value>DC44</value>
@@ -784,9 +794,13 @@
     </group>
     <group appearance="field-list">
       <label ref="jr:itext('/data/section_general:label')"/>
-      <select1 ref="/data/section_general/type_of_facility">
+      <select1 ref="/data/section_general/type_of_facility" appearance="minimal">
         <label ref="jr:itext('/data/section_general/type_of_facility:label')"/>
         <hint ref="jr:itext('/data/section_general/type_of_facility:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/section_general/type_of_facility:blank')"/>
+          <value>blank</value>
+        </item>
         <item>
           <label ref="jr:itext('/data/section_general/type_of_facility:option0')"/>
           <value>Government Hospital</value>
