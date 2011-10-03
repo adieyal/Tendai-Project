@@ -4,6 +4,16 @@
     <model>
       <instance>
         <data id="build_Tendai-Medicines_1317456636">
+          <form_version>0.46</form_version>
+
+          <start_time/>
+          <end_time/>
+          <survey_date/>
+          <device_id/>
+          <subscriber_id/>
+          <sim_id/>
+          <phone_number/>
+
           <section_general>
             <facility_name/>
             <gps/>
@@ -37,10 +47,11 @@
           <medicine_acyclovir_tablets>
             <recommended_pack_size>100 tablets</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -56,10 +67,11 @@
           <medicine_amphotericin_vial>
             <recommended_pack_size>1 vial</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -75,10 +87,11 @@
           <medicine_cotromoxazole_tablets>
             <recommended_pack_size>100 tablets</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -94,10 +107,11 @@
           <medicine_efavirenz_tablets>
             <recommended_pack_size>100 tablets</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -113,10 +127,11 @@
           <medicine_fluconazole_tablets>
             <recommended_pack_size>100 tablets</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -132,10 +147,11 @@
           <medicine_lopinovir_tablets>
             <recommended_pack_size>100 tablets</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -151,10 +167,11 @@
           <medicine_morphine_ampoule>
             <recommended_pack_size>1 ampoule</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -170,10 +187,11 @@
           <medicine_paracetamol_suspension>
             <recommended_pack_size>100ml bottle</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -189,10 +207,11 @@
           <medicine_rifampicin_tablets>
             <recommended_pack_size>100 tablets</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -208,10 +227,11 @@
           <medicine_tenofovir_tablets>
             <recommended_pack_size>100 tablets</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -227,10 +247,11 @@
           <medicine_zinc_sulphate_tablets>
             <recommended_pack_size>100 tablets</recommended_pack_size>
             <cheapest_product/>
-            <untitled170/>
+            <label_cheapest_product/>
             <pack_size/>
             <medicine_price/>
             <medicine_price_qty/>
+            <label_pack_size/>
             <currency>Select currency</currency>
             <price_comments/>
             <photo/>
@@ -282,7 +303,7 @@
             <value>Not stocked means that this facility does not usually carry this medicine.</value>
           </text>
           <text id="/data/section_stocked/stocked_comments:label">
-            <value>Please provide any comments below.</value>
+            <value>Please provide any additional comments below.</value>
           </text>
           <text id="/data/section_stocked/stocked_comments:hint">
             <value>If not necessary then leave blank.</value>
@@ -377,46 +398,52 @@
             <value>Name of cheapest product available.</value>
           </text>
           <text id="/data/cheapest_tablet_product:hint">
-            <value>Divide price of pack by the number of tablets in the pack to determine price. If multiple products have the cheapest price, choose one.</value>
+            <value>Divide price of pack by the number of tablets in the pack to determine price per tablet. If multiple products have the cheapest price, choose one.</value>
           </text>
           <text id="/data/cheapest_vial_product:label">
             <value>Name of cheapest product available.</value>
           </text>
           <text id="/data/cheapest_vial_product:hint">
-            <value>Divide price of pack by the number of vials in the pack to determine price. If multiple products have the cheapest price, choose one.</value>
+            <value>Divide price of pack by the number of vials in the pack to determine price per vial. If multiple products have the cheapest price, choose one.</value>
           </text>
           <text id="/data/cheapest_ampoule_product:label">
             <value>Name of cheapest product available.</value>
           </text>
           <text id="/data/cheapest_ampoule_product:hint">
-            <value>Divide price of pack by the number of ampoules in the pack to determine price. If multiple products have the cheapest price, choose one.</value>
+            <value>Divide price of pack by the number of ampoules in the pack to determine price per ampoule. If multiple products have the cheapest price, choose one.</value>
           </text>
           <text id="/data/cheapest_bottle_product:label">
             <value>Name of cheapest product available.</value>
           </text>
           <text id="/data/cheapest_bottle_product:hint">
-            <value>Divide the price of a bottle by the size (in ml) to determine price. If multiple products have the cheapest price, choose one.</value>
+            <value>Divide the price of a bottle by the size (in ml) to determine price per ml. If multiple products have the cheapest price, choose one.</value>
           </text>
-          <text id="/data/untitled170:label">
+          <text id="/data/label_cheapest_product:label">
             <value>Please answer the questions below with reference to the cheapest product mentioned above.</value>
           </text>
-          <text id="/data/untitled170:hint">
+          <text id="/data/label_cheapest_product:hint">
+            <value/>
+          </text>
+          <text id="/data/label_pack_size:label">
+            <value>The value above is called the pack size. For the remaining questions on this page, please use this value for the pack size.</value>
+          </text>
+          <text id="/data/label_pack_size:hint">
             <value/>
           </text>
           <text id="/data/tablet_pack_size:label">
-            <value>How many tablets in a pack?</value>
+            <value>How many tablets in a pack (pack size)?</value>
           </text>
           <text id="/data/tablet_pack_size:hint">
             <value></value>
           </text>
           <text id="/data/vial_pack_size:label">
-            <value>How many vials in a pack?</value>
+            <value>How many vials in a pack (pack size)?</value>
           </text>
           <text id="/data/vial_pack_size:hint">
             <value></value>
           </text>
           <text id="/data/ampoule_pack_size:label">
-            <value>How many ampoules in a pack?</value>
+            <value>How many ampoules in a pack (pack size)?</value>
           </text>
           <text id="/data/ampoule_pack_size:hint">
             <value></value>
@@ -437,7 +464,7 @@
             <value>How many tablets does the price mentioned above buy?</value>
           </text>
           <text id="/data/tablet_medicine_price_qty:hint">
-            <value>If the medicine is free then leave this question blank.</value>
+            <value>This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank.</value>
           </text>
           <text id="/data/vial_medicine_price_qty:label">
             <value>How many vials does the price mentioned above buy?</value>
@@ -512,10 +539,10 @@
             <value>Please ensure that the label is clearly visible.</value>
           </text>
           <text id="/data/medicine_available:label">
-            <value>Is this medicine currently available?</value>
+            <value>Is this medicine currently in stock?</value>
           </text>
           <text id="/data/medicine_available:hint">
-            <value>Not stocked means that this facility does not usually carry this medicine.</value>
+            <value>This applies only to the specified pack size.</value>
           </text>
           <text id="/data/medicine_available:option0">
             <value>Not Stocked</value>
@@ -530,7 +557,7 @@
             <value>If the medicine is in stock, how many full packs are currently in stock?</value>
           </text>
           <text id="/data/packs_available:hint">
-            <value></value>
+            <value>Enter 0 if the medicine is out of stock.</value>
           </text>
           <text id="/data/stockout_duration:label">
             <value>If the medicine is out of stock, how long has it been unavailable?</value>
@@ -590,13 +617,21 @@
             <value>If this is unknown, enter 8888</value>
           </text>
           <text id="/data/availability_comments:label">
-            <value>Please provide any additional comments about availability or restocking not covered in the questions above</value>
+            <value>Please provide any additional comments about availability or restocking not covered in the questions above.</value>
           </text>
           <text id="/data/availability_comments:hint">
-            <value/>
+            <value>For instance, if medicine in this pack size is out of stock but different pack sizes are available, please mention this here.</value>
           </text>
         </translation>
       </itext>
+      <bind nodeset="/data/start_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="start"/> 
+      <bind nodeset="/data/end_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="end"/> 
+      <bind nodeset="/data/survey_date" type="date" jr:preload="today" jr:preloadParams="end"/> 
+      <bind nodeset="/data/device_id" type="string" jr:preload="property" jr:preloadParams="deviceid"/> 
+      <bind nodeset="/data/subscriber_id" type="string" jr:preload="property" jr:preloadParams="subscriberid"/> 
+      <bind nodeset="/data/sim_id" type="string" jr:preload="property" jr:preloadParams="simserial"/>
+      <bind nodeset="/data/phone_number" type="string" jr:preload="property" jr:preloadParams="phonenumber"/>
+
       <bind nodeset="/data/section_general/facility_name" type="string" required="true()" constraint=". != ''" jr:constraintMsg="Facility name required"/>
       <bind nodeset="/data/section_general/gps" type="geopoint" required="true()" />
       <bind nodeset="/data/section_general/staff_name" type="string" required="true()" constraint=". != ''" jr:constraintMsg="Please enter in the name of the respondent" />
@@ -640,198 +675,209 @@
 
       <bind nodeset="/data/medicine_acyclovir_tablets/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_acyclovir_tablets/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_acyclovir_tablets/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_acyclovir_tablets/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_acyclovir_tablets/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_acyclovir_tablets/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_acyclovir_tablets/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_acyclovir_tablets/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of tablets the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_acyclovir_tablets/currency" type="select1" required="true()" constraint=". != 'blank_currency'" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_acyclovir_tablets/price_comments" type="string"/>
       <bind nodeset="/data/medicine_acyclovir_tablets/photo" type="binary"/>
       <bind nodeset="/data/medicine_acyclovir_tablets/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_acyclovir_tablets/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_acyclovir_tablets/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_acyclovir_tablets/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_acyclovir_tablets/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_acyclovir_tablets/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_acyclovir_tablets/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_acyclovir_tablets/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_acyclovir_tablets/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_acyclovir_tablets/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_amphotericin_vial/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_amphotericin_vial/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_amphotericin_vial/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_amphotericin_vial/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_amphotericin_vial/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_amphotericin_vial/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_amphotericin_vial/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_amphotericin_vial/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of vials the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_amphotericin_vial/currency" type="select1" required="true()" constraint=". != 'blank_currency'" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_amphotericin_vial/price_comments" type="string"/>
       <bind nodeset="/data/medicine_amphotericin_vial/photo" type="binary"/>
       <bind nodeset="/data/medicine_amphotericin_vial/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_amphotericin_vial/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_amphotericin_vial/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_amphotericin_vial/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_amphotericin_vial/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_amphotericin_vial/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_amphotericin_vial/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_amphotericin_vial/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_amphotericin_vial/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_amphotericin_vial/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_cotromoxazole_tablets/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_cotromoxazole_tablets/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_cotromoxazole_tablets/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_cotromoxazole_tablets/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_cotromoxazole_tablets/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_cotromoxazole_tablets/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_cotromoxazole_tablets/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_cotromoxazole_tablets/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of tablets the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_cotromoxazole_tablets/currency" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_cotromoxazole_tablets/price_comments" type="string"/>
       <bind nodeset="/data/medicine_cotromoxazole_tablets/photo" type="binary"/>
       <bind nodeset="/data/medicine_cotromoxazole_tablets/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_cotromoxazole_tablets/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_cotromoxazole_tablets/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_cotromoxazole_tablets/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_cotromoxazole_tablets/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_cotromoxazole_tablets/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_cotromoxazole_tablets/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_cotromoxazole_tablets/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_cotromoxazole_tablets/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_cotromoxazole_tablets/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_efavirenz_tablets/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_efavirenz_tablets/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_efavirenz_tablets/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_efavirenz_tablets/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_efavirenz_tablets/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_efavirenz_tablets/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_efavirenz_tablets/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_efavirenz_tablets/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of tablets the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_efavirenz_tablets/currency" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_efavirenz_tablets/price_comments" type="string"/>
       <bind nodeset="/data/medicine_efavirenz_tablets/photo" type="binary"/>
       <bind nodeset="/data/medicine_efavirenz_tablets/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_efavirenz_tablets/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_efavirenz_tablets/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_efavirenz_tablets/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_efavirenz_tablets/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_efavirenz_tablets/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_efavirenz_tablets/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_efavirenz_tablets/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_efavirenz_tablets/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_efavirenz_tablets/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_fluconazole_tablets/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_fluconazole_tablets/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_fluconazole_tablets/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_fluconazole_tablets/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_fluconazole_tablets/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_fluconazole_tablets/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_fluconazole_tablets/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_fluconazole_tablets/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of tablets the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_fluconazole_tablets/currency" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_fluconazole_tablets/price_comments" type="string"/>
       <bind nodeset="/data/medicine_fluconazole_tablets/photo" type="binary"/>
       <bind nodeset="/data/medicine_fluconazole_tablets/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_fluconazole_tablets/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_fluconazole_tablets/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_fluconazole_tablets/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_fluconazole_tablets/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_fluconazole_tablets/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_fluconazole_tablets/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_fluconazole_tablets/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_fluconazole_tablets/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_fluconazole_tablets/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_lopinovir_tablets/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_lopinovir_tablets/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_lopinovir_tablets/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_lopinovir_tablets/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_lopinovir_tablets/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_lopinovir_tablets/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_lopinovir_tablets/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_lopinovir_tablets/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of tablets the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_lopinovir_tablets/currency" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_lopinovir_tablets/price_comments" type="string"/>
       <bind nodeset="/data/medicine_lopinovir_tablets/photo" type="binary"/>
       <bind nodeset="/data/medicine_lopinovir_tablets/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_lopinovir_tablets/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_lopinovir_tablets/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_lopinovir_tablets/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_lopinovir_tablets/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_lopinovir_tablets/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_lopinovir_tablets/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_lopinovir_tablets/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_lopinovir_tablets/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_lopinovir_tablets/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_morphine_ampoule/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_morphine_ampoule/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_morphine_ampoule/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_morphine_ampoule/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_morphine_ampoule/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_morphine_ampoule/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_morphine_ampoule/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_morphine_ampoule/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of ampoules the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_morphine_ampoule/currency" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_morphine_ampoule/price_comments" type="string"/>
       <bind nodeset="/data/medicine_morphine_ampoule/photo" type="binary"/>
       <bind nodeset="/data/medicine_morphine_ampoule/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_morphine_ampoule/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_morphine_ampoule/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_morphine_ampoule/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_morphine_ampoule/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_morphine_ampoule/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_morphine_ampoule/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_morphine_ampoule/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_morphine_ampoule/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_morphine_ampoule/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_paracetamol_suspension/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_paracetamol_suspension/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_paracetamol_suspension/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_paracetamol_suspension/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_paracetamol_suspension/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_paracetamol_suspension/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_paracetamol_suspension/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_paracetamol_suspension/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the size of the bottle that the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_paracetamol_suspension/currency" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_paracetamol_suspension/price_comments" type="string"/>
       <bind nodeset="/data/medicine_paracetamol_suspension/photo" type="binary"/>
       <bind nodeset="/data/medicine_paracetamol_suspension/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_paracetamol_suspension/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_paracetamol_suspension/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_paracetamol_suspension/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_paracetamol_suspension/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_paracetamol_suspension/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_paracetamol_suspension/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_paracetamol_suspension/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_paracetamol_suspension/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_paracetamol_suspension/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_rifampicin_tablets/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_rifampicin_tablets/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_rifampicin_tablets/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_rifampicin_tablets/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_rifampicin_tablets/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_rifampicin_tablets/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_rifampicin_tablets/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_rifampicin_tablets/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of tablets the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_rifampicin_tablets/currency" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_rifampicin_tablets/price_comments" type="string"/>
       <bind nodeset="/data/medicine_rifampicin_tablets/photo" type="binary"/>
       <bind nodeset="/data/medicine_rifampicin_tablets/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_rifampicin_tablets/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_rifampicin_tablets/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_rifampicin_tablets/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_rifampicin_tablets/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_rifampicin_tablets/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_rifampicin_tablets/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_rifampicin_tablets/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_rifampicin_tablets/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_rifampicin_tablets/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_tenofovir_tablets/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_tenofovir_tablets/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_tenofovir_tablets/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_tenofovir_tablets/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_tenofovir_tablets/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_tenofovir_tablets/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_tenofovir_tablets/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_tenofovir_tablets/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of tablets the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_tenofovir_tablets/currency" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_tenofovir_tablets/price_comments" type="string"/>
       <bind nodeset="/data/medicine_tenofovir_tablets/photo" type="binary"/>
       <bind nodeset="/data/medicine_tenofovir_tablets/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_tenofovir_tablets/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_tenofovir_tablets/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_tenofovir_tablets/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_tenofovir_tablets/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_tenofovir_tablets/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_tenofovir_tablets/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_tenofovir_tablets/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_tenofovir_tablets/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_tenofovir_tablets/availability_comments" type="string"/>
 
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/recommended_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/cheapest_product" type="string"/>
-      <bind nodeset="/data/medicine_zinc_sulphate_tablets/untitled170" type="string" readonly="true()"/>
+      <bind nodeset="/data/medicine_zinc_sulphate_tablets/label_cheapest_product" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/pack_size" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Pack size required" />
+      <bind nodeset="/data/medicine_zinc_sulphate_tablets/label_pack_size" type="string" readonly="true()"/>
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/medicine_price" type="decimal" required="true()" constraint=". != -999" jr:constraintMsg="Medicine price required"  />
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/medicine_price_qty" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of tablets the price mentioned above can buy."  />
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/currency" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please select currency"  />
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/price_comments" type="string"/>
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/photo" type="binary"/>
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/medicine_available" type="select1" required="true()" constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available"  />
-      <bind nodeset="/data/medicine_zinc_sulphate_tablets/packs_available" type="int"/>
+      <bind nodeset="/data/medicine_zinc_sulphate_tablets/packs_available" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Packs available required"/>
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/stockout_duration" type="select1"/>
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date"  />
-      <bind nodeset="/data/medicine_zinc_sulphate_tablets/restock_ordered" type="int"/>
+      <bind nodeset="/data/medicine_zinc_sulphate_tablets/restock_ordered" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered"/>
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/last_restock_date" type="select1" required="true()" constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date"  />
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/last_restock_amount" type="int" required="true()" constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock"  />
       <bind nodeset="/data/medicine_zinc_sulphate_tablets/availability_comments" type="string"/>
@@ -1136,13 +1182,17 @@
         <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
       </input>
-      <input ref="/data/medicine_acyclovir_tablets/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_acyclovir_tablets/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_acyclovir_tablets/pack_size">
         <label ref="jr:itext('/data/tablet_pack_size:label')"/>
         <hint ref="jr:itext('/data/tablet_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_acyclovir_tablets/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_acyclovir_tablets/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -1215,10 +1265,6 @@
       <select1 ref="/data/medicine_acyclovir_tablets/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -1376,13 +1422,17 @@
         <label ref="jr:itext('/data/cheapest_vial_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_vial_product:hint')"/>
       </input>
-      <input ref="/data/medicine_amphotericin_vial/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_amphotericin_vial/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_amphotericin_vial/pack_size">
         <label ref="jr:itext('/data/vial_pack_size:label')"/>
         <hint ref="jr:itext('/data/vial_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_amphotericin_vial/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_amphotericin_vial/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -1455,10 +1505,6 @@
       <select1 ref="/data/medicine_amphotericin_vial/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -1616,13 +1662,17 @@
         <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
       </input>
-      <input ref="/data/medicine_cotromoxazole_tablets/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_cotromoxazole_tablets/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_cotromoxazole_tablets/pack_size">
         <label ref="jr:itext('/data/tablet_pack_size:label')"/>
         <hint ref="jr:itext('/data/tablet_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_cotromoxazole_tablets/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_cotromoxazole_tablets/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -1695,10 +1745,6 @@
       <select1 ref="/data/medicine_cotromoxazole_tablets/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -1857,13 +1903,17 @@
         <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
       </input>
-      <input ref="/data/medicine_efavirenz_tablets/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_efavirenz_tablets/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_efavirenz_tablets/pack_size">
         <label ref="jr:itext('/data/tablet_pack_size:label')"/>
         <hint ref="jr:itext('/data/tablet_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_efavirenz_tablets/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_efavirenz_tablets/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -1936,10 +1986,6 @@
       <select1 ref="/data/medicine_efavirenz_tablets/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -2097,13 +2143,17 @@
         <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
       </input>
-      <input ref="/data/medicine_fluconazole_tablets/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_fluconazole_tablets/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_fluconazole_tablets/pack_size">
         <label ref="jr:itext('/data/tablet_pack_size:label')"/>
         <hint ref="jr:itext('/data/tablet_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_fluconazole_tablets/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_fluconazole_tablets/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -2176,10 +2226,6 @@
       <select1 ref="/data/medicine_fluconazole_tablets/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -2337,13 +2383,17 @@
         <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
       </input>
-      <input ref="/data/medicine_lopinovir_tablets/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_lopinovir_tablets/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_lopinovir_tablets/pack_size">
         <label ref="jr:itext('/data/tablet_pack_size:label')"/>
         <hint ref="jr:itext('/data/tablet_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_lopinovir_tablets/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_lopinovir_tablets/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -2416,10 +2466,6 @@
       <select1 ref="/data/medicine_lopinovir_tablets/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -2577,13 +2623,17 @@
         <label ref="jr:itext('/data/cheapest_ampoule_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_ampoule_product:hint')"/>
       </input>
-      <input ref="/data/medicine_morphine_ampoule/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_morphine_ampoule/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_morphine_ampoule/pack_size">
         <label ref="jr:itext('/data/ampoule_pack_size:label')"/>
         <hint ref="jr:itext('/data/ampoule_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_morphine_ampoule/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_morphine_ampoule/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -2656,10 +2706,6 @@
       <select1 ref="/data/medicine_morphine_ampoule/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -2817,13 +2863,17 @@
         <label ref="jr:itext('/data/cheapest_bottle_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_bottle_product:hint')"/>
       </input>
-      <input ref="/data/medicine_paracetamol_suspension/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_paracetamol_suspension/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_paracetamol_suspension/pack_size">
         <label ref="jr:itext('/data/bottle_pack_size:label')"/>
         <hint ref="jr:itext('/data/bottle_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_paracetamol_suspension/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_paracetamol_suspension/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -2896,10 +2946,6 @@
       <select1 ref="/data/medicine_paracetamol_suspension/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -3057,13 +3103,17 @@
         <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
       </input>
-      <input ref="/data/medicine_rifampicin_tablets/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_rifampicin_tablets/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_rifampicin_tablets/pack_size">
         <label ref="jr:itext('/data/tablet_pack_size:label')"/>
         <hint ref="jr:itext('/data/tablet_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_rifampicin_tablets/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_rifampicin_tablets/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -3136,10 +3186,6 @@
       <select1 ref="/data/medicine_rifampicin_tablets/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -3297,13 +3343,17 @@
         <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
       </input>
-      <input ref="/data/medicine_tenofovir_tablets/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_tenofovir_tablets/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_tenofovir_tablets/pack_size">
         <label ref="jr:itext('/data/tablet_pack_size:label')"/>
         <hint ref="jr:itext('/data/tablet_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_tenofovir_tablets/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_tenofovir_tablets/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -3376,10 +3426,6 @@
       <select1 ref="/data/medicine_tenofovir_tablets/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
@@ -3537,13 +3583,17 @@
         <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
       </input>
-      <input ref="/data/medicine_zinc_sulphate_tablets/untitled170">
-        <label ref="jr:itext('/data/untitled170:label')"/>
-        <hint ref="jr:itext('/data/untitled170:hint')"/>
+      <input ref="/data/medicine_zinc_sulphate_tablets/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
       </input>
       <input ref="/data/medicine_zinc_sulphate_tablets/pack_size">
         <label ref="jr:itext('/data/tablet_pack_size:label')"/>
         <hint ref="jr:itext('/data/tablet_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine_zinc_sulphate_tablets/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
       </input>
       <input ref="/data/medicine_zinc_sulphate_tablets/medicine_price">
         <label ref="jr:itext('/data/medicine_price:label')"/>
@@ -3616,10 +3666,6 @@
       <select1 ref="/data/medicine_zinc_sulphate_tablets/medicine_available">
         <label ref="jr:itext('/data/medicine_available:label')"/>
         <hint ref="jr:itext('/data/medicine_available:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/medicine_available:option0')"/>
-          <value>not_stocked</value>
-        </item>
         <item>
           <label ref="jr:itext('/data/medicine_available:option1')"/>
           <value>No</value>
