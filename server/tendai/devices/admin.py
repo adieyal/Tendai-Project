@@ -2,7 +2,7 @@ from django.contrib import admin
 import models
 
 class CommunityWorkerAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'organisation')
+    list_display = ('first_name', 'last_name', 'organisation', 'phone_number')
     list_filter = ('first_name', 'last_name', 'organisation')
 
 class DeviceAdmin(admin.ModelAdmin):

@@ -11,6 +11,7 @@ class CommunityWorker(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     organisation = models.ForeignKey(Organisation)
+    phone_number = models.CharField(max_length=30, blank=True, null=True)
 
     def __unicode__(self):
         return "%s %s (%s)" % (self.first_name, self.last_name, self.organisation)
