@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
   <h:head>
     <h:title>Tendai Medicines</h:title>
     <model>
       <instance>
         <data id="build_Tendai-Medicines_1317456636">
-          <form_version>0.46</form_version>
+          <form_version>0.47</form_version>
 
           <start_time/>
           <end_time/>

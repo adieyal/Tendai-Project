@@ -4,11 +4,17 @@
     <h:title>Tendai Interview</h:title>
     <model>
       <instance>
-        <Tendai_Interview id="Tendai_Interview">
-          <form_version>0.7</form_version>
+        <data id="data">
+          <form_version>0.8</form_version>
+
+          <start_time/>
+          <end_time/>
+          <survey_date/>
           <device_id/>
-          <start/>
-          <end/>
+          <subscriber_id/>
+          <sim_id/>
+          <phone_number/>
+
           <A12/>
           <A01/>
           <A02/>
@@ -22,24 +28,30 @@
           <A10/>
           <A14/>
           <A11/>
-        </Tendai_Interview>
+        </data>
       </instance>
-      <bind id="deviceid" nodeset="/Tendai_Interview/device_id" type="xsd:string" jr:preload="property" jr:preloadParams="deviceid"/>
-      <bind id="start" nodeset="/Tendai_Interview/start" type="xsd:time" jr:preload="timestamp" jr:preloadParams="start"/>
-      <bind id="end" nodeset="/Tendai_Interview/end" type="xsd:time" jr:preload="timestamp" jr:preloadParams="end"/>
-      <bind id="A12" nodeset="/Tendai_Interview/A12" type="xsd:string" readonly="true()"/>
-      <bind id="A01" nodeset="/Tendai_Interview/A01" format="audio" type="binary"/>
-      <bind id="A02" nodeset="/Tendai_Interview/A02" format="audio" type="binary"/>
-      <bind id="A03" nodeset="/Tendai_Interview/A03" format="audio" type="binary"/>
-      <bind id="A13" nodeset="/Tendai_Interview/A13" format="audio" type="binary"/>
-      <bind id="A04" nodeset="/Tendai_Interview/A04" format="audio" type="binary"/>
-      <bind id="A05" nodeset="/Tendai_Interview/A05" format="audio" type="binary"/>
-      <bind id="A06" nodeset="/Tendai_Interview/A06" format="audio" type="binary"/>
-      <bind id="A08" nodeset="/Tendai_Interview/A08" format="audio" type="binary"/>
-      <bind id="A09" nodeset="/Tendai_Interview/A09" format="audio" type="binary"/>
-      <bind id="A10" nodeset="/Tendai_Interview/A10" format="audio" type="binary"/>
-      <bind id="A11" nodeset="/Tendai_Interview/A11" format="image" type="binary"/>
-      <bind id="A14" nodeset="/Tendai_Interview/A14" format="image" type="binary"/>
+
+      <bind nodeset="/data/start_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="start"/> 
+      <bind nodeset="/data/end_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="end"/> 
+      <bind nodeset="/data/survey_date" type="date" jr:preload="today" jr:preloadParams="end"/> 
+      <bind nodeset="/data/device_id" type="string" jr:preload="property" jr:preloadParams="deviceid"/> 
+      <bind nodeset="/data/subscriber_id" type="string" jr:preload="property" jr:preloadParams="subscriberid"/> 
+      <bind nodeset="/data/sim_id" type="string" jr:preload="property" jr:preloadParams="simserial"/>
+      <bind nodeset="/data/phone_number" type="string" jr:preload="property" jr:preloadParams="phonenumber"/>
+
+      <bind id="A12" nodeset="/data/A12" type="xsd:string" readonly="true()"/>
+      <bind id="A01" nodeset="/data/A01" format="audio" type="binary"/>
+      <bind id="A02" nodeset="/data/A02" format="audio" type="binary"/>
+      <bind id="A03" nodeset="/data/A03" format="audio" type="binary"/>
+      <bind id="A13" nodeset="/data/A13" format="audio" type="binary"/>
+      <bind id="A04" nodeset="/data/A04" format="audio" type="binary"/>
+      <bind id="A05" nodeset="/data/A05" format="audio" type="binary"/>
+      <bind id="A06" nodeset="/data/A06" format="audio" type="binary"/>
+      <bind id="A08" nodeset="/data/A08" format="audio" type="binary"/>
+      <bind id="A09" nodeset="/data/A09" format="audio" type="binary"/>
+      <bind id="A10" nodeset="/data/A10" format="audio" type="binary"/>
+      <bind id="A11" nodeset="/data/A11" format="image" type="binary"/>
+      <bind id="A14" nodeset="/data/A14" format="image" type="binary"/>
       <itext>
         <translation lang="English">
           <text id="A12">
