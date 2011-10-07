@@ -19,8 +19,8 @@ class DeviceAdmin(admin.ModelAdmin):
         return obj.community_worker.organisation
 
 class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
-    list_display = ('community_worker_first_name', 'community_worker_last_name', 'community_worker_organisation')
-    list_filter = ('community_worker__first_name', 'community_worker__last_name', 'community_worker__organisation__name', 'device__device_id')
+    list_display = ('community_worker_first_name', 'community_worker_last_name', 'community_worker_organisation', 'submission_type', 'device')
+    list_filter = ('community_worker__first_name', 'community_worker__last_name', 'community_worker__organisation__name', 'device__device_id', 'submission__form__name')
     date_hierarchy = "created_date"
 
     def community_worker_first_name(self, obj):
@@ -31,6 +31,12 @@ class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
 
     def community_worker_organisation(self, obj):
         return obj.community_worker.organisation
+
+    def submission_type(self, obj):
+        return obj.submission.form.name
+
+    def device(self, obj):
+        return self.device.device_id
 
 admin.site.register(models.Organisation)
 admin.site.register(models.CommunityWorker, CommunityWorkerAdmin)
