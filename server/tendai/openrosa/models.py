@@ -12,6 +12,7 @@ class ORForm(models.Model):
     majorminorversion = models.CharField(max_length=10, verbose_name="Major Minor Version")
     description = models.CharField(max_length=10, null=True, blank=True)
     modified_data = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
 
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.majorminorversion)
