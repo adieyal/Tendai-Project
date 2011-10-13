@@ -11,7 +11,7 @@ class ORForm(models.Model):
     form_id = models.CharField(max_length=30, verbose_name="Form ID", unique=True)
     majorminorversion = models.CharField(max_length=10, verbose_name="Major Minor Version")
     description = models.CharField(max_length=10, null=True, blank=True)
-    modified_data = models.DateTimeField(auto_now=True)
+    modified_date = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
 
     def __unicode__(self):
