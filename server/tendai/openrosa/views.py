@@ -31,7 +31,7 @@ def formXml(request):
 def formList(request):
     url = "http://" + request.get_host() + reverse("openrosa_formxml") + "?formId="
     context = Context({
-        "forms" : models.ORForm.objects.all(),
+        "forms" : models.ORForm.objects.filter(active=True),
         "url" : url,
     })
     template = Template("""
