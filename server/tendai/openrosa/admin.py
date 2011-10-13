@@ -29,6 +29,9 @@ class ORSubmissionMediaAdmin(admin.ModelAdmin):
     pass
 
 class ORFormAdmin(admin.ModelAdmin):
+    list_display = ('name', 'majorminorversion', 'modified_date', 'active')
+    list_filter = ('name', 'active')
+
     def upload_form(self, request, template_name="openrosa/form_upload.html"):
 
         if request.method == 'POST':
