@@ -38,6 +38,7 @@ class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
     def device(self, obj):
         return self.device.device_id
 
+admin.site.register(models.Country)
 admin.site.register(models.Organisation)
 admin.site.register(models.CommunityWorker, CommunityWorkerAdmin)
 admin.site.register(models.Device, DeviceAdmin)

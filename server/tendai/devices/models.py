@@ -1,6 +1,15 @@
 from django.db import models
 from openrosa import models as ormodels
 
+class Country(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Countries"
+
 class Organisation(models.Model):
     name = models.CharField(max_length=30)
 
@@ -12,6 +21,7 @@ class CommunityWorker(models.Model):
     last_name = models.CharField(max_length=30)
     organisation = models.ForeignKey(Organisation)
     phone_number = models.CharField(max_length=30, blank=True, null=True)
+    country = models.ForeignKey(Country, blank=True, null=True)
 
     def __unicode__(self):
         return "%s %s (%s)" % (self.first_name, self.last_name, self.organisation)
