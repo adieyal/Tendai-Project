@@ -42,3 +42,10 @@ class SubmissionWorkerDevice(models.Model):
 
     def __unicode__(self):
         return unicode(self.community_worker)
+
+class CountryForm(models.Model):
+    country = models.ForeignKey(Country)
+    form = models.ForeignKey(ormodels.ORForm)
+
+    def __unicode__(self):
+        return unicode("%s %s" % (self.country, self.form))
