@@ -29,6 +29,12 @@ def formXml(request):
     raise Http404
 
 def formList(request):
+    if request.method != "GET":
+        raise Http404
+
+    if "deviceid" in request.GET:
+        print request.GET["deviceid"]
+        
     url = "http://" + request.get_host() + reverse("openrosa_formxml") + "?formId="
     context = Context({
         "forms" : models.ORForm.objects.filter(active=True),

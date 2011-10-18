@@ -2,8 +2,8 @@ from django.contrib import admin
 import models
 
 class CommunityWorkerAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'organisation', 'phone_number')
-    list_filter = ('first_name', 'last_name', 'organisation')
+    list_display = ('first_name', 'last_name', 'organisation', 'phone_number', 'country')
+    list_filter = ('first_name', 'last_name', 'organisation', 'country')
 
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ('device_id', 'community_worker_first_name', 'community_worker_last_name', 'community_worker_organisation')

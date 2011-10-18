@@ -12,7 +12,7 @@ from views import slider_view, recent_stories
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^openrosa/', include('openrosa.urls')),
+    url(r'^openrosa/', include('devices.urls')),
     ('^$', slider_view, {}, "home"),
     ('^stories/$', recent_stories, {}, "recent_stories"),
 )
