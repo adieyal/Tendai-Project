@@ -8,7 +8,7 @@ from general.utils import value_or_none, date_or_none
 
 class ORForm(models.Model):
     name = models.CharField(max_length=30)
-    form_id = models.CharField(max_length=30, verbose_name="Form ID", unique=True)
+    form_id = models.CharField(max_length=30, verbose_name="Form ID")
     majorminorversion = models.CharField(max_length=10, verbose_name="Major Minor Version")
     description = models.CharField(max_length=10, null=True, blank=True)
     modified_date = models.DateTimeField(auto_now=True)
@@ -20,6 +20,7 @@ class ORForm(models.Model):
     class Meta:
         verbose_name_plural = "OR Forms"
         verbose_name = "OR Form"
+        unique_together = ('name', 'form_id',)
 
     def get_absolute_url(self):
         return reverse("openrosa_formxml") + "?formId=" + self.form_id
