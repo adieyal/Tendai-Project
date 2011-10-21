@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.urlresolvers import reverse
+
 from openrosa import models as ormodels
 
 class Country(models.Model):
@@ -39,6 +41,9 @@ class SubmissionWorkerDevice(models.Model):
     submission = models.ForeignKey(ormodels.ORFormSubmission, null=True)
     # I don't like this field but adminmodels can't use date_hierarchy on a related object (submission)
     created_date = models.DateTimeField(auto_now_add=True) 
+
+    def get_absolute_url(self):
+        return reverse("devices_view_swd", kwargs={"id" : self.id})
 
     def __unicode__(self):
         return unicode(self.community_worker)

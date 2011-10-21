@@ -155,7 +155,12 @@ def show_media(request, device_id, filename):
     media_dir = os.path.join(settings.OPENROSA_IMAGES_DIR, device_id)
     path = os.path.join(media_dir, filename)
     if os.path.exists(path):
-        return HttpResponse(open(path).read(), mimetype="image/jpg")
+        mimetype = "application/octet-stream"
+        if filename.endswith("jpg"):
+            mimetype = "image/jpg"
+        elif filename.endswith("amr"):
+            mimetype = "audio/amr"
+        return HttpResponse(open(path).read(), mimetype=mimetype)
 
     raise Http404
     

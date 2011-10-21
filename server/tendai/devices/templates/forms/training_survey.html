@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <ul>
+            <li>Start Time: {{ start_time }}</li>
+            <li>End Time: {{ end_time }}</li>
+            <li>Device ID: {{ device_id }}</li>
+            <li>Subscriber ID: {{ subscriber_id }}</li>
+            <li>SIM ID: {{ sim_id }}</li>
+            <li>Name: {{ name }}</li>
+            <li>Training was adequate: {{ r1 }}</li>
+            <li>Sufficient time was allocated to training: {{ r2 }}</li>
+            <li>I feel confident that I will be able to collect data for Tendai: {{ r3 }}</li>
+            <li>The phone is easy to use.: {{ r4 }}</li>
+            <li>The questionnaires are easy to understand: {{ r5 }}</li>
+            <li>Negative Comments: {{ negative_comments }}</li>
+            <li>Positive Comments: {{ positive_comments }}</li>
+            {% if photo %}
+            <img src="{% url openrosa_media device_id photo %}"/>
+            {% endif %}
+            {{ recording }} 
+            {% if recording %}
+            <a href="{% url openrosa_media device_id recording %}">Recording</a>
+            {% endif %}
+        </ul> 
+    </body>
+</html>
