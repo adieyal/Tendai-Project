@@ -92,12 +92,10 @@ def view_training_survey(request, xml, template_name="forms/training_survey.html
 
     return direct_to_template(request, template=template_name, extra_context=extra_context)
 
-"""
-<?xml version='1.0' ?><data id="training-survey-0.9"><start_time>2011-10-21T00:27:31.666+02</start_time><end_time>2011-10-21T00:32:24.138+02</end_time><survey_date /><device_id>356652045040969</device_id><subscriber_id>648040602692182</subscriber_id><sim_id>8926304096026921824</sim_id><phone_number /><name>Clayton chehore cleo</name><ratings><r0 /><r1>agree</r1><r2>disagree</r2><r3>agree</r3><r4>agree</r4><r5>agree</r5></ratings><negative_comments>Late arrival of phones</negative_comments><positive_comments>Food</positive_comments><photo>1319149885490.jpg</photo><recording>1319149919330.jpg</recording></data>
-"""
-
 form_view_lookup = {
     "Training Survey" : {
+        "0.8" : view_training_survey,
         "0.9" : view_training_survey,
+        "0.10" : view_training_survey,
     }
 }
