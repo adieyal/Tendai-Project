@@ -83,12 +83,39 @@ def get_leaf_nodes(root):
     if num_children == 0:
         yield root
 
-def view_training_survey(request, xml, template_name="forms/training_survey.html", extra_context=None):
-    extra_context = extra_context or {}
-    root = xml.getElementsByTagName("data")[0]
+def get_leaf_map(xml, root_name):
+    root = xml.getElementsByTagName(root_name)[0]
+    m = {}
     for leaf in get_leaf_nodes(root):
         if leaf.firstChild:
-            extra_context[leaf.tagName] = leaf.firstChild.nodeValue
+            m[leaf.tagName] = leaf.firstChild.nodeValue
+    return m
+
+def view_training_survey(request, xml, template_name="forms/training_survey.html", extra_context=None):
+    extra_context = extra_context or {}
+    m = get_leaf_map(xml, "data")
+    extra_context.update(m)
+
+    return direct_to_template(request, template=template_name, extra_context=extra_context)
+
+def view_facility(request, xml, template_name="forms/facility_survey.html", extra_context=None):
+    extra_context = extra_context or {}
+    extra_context["main"] = get_leaf_map(xml, "data")
+    extra_context["section_name"] = get_leaf_map(xml, "section_name")
+    extra_context["section_contact"] = get_leaf_map(xml, "section_contact")
+    extra_context["section_respondent"] = get_leaf_map(xml, "section_respondent")
+    extra_context["section_location"] = get_leaf_map(xml, "section_location")
+    extra_context["section_photos"] = get_leaf_map(xml, "section_photos")
+    extra_context["section_general"] = get_leaf_map(xml, "section_general")
+    extra_context["section_services"] = get_leaf_map(xml, "section_services")
+    extra_context["section_medicines_list"] = get_leaf_map(xml, "section_medicines_list")
+    extra_context["section_comments"] = get_leaf_map(xml, "section_comments")
+
+    return direct_to_template(request, template=template_name, extra_context=extra_context)
+
+def view_interview_survey(request, xml, template_name="forms/interview_survey.html", extra_context=None):
+    extra_context = extra_context or {}
+    extra_context["main"] = get_leaf_map(xml, "data")
 
     return direct_to_template(request, template=template_name, extra_context=extra_context)
 
@@ -97,5 +124,14 @@ form_view_lookup = {
         "0.8" : view_training_survey,
         "0.9" : view_training_survey,
         "0.10" : view_training_survey,
+    },
+    "Tendai Interview" : {
+        "0.8" : view_interview_survey,
+    },
+    "RSA Facility" : {
+        "0.17" : view_facility,
+    },
+    "Zimbabwe Facility" : {
+        "0.1" : view_facility,
     }
 }
