@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <style>
+            .organisation_list {
+                width: 250px;
+                border: solid thin black;
+                float: left;
+                margin: 5px;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        {% for organisation in organisations %}
+            <div class="organisation_list">
+            <h1>{{ organisation }}</h1>
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Total</th>
+                </tr>
+                {% for worker in organisation.communityworker_set.all %}
+                <tr>
+                    <td>{{ worker.first_name }}</td>
+                    <td>{{ worker.last_name }}</td>
+                    <td>{{ worker.submissionworkerdevice_set.all.count }}
+                </tr>
+                {% endfor %}
+            </table>
+            </div>
+        {% endfor %} 
+    </body>
+</html>
