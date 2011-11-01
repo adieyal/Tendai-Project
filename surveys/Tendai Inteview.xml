@@ -5,7 +5,7 @@
     <model>
       <instance>
         <data id="data">
-          <form_version>0.8</form_version>
+          <form_version>0.9</form_version>
 
           <start_time/>
           <end_time/>
@@ -94,7 +94,7 @@ When recording the respondent's responses, please ensure that the phone is close
             <value>Do you think the medicines available at this health facility are affordable? If not, then please elaborate with examples.</value>
           </text>
           <text id="A10">
-            <value>What costs do you incur in order when coming to this facility for medicines?</value>
+            <value>What costs do you incur when coming to this facility for medicines?</value>
           </text>
           <text id="A14">
             <value>Is there anything else that you want to share that has not been covered in the above questions?</value>
