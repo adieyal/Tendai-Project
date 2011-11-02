@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
   <h:head>
-    <h:title>Tendai Facility</h:title>
+    <h:title>RSA Facility</h:title>
     <model>
       <instance>
         <data id="build_Tendai-Facility_1317444278">
-          <form_version>0.17</form_version>
+          <form_version>0.18</form_version>
 
           <start_time/>
           <end_time/>
@@ -252,7 +252,7 @@
             <value>Please enter in the facility contact number.</value>
           </text>
           <text id="/data/section_contact/phone_number:hint">
-            <value>Include the international dialing code, e.g. +265112223333. Enter in none if no phone number available.</value>
+            <value>Include the international dialing code, e.g. +265112223333. Leave blank if unavailable.</value>
           </text>
           <text id="/data/section_contact/email:label">
             <value>Please enter facility email address.</value>
@@ -339,13 +339,13 @@
             <value>Council Clinic</value>
           </text>
           <text id="/data/section_general/type_of_facility:option3">
-            <value>Mission or NGO hospital</value>
+            <value>Mission or NGO Hospital</value>
           </text>
           <text id="/data/section_general/type_of_facility:option4">
             <value>Private Hospital</value>
           </text>
           <text id="/data/section_general/type_of_facility:option5">
-            <value>Private pharmacy</value>
+            <value>Private Pharmacy</value>
           </text>
           <text id="/data/section_general/type_of_facility:option6">
             <value>Other</value>
@@ -369,7 +369,7 @@
             <value>Please indicate which services this facility offers.</value>
           </text>
           <text id="/data/section_services/facility_services:hint">
-            <value>Tick all of the most appropriate options</value>
+            <value>Tick all options that apply.</value>
           </text>
           <text id="/data/section_services/facility_services:option0">
             <value>Outpatients</value>
@@ -486,7 +486,7 @@
       <bind nodeset="/data/section_name/facility_name" type="string" required="true()" constraint=". != ''" jr:constraintMsg="Please fill in the facility name" />
       <bind nodeset="/data/section_name/facility_district" type="select1" required="true()" constraint=". != 'blank'" jr:constraintMsg="Please select a district from the list"/>
       <bind nodeset="/data/section_contact/postal_address" type="string" required="true()" constraint=". != ''" jr:constraintMsg="Please enter in the facility postal address"/>
-      <bind nodeset="/data/section_contact/phone_number" type="string" required="true()" constraint=". != ''" jr:constraintMsg="Please enter in the facility phone number"/>
+      <bind nodeset="/data/section_contact/phone_number" type="string" />
       <bind nodeset="/data/section_contact/email" type="string"/>
       <bind nodeset="/data/section_respondent/respondent_name" type="string"/>
       <bind nodeset="/data/section_respondent/respondent_position" type="string"/>
@@ -816,7 +816,7 @@
         </item>
         <item>
           <label ref="jr:itext('/data/section_general/type_of_facility:option3')"/>
-          <value>Mission or NGO hospital</value>
+          <value>Mission or NGO Hospital</value>
         </item>
         <item>
           <label ref="jr:itext('/data/section_general/type_of_facility:option4')"/>
@@ -824,7 +824,7 @@
         </item>
         <item>
           <label ref="jr:itext('/data/section_general/type_of_facility:option5')"/>
-          <value>Private pharmacy</value>
+          <value>Private Pharmacy</value>
         </item>
         <item>
           <label ref="jr:itext('/data/section_general/type_of_facility:option6')"/>

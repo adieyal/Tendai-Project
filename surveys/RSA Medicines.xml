@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
   <h:head>
-    <h:title>Tendai Medicines</h:title>
+    <h:title>RSA Medicines</h:title>
     <model>
       <instance>
         <data id="build_Tendai-Medicines_1317456636">
-          <form_version>0.47</form_version>
+          <form_version>0.48</form_version>
 
           <start_time/>
           <end_time/>
@@ -396,10 +396,10 @@
             <value/>
           </text>
           <text id="/data/cheapest_tablet_product:label">
-            <value>Name of cheapest product available.</value>
+            <value>Name of the cheapest product available.</value>
           </text>
           <text id="/data/cheapest_tablet_product:hint">
-            <value>Divide price of pack by the number of tablets in the pack to determine price per tablet. If multiple products have the cheapest price, choose one.</value>
+            <value>Provide the product name of the cheapest product available for this medicine?</value>
           </text>
           <text id="/data/cheapest_vial_product:label">
             <value>Name of cheapest product available.</value>
@@ -574,6 +574,9 @@
           </text>
           <text id="/data/duration:option1">
             <value>4-7 days</value>
+          </text>
+          <text id="/data/duration:option1b">
+            <value>1-2 weeks</value>
           </text>
           <text id="/data/duration:option2">
             <value>2-3 weeks</value>
@@ -1295,6 +1298,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -1333,6 +1340,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -1377,6 +1388,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -1535,6 +1550,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -1573,6 +1592,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -1617,6 +1640,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -1775,6 +1802,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -1813,6 +1844,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -1857,6 +1892,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -2016,6 +2055,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -2054,6 +2097,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -2098,6 +2145,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -2256,6 +2307,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -2294,6 +2349,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -2338,6 +2397,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -2496,6 +2559,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -2534,6 +2601,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -2578,6 +2649,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -2736,6 +2811,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -2774,6 +2853,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -2818,6 +2901,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -2976,6 +3063,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -3014,6 +3105,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -3058,6 +3153,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -3216,6 +3315,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -3254,6 +3357,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -3298,6 +3405,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -3456,6 +3567,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -3494,6 +3609,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -3538,6 +3657,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -3696,6 +3819,10 @@
           <value>4-7_days</value>
         </item>
         <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
           <label ref="jr:itext('/data/duration:option2')"/>
           <value>2-3_weeks</value>
         </item>
@@ -3734,6 +3861,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>
@@ -3778,6 +3909,10 @@
         <item>
           <label ref="jr:itext('/data/duration:option1')"/>
           <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
         </item>
         <item>
           <label ref="jr:itext('/data/duration:option2')"/>

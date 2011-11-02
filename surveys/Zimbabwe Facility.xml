@@ -4,7 +4,7 @@
     <model>
       <instance>
         <data id="zimbabwe-facility-0.1">
-          <form_version>0.1</form_version>
+          <form_version>0.2</form_version>
 
           <start_time></start_time>
           <end_time></end_time>
@@ -275,7 +275,7 @@
             <value>Please enter in the facility contact number.</value>
           </text>
           <text id="/data/section_contact/phone_number:hint">
-            <value>Include the international dialing code, e.g. +265112223333. Enter in none if no phone number available.</value>
+            <value>Include the international dialing code, e.g. +265112223333. Leave blank if unavailable.</value>
           </text>
           <text id="/data/section_contact/email:label">
             <value>Please enter facility email address.</value>
@@ -362,13 +362,13 @@
             <value>Council Clinic</value>
           </text>
           <text id="/data/section_general/type_of_facility:option3">
-            <value>Mission or NGO hospital</value>
+            <value>Mission or NGO Hospital</value>
           </text>
           <text id="/data/section_general/type_of_facility:option4">
             <value>Private Hospital</value>
           </text>
           <text id="/data/section_general/type_of_facility:option5">
-            <value>Private pharmacy</value>
+            <value>Private Pharmacy</value>
           </text>
           <text id="/data/section_general/type_of_facility:option6">
             <value>Other</value>
@@ -392,7 +392,7 @@
             <value>Please indicate which services this facility offers.</value>
           </text>
           <text id="/data/section_services/facility_services:hint">
-            <value>Tick all of the most appropriate options</value>
+            <value>Tick all options that apply.</value>
           </text>
           <text id="/data/section_services/facility_services:option0">
             <value>Outpatients</value>
@@ -509,7 +509,7 @@
       <bind constraint=". != ''" jr:constraintMsg="Please fill in the facility name" nodeset="/data/section_name/facility_name" required="true()" type="string"/>
       <bind constraint=". != 'blank'" jr:constraintMsg="Please select a district from the list" nodeset="/data/section_name/facility_district" required="true()" type="select1"/>
       <bind constraint=". != ''" jr:constraintMsg="Please enter in the facility postal address" nodeset="/data/section_contact/postal_address" required="true()" type="string"/>
-      <bind constraint=". != ''" jr:constraintMsg="Please enter in the facility phone number" nodeset="/data/section_contact/phone_number" required="true()" type="string"/>
+      <bind nodeset="/data/section_contact/phone_number" type="string"/>
       <bind nodeset="/data/section_contact/email" type="string"/>
       <bind nodeset="/data/section_respondent/respondent_name" type="string"/>
       <bind nodeset="/data/section_respondent/respondent_position" type="string"/>
@@ -871,7 +871,7 @@
         </item>
         <item>
           <label ref="jr:itext('/data/section_general/type_of_facility:option3')"/>
-          <value>Mission or NGO hospital</value>
+          <value>Mission or NGO Hospital</value>
         </item>
         <item>
           <label ref="jr:itext('/data/section_general/type_of_facility:option4')"/>
@@ -879,7 +879,7 @@
         </item>
         <item>
           <label ref="jr:itext('/data/section_general/type_of_facility:option5')"/>
-          <value>Private pharmacy</value>
+          <value>Private Pharmacy</value>
         </item>
         <item>
           <label ref="jr:itext('/data/section_general/type_of_facility:option6')"/>
