@@ -20,7 +20,7 @@ def slider_view(request, template_name="home.html", extra_context=None):
         data.append({
            "title" : value_or_none(xml, "story_title"),
            "description" : value_or_none(xml, "story_description"),
-           "photo" : media1.get_absolute_url(),
+           "photo" : media1.get_absolute_url() if media1 else None,
         })
     extra_context["stories"] = data
     return direct_to_template(request, template=template_name, extra_context=extra_context)
