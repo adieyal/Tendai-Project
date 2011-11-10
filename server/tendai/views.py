@@ -17,7 +17,7 @@ def slider_view(request, template_name="home.html", extra_context=None):
         if len(media) > 0:
             media1 = media[0]
 
-	photo = media1 or media2	
+	photo = media1
         data.append({
            "title" : value_or_none(xml, "story_title"),
            "description" : value_or_none(xml, "story_description"),
