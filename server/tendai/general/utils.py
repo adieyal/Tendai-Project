@@ -12,7 +12,7 @@ def slugify(value):
     """
     import unicodedata
     if not isinstance(value, unicode):
-        value = unicode(value)
+        value = unicode(value, "utf-8")
     value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore')
     value = unicode(_slugify_strip_re.sub('', value).strip().lower())
     return _slugify_hyphenate_re.sub('-', value)
