@@ -53,4 +53,4 @@ class CountryForm(models.Model):
     form = models.ForeignKey(ormodels.ORForm)
 
     def __unicode__(self):
-        return unicode("%s %s" % (self.country, self.form))
+        return unicode("%s %s" % (self.country, self.form), "utf-8")
