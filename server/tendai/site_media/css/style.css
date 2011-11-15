@@ -2,8 +2,6 @@ view plaincopy to clipboardprint?
 * { margin:0; padding:0; }  
   
 #storylist {  
-    width:810px;  
-    background:#EAF4F5;  
     padding:5px 5px 0;  
     font-family:Verdana,Arial,Sans-Serif;  
     font-size:12px;  
@@ -13,7 +11,6 @@ view plaincopy to clipboardprint?
 #storylist a { text-decoration:none; }  
 #storylist img { border: 2px solid #FFFFFF; }  
   
-.ticker { width:800px; }  
 .ticker ul li{ list-style:none; display:block; padding-bottom:1px; margin-bottom:5px; }  
 .ticker .thumbnail { float:left; padding-right: 5px}  
 .ticker .info { float:rightright; }  
