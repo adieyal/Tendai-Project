@@ -38,9 +38,18 @@ class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
     def device(self, obj):
         return self.device.device_id
 
+class CountryFormAdmin(admin.ModelAdmin):
+    list_display = ('country', 'form_name', 'form_version')
+
+    def form_name(self, country_form):
+        return country_form.form.name
+
+    def form_version(self, country_form):
+        return country_form.form.majorminorversion
+
 admin.site.register(models.Country)
 admin.site.register(models.Organisation)
 admin.site.register(models.CommunityWorker, CommunityWorkerAdmin)
 admin.site.register(models.Device, DeviceAdmin)
 admin.site.register(models.SubmissionWorkerDevice, SubmissionWorkerDeviceAdmin)
-admin.site.register(models.CountryForm)
+admin.site.register(models.CountryForm, CountryFormAdmin)
