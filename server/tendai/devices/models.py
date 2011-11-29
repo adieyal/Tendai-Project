@@ -39,7 +39,6 @@ class MedicineForm(models.Model):
 class Medicine(models.Model):
     name = models.CharField(max_length=60)
     form = models.ForeignKey(MedicineForm)
-    recommended_pack_size = models.IntegerField()
     countries = models.ManyToManyField(Country)
     
     def __unicode__(self):

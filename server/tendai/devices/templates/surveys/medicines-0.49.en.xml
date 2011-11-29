@@ -30,7 +30,6 @@
 
 	  {% for medicine in medicines %}
           <medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}>
-            <recommended_pack_size>{{ medicine.recommended_pack_size }} {{ medicine.form }}{{ medicine.recommended_pack_size|pluralize }}</recommended_pack_size>
             <cheapest_product />
             <label_cheapest_product />
             <pack_size />
@@ -121,12 +120,6 @@
           </text>
 	  {% endfor %}
 
-          <text id="/data/recommended_pack_size:label">
-            <value>Recommended pack size</value>
-          </text>
-          <text id="/data/recommended_pack_size:hint">
-            <value></value>
-          </text>
           <text id="/data/cheapest_tablet_product:label">
             <value>Name of the cheapest product available.</value>
           </text>
@@ -350,7 +343,6 @@
       <bind constraint=". != 'not_selected'" jr:constraintMsg="For each medicine, please answer whether it is stocked or not" nodeset="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}" required="true()" type="select1"/>
       <bind nodeset="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}_comments" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}" relevant="selected(/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}, 'yes')" type="string"/>
-      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/recommended_pack_size" readonly="true()" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/cheapest_product" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_cheapest_product" readonly="true()" type="string"/>
       <bind constraint=". != -999" jr:constraintMsg="Pack size required" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size" required="true()" type="int"/>
@@ -427,10 +419,6 @@
     {% for medicine in medicines %}
     <group appearance="field-list">
       <label ref="jr:itext('/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}:label')"/>
-      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/recommended_pack_size">
-        <label ref="jr:itext('/data/recommended_pack_size:label')"/>
-        <hint ref="jr:itext('/data/recommended_pack_size:hint')"/>
-      </input>
       <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/cheapest_product">
         <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
         <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
