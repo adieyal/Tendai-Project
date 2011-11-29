@@ -18,7 +18,7 @@ def formXml(request, country_id):
         form_id = request.GET["formId"]
         orform = get_object_or_404(or_models.ORForm, form_id=form_id)
         country = models.Country.objects.get(id=country_id)
-        language = models.CountryForm.objects.get(form=orform, country=country).language
+        language = models.CountryForm.objects.get(form=orform, countries=country).language
         template_name = os.path.join('surveys', orform.form_id + '.' + language.code + '.xml')
         try:
             template = get_template(template_name)
@@ -45,7 +45,7 @@ def formList(request):
         try:
             worker = models.CommunityWorker.objects.get(device__device_id=request.GET["deviceid"])
             if worker.country != None:
-                country_forms = active_forms.filter(Q(countryform__country=worker.country) | Q(countryform=None))
+                country_forms = active_forms.filter(countryform__countries=worker.country)
                 country = worker.country
         except models.CommunityWorker.DoesNotExist:
             pass

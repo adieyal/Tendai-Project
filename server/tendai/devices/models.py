@@ -92,12 +92,12 @@ class SubmissionWorkerDevice(models.Model):
         return unicode(self.community_worker)
 
 class CountryForm(models.Model):
-    country = models.ForeignKey(Country)
+    """
+    A model that assigns a form to a number of countries
+    """
+    countries = models.ManyToManyField(Country)
     language = models.ForeignKey(Language)
     form = models.ForeignKey(ormodels.ORForm)
 
     def __unicode__(self):
-        return unicode("%s %s" % (self.country, self.form), "utf-8")
-    
-    class Meta:
-        unique_together = ('country', 'form',)
+        return unicode("%s" % self.form, "utf-8")
