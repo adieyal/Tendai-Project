@@ -1,0 +1,1010 @@
+[
+    {
+        "pk": 1, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Beitbridge", 
+            "value": "Beitbridge"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Bikita", 
+            "value": "Bikita"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Bindura", 
+            "value": "Bindura"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Binga", 
+            "value": "Binga"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Bubi", 
+            "value": "Bubi"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Buhera", 
+            "value": "Buhera"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Bulawayo", 
+            "value": "Bulawayo"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Bulilimamangwe", 
+            "value": "Bulilimamangwe"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Chegutu", 
+            "value": "Chegutu"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Chikomba", 
+            "value": "Chikomba"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Chimanimani", 
+            "value": "Chimanimani"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Chipinge", 
+            "value": "Chipinge"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Chiredzi", 
+            "value": "Chiredzi"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Chirumhanzu", 
+            "value": "Chirumhanzu"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Chivi", 
+            "value": "Chivi"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Gokwe North", 
+            "value": "Gokwe North"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Gokwe South", 
+            "value": "Gokwe South"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Goromonzi", 
+            "value": "Goromonzi"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Guruve", 
+            "value": "Guruve"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Gutu", 
+            "value": "Gutu"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Gwanda", 
+            "value": "Gwanda"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Gweru", 
+            "value": "Gweru"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Harare", 
+            "value": "Harare"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Hurungwe", 
+            "value": "Hurungwe"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Hwange", 
+            "value": "Hwange"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Hwedza", 
+            "value": "Hwedza"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Insiza", 
+            "value": "Insiza"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Kadoma", 
+            "value": "Kadoma"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Kariba", 
+            "value": "Kariba"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Kwekwe", 
+            "value": "Kwekwe"
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Lupane", 
+            "value": "Lupane"
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Makonde", 
+            "value": "Makonde"
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Makoni", 
+            "value": "Makoni"
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Marondera", 
+            "value": "Marondera"
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Masvingo", 
+            "value": "Masvingo"
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Matobo", 
+            "value": "Matobo"
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Mazowe", 
+            "value": "Mazowe"
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Mberengwa", 
+            "value": "Mberengwa"
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Mbire", 
+            "value": "Mbire"
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Mudzi", 
+            "value": "Mudzi"
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Mukumbura", 
+            "value": "Mukumbura"
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Murehwa", 
+            "value": "Murehwa"
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Mutare", 
+            "value": "Mutare"
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Mutasa", 
+            "value": "Mutasa"
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Mutoko", 
+            "value": "Mutoko"
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Muzarabani", 
+            "value": "Muzarabani"
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Mwenezi", 
+            "value": "Mwenezi"
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Nkayi", 
+            "value": "Nkayi"
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Nyanga", 
+            "value": "Nyanga"
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Rushinga", 
+            "value": "Rushinga"
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Seke", 
+            "value": "Seke"
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Shamva", 
+            "value": "Shamva"
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Shurugwi", 
+            "value": "Shurugwi"
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Tsholotsho", 
+            "value": "Tsholotsho"
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Umguza", 
+            "value": "Umguza"
+        }
+    }, 
+    {
+        "pk": 56, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Umzingwane", 
+            "value": "Umzingwane"
+        }
+    }, 
+    {
+        "pk": 57, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Uzumba-Maramba-Pfungwe", 
+            "value": "Uzumba-Maramba-Pfungwe"
+        }
+    }, 
+    {
+        "pk": 58, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Zaka", 
+            "value": "Zaka"
+        }
+    }, 
+    {
+        "pk": 59, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Zvimba", 
+            "value": "Zvimba"
+        }
+    }, 
+    {
+        "pk": 60, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 3, 
+            "name": "Zvishavane", 
+            "value": "Zvishavane"
+        }
+    }, 
+    {
+        "pk": 61, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Alfred Nzo", 
+            "value": "DC44"
+        }
+    }, 
+    {
+        "pk": 62, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Amajuba", 
+            "value": "DC25"
+        }
+    }, 
+    {
+        "pk": 63, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Amathole", 
+            "value": "DC12"
+        }
+    }, 
+    {
+        "pk": 64, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Bojanala Platinum", 
+            "value": "DC37"
+        }
+    }, 
+    {
+        "pk": 65, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Buffalo City", 
+            "value": "BUF"
+        }
+    }, 
+    {
+        "pk": 66, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Cacadu", 
+            "value": "DC10"
+        }
+    }, 
+    {
+        "pk": 67, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Cape Winelands", 
+            "value": "DC25"
+        }
+    }, 
+    {
+        "pk": 68, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Capricorn", 
+            "value": "DC35"
+        }
+    }, 
+    {
+        "pk": 69, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Central Karoo", 
+            "value": "DC5"
+        }
+    }, 
+    {
+        "pk": 70, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Chris Hani", 
+            "value": "DC13"
+        }
+    }, 
+    {
+        "pk": 71, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "City of Cape Town", 
+            "value": "CPT"
+        }
+    }, 
+    {
+        "pk": 72, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "City of Johannesburg", 
+            "value": "JHB"
+        }
+    }, 
+    {
+        "pk": 73, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "City of Tshwane", 
+            "value": "TSH"
+        }
+    }, 
+    {
+        "pk": 74, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Dr Kenneth Kaunda", 
+            "value": "DC40"
+        }
+    }, 
+    {
+        "pk": 75, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Dr Ruth Segomotsi Mompati", 
+            "value": "DC39"
+        }
+    }, 
+    {
+        "pk": 76, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Eden", 
+            "value": "DC4"
+        }
+    }, 
+    {
+        "pk": 77, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Ehlanzeni", 
+            "value": "DC32"
+        }
+    }, 
+    {
+        "pk": 78, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Ekurhuleni", 
+            "value": "EKU"
+        }
+    }, 
+    {
+        "pk": 79, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "eThekwini", 
+            "value": "ETH"
+        }
+    }, 
+    {
+        "pk": 80, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Fezile Dabi", 
+            "value": "DC20"
+        }
+    }, 
+    {
+        "pk": 81, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Frances Baard", 
+            "value": "DC9"
+        }
+    }, 
+    {
+        "pk": 82, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Gert Sibande", 
+            "value": "DC30"
+        }
+    }, 
+    {
+        "pk": 83, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "iLembe", 
+            "value": "DC29"
+        }
+    }, 
+    {
+        "pk": 84, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "John Taolo Gaetsewe", 
+            "value": "DC45"
+        }
+    }, 
+    {
+        "pk": 85, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Lejweleputswa", 
+            "value": "DC18"
+        }
+    }, 
+    {
+        "pk": 86, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Mangaung", 
+            "value": "MAN"
+        }
+    }, 
+    {
+        "pk": 87, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Mopani", 
+            "value": "DC33"
+        }
+    }, 
+    {
+        "pk": 88, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Namakwa", 
+            "value": "DC6"
+        }
+    }, 
+    {
+        "pk": 89, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Nelson Mandela Bay", 
+            "value": "NMA"
+        }
+    }, 
+    {
+        "pk": 90, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Ngaka Modiri Molema", 
+            "value": "DC38"
+        }
+    }, 
+    {
+        "pk": 91, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Nkangala", 
+            "value": "DC31"
+        }
+    }, 
+    {
+        "pk": 92, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "OR Tambo", 
+            "value": "DC15"
+        }
+    }, 
+    {
+        "pk": 93, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Overberg", 
+            "value": "DC3"
+        }
+    }, 
+    {
+        "pk": 94, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Pixley ka Seme", 
+            "value": "DC7"
+        }
+    }, 
+    {
+        "pk": 95, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Sedibeng", 
+            "value": "DC42"
+        }
+    }, 
+    {
+        "pk": 96, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Sekhukhune", 
+            "value": "DC47"
+        }
+    }, 
+    {
+        "pk": 97, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Sisonke", 
+            "value": "DC43"
+        }
+    }, 
+    {
+        "pk": 98, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Siyanda", 
+            "value": "DC8"
+        }
+    }, 
+    {
+        "pk": 99, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Thabo Mofutsanyana", 
+            "value": "DC19"
+        }
+    }, 
+    {
+        "pk": 100, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Ugu", 
+            "value": "DC21"
+        }
+    }, 
+    {
+        "pk": 101, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Ukhahlamba", 
+            "value": "DC14"
+        }
+    }, 
+    {
+        "pk": 102, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "uMgungundlovu", 
+            "value": "DC22"
+        }
+    }, 
+    {
+        "pk": 103, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "uMkhanyakude", 
+            "value": "DC27"
+        }
+    }, 
+    {
+        "pk": 104, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "uMzinyathi", 
+            "value": "DC24"
+        }
+    }, 
+    {
+        "pk": 105, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "uThukela", 
+            "value": "DC23"
+        }
+    }, 
+    {
+        "pk": 106, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "uThungulu", 
+            "value": "DC28"
+        }
+    }, 
+    {
+        "pk": 107, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Vhembe", 
+            "value": "DC34"
+        }
+    }, 
+    {
+        "pk": 108, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Waterberg", 
+            "value": "DC36"
+        }
+    }, 
+    {
+        "pk": 109, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "West Coast", 
+            "value": "DC1"
+        }
+    }, 
+    {
+        "pk": 110, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "West Rand", 
+            "value": "DC48"
+        }
+    }, 
+    {
+        "pk": 111, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Xhariep", 
+            "value": "DC16"
+        }
+    }, 
+    {
+        "pk": 112, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 1, 
+            "name": "Zululand", 
+            "value": "DC26"
+        }
+    }
+]
