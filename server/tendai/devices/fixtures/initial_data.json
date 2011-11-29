@@ -1006,6 +1006,258 @@
             "name": "Zululand", 
             "value": "DC26"
         }
+    }, 
+    {
+        "pk": 113, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Dedza", 
+            "value": "Dedza"
+        }
+    }, 
+    {
+        "pk": 114, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Dowa", 
+            "value": "Dowa"
+        }
+    }, 
+    {
+        "pk": 115, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Kasungu", 
+            "value": "Kasungu"
+        }
+    }, 
+    {
+        "pk": 116, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Lilongwe", 
+            "value": "Lilongwe"
+        }
+    }, 
+    {
+        "pk": 117, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Mchinji", 
+            "value": "Mchinji"
+        }
+    }, 
+    {
+        "pk": 118, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Nkhotakota", 
+            "value": "Nkhotakota"
+        }
+    }, 
+    {
+        "pk": 119, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Ntcheu", 
+            "value": "Ntcheu"
+        }
+    }, 
+    {
+        "pk": 120, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Ntchisi", 
+            "value": "Ntchisi"
+        }
+    }, 
+    {
+        "pk": 121, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Salima", 
+            "value": "Salima"
+        }
+    }, 
+    {
+        "pk": 122, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Chitipa", 
+            "value": "Chitipa"
+        }
+    }, 
+    {
+        "pk": 123, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Karonga", 
+            "value": "Karonga"
+        }
+    }, 
+    {
+        "pk": 124, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Likoma", 
+            "value": "Likoma"
+        }
+    }, 
+    {
+        "pk": 125, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Mzimba", 
+            "value": "Mzimba"
+        }
+    }, 
+    {
+        "pk": 126, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Nkhata Bay", 
+            "value": "Nkhata Bay"
+        }
+    }, 
+    {
+        "pk": 127, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Rumphi", 
+            "value": "Rumphi"
+        }
+    }, 
+    {
+        "pk": 128, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Balaka", 
+            "value": "Balaka"
+        }
+    }, 
+    {
+        "pk": 129, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Blantyre", 
+            "value": "Blantyre"
+        }
+    }, 
+    {
+        "pk": 130, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Chikwawa", 
+            "value": "Chikwawa"
+        }
+    }, 
+    {
+        "pk": 131, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Chiradzulu", 
+            "value": "Chiradzulu"
+        }
+    }, 
+    {
+        "pk": 132, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Machinga", 
+            "value": "Machinga"
+        }
+    }, 
+    {
+        "pk": 133, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Mangochi", 
+            "value": "Mangochi"
+        }
+    }, 
+    {
+        "pk": 134, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Mulanje", 
+            "value": "Mulanje"
+        }
+    }, 
+    {
+        "pk": 135, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Mwanza", 
+            "value": "Mwanza"
+        }
+    }, 
+    {
+        "pk": 136, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Nsanje", 
+            "value": "Nsanje"
+        }
+    }, 
+    {
+        "pk": 137, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Thyolo", 
+            "value": "Thyolo"
+        }
+    }, 
+    {
+        "pk": 138, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Phalombe", 
+            "value": "Phalombe"
+        }
+    }, 
+    {
+        "pk": 139, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Zomba", 
+            "value": "Zomba"
+        }
+    }, 
+    {
+        "pk": 140, 
+        "model": "devices.district", 
+        "fields": {
+            "country": 5, 
+            "name": "Neno", 
+            "value": "Neno"
+        }
     },
     {
         "pk": 1, 
