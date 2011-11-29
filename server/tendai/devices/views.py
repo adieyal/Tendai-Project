@@ -40,18 +40,23 @@ def formList(request):
 
     active_forms = or_models.ORForm.objects.filter(active=True)
     country = None
-
+    
     if "deviceid" in request.GET:
         try:
             worker = models.CommunityWorker.objects.get(device__device_id=request.GET["deviceid"])
             if worker.country != None:
-                country_forms = active_forms.filter(countryform__countries=worker.country)
                 country = worker.country
         except models.CommunityWorker.DoesNotExist:
             pass
-        url = "http://" + request.get_host() + reverse("openrosa_dynamic_formxml", kwargs={"country_id" : country.id}) +"?formId="
-    else:
-        url = "http://" + request.get_host() + reverse("openrosa_formxml") +"?formId="
+    
+    if not country:
+        try:
+            country = models.Country.objects.get(id=1)
+        except models.Country.DoesNotExist:
+            raise Http404
+    
+    country_forms = active_forms.filter(countryform__countries=country)
+    url = "http://" + request.get_host() + reverse("openrosa_dynamic_formxml", kwargs={"country_id" : country.id}) +"?formId="
     context = Context({
         "country" : country,
         "forms" : country_forms,
