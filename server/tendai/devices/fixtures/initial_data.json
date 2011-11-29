@@ -1086,5 +1086,93 @@
         "fields": {
             "name": "Tanzania"
         }
+    },
+    {
+        "pk": 1, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "Botswana Pula", 
+            "value": "botswana_pula"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "Congolese Franc", 
+            "value": "congolese_franc"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "Lesotho Loti", 
+            "value": "lesotho_loti"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "Malawi Kwacha", 
+            "value": "malawi_kwacha"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "Mozambique Metical", 
+            "value": "mozambique_metical"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "South African Rand", 
+            "value": "south_african_rand"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "Tanzanian Shilling", 
+            "value": "tanzanian_shilling"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "US Dollar", 
+            "value": "us_dollar"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "Zambian Kwacha", 
+            "value": "zambian_kwacha"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "Euro", 
+            "value": "euro"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "devices.currency", 
+        "fields": {
+            "name": "Pound Sterling", 
+            "value": "pound_sterling"
+        }
     }
 ]

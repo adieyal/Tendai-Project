@@ -51,13 +51,15 @@ class DistrictAdmin(admin.ModelAdmin):
     list_display = ('name', 'value', 'country')
     list_filter = ('country',)
 
+class CurrencyAdmin(admin.ModelAdmin):
+    list_display = ('name', 'value',)
 
 admin.site.register(models.Country)
 admin.site.register(models.Organisation)
 admin.site.register(models.MedicineForm)
 admin.site.register(models.Medicine)
 admin.site.register(models.District, DistrictAdmin)
-admin.site.register(models.Currency)
+admin.site.register(models.Currency, CurrencyAdmin)
 admin.site.register(models.Language)
 admin.site.register(models.CommunityWorker, CommunityWorkerAdmin)
 admin.site.register(models.Device, DeviceAdmin)
