@@ -85,13 +85,13 @@ class Migration(SchemaMigration):
         'devices.medicine': {
             'Meta': {'unique_together': "(('name', 'form'),)", 'object_name': 'Medicine'},
             'countries': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['devices.Country']", 'symmetrical': 'False'}),
-            'form': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['devices.DosageForm']"}),
+            'form': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['devices.MedicineForm']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '60'}),
             'recommended_pack_size': ('django.db.models.fields.IntegerField', [], {})
         },
         'devices.medicineform': {
-            'Meta': {'object_name': 'DosageForm'},
+            'Meta': {'object_name': 'MedicineForm'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '30'})
         },
