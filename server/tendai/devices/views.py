@@ -16,10 +16,19 @@ import models
 def formXml(request, country_id):
     if request.method == "GET":
         form_id = request.GET["formId"]
-        orform = get_object_or_404(or_models.ORForm, form_id=form_id)
+        matching_forms = or_models.ORForm.objects.filter(form_id=form_id)
+        if matching_forms.count() == 0:
+            raise Http404
+
         country = models.Country.objects.get(id=country_id)
-        language = models.CountryForm.objects.get(form=orform, countries=country).language
+        country_forms = matching_forms.filter(countryform__countries=country)
+        if country_forms.count() != 1:
+            raise Exception("Cannot process more than one matching form per country")
+        orform = country_forms[0]
+
+        language = orform.countryform_set.all()[0].language
         template_name = os.path.join('surveys', orform.form_id + '.' + language.code + '.xml')
+
         try:
             template = get_template(template_name)
         except TemplateDoesNotExist:
