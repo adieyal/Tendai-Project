@@ -19,7 +19,7 @@ def formXml(request, country_id):
         orform = get_object_or_404(or_models.ORForm, form_id=form_id)
         country = models.Country.objects.get(id=country_id)
         language = models.CountryForm.objects.get(form=orform, country=country).language
-	template_name = os.path.join('surveys', orform.form_id + '.' + language.code + '.xml')
+        template_name = os.path.join('surveys', orform.form_id + '.' + language.code + '.xml')
         try:
             template = get_template(template_name)
         except TemplateDoesNotExist:
@@ -38,14 +38,14 @@ def formList(request):
     if request.method != "GET":
         raise Http404
 
-    forms = or_models.ORForm.objects.filter(active=True)
+    active_forms = or_models.ORForm.objects.filter(active=True)
     country = None
 
     if "deviceid" in request.GET:
         try:
             worker = models.CommunityWorker.objects.get(device__device_id=request.GET["deviceid"])
             if worker.country != None:
-                forms = forms.filter(Q(countryform__country=worker.country) | Q(countryform=None))
+                country_forms = active_forms.filter(Q(countryform__country=worker.country) | Q(countryform=None))
                 country = worker.country
         except models.CommunityWorker.DoesNotExist:
             pass
@@ -54,7 +54,7 @@ def formList(request):
         url = "http://" + request.get_host() + reverse("openrosa_formxml") +"?formId="
     context = Context({
         "country" : country,
-        "forms" : forms,
+        "forms" : country_forms,
         "url" : url,
     })
     template = Template("""
