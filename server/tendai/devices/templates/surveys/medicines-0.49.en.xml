@@ -162,6 +162,12 @@
           <text id="/data/tablet_pack_size:hint">
             <value></value>
           </text>
+          <text id="/data/unit_pack_size:label">
+            <value>How many units in a pack (pack size)?</value>
+          </text>
+          <text id="/data/unit_pack_size:hint">
+            <value></value>
+          </text>
           <text id="/data/vial_pack_size:label">
             <value>How many vials in a pack (pack size)?</value>
           </text>
