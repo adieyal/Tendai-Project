@@ -39,7 +39,7 @@ class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
         return self.device.device_id
 
 class CountryFormAdmin(admin.ModelAdmin):
-    list_display = ('country', 'form_name', 'form_version')
+    list_display = ('country', 'form_name', 'language', 'form_version')
 
     def form_name(self, country_form):
         return country_form.form.name
@@ -47,8 +47,14 @@ class CountryFormAdmin(admin.ModelAdmin):
     def form_version(self, country_form):
         return country_form.form.majorminorversion
 
+
 admin.site.register(models.Country)
 admin.site.register(models.Organisation)
+admin.site.register(models.MedicineForm)
+admin.site.register(models.Medicine)
+admin.site.register(models.District)
+admin.site.register(models.Currency)
+admin.site.register(models.Language)
 admin.site.register(models.CommunityWorker, CommunityWorkerAdmin)
 admin.site.register(models.Device, DeviceAdmin)
 admin.site.register(models.SubmissionWorkerDevice, SubmissionWorkerDeviceAdmin)

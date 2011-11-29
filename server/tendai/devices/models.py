@@ -18,6 +18,49 @@ class Organisation(models.Model):
     def __unicode__(self):
         return self.name
 
+class Language(models.Model):
+    name = models.CharField(max_length=30, verbose_name="Language")
+    code = models.CharField(max_length=2, verbose_name="ISO639-1 Code")
+    
+    def __unicode__(self):
+        return u"%s (%s)" % (self.name, self.code)
+
+class MedicineForm(models.Model):
+    name = models.CharField(max_length=30)
+    
+    def __unicode__(self):
+        return u"%s" % (self.name)
+
+class Medicine(models.Model):
+    name = models.CharField(max_length=60)
+    form = models.ForeignKey(MedicineForm)
+    recommended_pack_size = models.IntegerField()
+    countries = models.ManyToManyField(Country)
+    
+    def __unicode__(self):
+        return u"%s %s" % (self.name, self.form)
+    
+    class Meta:
+        unique_together = ('name', 'form',)
+
+class Currency(models.Model):
+    name = models.CharField(max_length=30)
+    value = models.CharField(max_length=30, blank=True, null=True)
+    
+    def __unicode__(self):
+        return u"%s" % (self.name)
+    
+    class Meta:
+        verbose_name_plural = "Currencies"
+
+class District(models.Model):
+    name = models.CharField(max_length=30)
+    value = models.CharField(max_length=30)
+    country = models.ForeignKey(Country)
+    
+    def __unicode__(self):
+        return u"%s, %s" % (self.name, self.country)
+
 class CommunityWorker(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -50,7 +93,11 @@ class SubmissionWorkerDevice(models.Model):
 
 class CountryForm(models.Model):
     country = models.ForeignKey(Country)
+    language = models.ForeignKey(Language)
     form = models.ForeignKey(ormodels.ORForm)
 
     def __unicode__(self):
         return unicode("%s %s" % (self.country, self.form), "utf-8")
+    
+    class Meta:
+        unique_together = ('country', 'form',)

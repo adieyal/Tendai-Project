@@ -5,30 +5,55 @@ from django.http import HttpResponse, Http404
 from django.core.urlresolvers import reverse
 from django.views.generic.simple import direct_to_template
 from django.shortcuts import get_object_or_404
-from django.template import Template, Context
+from django.template import Template, Context, TemplateDoesNotExist
+from django.template.loader import get_template
 from django.db.models import Q
 
 from openrosa import models as or_models
 from openrosa import forms
 import models
 
+def formXml(request, country_id):
+    if request.method == "GET":
+        form_id = request.GET["formId"]
+        orform = get_object_or_404(or_models.ORForm, form_id=form_id)
+        country = models.Country.objects.get(id=country_id)
+        language = models.CountryForm.objects.get(form=orform, country=country).language
+	template_name = os.path.join('surveys', orform.form_id + '.' + language.code + '.xml')
+        try:
+            template = get_template(template_name)
+        except TemplateDoesNotExist:
+            raise Http404
+        context = Context({
+            "country" : country,
+            "districts" : models.District.objects.filter(country=country).order_by('name'),
+            "medicines" : models.Medicine.objects.filter(countries=country).order_by('name'),
+            "currencies" : models.Currency.objects.all(),
+        })
+        response = HttpResponse(template.render(context), mimetype='text/xml; charset=utf-8')
+        return response
+    raise Http404
+
 def formList(request):
     if request.method != "GET":
         raise Http404
 
     forms = or_models.ORForm.objects.filter(active=True)
+    country = None
 
     if "deviceid" in request.GET:
         try:
             worker = models.CommunityWorker.objects.get(device__device_id=request.GET["deviceid"])
             if worker.country != None:
                 forms = forms.filter(Q(countryform__country=worker.country) | Q(countryform=None))
-
+                country = worker.country
         except models.CommunityWorker.DoesNotExist:
             pass
-        
-    url = "http://" + request.get_host() + reverse("openrosa_formxml") + "?formId="
+        url = "http://" + request.get_host() + reverse("openrosa_dynamic_formxml", kwargs={"country_id" : country.id}) +"?formId="
+    else:
+        url = "http://" + request.get_host() + reverse("openrosa_formxml") +"?formId="
     context = Context({
+        "country" : country,
         "forms" : forms,
         "url" : url,
     })
@@ -37,7 +62,7 @@ def formList(request):
         {% for form in forms %}
         <xform>
             <formID>{{ form.form_id }}</formID>
-            <name>{{ form.name }}</name> 
+            <name>{{ country.name}} {{ form.name }}</name> 
             <majorMinorVersion>{{ form.majorminorversion }}</majorMinorVersion> 
             <descriptionText>{{ form.description }}</descriptionText> 
             <downloadUrl>{{ url }}{{ form.form_id }}</downloadUrl>
