@@ -1006,5 +1006,85 @@
             "name": "Zululand", 
             "value": "DC26"
         }
+    },
+    {
+        "pk": 1, 
+        "model": "devices.language", 
+        "fields": {
+            "code": "en", 
+            "name": "English"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "devices.language", 
+        "fields": {
+            "code": "fr", 
+            "name": "French"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "devices.language", 
+        "fields": {
+            "code": "pt", 
+            "name": "Portuguese"
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "devices.country", 
+        "fields": {
+            "name": "South Africa"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "devices.country", 
+        "fields": {
+            "name": "Lesotho"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "devices.country", 
+        "fields": {
+            "name": "Zimbabwe"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "devices.country", 
+        "fields": {
+            "name": "Mozambique"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "devices.country", 
+        "fields": {
+            "name": "Malawi"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "devices.country", 
+        "fields": {
+            "name": "Zambia"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "devices.country", 
+        "fields": {
+            "name": "DRC"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "devices.country", 
+        "fields": {
+            "name": "Tanzania"
+        }
     }
 ]
