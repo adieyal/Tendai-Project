@@ -8,12 +8,12 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         
-        # Adding model 'MedicineForm'
+        # Adding model 'DosageForm'
         db.create_table('devices_medicineform', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=30)),
         ))
-        db.send_create_signal('devices', ['MedicineForm'])
+        db.send_create_signal('devices', ['DosageForm'])
 
         # Adding model 'Currency'
         db.create_table('devices_currency', (
@@ -27,7 +27,7 @@ class Migration(SchemaMigration):
         db.create_table('devices_medicine', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=60)),
-            ('form', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['devices.MedicineForm'])),
+            ('form', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['devices.DosageForm'])),
             ('recommended_pack_size', self.gf('django.db.models.fields.IntegerField')()),
         ))
         db.send_create_signal('devices', ['Medicine'])
@@ -75,7 +75,7 @@ class Migration(SchemaMigration):
         # Removing unique constraint on 'Medicine', fields ['name', 'form']
         db.delete_unique('devices_medicine', ['name', 'form_id'])
 
-        # Deleting model 'MedicineForm'
+        # Deleting model 'DosageForm'
         db.delete_table('devices_medicineform')
 
         # Deleting model 'Currency'
@@ -147,13 +147,13 @@ class Migration(SchemaMigration):
         'devices.medicine': {
             'Meta': {'unique_together': "(('name', 'form'),)", 'object_name': 'Medicine'},
             'countries': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['devices.Country']", 'symmetrical': 'False'}),
-            'form': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['devices.MedicineForm']"}),
+            'form': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['devices.DosageForm']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '60'}),
             'recommended_pack_size': ('django.db.models.fields.IntegerField', [], {})
         },
         'devices.medicineform': {
-            'Meta': {'object_name': 'MedicineForm'},
+            'Meta': {'object_name': 'DosageForm'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '30'})
         },

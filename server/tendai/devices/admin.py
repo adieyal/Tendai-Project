@@ -56,7 +56,7 @@ class CurrencyAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Country)
 admin.site.register(models.Organisation)
-admin.site.register(models.MedicineForm)
+admin.site.register(models.DosageForm)
 admin.site.register(models.Medicine)
 admin.site.register(models.District, DistrictAdmin)
 admin.site.register(models.Currency, CurrencyAdmin)

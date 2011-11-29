@@ -30,7 +30,7 @@ class Language(models.Model):
     def __unicode__(self):
         return u"%s (%s)" % (self.name, self.code)
 
-class MedicineForm(models.Model):
+class DosageForm(models.Model):
     name = models.CharField(max_length=30)
     
     def __unicode__(self):
@@ -38,7 +38,7 @@ class MedicineForm(models.Model):
 
 class Medicine(models.Model):
     name = models.CharField(max_length=60)
-    form = models.ForeignKey(MedicineForm)
+    form = models.ForeignKey(DosageForm)
     countries = models.ManyToManyField(Country)
     
     def __unicode__(self):
