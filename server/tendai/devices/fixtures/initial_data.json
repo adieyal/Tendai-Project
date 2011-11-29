@@ -1426,5 +1426,41 @@
             "name": "Pound Sterling", 
             "value": "pound_sterling"
         }
+    },
+{
+        "pk": 1, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "name": "tablet"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "name": "bottle"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "name": "vial"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "name": "ampoule"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "name": "unit"
+        }
     }
 ]
+
