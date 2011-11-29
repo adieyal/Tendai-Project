@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<h:html xmlns:h="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Tendai Interview</h:title>
+    <model>
+      <instance>
+        <data id="data">
+          <form_version>0.9</form_version>
+
+          <start_time/>
+          <end_time/>
+          <survey_date/>
+          <device_id/>
+          <subscriber_id/>
+          <sim_id/>
+          <phone_number/>
+
+          <A12/>
+          <A01/>
+          <A02/>
+          <A03/>
+          <A13/>
+          <A04/>
+          <A05/>
+          <A06/>
+          <A08/>
+          <A09/>
+          <A10/>
+          <A14/>
+          <A11/>
+        </data>
+      </instance>
+
+      <bind nodeset="/data/start_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="start"/> 
+      <bind nodeset="/data/end_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="end"/> 
+      <bind nodeset="/data/survey_date" type="date" jr:preload="today" jr:preloadParams="end"/> 
+      <bind nodeset="/data/device_id" type="string" jr:preload="property" jr:preloadParams="deviceid"/> 
+      <bind nodeset="/data/subscriber_id" type="string" jr:preload="property" jr:preloadParams="subscriberid"/> 
+      <bind nodeset="/data/sim_id" type="string" jr:preload="property" jr:preloadParams="simserial"/>
+      <bind nodeset="/data/phone_number" type="string" jr:preload="property" jr:preloadParams="phonenumber"/>
+
+      <bind id="A12" nodeset="/data/A12" type="xsd:string" readonly="true()"/>
+      <bind id="A01" nodeset="/data/A01" format="audio" type="binary"/>
+      <bind id="A02" nodeset="/data/A02" format="audio" type="binary"/>
+      <bind id="A03" nodeset="/data/A03" format="audio" type="binary"/>
+      <bind id="A13" nodeset="/data/A13" format="audio" type="binary"/>
+      <bind id="A04" nodeset="/data/A04" format="audio" type="binary"/>
+      <bind id="A05" nodeset="/data/A05" format="audio" type="binary"/>
+      <bind id="A06" nodeset="/data/A06" format="audio" type="binary"/>
+      <bind id="A08" nodeset="/data/A08" format="audio" type="binary"/>
+      <bind id="A09" nodeset="/data/A09" format="audio" type="binary"/>
+      <bind id="A10" nodeset="/data/A10" format="audio" type="binary"/>
+      <bind id="A11" nodeset="/data/A11" format="image" type="binary"/>
+      <bind id="A14" nodeset="/data/A14" format="image" type="binary"/>
+      <itext>
+        <translation lang="English">
+          <text id="A12">
+            <value>You are about to conduct a community interview. The purpose of this interview to collect stories about the community's experiences access medicines.</value>
+          </text>
+          <text id="A12-hint">
+            <value>In the following screens, you will be presented with a list of prompts for conducting an interview. Not all of the questions need to be answered. 
+
+Also, please try to limit the entire recorded interview to approximately 5 minutes. 
+
+It is suggested that you have an informal conversation with the respondent before attempting this interview. This will give you an idea of the story this person has to tell and will allow you to focus the interview on the story. 
+
+When recording the respondent's responses, please ensure that the phone is close to their mouth so that the sound can recorded clearly.</value>
+          </text>
+          <text id="A01">
+            <value>What is the respondent's name?</value>
+          </text>
+          <text id="A02">
+            <value>Why have you visited the facility today? </value>
+          </text>
+          <text id="A03">
+            <value>How long did the journey to the facility take?</value>
+          </text>
+          <text id="A05">
+            <value>What would you say are the major problem illnesses in your community?</value>
+          </text>
+          <text id="A13">
+            <value>What are the major difficulties that you experience with regards to your health situation?</value>
+          </text>
+          <text id="A04">
+            <value>What has your experience been of this facility in meeting your needs, including how you think this could be improved?</value>
+          </text>
+          <text id="A06">
+            <value>Are medicines generally available at local health facilities? If not, what do you think could be done to improve this?</value>
+          </text>
+          <text id="A08">
+            <value>What was your experience of getting medicines the last time either yourself or a member of your family was sick?</value>
+          </text>
+          <text id="A09">
+            <value>Do you think the medicines available at this health facility are affordable? If not, then please elaborate with examples.</value>
+          </text>
+          <text id="A10">
+            <value>What costs do you incur when coming to this facility for medicines?</value>
+          </text>
+          <text id="A14">
+            <value>Is there anything else that you want to share that has not been covered in the above questions?</value>
+          </text>
+          <text id="A11">
+            <value>Take a picture of the respondent with their consent.</value>
+          </text>
+        </translation>
+      </itext>
+    </model>
+  </h:head>
+  <h:body>
+    <input bind="A12">
+      <label ref="jr:itext('A12')"/>
+      <hint ref="jr:itext('A12-hint')"/>
+    </input>
+    <upload bind="A01" mediatype="audio/*">
+      <label ref="jr:itext('A01')"/>
+    </upload>
+    <upload bind="A02" mediatype="audio/*">
+      <label ref="jr:itext('A02')"/>
+    </upload>
+    <upload bind="A03" mediatype="audio/*">
+      <label ref="jr:itext('A03')"/>
+    </upload>
+    <upload bind="A05" mediatype="audio/*">
+      <label ref="jr:itext('A05')"/>
+    </upload>
+    <upload bind="A13" mediatype="audio/*">
+      <label ref="jr:itext('A13')"/>
+    </upload>
+    <upload bind="A04" mediatype="audio/*">
+      <label ref="jr:itext('A04')"/>
+    </upload>
+    <upload bind="A06" mediatype="audio/*">
+      <label ref="jr:itext('A06')"/>
+    </upload>
+    <upload bind="A08" mediatype="audio/*">
+      <label ref="jr:itext('A08')"/>
+    </upload>
+    <upload bind="A09" mediatype="audio/*">
+      <label ref="jr:itext('A09')"/>
+    </upload>
+    <upload bind="A10" mediatype="audio/*">
+      <label ref="jr:itext('A10')"/>
+    </upload>
+    <upload bind="A14" mediatype="audio/*">
+      <label ref="jr:itext('A14')"/>
+    </upload>
+    <upload bind="A11" mediatype="image/*">
+      <label ref="jr:itext('A11')"/>
+    </upload>
+  </h:body>
+</h:html>
+
