@@ -3,9 +3,14 @@ from django.core.urlresolvers import reverse
 
 from openrosa import models as ormodels
 
-class Country(models.Model):
-    name = models.CharField(max_length=30)
+class CountryManager(models.Manager):
+    def get_default(self):
+        return super(CountryManager, self).get_query_set().all()[0]
 
+class Country(models.Model):
+    objects = CountryManager()
+    name = models.CharField(max_length=30)    
+    
     def __unicode__(self):
         return self.name
 
