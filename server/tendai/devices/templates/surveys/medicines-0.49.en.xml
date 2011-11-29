@@ -198,6 +198,12 @@
           <text id="/data/tablet_medicine_price_qty:hint">
             <value>This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank.</value>
           </text>
+          <text id="/data/unit_medicine_price_qty:label">
+            <value>How many units does the price mentioned above buy?</value>
+          </text>
+          <text id="/data/unit_medicine_price_qty:hint">
+            <value>This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank.</value>
+          </text>
           <text id="/data/vial_medicine_price_qty:label">
             <value>How many vials does the price mentioned above buy?</value>
           </text>
