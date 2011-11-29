@@ -51,7 +51,7 @@ def formList(request):
     
     if not country:
         try:
-            country = models.Country.objects.get(id=1)
+            country = models.Country.objects.get_default()
         except models.Country.DoesNotExist:
             raise Http404
     
