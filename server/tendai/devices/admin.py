@@ -54,10 +54,19 @@ class DistrictAdmin(admin.ModelAdmin):
 class CurrencyAdmin(admin.ModelAdmin):
     list_display = ('name', 'value',)
 
+class MedicineAdmin(admin.ModelAdmin):
+    list_display = ('name', 'form', 'medicine_countries')
+    list_filter = ('countries',)
+    ordering = ("name",)
+
+    def medicine_countries(self, model):
+        countries = model.countries.order_by("name")
+        return ", ".join(country.name for country in countries)
+
 admin.site.register(models.Country)
 admin.site.register(models.Organisation)
 admin.site.register(models.DosageForm)
-admin.site.register(models.Medicine)
+admin.site.register(models.Medicine, MedicineAdmin)
 admin.site.register(models.District, DistrictAdmin)
 admin.site.register(models.Currency, CurrencyAdmin)
 admin.site.register(models.Language)
