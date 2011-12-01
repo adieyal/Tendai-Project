@@ -4,7 +4,7 @@
     <h:title>Tendai Interview</h:title>
     <model>
       <instance>
-        <data id="data">
+        <data id="tendai-interview-0.9">
           <form_version>0.9</form_version>
 
           <start_time/>

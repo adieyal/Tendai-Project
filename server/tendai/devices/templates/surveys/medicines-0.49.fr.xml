@@ -4,7 +4,7 @@
     <h:title>{{ country.name }} Medicines</h:title>
     <model>
       <instance>
-        <data id="{{ country.name|slugify }}-medicines-0.49">
+        <data id="medicines-0.49">
           <form_version>0.49</form_version>
 
           <start_time></start_time>
