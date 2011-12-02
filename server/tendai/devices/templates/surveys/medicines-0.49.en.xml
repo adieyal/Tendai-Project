@@ -23,8 +23,8 @@
           </section_general>
           <section_stocked>
 	    {% for medicine in medicines %}
-	    <{{ medicine.name|slugify }}-{{ medicine.form|slugify }} />
-	    <{{ medicine.name|slugify }}-{{ medicine.form|slugify }}_comments />
+            <{{ medicine.name|slugify }}-{{ medicine.form|slugify }} />
+            <{{ medicine.name|slugify }}-{{ medicine.form|slugify }}_comments />
 	    {% endfor %}
           </section_stocked>
 
