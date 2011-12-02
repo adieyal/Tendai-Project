@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>{{ country.name }} Medicines</h:title>
+    <model>
+      <instance>
+        <data id="medicines-0.50">
+          <form_version>0.50</form_version>
+
+          <start_time></start_time>
+          <end_time></end_time>
+          <survey_date></survey_date>
+          <device_id></device_id>
+          <subscriber_id></subscriber_id>
+          <sim_id></sim_id>
+          <phone_number></phone_number>
+
+          <section_general>
+            <facility_name></facility_name>
+            <gps></gps>
+            <staff_name></staff_name>
+            <respondent_position></respondent_position>
+          </section_general>
+          <section_stocked>
+	    {% for medicine in medicines %}
+            <{{ medicine.name|slugify }}-{{ medicine.form|slugify }} />
+            <{{ medicine.name|slugify }}-{{ medicine.form|slugify }}_comments />
+	    {% endfor %}
+          </section_stocked>
+
+	  {% for medicine in medicines %}
+          <medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}>
+            <cheapest_product />
+            <label_cheapest_product />
+            <label_pack_definition />
+            <pack_size />
+            <medicine_price />
+            <medicine_price_qty />
+            <label_pack_size />
+            <currency>Select currency</currency>
+            <price_comments />
+            <photo />
+            <medicine_available />
+            <packs_available />
+            <stockout_duration />
+            <restock_date />
+            <restock_ordered />
+            <last_restock_date />
+            <last_restock_amount />
+            <availability_comments />
+          </medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}>
+	  {% endfor %}
+
+        </data>
+      </instance>
+      <itext>
+        <translation lang="eng">
+          <text id="/data/section_general:label">
+            <value>General Information</value>
+          </text>
+          <text id="/data/section_general/facility_name:label">
+            <value>Name of facility</value>
+          </text>
+          <text id="/data/section_general/facility_name:hint">
+            <value></value>
+          </text>
+          <text id="/data/section_general/gps:label">
+            <value>GPS Location</value>
+          </text>
+          <text id="/data/section_general/gps:hint">
+            <value>Please ensure that you capture the GPS location at the facility</value>
+          </text>
+          <text id="/data/section_general/staff_name:label">
+            <value>Name of staff member completing this survey</value>
+          </text>
+          <text id="/data/section_general/staff_name:hint">
+            <value>This should ideally be the clinic manager or someone given the authority by the clinic manager with the necessary expertise and knowledge </value>
+          </text>
+          <text id="/data/section_general/respondent_position:label">
+            <value>Position of Respondent</value>
+          </text>
+          <text id="/data/section_general/respondent_position:hint">
+            <value>e.g. facility manager, staff nurse, etc</value>
+          </text>
+
+          <text id="/data/section_stocked:label">
+            <value>Please indicate whether the following medicines are usually stocked at this facility.</value>
+          </text>
+          <text id="/data/section_stocked/stocked:hint">
+            <value>Not stocked means that this facility does not usually carry this medicine.</value>
+          </text>
+          <text id="/data/section_stocked/stocked_comments:label">
+            <value>Please provide any additional comments below.</value>
+          </text>
+          <text id="/data/section_stocked/stocked_comments:hint">
+            <value>If not necessary then leave blank.</value>
+          </text>
+
+	  {% for medicine in medicines %}
+          <text id="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}:label">
+            <value>Are {{ medicine.name }} {{ medicine.form }}s stocked at this facility?</value>
+          </text>
+	  {% endfor %}
+
+          <text id="/data/section_stocked/medicine_stocked:blank">
+            <value>Select option</value>
+          </text>
+          <text id="/data/section_stocked/medicine_stocked:option0">
+            <value>Don't know</value>
+          </text>
+          <text id="/data/section_stocked/medicine_stocked:option1">
+            <value>Yes</value>
+          </text>
+          <text id="/data/section_stocked/medicine_stocked:option2">
+            <value>No</value>
+          </text>
+
+	  {% for medicine in medicines %}
+          <text id="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}:label">
+            <value>{{ medicine.name }} {{ medicine.form }}s</value>
+          </text>
+	  {% endfor %}
+
+          <text id="/data/cheapest_tablet_product:label">
+            <value>Name of the cheapest product available.</value>
+          </text>
+          <text id="/data/cheapest_tablet_product:hint">
+            <value>Provide the product name of the cheapest product available for this medicine?</value>
+          </text>
+          <text id="/data/cheapest_vial_product:label">
+            <value>Name of cheapest product available.</value>
+          </text>
+          <text id="/data/cheapest_vial_product:hint">
+            <value>Divide price of pack by the number of vials in the pack to determine price per vial. If multiple products have the cheapest price, choose one.</value>
+          </text>
+          <text id="/data/cheapest_ampoule_product:label">
+            <value>Name of cheapest product available.</value>
+          </text>
+          <text id="/data/cheapest_ampoule_product:hint">
+            <value>Divide price of pack by the number of ampoules in the pack to determine price per ampoule. If multiple products have the cheapest price, choose one.</value>
+          </text>
+          <text id="/data/cheapest_bottle_product:label">
+            <value>Name of cheapest product available.</value>
+          </text>
+          <text id="/data/cheapest_bottle_product:hint">
+            <value>Divide the price of a bottle by the size (in ml) to determine price per ml. If multiple products have the cheapest price, choose one.</value>
+          </text>
+          <text id="/data/label_cheapest_product:label">
+            <value>Please answer the questions below with reference to the cheapest product mentioned above.</value>
+          </text>
+          <text id="/data/label_cheapest_product:hint">
+            <value></value>
+          </text>
+          <text id="/data/label_pack_size:label">
+            <value>The value above is called the pack size. For the remaining questions on this page, please use this value for the pack size.</value>
+          </text>
+          <text id="/data/label_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/tabletcapsule_pack_definition:label">
+            <value>For this medicine a pack is defined as a bottle, box, blister pack or equivalent</value>
+          </text>
+          <text id="/data/tabletcapsule_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/tabletcapsule_pack_size:label">
+            <value>How many tablets/capsules in a pack (pack size)?</value>
+          </text>
+          <text id="/data/unit_pack_definition:label">
+            <value></value>
+          </text>
+          <text id="/data/unit_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/tabletcapsule_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/unit_pack_size:label">
+            <value>How many units in a pack (pack size)?</value>
+          </text>
+          <text id="/data/unit_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/inhaler_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single inhaler.</value>
+          </text>
+          <text id="/data/inhaler_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/inhaler_pack_size:label">
+            <value>How many doses in an inhaler (pack size)?</value>
+          </text>
+          <text id="/data/inhaler_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/injection_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single vial.</value>
+          </text>
+          <text id="/data/injection_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/injection_pack_size:label">
+            <value>How many ml in a vial (pack size)?</value>
+          </text>
+          <text id="/data/injection_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/powder_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single vial.</value>
+          </text>
+          <text id="/data/powder_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/powder_pack_size:label">
+            <value>How many grams in a vial (pack size)?</value>
+          </text>
+          <text id="/data/powder_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/vial_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single vial.</value>
+          </text>
+          <text id="/data/vial_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/vial_pack_size:label">
+            <value>How many vials in a pack (pack size)?</value>
+          </text>
+          <text id="/data/vial_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/ampoule_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single ampoule.</value>
+          </text>
+          <text id="/data/ampoule_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/ampoule_pack_size:label">
+            <value>How many ampoules in a pack (pack size)?</value>
+          </text>
+          <text id="/data/ampoule_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/bottle_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single bottle.</value>
+          </text>
+          <text id="/data/bottle_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/bottle_pack_size:label">
+            <value>How big is the bottle (in ml)?</value>
+          </text>
+          <text id="/data/bottle_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/medicine_price:label">
+            <value>What is the price paid by the patient?</value>
+          </text>
+          <text id="/data/medicine_price:hint">
+            <value>If the medicine is free, please enter 0.</value>
+          </text>
+          <text id="/data/tabletcapsule_medicine_price_qty:label">
+            <value>How many tablets/capsules does the price mentioned above buy?</value>
+          </text>
+          <text id="/data/tabletcapsule_medicine_price_qty:hint">
+            <value>This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/unit_medicine_price_qty:label">
+            <value>How many units does the price mentioned above buy?</value>
+          </text>
+          <text id="/data/unit_medicine_price_qty:hint">
+            <value>This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/inhaler_medicine_price_qty:label">
+            <value>Leave this question blank</value>
+          </text>
+          <text id="/data/inhaler_medicine_price_qty:hint">
+            <value></value>
+          </text>
+          <text id="/data/injection_medicine_price_qty:label">
+            <value>How many vials does the patient receive for the price above?</value>
+          </text>
+          <text id="/data/injection_medicine_price_qty:hint">
+            <value></value>
+          </text>
+          <text id="/data/powder_medicine_price_qty:label">
+            <value>How many vials does the patient receive for the price above?</value>
+          </text>
+          <text id="/data/powder_medicine_price_qty:hint">
+            <value></value>
+          </text>
+          <text id="/data/vial_medicine_price_qty:label">
+            <value>How many vials does the price mentioned above buy?</value>
+          </text>
+          <text id="/data/vial_medicine_price_qty:hint">
+            <value>If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/ampoule_medicine_price_qty:label">
+            <value>How many ampoules does the price mentioned above buy?</value>
+          </text>
+          <text id="/data/ampoule_medicine_price_qty:hint">
+            <value>If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/bottle_medicine_price_qty:label">
+            <value>How large is the bottle (in ml) for the product mentioned above?</value>
+          </text>
+          <text id="/data/bottle_medicine_price_qty:hint">
+            <value>If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/currency:label">
+            <value>What currency is this price in?</value>
+          </text>
+          <text id="/data/currency:hint">
+            <value>This should indicate the currency of the price quoted above.</value>
+          </text>
+          <text id="/data/currency:blank">
+            <value>Select Currency</value>
+          </text>
+	  {% for currency in currencies %}
+          <text id="/data/currency:option{{ forloop.counter0 }}">
+            <value>{{ currency.name }}</value>
+          </text>
+	  {% endfor %}
+
+          <text id="/data/price_comments:label">
+            <value>Please provide any additional comments about price not covered in the questions above.</value>
+          </text>
+          <text id="/data/price_comments:hint">
+            <value></value>
+          </text>
+          <text id="/data/photo:label">
+            <value>Please take a photo of the pack.</value>
+          </text>
+          <text id="/data/photo:hint">
+            <value>Please ensure that the label is clearly visible.</value>
+          </text>
+          <text id="/data/medicine_available:label">
+            <value>Is this medicine currently in stock?</value>
+          </text>
+          <text id="/data/medicine_available:hint">
+            <value>This applies only to the specified pack size.</value>
+          </text>
+          <text id="/data/medicine_available:option0">
+            <value>Not Stocked</value>
+          </text>
+          <text id="/data/medicine_available:option1">
+            <value>No</value>
+          </text>
+          <text id="/data/medicine_available:option2">
+            <value>Yes</value>
+          </text>
+          <text id="/data/packs_available:label">
+            <value>If the medicine is in stock, how many full packs are currently in stock?</value>
+          </text>
+          <text id="/data/packs_available:hint">
+            <value>Enter 0 if the medicine is out of stock.</value>
+          </text>
+          <text id="/data/stockout_duration:label">
+            <value>If the medicine is out of stock, how long has it been unavailable?</value>
+          </text>
+          <text id="/data/stockout_duration:hint">
+            <value></value>
+          </text>
+          <text id="/data/duration:blank">
+            <value>Select period</value>
+          </text>
+          <text id="/data/duration:option0">
+            <value>1-3 days</value>
+          </text>
+          <text id="/data/duration:option1">
+            <value>4-7 days</value>
+          </text>
+          <text id="/data/duration:option1b">
+            <value>1-2 weeks</value>
+          </text>
+          <text id="/data/duration:option2">
+            <value>2-3 weeks</value>
+          </text>
+          <text id="/data/duration:option3">
+            <value>3-4 weeks</value>
+          </text>
+          <text id="/data/duration:option4">
+            <value>1-2 months</value>
+          </text>
+          <text id="/data/duration:option5">
+            <value>2-3 months</value>
+          </text>
+          <text id="/data/duration:option6">
+            <value>More than 3 months</value>
+          </text>
+          <text id="/data/duration:option7">
+            <value>Unknown</value>
+          </text>
+          <text id="/data/restock_date:label">
+            <value>How long will it be until the facility receives more stock of this medicine?</value>
+          </text>
+          <text id="/data/restock_date:hint">
+            <value></value>
+          </text>
+          <text id="/data/restock_ordered:label">
+            <value>How many packs have been ordered for the next restock of this facility?</value>
+          </text>
+          <text id="/data/restock_ordered:hint">
+            <value>If this is unknown, please enter in 8888. If more stock has not yet been ordered, please enter in 9999.</value>
+          </text>
+          <text id="/data/last_restock_date:label">
+            <value>How long has it been since the last time this facility received stock of this medicine?</value>
+          </text>
+          <text id="/data/last_restock_date:hint">
+            <value></value>
+          </text>
+          <text id="/data/last_restock_amount:label">
+            <value>How many packs of this medicine did you receive at your last restock?</value>
+          </text>
+          <text id="/data/last_restock_amount:hint">
+            <value>If this is unknown, enter 8888</value>
+          </text>
+          <text id="/data/availability_comments:label">
+            <value>Please provide any additional comments about availability or restocking not covered in the questions above.</value>
+          </text>
+          <text id="/data/availability_comments:hint">
+            <value>For instance, if medicine in this pack size is out of stock but different pack sizes are available, please mention this here.</value>
+          </text>
+        </translation>
+      </itext>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/data/start_time" type="dateTime"/> 
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/data/end_time" type="dateTime"/> 
+      <!-- <bind jr:preload="today" jr:preloadParams="end" nodeset="/data/survey_date" type="date"/> --> 
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/data/device_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/data/subscriber_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/data/sim_id" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/data/phone_number" type="string"/>
+
+      <bind constraint=". != ''" jr:constraintMsg="Facility name required" nodeset="/data/section_general/facility_name" required="true()" type="string"/>
+      <bind nodeset="/data/section_general/gps" required="true()" type="geopoint"/>
+      <bind constraint=". != ''" jr:constraintMsg="Please enter in the name of the respondent" nodeset="/data/section_general/staff_name" required="true()" type="string"/>
+      <bind nodeset="/data/section_general/respondent_position" type="string"/>
+
+      {% for medicine in medicines %}
+      <bind constraint=". != 'not_selected'" jr:constraintMsg="For each medicine, please answer whether it is stocked or not" nodeset="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}" required="true()" type="select1"/>
+      <bind nodeset="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}_comments" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}" relevant="selected(/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}, 'yes')" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/cheapest_product" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_cheapest_product" readonly="true()" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_definition" readonly="true()" type="string"/>
+      <bind constraint=". != -999" jr:constraintMsg="Pack size required" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size" required="true()" type="int"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_size" readonly="true()" type="string"/>
+      <bind constraint=". != -999" jr:constraintMsg="Medicine price required" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price" required="true()" type="decimal"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price_qty" type="int"/>
+      <bind constraint=". != 'blank_currency'" jr:constraintMsg="Please select currency" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/currency" required="true()" type="select1"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/price_comments" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/photo" type="binary"/>
+      <bind constraint=". != ''" jr:constraintMsg="Please indicate whether this medicine is available" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_available" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="Packs available required" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/packs_available" required="true()" type="int"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/stockout_duration" type="select1"/>
+      <bind constraint=". != 'blank_period'" jr:constraintMsg="Please select the next restock date" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/restock_date" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="Please fill in the number of stock ordered" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/restock_ordered" required="true()" type="int"/>
+      <bind constraint=". != 'blank_period'" jr:constraintMsg="Please select the last restock date" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/last_restock_date" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="Please indicate the number of packs received at the last restock" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/last_restock_amount" required="true()" type="int"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/availability_comments" type="string"/>
+      {% endfor %}
+
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/section_general:label')"/>
+      <input ref="/data/section_general/facility_name">
+        <label ref="jr:itext('/data/section_general/facility_name:label')"/>
+        <hint ref="jr:itext('/data/section_general/facility_name:hint')"/>
+      </input>
+      <input ref="/data/section_general/gps">
+        <label ref="jr:itext('/data/section_general/gps:label')"/>
+        <hint ref="jr:itext('/data/section_general/gps:hint')"/>
+      </input>
+      <input ref="/data/section_general/staff_name">
+        <label ref="jr:itext('/data/section_general/staff_name:label')"/>
+        <hint ref="jr:itext('/data/section_general/staff_name:hint')"/>
+      </input>
+      <input ref="/data/section_general/respondent_position">
+        <label ref="jr:itext('/data/section_general/respondent_position:label')"/>
+        <hint ref="jr:itext('/data/section_general/respondent_position:hint')"/>
+      </input>
+    </group>
+
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/section_stocked:label')"/>
+
+      {% for medicine in medicines %}
+      <select1 appearance="minimal" ref="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}">
+        <label ref="jr:itext('/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}:label')"/>
+        <hint ref="jr:itext('/data/section_stocked/stocked:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/section_stocked/medicine_stocked:blank')"/>
+          <value>not_selected</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_stocked/medicine_stocked:option0')"/>
+          <value>dont_know</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_stocked/medicine_stocked:option1')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/section_stocked/medicine_stocked:option2')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}_comments">
+        <label ref="jr:itext('/data/section_stocked/stocked_comments:label')"/>
+        <hint ref="jr:itext('/data/section_stocked/stocked_comments:hint')"/>
+      </input>
+      {% endfor %}
+    </group>
+      
+    {% for medicine in medicines %}
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}:label')"/>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/cheapest_product">
+        <label ref="jr:itext('/data/cheapest_tablet_product:label')"/>
+        <hint ref="jr:itext('/data/cheapest_tablet_product:hint')"/>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_cheapest_product">
+        <label ref="jr:itext('/data/label_cheapest_product:label')"/>
+        <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_definition">
+        <label ref="jr:itext('/data/{{ medicine.form|slugify }}_pack_definition:label')"/>
+        <hint ref="jr:itext('/data/{{ medicine.form|slugify }}_pack_definition:hint')"/>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size">
+        <label ref="jr:itext('/data/{{ medicine.form|slugify }}_pack_size:label')"/>
+        <hint ref="jr:itext('/data/{{ medicine.form|slugify }}_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_size">
+        <label ref="jr:itext('/data/label_pack_size:label')"/>
+        <hint ref="jr:itext('/data/label_pack_size:hint')"/>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price">
+        <label ref="jr:itext('/data/medicine_price:label')"/>
+        <hint ref="jr:itext('/data/medicine_price:hint')"/>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price_qty">
+        <label ref="jr:itext('/data/{{ medicine.form|slugify }}_medicine_price_qty:label')"/>
+        <hint ref="jr:itext('/data/{{ medicine.form|slugify }}_medicine_price_qty:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/currency">
+        <label ref="jr:itext('/data/currency:label')"/>
+        <hint ref="jr:itext('/data/currency:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/currency:blank')"/>
+          <value>not_selected</value>
+        </item>
+	{% for currency in currencies %}
+        <item>
+          <label ref="jr:itext('/data/currency:option{{ forloop.counter0 }}')"/>
+          <value>{{ currency.name|slugify }}</value>
+        </item>
+	{% endfor %}
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/price_comments">
+        <label ref="jr:itext('/data/price_comments:label')"/>
+        <hint ref="jr:itext('/data/price_comments:hint')"/>
+      </input>
+      <upload mediatype="image/*" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/photo">
+        <label ref="jr:itext('/data/photo:label')"/>
+        <hint ref="jr:itext('/data/photo:hint')"/>
+      </upload>
+      <select1 ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_available">
+        <label ref="jr:itext('/data/medicine_available:label')"/>
+        <hint ref="jr:itext('/data/medicine_available:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option1')"/>
+          <value>No</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/medicine_available:option2')"/>
+          <value>Yes</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/packs_available">
+        <label ref="jr:itext('/data/packs_available:label')"/>
+        <hint ref="jr:itext('/data/packs_available:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/stockout_duration">
+        <label ref="jr:itext('/data/stockout_duration:label')"/>
+        <hint ref="jr:itext('/data/stockout_duration:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/duration:blank')"/>
+          <value>blank_period</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option0')"/>
+          <value>1-3_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1')"/>
+          <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option2')"/>
+          <value>2-3_weeks</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option3')"/>
+          <value>3-4_weeks</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option4')"/>
+          <value>1-2_months</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option5')"/>
+          <value>2-3_months</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option6')"/>
+          <value>more_than_3_months</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option7')"/>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/restock_date">
+        <label ref="jr:itext('/data/restock_date:label')"/>
+        <hint ref="jr:itext('/data/restock_date:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/duration:blank')"/>
+          <value>blank_period</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option0')"/>
+          <value>1-3_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1')"/>
+          <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option2')"/>
+          <value>2-3_weeks</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option3')"/>
+          <value>3-4_weeks</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option4')"/>
+          <value>1-2_months</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option5')"/>
+          <value>2-3_months</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option6')"/>
+          <value>more_than_3_months</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option7')"/>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/restock_ordered">
+        <label ref="jr:itext('/data/restock_ordered:label')"/>
+        <hint ref="jr:itext('/data/restock_ordered:hint')"/>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/last_restock_date">
+        <label ref="jr:itext('/data/last_restock_date:label')"/>
+        <hint ref="jr:itext('/data/last_restock_date:hint')"/>
+        <item>
+          <label ref="jr:itext('/data/duration:blank')"/>
+          <value>blank_period</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option0')"/>
+          <value>1-3_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1')"/>
+          <value>4-7_days</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option1b')"/>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option2')"/>
+          <value>2-3_weeks</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option3')"/>
+          <value>3-4_weeks</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option4')"/>
+          <value>1-2_months</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option5')"/>
+          <value>2-3_months</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option6')"/>
+          <value>more_than_3_months</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/duration:option7')"/>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/last_restock_amount">
+        <label ref="jr:itext('/data/last_restock_amount:label')"/>
+        <hint ref="jr:itext('/data/last_restock_amount:hint')"/>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/availability_comments">
+        <label ref="jr:itext('/data/availability_comments:label')"/>
+        <hint ref="jr:itext('/data/availability_comments:hint')"/>
+      </input>
+    </group>
+    {% endfor %}
+
+  </h:body>
+</h:html>
