@@ -4,8 +4,8 @@
     <h:title>{{ country.name }} Medicines</h:title>
     <model>
       <instance>
-        <data id="medicines-0.49">
-          <form_version>0.49</form_version>
+        <data id="medicines-0.50">
+          <form_version>0.50</form_version>
 
           <start_time></start_time>
           <end_time></end_time>
@@ -32,6 +32,7 @@
           <medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}>
             <cheapest_product />
             <label_cheapest_product />
+            <label_pack_definition />
             <pack_size />
             <medicine_price />
             <medicine_price_qty />
@@ -156,10 +157,22 @@
           <text id="/data/label_pack_size:hint">
             <value></value>
           </text>
-          <text id="/data/tablet_pack_size:label">
-            <value>How many tablets in a pack (pack size)?</value>
+          <text id="/data/tabletcapsule_pack_definition:label">
+            <value>For this medicine a pack is defined as a bottle, box, blister pack or equivalent</value>
           </text>
-          <text id="/data/tablet_pack_size:hint">
+          <text id="/data/tabletcapsule_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/tabletcapsule_pack_size:label">
+            <value>How many tablets/capsules in a pack (pack size)?</value>
+          </text>
+          <text id="/data/unit_pack_definition:label">
+            <value></value>
+          </text>
+          <text id="/data/unit_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/tabletcapsule_pack_size:hint">
             <value></value>
           </text>
           <text id="/data/unit_pack_size:label">
@@ -168,16 +181,70 @@
           <text id="/data/unit_pack_size:hint">
             <value></value>
           </text>
+          <text id="/data/inhaler_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single inhaler.</value>
+          </text>
+          <text id="/data/inhaler_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/inhaler_pack_size:label">
+            <value>How many doses in an inhaler (pack size)?</value>
+          </text>
+          <text id="/data/inhaler_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/injection_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single vial.</value>
+          </text>
+          <text id="/data/injection_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/injection_pack_size:label">
+            <value>How many ml in a vial (pack size)?</value>
+          </text>
+          <text id="/data/injection_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/powder_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single vial.</value>
+          </text>
+          <text id="/data/powder_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/powder_pack_size:label">
+            <value>How many grams in a vial (pack size)?</value>
+          </text>
+          <text id="/data/powder_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/vial_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single vial.</value>
+          </text>
+          <text id="/data/vial_pack_definition:hint">
+            <value></value>
+          </text>
           <text id="/data/vial_pack_size:label">
             <value>How many vials in a pack (pack size)?</value>
           </text>
           <text id="/data/vial_pack_size:hint">
             <value></value>
           </text>
+          <text id="/data/ampoule_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single ampoule.</value>
+          </text>
+          <text id="/data/ampoule_pack_definition:hint">
+            <value></value>
+          </text>
           <text id="/data/ampoule_pack_size:label">
             <value>How many ampoules in a pack (pack size)?</value>
           </text>
           <text id="/data/ampoule_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/bottle_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single bottle.</value>
+          </text>
+          <text id="/data/bottle_pack_definition:hint">
             <value></value>
           </text>
           <text id="/data/bottle_pack_size:label">
@@ -192,10 +259,10 @@
           <text id="/data/medicine_price:hint">
             <value>If the medicine is free, please enter 0.</value>
           </text>
-          <text id="/data/tablet_medicine_price_qty:label">
-            <value>How many tablets does the price mentioned above buy?</value>
+          <text id="/data/tabletcapsule_medicine_price_qty:label">
+            <value>How many tablets/capsules does the price mentioned above buy?</value>
           </text>
-          <text id="/data/tablet_medicine_price_qty:hint">
+          <text id="/data/tabletcapsule_medicine_price_qty:hint">
             <value>This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank.</value>
           </text>
           <text id="/data/unit_medicine_price_qty:label">
@@ -203,6 +270,24 @@
           </text>
           <text id="/data/unit_medicine_price_qty:hint">
             <value>This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/inhaler_medicine_price_qty:label">
+            <value>Leave this question blank</value>
+          </text>
+          <text id="/data/inhaler_medicine_price_qty:hint">
+            <value></value>
+          </text>
+          <text id="/data/injection_medicine_price_qty:label">
+            <value>How many vials does the patient receive for the price above?</value>
+          </text>
+          <text id="/data/injection_medicine_price_qty:hint">
+            <value></value>
+          </text>
+          <text id="/data/powder_medicine_price_qty:label">
+            <value>How many vials does the patient receive for the price above?</value>
+          </text>
+          <text id="/data/powder_medicine_price_qty:hint">
+            <value></value>
           </text>
           <text id="/data/vial_medicine_price_qty:label">
             <value>How many vials does the price mentioned above buy?</value>
@@ -357,10 +442,11 @@
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}" relevant="selected(/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}, 'yes')" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/cheapest_product" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_cheapest_product" readonly="true()" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_definition" readonly="true()" type="string"/>
       <bind constraint=". != -999" jr:constraintMsg="Pack size required" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size" required="true()" type="int"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_size" readonly="true()" type="string"/>
       <bind constraint=". != -999" jr:constraintMsg="Medicine price required" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price" required="true()" type="decimal"/>
-      <bind constraint=". != -999" jr:constraintMsg="Please fill in the number of tablets the price mentioned above can buy." nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price_qty" required="true()" type="int"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price_qty" type="int"/>
       <bind constraint=". != 'blank_currency'" jr:constraintMsg="Please select currency" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/currency" required="true()" type="select1"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/price_comments" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/photo" type="binary"/>
@@ -438,6 +524,10 @@
       <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_cheapest_product">
         <label ref="jr:itext('/data/label_cheapest_product:label')"/>
         <hint ref="jr:itext('/data/label_cheapest_product:hint')"/>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_definition">
+        <label ref="jr:itext('/data/{{ medicine.form|slugify }}_pack_definition:label')"/>
+        <hint ref="jr:itext('/data/{{ medicine.form|slugify }}_pack_definition:hint')"/>
       </input>
       <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size">
         <label ref="jr:itext('/data/{{ medicine.form|slugify }}_pack_size:label')"/>

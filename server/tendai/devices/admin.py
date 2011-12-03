@@ -40,6 +40,7 @@ class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
 
 class CountryFormAdmin(admin.ModelAdmin):
     list_display = ('form_name', 'language', 'form_version')
+    list_filter = ('form', 'language', 'countries')
 
     def form_name(self, country_form):
         return country_form.form.name

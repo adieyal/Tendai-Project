@@ -19,9 +19,9 @@ def formXml(request, country_code, language=None):
         form_id = request.GET["formId"]
         
         country = get_object_or_404(models.Country, code=country_code)
-        form = get_object_or_404(or_models.ORForm, form_id=form_id, countryform__countries=country)
-        countryform_language = form.countryform_set.all()[0].language
-        template_name = os.path.join('surveys', form.form_id + '.xml')
+        orform = get_object_or_404(or_models.ORForm, form_id=form_id, countryform__countries=country)
+        countryform_language = orform.countryform_set.all()[0].language
+        template_name = os.path.join('surveys', orform.form_id + '.xml')
         
         try:
             template = get_template(template_name)
@@ -37,9 +37,9 @@ def formXml(request, country_code, language=None):
         cur_language = translation.get_language()
         if language:
             translation.activate(language)
-        elif countryform_language:
+         elif countryform_language:
             translation.activate(countryform_language.code)
-        else:
+         else:
             translation.activate(country.language.code)
         data = template.render(context)
         translation.activate(cur_language)
