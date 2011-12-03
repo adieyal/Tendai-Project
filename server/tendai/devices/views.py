@@ -8,38 +8,42 @@ from django.shortcuts import get_object_or_404
 from django.template import Template, Context, TemplateDoesNotExist
 from django.template.loader import get_template
 from django.db.models import Q
+from django.utils import translation
 
 from openrosa import models as or_models
 from openrosa import forms
 import models
 
-def formXml(request, country_id):
+def formXml(request, country_code, language=None):
     if request.method == "GET":
         form_id = request.GET["formId"]
-        matching_forms = or_models.ORForm.objects.filter(form_id=form_id)
-        if matching_forms.count() == 0:
-            raise Http404
-
-        country = models.Country.objects.get(id=country_id)
-        country_forms = matching_forms.filter(countryform__countries=country)
-        if country_forms.count() != 1:
-            raise Exception("Cannot process more than one matching form per country")
-        orform = country_forms[0]
-
-        language = orform.countryform_set.all()[0].language
-        template_name = os.path.join('surveys', orform.form_id + '.' + language.code + '.xml')
-
+        
+        country = get_object_or_404(models.Country, code=country_code)
+        form = get_object_or_404(or_models.ORForm, form_id=form_id, countryform__countries=country)
+        countryform_language = form.countryform_set.all()[0].language
+        template_name = os.path.join('surveys', form.form_id + '.xml')
+        
         try:
             template = get_template(template_name)
         except TemplateDoesNotExist:
             raise Http404
+        
         context = Context({
             "country" : country,
             "districts" : models.District.objects.filter(country=country).order_by('name'),
             "medicines" : models.Medicine.objects.filter(countries=country).order_by('name'),
             "currencies" : models.Currency.objects.all(),
         })
-        response = HttpResponse(template.render(context), mimetype='text/xml; charset=utf-8')
+        cur_language = translation.get_language()
+        if language:
+            translation.activate(language)
+        elif countryform_language:
+            translation.activate(countryform_language.code)
+        else:
+            translation.activate(country.language.code)
+        data = template.render(context)
+        translation.activate(cur_language)
+        response = HttpResponse(data, mimetype='text/xml; charset=utf-8')
         return response
     raise Http404
 
@@ -65,7 +69,7 @@ def formList(request):
             raise Http404
     
     country_forms = active_forms.filter(countryform__countries=country)
-    url = "http://" + request.get_host() + reverse("openrosa_dynamic_formxml", kwargs={"country_id" : country.id}) +"?formId="
+    url = "http://" + request.get_host() + reverse("openrosa_dynamic_formxml", kwargs={"country_code" : country.code}) +"?formId="
     context = Context({
         "country" : country,
         "forms" : country_forms,
@@ -76,7 +80,7 @@ def formList(request):
         {% for form in forms %}
         <xform>
             <formID>{{ form.form_id }}</formID>
-            <name>{{ country.name}} {{ form.name }}</name> 
+            <name>{{ country.name}} {{ form.name }} ({{ country.language.name }})</name> 
             <majorMinorVersion>{{ form.majorminorversion }}</majorMinorVersion> 
             <descriptionText>{{ form.description }}</descriptionText> 
             <downloadUrl>{{ url }}{{ form.form_id }}</downloadUrl>

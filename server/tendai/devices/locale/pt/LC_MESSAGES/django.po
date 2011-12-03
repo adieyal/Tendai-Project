@@ -1,0 +1,325 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-02 00:03+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: templates/surveys/facility-0.20.xml:5
+#, python-format
+msgid "%(country_name)s Facility"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:21
+msgid "Please select a facility"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:85
+msgid "Please fill in the facility name"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:86
+msgid "Please select a district from the list"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:87
+msgid "Please enter in the facility postal address"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:88
+msgid "Please select a facility type from the list"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:120
+msgid "Facility Location"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:122
+msgid "Please enter in the facility name."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:125
+msgid "Please select the district that the health facility is in."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:127
+msgid "Select a district"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:140
+msgid "Facility Contact Details"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:142
+msgid "Please enter in the facility postal address."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:143
+msgid "e.g. 43 James Street, Cotswold, Jamestown, 4631"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:146
+msgid "Please enter in the facility contact number."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:147
+msgid ""
+"Include the international dialing code, e.g. +265112223333. Leave blank if "
+"unavailable."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:150
+msgid "Please enter facility email address."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:151
+msgid "e.g. info@myclinic.net. Leave blank if unavailable."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:156
+msgid "Respondent Details"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:158
+msgid "Please enter the name of the staff member completing this survey."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:161
+msgid "What is their position?"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:162
+msgid "e.g. facility manager, staff nurse, etc."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:167
+msgid "Location"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:169
+msgid "Please capture GPS Coordinates."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:170
+msgid ""
+"You will need to be outside in order to do this. Also make sure that your "
+"GPS reader is switched on (see the troubleshooting guide for details)."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:173
+msgid "What is the distance (km) to the nearest town?"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:174
+msgid ""
+"A town is defined as a population > 50,000. If you are currently in a town, "
+"enter in 0."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:177
+msgid "What is the name of the nearest town?"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:182
+msgid "Photos"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:184
+msgid "Please take a photo of the front entrance of the facility."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:187
+msgid "Please take a photo of the dispensary."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:190
+msgid ""
+"Take any other photo of the facility that might be important (optional)."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:195
+msgid "General Details"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:197
+msgid "What type of facility is this?"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:199
+msgid "Select a facility type"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:203
+msgid "Government Hospital"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:207
+msgid "Government Rural Health Centre or Dispensary"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:211
+msgid "Council Clinic"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:215
+msgid "Mission or NGO Hospital"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:219
+msgid "Private Hospital"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:223
+msgid "Private Pharmacy"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:227
+msgid "Other"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:232
+msgid ""
+"If you specified other above, please explain what type of facility this is."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:235
+msgid "Please provide a short description of the facility."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:236
+msgid "(max 100 words)"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:241
+msgid "Services and Population"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:243
+msgid "Please indicate which services this facility offers."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:244
+msgid "Tick all options that apply."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:246
+msgid "Outpatients"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:250
+msgid "Ante-natal"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:254
+msgid "Well baby clinic"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:258
+msgid "Diabetic Clinic"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:262
+msgid "Dispensary"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:266
+msgid "TB Clinic"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:270
+msgid "HCT/VCT"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:274
+msgid "ARV Dispensing"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:279
+msgid "Add any other major services offered not listed in the question above."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:282
+msgid "What is the catchment population of this facility?"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:283
+msgid "Approximate number of patients that this facility services."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:286
+msgid "What is the average number of patients serviced daily at this facility?"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:289
+msgid "How many nurses are stationed at this facility?"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:292
+msgid "How many doctors are stationed at this facility?"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:297
+msgid "Medicines List"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:299
+msgid "Is a list of medicines procured by the facility available?"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:300
+msgid ""
+"If yes, please ask for a copy. This should be delivered to the Tendai "
+"project supervisor."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:302
+msgid "Yes"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:306
+msgid "No"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:311
+msgid "Please explain why the list is not available."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:314
+#: templates/surveys/facility-0.20.xml:318
+#: templates/surveys/facility-0.20.xml:322
+msgid "Please take a photo of medicines list."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:315
+msgid "Ensure that the page is readable (page 1)."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:319
+msgid "Ensure that the page is readable (page 2)."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:323
+msgid "Ensure that the page is readable (page 3)."
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:328
+msgid "Comments"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:330
+msgid ""
+"Please provide any additional comments not covered by the previous questions."
+msgstr ""

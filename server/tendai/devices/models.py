@@ -3,13 +3,22 @@ from django.core.urlresolvers import reverse
 
 from openrosa import models as ormodels
 
+class Language(models.Model):
+    name = models.CharField(max_length=30, verbose_name="Language")
+    code = models.CharField(max_length=2, verbose_name="ISO639-1 Code")
+    
+    def __unicode__(self):
+        return u"%s (%s)" % (self.name, self.code)
+
 class CountryManager(models.Manager):
     def get_default(self):
         return super(CountryManager, self).get_query_set().all()[0]
 
 class Country(models.Model):
     objects = CountryManager()
-    name = models.CharField(max_length=30)    
+    name = models.CharField(max_length=30)
+    code = models.CharField(max_length=2, verbose_name="ISO 3166-1 alpha-2 Code")
+    language = models.ForeignKey(Language)
     
     def __unicode__(self):
         return self.name
@@ -22,13 +31,6 @@ class Organisation(models.Model):
 
     def __unicode__(self):
         return self.name
-
-class Language(models.Model):
-    name = models.CharField(max_length=30, verbose_name="Language")
-    code = models.CharField(max_length=2, verbose_name="ISO639-1 Code")
-    
-    def __unicode__(self):
-        return u"%s (%s)" % (self.name, self.code)
 
 class DosageForm(models.Model):
     name = models.CharField(max_length=30)
@@ -100,7 +102,7 @@ class CountryForm(models.Model):
     A model that assigns a form to a number of countries
     """
     countries = models.ManyToManyField(Country)
-    language = models.ForeignKey(Language)
+    language = models.ForeignKey(Language, blank=True, null=True)
     form = models.ForeignKey(ormodels.ORForm)
 
     def __unicode__(self):

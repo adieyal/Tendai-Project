@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+{% load i18n %}
+<h:html xmlns:h="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>{% trans "Tendai Interview" %}</h:title>
+    <model>
+      <instance>
+        <data id="tendai-interview-0.10">
+          <form_version>0.10</form_version>
+
+          <start_time/>
+          <end_time/>
+          <survey_date/>
+          <device_id/>
+          <subscriber_id/>
+          <sim_id/>
+          <phone_number/>
+
+          <A12/>
+          <A01/>
+          <A02/>
+          <A03/>
+          <A13/>
+          <A04/>
+          <A05/>
+          <A06/>
+          <A08/>
+          <A09/>
+          <A10/>
+          <A14/>
+          <A11/>
+        </data>
+      </instance>
+
+      <bind nodeset="/data/start_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="start"/> 
+      <bind nodeset="/data/end_time" type="dateTime" jr:preload="timestamp" jr:preloadParams="end"/> 
+      <!-- <bind nodeset="/data/survey_date" type="date" jr:preload="today" jr:preloadParams="end"/> -->
+      <bind nodeset="/data/device_id" type="string" jr:preload="property" jr:preloadParams="deviceid"/> 
+      <bind nodeset="/data/subscriber_id" type="string" jr:preload="property" jr:preloadParams="subscriberid"/> 
+      <bind nodeset="/data/sim_id" type="string" jr:preload="property" jr:preloadParams="simserial"/>
+      <bind nodeset="/data/phone_number" type="string" jr:preload="property" jr:preloadParams="phonenumber"/>
+
+      <bind nodeset="/data/A12" type="xsd:string" readonly="true()"/>
+      <bind nodeset="/data/A01" format="audio" type="binary"/>
+      <bind nodeset="/data/A02" format="audio" type="binary"/>
+      <bind nodeset="/data/A03" format="audio" type="binary"/>
+      <bind nodeset="/data/A13" format="audio" type="binary"/>
+      <bind nodeset="/data/A04" format="audio" type="binary"/>
+      <bind nodeset="/data/A05" format="audio" type="binary"/>
+      <bind nodeset="/data/A06" format="audio" type="binary"/>
+      <bind nodeset="/data/A08" format="audio" type="binary"/>
+      <bind nodeset="/data/A09" format="audio" type="binary"/>
+      <bind nodeset="/data/A10" format="audio" type="binary"/>
+      <bind nodeset="/data/A11" format="image" type="binary"/>
+      <bind nodeset="/data/A14" format="image" type="binary"/>
+
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/A12">
+      <label>{% trans "You are about to conduct a community interview. The purpose of this interview to collect stories about the community's experiences access medicines." %}</label>
+      <hint>{% trans "In the following screens, you will be presented with a list of prompts for conducting an interview. Not all of the questions need to be answered. 
+
+Also, please try to limit the entire recorded interview to approximately 5 minutes. 
+
+It is suggested that you have an informal conversation with the respondent before attempting this interview. This will give you an idea of the story this person has to tell and will allow you to focus the interview on the story. 
+
+When recording the respondent's responses, please ensure that the phone is close to their mouth so that the sound can recorded clearly." %}</hint>
+    </input>
+    <upload ref="/data/A01" mediatype="audio/*">
+      <label>{% trans "What is the respondent's name?" %}</label>
+    </upload>
+    <upload ref="/data/A02" mediatype="audio/*">
+      <label>{% trans "Why have you visited the facility today?" %}</label>
+    </upload>
+    <upload ref="/data/A03" mediatype="audio/*">
+      <label>{% trans "How long did the journey to the facility take?" %}</label>
+    </upload>
+    <upload ref="/data/A05" mediatype="audio/*">
+      <label>{% trans "What would you say are the major problem illnesses in your community?" %}</label>
+    </upload>
+    <upload ref="/data/A13" mediatype="audio/*">
+      <label>{% trans "What are the major difficulties that you experience with regards to your health situation?" %}</label>
+    </upload>
+    <upload ref="/data/A04" mediatype="audio/*">
+      <label>{% trans "What has your experience been of this facility in meeting your needs, including how you think this could be improved?" %}</label>
+    </upload>
+    <upload ref="/data/A06" mediatype="audio/*">
+      <label>{% trans "Are medicines generally available at local health facilities? If not, what do you think could be done to improve this?" %}</label>
+    </upload>
+    <upload ref="/data/A08" mediatype="audio/*">
+      <label>{% trans "What was your experience of getting medicines the last time either yourself or a member of your family was sick?" %}</label>
+    </upload>
+    <upload ref="/data/A09" mediatype="audio/*">
+      <label>{% trans "Do you think the medicines available at this health facility are affordable? If not, then please elaborate with examples." %}</label>
+    </upload>
+    <upload ref="/data/A10" mediatype="audio/*">
+      <label>{% trans "What costs do you incur when coming to this facility for medicines?" %}</label>
+    </upload>
+    <upload ref="/data/A14" mediatype="audio/*">
+      <label>{% trans "Is there anything else that you want to share that has not been covered in the above questions?" %}</label>
+    </upload>
+    <upload ref="/data/A11" mediatype="image/*">
+      <label>{% trans "Take a picture of the respondent with their consent." %}</label>
+    </upload>
+  </h:body>
+</h:html>

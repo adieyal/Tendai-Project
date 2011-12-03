@@ -1287,56 +1287,72 @@
         "pk": 1, 
         "model": "devices.country", 
         "fields": {
-            "name": "South Africa"
+            "name": "South Africa",
+            "code": "za", 
+            "language": 1
         }
     }, 
     {
         "pk": 2, 
         "model": "devices.country", 
         "fields": {
-            "name": "Lesotho"
+            "name": "Lesotho",
+            "code": "ls", 
+            "language": 1
         }
     }, 
     {
         "pk": 3, 
         "model": "devices.country", 
         "fields": {
-            "name": "Zimbabwe"
+            "name": "Zimbabwe",
+            "code": "zw", 
+            "language": 1
         }
     }, 
     {
         "pk": 4, 
         "model": "devices.country", 
         "fields": {
-            "name": "Mozambique"
+            "name": "Mozambique",
+            "code": "mz", 
+            "language": 3
         }
     }, 
     {
         "pk": 5, 
         "model": "devices.country", 
         "fields": {
-            "name": "Malawi"
+            "name": "Malawi",
+            "code": "mw", 
+            "language": 1
         }
     }, 
     {
         "pk": 6, 
         "model": "devices.country", 
         "fields": {
-            "name": "Zambia"
+            "name": "Zambia",
+            "code": "zm", 
+            "language": 1
         }
     }, 
     {
         "pk": 7, 
         "model": "devices.country", 
         "fields": {
-            "name": "DRC"
+            "name": "DRC",
+            "code": "cd", 
+            "language": 2
         }
     }, 
     {
         "pk": 8, 
         "model": "devices.country", 
         "fields": {
-            "name": "Tanzania"
+            "name": "Tanzania",
+            "code": "tz", 
+            "language": 1
         }
     },
     {
