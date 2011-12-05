@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>{% blocktrans with country_name=country.name %}{{ country_name }} Medicines{% endblocktrans %}</h:title>
+    <model>
+      <instance>
+        <data id="medicines-0.51">
+          <form_version>0.51</form_version>
+
+          <start_time></start_time>
+          <end_time></end_time>
+          <survey_date></survey_date>
+          <device_id></device_id>
+          <subscriber_id></subscriber_id>
+          <sim_id></sim_id>
+          <phone_number></phone_number>
+
+          <section_general>
+            <facility_name></facility_name>
+            <gps></gps>
+            <staff_name></staff_name>
+            <respondent_position></respondent_position>
+          </section_general>
+          <section_stocked>
+	    {% for medicine in medicines %}
+            <{{ medicine.name|slugify }}-{{ medicine.form|slugify }} />
+            <{{ medicine.name|slugify }}-{{ medicine.form|slugify }}_comments />
+	    {% endfor %}
+          </section_stocked>
+
+	  {% for medicine in medicines %}
+          <medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}>
+            <cheapest_product />
+            <label_cheapest_product />
+            <label_pack_definition />
+            <pack_size />
+            <medicine_price />
+            <medicine_price_qty />
+            <label_pack_size />
+            <currency>{% trans "Select currency" %}</currency>
+            <price_comments />
+            <photo />
+            <medicine_available />
+            <packs_available />
+            <stockout_duration />
+            <restock_date />
+            <restock_ordered />
+            <last_restock_date />
+            <last_restock_amount />
+            <availability_comments />
+          </medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}>
+	  {% endfor %}
+
+        </data>
+      </instance>
+      <itext>
+        <translation lang="eng">
+          <text id="/data/section_general:label">
+            <value>General Information</value>
+          </text>
+          <text id="/data/section_general/facility_name:label">
+            <value>Name of facility</value>
+          </text>
+          <text id="/data/section_general/facility_name:hint">
+            <value></value>
+          </text>
+          <text id="/data/section_general/gps:label">
+            <value>GPS Location</value>
+          </text>
+          <text id="/data/section_general/gps:hint">
+            <value>Please ensure that you capture the GPS location at the facility</value>
+          </text>
+          <text id="/data/section_general/staff_name:label">
+            <value>Name of staff member completing this survey</value>
+          </text>
+          <text id="/data/section_general/staff_name:hint">
+            <value>This should ideally be the clinic manager or someone given the authority by the clinic manager with the necessary expertise and knowledge </value>
+          </text>
+          <text id="/data/section_general/respondent_position:label">
+            <value>Position of Respondent</value>
+          </text>
+          <text id="/data/section_general/respondent_position:hint">
+            <value>e.g. facility manager, staff nurse, etc</value>
+          </text>
+
+          <text id="/data/section_stocked:label">
+            <value>Please indicate whether the following medicines are usually stocked at this facility.</value>
+          </text>
+          <text id="/data/section_stocked/stocked:hint">
+            <value>Not stocked means that this facility does not usually carry this medicine.</value>
+          </text>
+          <text id="/data/section_stocked/stocked_comments:label">
+            <value>Please provide any additional comments below.</value>
+          </text>
+          <text id="/data/section_stocked/stocked_comments:hint">
+            <value>If not necessary then leave blank.</value>
+          </text>
+
+	  {% for medicine in medicines %}
+          <text id="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}:label">
+            <value>Are {{ medicine.name }} {{ medicine.form }}s stocked at this facility?</value>
+          </text>
+	  {% endfor %}
+
+          <text id="/data/section_stocked/medicine_stocked:blank">
+            <value>Select option</value>
+          </text>
+          <text id="/data/section_stocked/medicine_stocked:option0">
+            <value>Don't know</value>
+          </text>
+          <text id="/data/section_stocked/medicine_stocked:option1">
+            <value>Yes</value>
+          </text>
+          <text id="/data/section_stocked/medicine_stocked:option2">
+            <value>No</value>
+          </text>
+
+	  {% for medicine in medicines %}
+          <text id="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}:label">
+            <value>{{ medicine.name }} {{ medicine.form }}s</value>
+          </text>
+	  {% endfor %}
+
+          <text id="/data/cheapest_tablet_product:label">
+            <value>Name of the cheapest product available.</value>
+          </text>
+          <text id="/data/cheapest_tablet_product:hint">
+            <value>Provide the product name of the cheapest product available for this medicine?</value>
+          </text>
+          <text id="/data/cheapest_vial_product:label">
+            <value>Name of cheapest product available.</value>
+          </text>
+          <text id="/data/cheapest_vial_product:hint">
+            <value>Divide price of pack by the number of vials in the pack to determine price per vial. If multiple products have the cheapest price, choose one.</value>
+          </text>
+          <text id="/data/cheapest_ampoule_product:label">
+            <value>Name of cheapest product available.</value>
+          </text>
+          <text id="/data/cheapest_ampoule_product:hint">
+            <value>Divide price of pack by the number of ampoules in the pack to determine price per ampoule. If multiple products have the cheapest price, choose one.</value>
+          </text>
+          <text id="/data/cheapest_bottle_product:label">
+            <value>Name of cheapest product available.</value>
+          </text>
+          <text id="/data/cheapest_bottle_product:hint">
+            <value>Divide the price of a bottle by the size (in ml) to determine price per ml. If multiple products have the cheapest price, choose one.</value>
+          </text>
+          <text id="/data/label_cheapest_product:label">
+            <value>Please answer the questions below with reference to the cheapest product mentioned above.</value>
+          </text>
+          <text id="/data/label_cheapest_product:hint">
+            <value></value>
+          </text>
+          <text id="/data/label_pack_size:label">
+            <value>The value above is called the pack size. For the remaining questions on this page, please use this value for the pack size.</value>
+          </text>
+          <text id="/data/label_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/tabletcapsule_pack_definition:label">
+            <value>For this medicine a pack is defined as a bottle, box, blister pack or equivalent</value>
+          </text>
+          <text id="/data/tabletcapsule_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/tabletcapsule_pack_size:label">
+            <value>How many tablets/capsules in a pack (pack size)?</value>
+          </text>
+          <text id="/data/unit_pack_definition:label">
+            <value></value>
+          </text>
+          <text id="/data/unit_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/tabletcapsule_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/unit_pack_size:label">
+            <value>How many units in a pack (pack size)?</value>
+          </text>
+          <text id="/data/unit_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/inhaler_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single inhaler.</value>
+          </text>
+          <text id="/data/inhaler_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/inhaler_pack_size:label">
+            <value>How many doses in an inhaler (pack size)?</value>
+          </text>
+          <text id="/data/inhaler_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/injection_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single vial.</value>
+          </text>
+          <text id="/data/injection_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/injection_pack_size:label">
+            <value>How many ml in a vial (pack size)?</value>
+          </text>
+          <text id="/data/injection_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/powder_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single vial.</value>
+          </text>
+          <text id="/data/powder_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/powder_pack_size:label">
+            <value>How many grams in a vial (pack size)?</value>
+          </text>
+          <text id="/data/powder_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/vial_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single vial.</value>
+          </text>
+          <text id="/data/vial_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/vial_pack_size:label">
+            <value>How many vials in a pack (pack size)?</value>
+          </text>
+          <text id="/data/vial_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/ampoule_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single ampoule.</value>
+          </text>
+          <text id="/data/ampoule_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/ampoule_pack_size:label">
+            <value>How many ampoules in a pack (pack size)?</value>
+          </text>
+          <text id="/data/ampoule_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/bottle_pack_definition:label">
+            <value>For this medicine, a pack is defined as a single bottle.</value>
+          </text>
+          <text id="/data/bottle_pack_definition:hint">
+            <value></value>
+          </text>
+          <text id="/data/bottle_pack_size:label">
+            <value>How big is the bottle (in ml)?</value>
+          </text>
+          <text id="/data/bottle_pack_size:hint">
+            <value></value>
+          </text>
+          <text id="/data/medicine_price:label">
+            <value>What is the price paid by the patient?</value>
+          </text>
+          <text id="/data/medicine_price:hint">
+            <value>If the medicine is free, please enter 0.</value>
+          </text>
+          <text id="/data/tabletcapsule_medicine_price_qty:label">
+            <value>How many tablets/capsules does the price mentioned above buy?</value>
+          </text>
+          <text id="/data/tabletcapsule_medicine_price_qty:hint">
+            <value>This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/unit_medicine_price_qty:label">
+            <value>How many units does the price mentioned above buy?</value>
+          </text>
+          <text id="/data/unit_medicine_price_qty:hint">
+            <value>This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/inhaler_medicine_price_qty:label">
+            <value>Leave this question blank</value>
+          </text>
+          <text id="/data/inhaler_medicine_price_qty:hint">
+            <value></value>
+          </text>
+          <text id="/data/injection_medicine_price_qty:label">
+            <value>How many vials does the patient receive for the price above?</value>
+          </text>
+          <text id="/data/injection_medicine_price_qty:hint">
+            <value></value>
+          </text>
+          <text id="/data/powder_medicine_price_qty:label">
+            <value>How many vials does the patient receive for the price above?</value>
+          </text>
+          <text id="/data/powder_medicine_price_qty:hint">
+            <value></value>
+          </text>
+          <text id="/data/vial_medicine_price_qty:label">
+            <value>How many vials does the price mentioned above buy?</value>
+          </text>
+          <text id="/data/vial_medicine_price_qty:hint">
+            <value>If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/ampoule_medicine_price_qty:label">
+            <value>How many ampoules does the price mentioned above buy?</value>
+          </text>
+          <text id="/data/ampoule_medicine_price_qty:hint">
+            <value>If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/bottle_medicine_price_qty:label">
+            <value>How large is the bottle (in ml) for the product mentioned above?</value>
+          </text>
+          <text id="/data/bottle_medicine_price_qty:hint">
+            <value>If the medicine is free then leave this question blank.</value>
+          </text>
+          <text id="/data/currency:label">
+            <value>What currency is this price in?</value>
+          </text>
+          <text id="/data/currency:hint">
+            <value>This should indicate the currency of the price quoted above.</value>
+          </text>
+          <text id="/data/currency:blank">
+            <value>Select Currency</value>
+          </text>
+	  {% for currency in currencies %}
+          <text id="/data/currency:option{{ forloop.counter0 }}">
+            <value>{{ currency.name }}</value>
+          </text>
+	  {% endfor %}
+
+          <text id="/data/price_comments:label">
+            <value>Please provide any additional comments about price not covered in the questions above.</value>
+          </text>
+          <text id="/data/price_comments:hint">
+            <value></value>
+          </text>
+          <text id="/data/photo:label">
+            <value>Please take a photo of the pack.</value>
+          </text>
+          <text id="/data/photo:hint">
+            <value>Please ensure that the label is clearly visible.</value>
+          </text>
+          <text id="/data/medicine_available:label">
+            <value>Is this medicine currently in stock?</value>
+          </text>
+          <text id="/data/medicine_available:hint">
+            <value>This applies only to the specified pack size.</value>
+          </text>
+          <text id="/data/medicine_available:option0">
+            <value>Not Stocked</value>
+          </text>
+          <text id="/data/medicine_available:option1">
+            <value>No</value>
+          </text>
+          <text id="/data/medicine_available:option2">
+            <value>Yes</value>
+          </text>
+          <text id="/data/packs_available:label">
+            <value>If the medicine is in stock, how many full packs are currently in stock?</value>
+          </text>
+          <text id="/data/packs_available:hint">
+            <value>Enter 0 if the medicine is out of stock.</value>
+          </text>
+          <text id="/data/stockout_duration:label">
+            <value>If the medicine is out of stock, how long has it been unavailable?</value>
+          </text>
+          <text id="/data/stockout_duration:hint">
+            <value></value>
+          </text>
+          <text id="/data/duration:blank">
+            <value>Select period</value>
+          </text>
+          <text id="/data/duration:option0">
+            <value>1-3 days</value>
+          </text>
+          <text id="/data/duration:option1">
+            <value>4-7 days</value>
+          </text>
+          <text id="/data/duration:option1b">
+            <value>1-2 weeks</value>
+          </text>
+          <text id="/data/duration:option2">
+            <value>2-3 weeks</value>
+          </text>
+          <text id="/data/duration:option3">
+            <value>3-4 weeks</value>
+          </text>
+          <text id="/data/duration:option4">
+            <value>1-2 months</value>
+          </text>
+          <text id="/data/duration:option5">
+            <value>2-3 months</value>
+          </text>
+          <text id="/data/duration:option6">
+            <value>More than 3 months</value>
+          </text>
+          <text id="/data/duration:option7">
+            <value>Unknown</value>
+          </text>
+          <text id="/data/restock_date:label">
+            <value>How long will it be until the facility receives more stock of this medicine?</value>
+          </text>
+          <text id="/data/restock_date:hint">
+            <value></value>
+          </text>
+          <text id="/data/restock_ordered:label">
+            <value>How many packs have been ordered for the next restock of this facility?</value>
+          </text>
+          <text id="/data/restock_ordered:hint">
+            <value>If this is unknown, please enter in 8888. If more stock has not yet been ordered, please enter in 9999.</value>
+          </text>
+          <text id="/data/last_restock_date:label">
+            <value>How long has it been since the last time this facility received stock of this medicine?</value>
+          </text>
+          <text id="/data/last_restock_date:hint">
+            <value></value>
+          </text>
+          <text id="/data/last_restock_amount:label">
+            <value>How many packs of this medicine did you receive at your last restock?</value>
+          </text>
+          <text id="/data/last_restock_amount:hint">
+            <value>If this is unknown, enter 8888</value>
+          </text>
+          <text id="/data/availability_comments:label">
+            <value>Please provide any additional comments about availability or restocking not covered in the questions above.</value>
+          </text>
+          <text id="/data/availability_comments:hint">
+            <value>For instance, if medicine in this pack size is out of stock but different pack sizes are available, please mention this here.</value>
+          </text>
+        </translation>
+      </itext>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/data/start_time" type="dateTime"/> 
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/data/end_time" type="dateTime"/> 
+      <!-- <bind jr:preload="today" jr:preloadParams="end" nodeset="/data/survey_date" type="date"/> --> 
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/data/device_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/data/subscriber_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/data/sim_id" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/data/phone_number" type="string"/>
+
+      <bind constraint=". != ''" jr:constraintMsg="{% trans "Facility name required" %}" nodeset="/data/section_general/facility_name" required="true()" type="string"/>
+      <bind constraint=". != ''" jr:constraintMsg="{% trans "Please enter in the name of the respondent" %}" nodeset="/data/section_general/staff_name" required="true()" type="string"/>
+
+      <bind nodeset="/data/section_general/gps" required="true()" type="geopoint"/>
+      <bind nodeset="/data/section_general/respondent_position" type="string"/>
+
+      {% for medicine in medicines %}
+      <bind constraint=". != 'not_selected'" jr:constraintMsg="{% trans "For each medicine, please answer whether it is stocked or not" %}" nodeset="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Pack size required" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size" required="true()" type="int"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Medicine price required" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price" required="true()" type="decimal"/>
+      <bind constraint=". != 'blank_currency'" jr:constraintMsg="{% trans "Please select currency" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/currency" required="true()" type="select1"/>
+      <bind constraint=". != ''" jr:constraintMsg="{% trans "Please indicate whether this medicine is available" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_available" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Packs available required" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/packs_available" required="true()" type="int"/>
+      <bind constraint=". != 'blank_period'" jr:constraintMsg="{% trans "Please select the next restock date" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/restock_date" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Please fill in the number of stock ordered" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/restock_ordered" required="true()" type="int"/>
+      <bind constraint=". != 'blank_period'" jr:constraintMsg="{% trans "Please select the last restock date" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/last_restock_date" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Please indicate the number of packs received at the last restock" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/last_restock_amount" required="true()" type="int"/>
+      
+      <bind nodeset="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}_comments" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}" relevant="selected(/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}, 'yes')" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/cheapest_product" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_cheapest_product" readonly="true()" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_definition" readonly="true()" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_size" readonly="true()" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price_qty" type="int"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/price_comments" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/photo" type="binary"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/stockout_duration" type="select1"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/availability_comments" type="string"/>
+      {% endfor %}
+
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="field-list">
+      <label>{% trans "General Information" %}</label>
+      <input ref="/data/section_general/facility_name">
+        <label>{% trans "Name of facility" %}</label>
+      </input>
+      <input ref="/data/section_general/gps">
+        <label>{% trans "GPS Location" %}</label>
+        <hint>{% trans "Please ensure that you capture the GPS location at the facility" %}</hint>
+      </input>
+      <input ref="/data/section_general/staff_name">
+        <label>{% trans "Name of staff member completing this survey" %}</label>
+        <hint>{% trans "This should ideally be the clinic manager or someone given the authority by the clinic manager with the necessary expertise and knowledge" %}</hint>
+      </input>
+      <input ref="/data/section_general/respondent_position">
+        <label>{% trans "Position of Respondent" %}</label>
+        <hint>{% trans "e.g. facility manager, staff nurse, etc" %}</hint>
+      </input>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Please indicate whether the following medicines are usually stocked at this facility." %}</label>
+
+      {% for medicine in medicines %}
+      <select1 appearance="minimal" ref="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}">
+        <label>{% blocktrans with name=medicine.name form=medicine.form %}Are {{ name }} {{ form }}s stocked at this facility?{% endblocktrans %}</label>
+        <hint>{% trans "Not stocked means that this facility does not usually carry this medicine." %}</hint>
+        <item>
+          <label>{% trans "Select option" %}</label>
+          <value>not_selected</value>
+        </item>
+        <item>
+          <label>{% trans "Don't know" %}</label>
+          <value>dont_know</value>
+        </item>
+        <item>
+          <label>{% trans "Yes" %}</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>{% trans "No" %}</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form|slugify }}_comments">
+        <label>{% trans "Please provide any additional comments below." %}</label>
+        <hint>{% trans "If not necessary then leave blank." %}</hint>
+      </input>
+      {% endfor %}
+    </group>
+       
+    {% for medicine in medicines %}
+    <group appearance="field-list">
+      <label>{{ medicine.name }}{% trans medicine.form %}</label>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/cheapest_product">
+        <label>{% trans "Name of the cheapest product available." %}</label>
+	{% if medicine.form=="tablet" %}
+           <hint>{% trans "Divide price of pack by the number of tablets in the pack to determine price per tablet. If multiple products have the cheapest price, choose one." %}</hint>
+	{% else %}{% if medicine.form=="capsule" %}
+           <hint>{% trans "Divide price of pack by the number of capsules in the pack to determine price per capsule. If multiple products have the cheapest price, choose one." %}</hint>
+	{% else %}{% if medicine.form=="vial" %}
+           <hint>{% trans "Divide price of pack by the number of vials in the pack to determine price per vial. If multiple products have the cheapest price, choose one." %}</hint>
+	{% else %}{% if medicine.form=="ampoule" %}
+           <hint>{% trans "Divide price of pack by the number of ampoules in the pack to determine price per ampoule. If multiple products have the cheapest price, choose one." %}</hint>
+	{% else %}{% if medicine.form=="bottle" %}
+           <hint>{% trans "Divide the price of a bottle by the size (in ml) to determine price per ml. If multiple products have the cheapest price, choose one." %}</hint>
+	{% else %}
+           <hint>{% trans "Divide price of pack by the number of units in the pack to determine price per unit. If multiple products have the cheapest price, choose one." %}</hint>
+	{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_cheapest_product">
+         <label>{% trans "Please answer the questions below with reference to the cheapest product mentioned above." %}</label>
+      </input>
+      {% if medicine.form=="tablet" %}
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size">
+	 <label>{% trans "How many tablets in a pack (pack size)?" %}</label>
+      </input>
+      {% else %}{% if medicine.form=="capsule" %}
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size">
+	 <label>{% trans "How many capsules in a pack (pack size)?" %}</label>
+      </input>
+      {% else %}{% if medicine.form=="vial" %}
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size">
+	 <label>{% trans "How many vials in a pack (pack size)?" %}</label>
+      </input>
+      {% else %}{% if medicine.form=="ampoule" %}
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size">
+	 <label>{% trans "How many ampoules in a pack (pack size)?" %}</label>
+      </input>
+      {% else %}{% if medicine.form=="bottle" %}
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size">
+	 <label>{% trans "How big is the bottle (in ml)?" %}</label>
+      </input>
+      {% else %}{% if medicine.form=="inhaler" %}
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size">
+	 <label>{% trans "How many doses in an inhaler (pack size)?" %}</label>
+      </input>
+      {% else %}
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/pack_size">
+	 <label>{% trans "How many units in a pack (pack size)?" %}</label>
+      </input>
+      {% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/label_pack_size">
+        <label>{% trans "The value above is called the pack size. For the remaining questions on this page, please use this value for the pack size." %}</label>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price">
+        <label>{% trans "What is the price paid by the patient?" %}</label>
+        <hint>{% trans "If the medicine is free, please enter 0." %}</hint>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_price_qty">
+	{% if medicine.form=="tablet" %}
+           <label>{% trans "How many tablets does the price mentioned above buy?" %}</label>
+           <hint>{% trans "This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank." %}</hint>
+	{% else %}{% if medicine.form=="capsule" %}
+           <label>{% trans "How many capsules does the price mentioned above buy?" %}</label>
+           <hint>{% trans "This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank." %}</hint>
+	{% else %}{% if medicine.form=="vial" %}
+           <label>{% trans "How many vials does the patient receive for the price above?" %}</label>
+	{% else %}{% if medicine.form=="ampoule" %}
+           <label>{% trans "How many ampoules does the price mentioned above buy?" %}</label>
+           <hint>{% trans "If the medicine is free then leave this question blank." %}</hint>
+	{% else %}{% if medicine.form=="bottle" %}
+           <label>{% trans "How large is the bottle (in ml) for the product mentioned above?" %}</label>
+           <hint>{% trans "If the medicine is free then leave this question blank." %}</hint>
+	{% else %}{% if medicine.form=="inhaler" %}
+           <label>{% trans "Leave this question blank" %}</label>
+	{% else %}
+           <label>{% trans "How many units does the price mentioned above buy?" %}</label>
+           <hint>{% trans "This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank." %}</hint>
+	{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/currency">
+        <label>{% trans "What currency is this price in?" %}</label>
+        <hint>{% trans "This should indicate the currency of the price quoted above." %}</hint>
+        <item>
+          <label>{% trans "Select Currency" %}</label>
+          <value>not_selected</value>
+        </item>
+	{% for currency in currencies %}
+        <item>
+          <label>{% trans currency.name %}</label>
+          <value>{{ currency.name|slugify }}</value>
+        </item>
+	{% endfor %}
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/price_comments">
+        <label>{% trans "Please provide any additional comments about price not covered in the questions above." %}</label>
+      </input>
+      <upload mediatype="image/*" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/photo">
+        <label>{% trans "Please take a photo of the pack." %}</label>
+        <hint>{% trans "Please ensure that the label is clearly visible." %}</hint>
+      </upload>
+      <select1 ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/medicine_available">
+        <label>{% trans "Is this medicine currently in stock?" %}</label>
+        <hint>{% trans "This applies only to the specified pack size." %}</hint>
+        <item>
+          <label>{% trans "No" %}</label>
+          <value>No</value>
+        </item>
+        <item>
+          <label>{% trans "Yes" %}</label>
+          <value>Yes</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/packs_available">
+        <label>{% trans "If the medicine is in stock, how many full packs are currently in stock?" %}</label>
+        <hint>{% trans "Enter 0 if the medicine is out of stock." %}</hint>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/stockout_duration">
+        <label>{% trans "If the medicine is out of stock, how long has it been unavailable?" %}</label>
+        <item>
+          <label>{% trans "Select period" %}</label>
+          <value>blank_period</value>
+        </item>
+        <item>
+          <label>{% trans "1-3 days" %}</label>
+          <value>1-3_days</value>
+        </item>
+        <item>
+          <label>{% trans "4-7 days" %}</label>
+          <value>4-7_days</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 weeks" %}</label>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 weeks" %}</label>
+          <value>2-3_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "3-4 weeks" %}</label>
+          <value>3-4_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 months" %}</label>
+          <value>1-2_months</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 months" %}</label>
+          <value>2-3_months</value>
+        </item>
+        <item>
+          <label>{% trans "More than 3 months" %}</label>
+          <value>more_than_3_months</value>
+        </item>
+        <item>
+          <label>{% trans "Unknown" %}</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/restock_date">
+        <label>{% trans "How long will it be until the facility receives more stock of this medicine?" %}</label>
+        <item>
+          <label>{% trans "Select period" %}</label>
+          <value>blank_period</value>
+        </item>
+        <item>
+          <label>{% trans "1-3 days" %}</label>
+          <value>1-3_days</value>
+        </item>
+        <item>
+          <label>{% trans "4-7 days" %}</label>
+          <value>4-7_days</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 weeks" %}</label>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 weeks" %}</label>
+          <value>2-3_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "3-4 weeks" %}</label>
+          <value>3-4_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 months" %}</label>
+          <value>1-2_months</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 months" %}</label>
+          <value>2-3_months</value>
+        </item>
+        <item>
+          <label>{% trans "More than 3 months" %}</label>
+          <value>more_than_3_months</value>
+        </item>
+        <item>
+          <label>{% trans "Unknown" %}</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/restock_ordered">
+        <label>{% trans "How many packs have been ordered for the next restock of this facility?" %}</label>
+        <hint>{% trans "If this is unknown, please enter in 8888. If more stock has not yet been ordered, please enter in 9999." %}</hint>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/last_restock_date">
+        <label>{% trans "How long has it been since the last time this facility received stock of this medicine?" %}</label>
+        <item>
+          <label>{% trans "Select period" %}</label>
+          <value>blank_period</value>
+        </item>
+        <item>
+          <label>{% trans "1-3 days" %}</label>
+          <value>1-3_days</value>
+        </item>
+        <item>
+          <label>{% trans "4-7 days" %}</label>
+          <value>4-7_days</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 weeks" %}</label>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 weeks" %}</label>
+          <value>2-3_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "3-4 weeks" %}</label>
+          <value>3-4_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 months" %}</label>
+          <value>1-2_months</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 months" %}</label>
+          <value>2-3_months</value>
+        </item>
+        <item>
+          <label>{% trans "More than 3 months" %}</label>
+          <value>more_than_3_months</value>
+        </item>
+        <item>
+          <label>{% trans "Unknown" %}</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/last_restock_amount">
+        <label>{% trans "How many packs of this medicine did you receive at your last restock?" %}</label>
+        <hint>{% trans "If this is unknown, enter 8888" %}</hint>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form|slugify }}/availability_comments">
+        <label>{% trans "Please provide any additional comments about availability or restocking not covered in the questions above." %}</label>
+        <hint>{% trans "For instance, if medicine in this pack size is out of stock but different pack sizes are available, please mention this here." %}</hint>
+      </input>
+    </group>
+    {% endfor %}
+
+  </h:body>
+</h:html>
