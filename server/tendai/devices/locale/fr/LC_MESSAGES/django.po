@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-02 00:03+0200\n"
+"POT-Creation-Date: 2011-12-05 09:06+0200\n"
 "PO-Revision-Date: 2011-12-02 00:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,285 +41,848 @@ msgstr "S&#39;il vous plaît entrer l&#39;adresse installation postale"
 
 #: templates/surveys/facility-0.20.xml:88
 msgid "Please select a facility type from the list"
-msgstr "S&#39;il vous plaît sélectionner un type d&#39;installation de la liste"
+msgstr ""
+"S&#39;il vous plaît sélectionner un type d&#39;installation de la liste"
 
-#: templates/surveys/facility-0.20.xml:120
+#: templates/surveys/facility-0.20.xml:121
 msgid "Facility Location"
 msgstr "Emplacement des installations"
 
-#: templates/surveys/facility-0.20.xml:122
+#: templates/surveys/facility-0.20.xml:123
 msgid "Please enter in the facility name."
 msgstr "S&#39;il vous plaît entrer dans le nom de l&#39;installation."
 
-#: templates/surveys/facility-0.20.xml:125
+#: templates/surveys/facility-0.20.xml:126
 msgid "Please select the district that the health facility is in."
-msgstr "S&#39;il vous plaît sélectionner le quartier que l&#39;établissement de santé est po"
+msgstr ""
+"S&#39;il vous plaît sélectionner le quartier que l&#39;établissement de "
+"santé est po"
 
-#: templates/surveys/facility-0.20.xml:127
+#: templates/surveys/facility-0.20.xml:128
 msgid "Select a district"
 msgstr "Choisissez un quartier"
 
-#: templates/surveys/facility-0.20.xml:140
+#: templates/surveys/facility-0.20.xml:141
 msgid "Facility Contact Details"
 msgstr "Détails de contact facilité"
 
-#: templates/surveys/facility-0.20.xml:142
+#: templates/surveys/facility-0.20.xml:143
 msgid "Please enter in the facility postal address."
 msgstr "S&#39;il vous plaît entrer l&#39;adresse installation postale."
 
-#: templates/surveys/facility-0.20.xml:143
+#: templates/surveys/facility-0.20.xml:144
 msgid "e.g. 43 James Street, Cotswold, Jamestown, 4631"
 msgstr "EG 43, rue James, Cotswold, Jamestown, 4631"
 
-#: templates/surveys/facility-0.20.xml:146
-msgid "Please enter in the facility contact number."
-msgstr "S&#39;il vous plaît entrer en contact avec le numéro de l&#39;établissement."
-
 #: templates/surveys/facility-0.20.xml:147
+msgid "Please enter in the facility contact number."
+msgstr ""
+"S&#39;il vous plaît entrer en contact avec le numéro de l&#39;établissement."
+
+#: templates/surveys/facility-0.20.xml:148
 msgid ""
 "Include the international dialing code, e.g. +265112223333. Leave blank if "
 "unavailable."
 msgstr "indisponible. &quot;"
 
-#: templates/surveys/facility-0.20.xml:150
+#: templates/surveys/facility-0.20.xml:151
 msgid "Please enter facility email address."
 msgstr "S&#39;il vous plaît entrez l&#39;adresse email établissement."
 
-#: templates/surveys/facility-0.20.xml:151
+#: templates/surveys/facility-0.20.xml:152
 msgid "e.g. info@myclinic.net. Leave blank if unavailable."
 msgstr "ex info@myclinic.net. Laissez vide si indisponible."
 
-#: templates/surveys/facility-0.20.xml:156
+#: templates/surveys/facility-0.20.xml:157
 msgid "Respondent Details"
 msgstr "Détails intimé"
 
-#: templates/surveys/facility-0.20.xml:158
+#: templates/surveys/facility-0.20.xml:159
 msgid "Please enter the name of the staff member completing this survey."
-msgstr "S&#39;il vous plaît entrez le nom du membre du personnel remplissant ce questionnaire."
+msgstr ""
+"S&#39;il vous plaît entrez le nom du membre du personnel remplissant ce "
+"questionnaire."
 
-#: templates/surveys/facility-0.20.xml:161
+#: templates/surveys/facility-0.20.xml:162
 msgid "What is their position?"
 msgstr "Quelle est leur position?"
 
-#: templates/surveys/facility-0.20.xml:162
+#: templates/surveys/facility-0.20.xml:163
 msgid "e.g. facility manager, staff nurse, etc."
 msgstr "gestionnaire des installations, par exemple, infirmière, etc"
 
-#: templates/surveys/facility-0.20.xml:167
+#: templates/surveys/facility-0.20.xml:168
 msgid "Location"
 msgstr "Lieu"
 
-#: templates/surveys/facility-0.20.xml:169
+#: templates/surveys/facility-0.20.xml:170
 msgid "Please capture GPS Coordinates."
 msgstr "S&#39;il vous plaît saisir les coordonnées GPS."
 
-#: templates/surveys/facility-0.20.xml:170
+#: templates/surveys/facility-0.20.xml:171
 msgid ""
 "You will need to be outside in order to do this. Also make sure that your "
 "GPS reader is switched on (see the troubleshooting guide for details)."
-msgstr "GPS lecteur est allumé (voir le guide de dépannage pour plus de détails). &quot;"
+msgstr ""
+"GPS lecteur est allumé (voir le guide de dépannage pour plus de détails). "
+"&quot;"
 
-#: templates/surveys/facility-0.20.xml:173
+#: templates/surveys/facility-0.20.xml:174
 msgid "What is the distance (km) to the nearest town?"
 msgstr "Quelle est la distance (km) de la ville la plus proche?"
 
-#: templates/surveys/facility-0.20.xml:174
+#: templates/surveys/facility-0.20.xml:175
 msgid ""
 "A town is defined as a population > 50,000. If you are currently in a town, "
 "enter in 0."
 msgstr "entrer en 0. &quot;"
 
-#: templates/surveys/facility-0.20.xml:177
+#: templates/surveys/facility-0.20.xml:178
 msgid "What is the name of the nearest town?"
 msgstr "Quel est le nom de la ville la plus proche?"
 
-#: templates/surveys/facility-0.20.xml:182
+#: templates/surveys/facility-0.20.xml:183
 msgid "Photos"
 msgstr "Photos"
 
-#: templates/surveys/facility-0.20.xml:184
+#: templates/surveys/facility-0.20.xml:185
 msgid "Please take a photo of the front entrance of the facility."
-msgstr "S&#39;il vous plaît prendre une photo de l&#39;entrée principale de l&#39;établissement."
+msgstr ""
+"S&#39;il vous plaît prendre une photo de l&#39;entrée principale de l&#39;"
+"établissement."
 
-#: templates/surveys/facility-0.20.xml:187
+#: templates/surveys/facility-0.20.xml:188
 msgid "Please take a photo of the dispensary."
 msgstr "S&#39;il vous plaît prendre une photo de l&#39;officine."
 
-#: templates/surveys/facility-0.20.xml:190
+#: templates/surveys/facility-0.20.xml:191
 msgid ""
 "Take any other photo of the facility that might be important (optional)."
-msgstr "Prenez n&#39;importe quelle autre photo de l&#39;installation qui pourraient être importantes (en option). &quot;"
+msgstr ""
+"Prenez n&#39;importe quelle autre photo de l&#39;installation qui pourraient "
+"être importantes (en option). &quot;"
 
-#: templates/surveys/facility-0.20.xml:195
+#: templates/surveys/facility-0.20.xml:196
 msgid "General Details"
 msgstr "Détails générale"
 
-#: templates/surveys/facility-0.20.xml:197
+#: templates/surveys/facility-0.20.xml:198
 msgid "What type of facility is this?"
 msgstr "Quel type d&#39;installation est-ce?"
 
-#: templates/surveys/facility-0.20.xml:199
+#: templates/surveys/facility-0.20.xml:200
 msgid "Select a facility type"
 msgstr "Sélectionner un type d&#39;installation"
 
-#: templates/surveys/facility-0.20.xml:203
+#: templates/surveys/facility-0.20.xml:204
 msgid "Government Hospital"
 msgstr "Hôpital gouvernement"
 
-#: templates/surveys/facility-0.20.xml:207
+#: templates/surveys/facility-0.20.xml:208
 msgid "Government Rural Health Centre or Dispensary"
 msgstr "Centre de santé rural du gouvernement ou au dispensaire"
 
-#: templates/surveys/facility-0.20.xml:211
+#: templates/surveys/facility-0.20.xml:212
 msgid "Council Clinic"
 msgstr "Conseil Clinique"
 
-#: templates/surveys/facility-0.20.xml:215
+#: templates/surveys/facility-0.20.xml:216
 msgid "Mission or NGO Hospital"
 msgstr "Mission ou de l&#39;ONG Hôpital"
 
-#: templates/surveys/facility-0.20.xml:219
+#: templates/surveys/facility-0.20.xml:220
 msgid "Private Hospital"
 msgstr "Hôpital Privé"
 
-#: templates/surveys/facility-0.20.xml:223
+#: templates/surveys/facility-0.20.xml:224
 msgid "Private Pharmacy"
 msgstr "Pharmacie privée"
 
-#: templates/surveys/facility-0.20.xml:227
+#: templates/surveys/facility-0.20.xml:228
 msgid "Other"
 msgstr "Autres"
 
-#: templates/surveys/facility-0.20.xml:232
+#: templates/surveys/facility-0.20.xml:233
 msgid ""
 "If you specified other above, please explain what type of facility this is."
-msgstr "Si vous avez spécifié ci-dessus les autres, s&#39;il vous plaît expliquer ce type d&#39;installation que c&#39;est. &quot;"
-
-#: templates/surveys/facility-0.20.xml:235
-msgid "Please provide a short description of the facility."
-msgstr "S&#39;il vous plaît fournir une brève description de l&#39;installation."
+msgstr ""
+"Si vous avez spécifié ci-dessus les autres, s&#39;il vous plaît expliquer ce "
+"type d&#39;installation que c&#39;est. &quot;"
 
 #: templates/surveys/facility-0.20.xml:236
+msgid "Please provide a short description of the facility."
+msgstr ""
+"S&#39;il vous plaît fournir une brève description de l&#39;installation."
+
+#: templates/surveys/facility-0.20.xml:237
 msgid "(max 100 words)"
 msgstr "(Max 100 mots)"
 
-#: templates/surveys/facility-0.20.xml:241
+#: templates/surveys/facility-0.20.xml:242
 msgid "Services and Population"
 msgstr "Services et de la Population"
 
-#: templates/surveys/facility-0.20.xml:243
+#: templates/surveys/facility-0.20.xml:244
 msgid "Please indicate which services this facility offers."
 msgstr "S&#39;il vous plaît indiquer quels services cet établissement offre."
 
-#: templates/surveys/facility-0.20.xml:244
+#: templates/surveys/facility-0.20.xml:245
 msgid "Tick all options that apply."
 msgstr "Cochez toutes les options qui s&#39;appliquent."
 
-#: templates/surveys/facility-0.20.xml:246
+#: templates/surveys/facility-0.20.xml:247
 msgid "Outpatients"
 msgstr "Patients ambulatoires"
 
-#: templates/surveys/facility-0.20.xml:250
+#: templates/surveys/facility-0.20.xml:251
 msgid "Ante-natal"
 msgstr "Ante-natale"
 
-#: templates/surveys/facility-0.20.xml:254
+#: templates/surveys/facility-0.20.xml:255
 msgid "Well baby clinic"
 msgstr "Clinique de nourrissons"
 
-#: templates/surveys/facility-0.20.xml:258
+#: templates/surveys/facility-0.20.xml:259
 msgid "Diabetic Clinic"
 msgstr "Clinique du diabète"
 
-#: templates/surveys/facility-0.20.xml:262
+#: templates/surveys/facility-0.20.xml:263
 msgid "Dispensary"
 msgstr "Dispensaire"
 
-#: templates/surveys/facility-0.20.xml:266
+#: templates/surveys/facility-0.20.xml:267
 msgid "TB Clinic"
 msgstr "Clinique de tuberculose"
 
-#: templates/surveys/facility-0.20.xml:270
+#: templates/surveys/facility-0.20.xml:271
 msgid "HCT/VCT"
 msgstr "HCT / CDV"
 
-#: templates/surveys/facility-0.20.xml:274
+#: templates/surveys/facility-0.20.xml:275
 msgid "ARV Dispensing"
 msgstr "Dispensation des ARV"
 
-#: templates/surveys/facility-0.20.xml:279
+#: templates/surveys/facility-0.20.xml:280
 msgid "Add any other major services offered not listed in the question above."
-msgstr "Ajouter tous les autres services offerts importants qui ne figurent pas dans la question ci-dessus."
+msgstr ""
+"Ajouter tous les autres services offerts importants qui ne figurent pas dans "
+"la question ci-dessus."
 
-#: templates/surveys/facility-0.20.xml:282
+#: templates/surveys/facility-0.20.xml:283
 msgid "What is the catchment population of this facility?"
 msgstr "Quelle est la population desservie par cet établissement?"
 
-#: templates/surveys/facility-0.20.xml:283
+#: templates/surveys/facility-0.20.xml:284
 msgid "Approximate number of patients that this facility services."
 msgstr "Le nombre approximatif de patients que ce service des installations."
 
-#: templates/surveys/facility-0.20.xml:286
+#: templates/surveys/facility-0.20.xml:287
 msgid "What is the average number of patients serviced daily at this facility?"
-msgstr "Quel est le nombre moyen de patients desservis quotidiennement dans cet établissement?"
+msgstr ""
+"Quel est le nombre moyen de patients desservis quotidiennement dans cet "
+"établissement?"
 
-#: templates/surveys/facility-0.20.xml:289
+#: templates/surveys/facility-0.20.xml:290
 msgid "How many nurses are stationed at this facility?"
 msgstr "Combien d&#39;infirmières sont stationnés dans cet établissement?"
 
-#: templates/surveys/facility-0.20.xml:292
+#: templates/surveys/facility-0.20.xml:293
 msgid "How many doctors are stationed at this facility?"
 msgstr "Combien de médecins sont stationnés dans cet établissement?"
 
-#: templates/surveys/facility-0.20.xml:297
+#: templates/surveys/facility-0.20.xml:298
 msgid "Medicines List"
 msgstr "Liste des médicaments"
 
-#: templates/surveys/facility-0.20.xml:299
-msgid "Is a list of medicines procured by the facility available?"
-msgstr "Est une liste de médicaments achetés par l&#39;installation disponibles?"
-
 #: templates/surveys/facility-0.20.xml:300
+msgid "Is a list of medicines procured by the facility available?"
+msgstr ""
+"Est une liste de médicaments achetés par l&#39;installation disponibles?"
+
+#: templates/surveys/facility-0.20.xml:301
 msgid ""
 "If yes, please ask for a copy. This should be delivered to the Tendai "
 "project supervisor."
 msgstr "superviseur du projet. &quot;"
 
-#: templates/surveys/facility-0.20.xml:302
+#: templates/surveys/facility-0.20.xml:303
+#: templates/surveys/medicines-0.51.xml:503
+#: templates/surveys/medicines-0.51.xml:627
 msgid "Yes"
 msgstr "Oui"
 
-#: templates/surveys/facility-0.20.xml:306
+#: templates/surveys/facility-0.20.xml:307
+#: templates/surveys/medicines-0.51.xml:507
+#: templates/surveys/medicines-0.51.xml:623
 msgid "No"
 msgstr "Non"
 
-#: templates/surveys/facility-0.20.xml:311
+#: templates/surveys/facility-0.20.xml:312
 msgid "Please explain why the list is not available."
-msgstr "S&#39;il vous plaît expliquer pourquoi la liste n&#39;est pas disponible."
+msgstr ""
+"S&#39;il vous plaît expliquer pourquoi la liste n&#39;est pas disponible."
 
-#: templates/surveys/facility-0.20.xml:314
-#: templates/surveys/facility-0.20.xml:318
-#: templates/surveys/facility-0.20.xml:322
+#: templates/surveys/facility-0.20.xml:315
+#: templates/surveys/facility-0.20.xml:319
+#: templates/surveys/facility-0.20.xml:323
 msgid "Please take a photo of medicines list."
 msgstr "S&#39;il vous plaît prendre une photo de la liste des médicaments."
 
-#: templates/surveys/facility-0.20.xml:315
+#: templates/surveys/facility-0.20.xml:316
 msgid "Ensure that the page is readable (page 1)."
 msgstr "Assurez-vous que la page est lisible (page 1)."
 
-#: templates/surveys/facility-0.20.xml:319
+#: templates/surveys/facility-0.20.xml:320
 msgid "Ensure that the page is readable (page 2)."
 msgstr "Assurez-vous que la page est lisible (page 2)."
 
-#: templates/surveys/facility-0.20.xml:323
+#: templates/surveys/facility-0.20.xml:324
 msgid "Ensure that the page is readable (page 3)."
 msgstr "Assurez-vous que la page est lisible (page 3)."
 
-#: templates/surveys/facility-0.20.xml:328
+#: templates/surveys/facility-0.20.xml:329
 msgid "Comments"
 msgstr "Commentaires"
 
-#: templates/surveys/facility-0.20.xml:330
+#: templates/surveys/facility-0.20.xml:331
 msgid ""
 "Please provide any additional comments not covered by the previous questions."
-msgstr "S&#39;il vous plaît fournir des commentaires supplémentaires non couverts par les questions précédentes. &quot;"
+msgstr ""
+"S&#39;il vous plaît fournir des commentaires supplémentaires non couverts "
+"par les questions précédentes. &quot;"
+
+#: templates/surveys/medicines-0.51.xml:4
+#, fuzzy, python-format
+msgid "%(country_name)s Medicines"
+msgstr "%(country_name)s Facilité"
+
+#: templates/surveys/medicines-0.51.xml:40
+msgid "Select currency"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:434
+#, fuzzy
+msgid "Facility name required"
+msgstr "Détails de contact facilité"
+
+#: templates/surveys/medicines-0.51.xml:435
+#, fuzzy
+msgid "Please enter in the name of the respondent"
+msgstr "S&#39;il vous plaît entrer l&#39;adresse installation postale"
+
+#: templates/surveys/medicines-0.51.xml:441
+msgid "For each medicine, please answer whether it is stocked or not"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:442
+msgid "Pack size required"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:443
+msgid "Medicine price required"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:444
+#, fuzzy
+msgid "Please select currency"
+msgstr "S&#39;il vous plaît sélectionner un établissement"
+
+#: templates/surveys/medicines-0.51.xml:445
+#, fuzzy
+msgid "Please indicate whether this medicine is available"
+msgstr ""
+"S&#39;il vous plaît expliquer pourquoi la liste n&#39;est pas disponible."
+
+#: templates/surveys/medicines-0.51.xml:446
+msgid "Packs available required"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:447
+#, fuzzy
+msgid "Please select the next restock date"
+msgstr "S&#39;il vous plaît choisissez un quartier de la liste"
+
+#: templates/surveys/medicines-0.51.xml:448
+#, fuzzy
+msgid "Please fill in the number of stock ordered"
+msgstr "S&#39;il vous plaît remplir le nom de l&#39;installation"
+
+#: templates/surveys/medicines-0.51.xml:449
+#, fuzzy
+msgid "Please select the last restock date"
+msgstr "S&#39;il vous plaît choisissez un quartier de la liste"
+
+#: templates/surveys/medicines-0.51.xml:450
+msgid "Please indicate the number of packs received at the last restock"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:469
+msgid "General Information"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:471
+#, fuzzy
+msgid "Name of facility"
+msgstr "Quel type d&#39;installation est-ce?"
+
+#: templates/surveys/medicines-0.51.xml:474
+#, fuzzy
+msgid "GPS Location"
+msgstr "Lieu"
+
+#: templates/surveys/medicines-0.51.xml:475
+#, fuzzy
+msgid "Please ensure that you capture the GPS location at the facility"
+msgstr ""
+"S&#39;il vous plaît fournir une brève description de l&#39;installation."
+
+#: templates/surveys/medicines-0.51.xml:478
+#, fuzzy
+msgid "Name of staff member completing this survey"
+msgstr ""
+"S&#39;il vous plaît entrez le nom du membre du personnel remplissant ce "
+"questionnaire."
+
+#: templates/surveys/medicines-0.51.xml:479
+msgid ""
+"This should ideally be the clinic manager or someone given the authority by "
+"the clinic manager with the necessary expertise and knowledge"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:482
+msgid "Position of Respondent"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:483
+#, fuzzy
+msgid "e.g. facility manager, staff nurse, etc"
+msgstr "gestionnaire des installations, par exemple, infirmière, etc"
+
+#: templates/surveys/medicines-0.51.xml:488
+msgid ""
+"Please indicate whether the following medicines are usually stocked at this "
+"facility."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:492
+#, fuzzy, python-format
+msgid "Are %(name)s %(form)ss stocked at this facility?"
+msgstr "Combien d&#39;infirmières sont stationnés dans cet établissement?"
+
+#: templates/surveys/medicines-0.51.xml:493
+msgid ""
+"Not stocked means that this facility does not usually carry this medicine."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:495
+#, fuzzy
+msgid "Select option"
+msgstr "Choisissez un quartier"
+
+#: templates/surveys/medicines-0.51.xml:499
+msgid "Don't know"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:512
+#, fuzzy
+msgid "Please provide any additional comments below."
+msgstr ""
+"S&#39;il vous plaît fournir des commentaires supplémentaires non couverts "
+"par les questions précédentes. &quot;"
+
+#: templates/surveys/medicines-0.51.xml:513
+msgid "If not necessary then leave blank."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:522
+msgid "Name of the cheapest product available."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:524
+msgid ""
+"Divide price of pack by the number of tablets in the pack to determine price "
+"per tablet. If multiple products have the cheapest price, choose one."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:526
+msgid ""
+"Divide price of pack by the number of capsules in the pack to determine "
+"price per capsule. If multiple products have the cheapest price, choose one."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:528
+msgid ""
+"Divide price of pack by the number of vials in the pack to determine price "
+"per vial. If multiple products have the cheapest price, choose one."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:530
+msgid ""
+"Divide price of pack by the number of ampoules in the pack to determine "
+"price per ampoule. If multiple products have the cheapest price, choose one."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:532
+msgid ""
+"Divide the price of a bottle by the size (in ml) to determine price per ml. "
+"If multiple products have the cheapest price, choose one."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:534
+msgid ""
+"Divide price of pack by the number of units in the pack to determine price "
+"per unit. If multiple products have the cheapest price, choose one."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:538
+msgid ""
+"Please answer the questions below with reference to the cheapest product "
+"mentioned above."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:542
+msgid "How many tablets in a pack (pack size)?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:546
+msgid "How many capsules in a pack (pack size)?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:550
+msgid "How many vials in a pack (pack size)?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:554
+msgid "How many ampoules in a pack (pack size)?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:558
+msgid "How big is the bottle (in ml)?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:562
+msgid "How many doses in an inhaler (pack size)?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:566
+msgid "How many units in a pack (pack size)?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:570
+msgid ""
+"The value above is called the pack size. For the remaining questions on this "
+"page, please use this value for the pack size."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:573
+#, fuzzy
+msgid "What is the price paid by the patient?"
+msgstr "Quelle est leur position?"
+
+#: templates/surveys/medicines-0.51.xml:574
+msgid "If the medicine is free, please enter 0."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:578
+msgid "How many tablets does the price mentioned above buy?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:579
+#: templates/surveys/medicines-0.51.xml:582
+#: templates/surveys/medicines-0.51.xml:595
+msgid ""
+"This might be the same as the pack size but can be different in some cases. "
+"If the medicine is free then leave this question blank."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:581
+msgid "How many capsules does the price mentioned above buy?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:584
+msgid "How many vials does the patient receive for the price above?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:586
+msgid "How many ampoules does the price mentioned above buy?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:587
+#: templates/surveys/medicines-0.51.xml:590
+msgid "If the medicine is free then leave this question blank."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:589
+msgid "How large is the bottle (in ml) for the product mentioned above?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:592
+msgid "Leave this question blank"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:594
+msgid "How many units does the price mentioned above buy?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:599
+#, fuzzy
+msgid "What currency is this price in?"
+msgstr "Quelle est leur position?"
+
+#: templates/surveys/medicines-0.51.xml:600
+msgid "This should indicate the currency of the price quoted above."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:602
+msgid "Select Currency"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:613
+#, fuzzy
+msgid ""
+"Please provide any additional comments about price not covered in the "
+"questions above."
+msgstr ""
+"S&#39;il vous plaît fournir des commentaires supplémentaires non couverts "
+"par les questions précédentes. &quot;"
+
+#: templates/surveys/medicines-0.51.xml:616
+#, fuzzy
+msgid "Please take a photo of the pack."
+msgstr "S&#39;il vous plaît prendre une photo de l&#39;officine."
+
+#: templates/surveys/medicines-0.51.xml:617
+#, fuzzy
+msgid "Please ensure that the label is clearly visible."
+msgstr ""
+"S&#39;il vous plaît expliquer pourquoi la liste n&#39;est pas disponible."
+
+#: templates/surveys/medicines-0.51.xml:620
+msgid "Is this medicine currently in stock?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:621
+msgid "This applies only to the specified pack size."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:632
+msgid ""
+"If the medicine is in stock, how many full packs are currently in stock?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:633
+msgid "Enter 0 if the medicine is out of stock."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:636
+msgid "If the medicine is out of stock, how long has it been unavailable?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:638
+#: templates/surveys/medicines-0.51.xml:681
+#: templates/surveys/medicines-0.51.xml:728
+#, fuzzy
+msgid "Select period"
+msgstr "Choisissez un quartier"
+
+#: templates/surveys/medicines-0.51.xml:642
+#: templates/surveys/medicines-0.51.xml:685
+#: templates/surveys/medicines-0.51.xml:732
+msgid "1-3 days"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:646
+#: templates/surveys/medicines-0.51.xml:689
+#: templates/surveys/medicines-0.51.xml:736
+msgid "4-7 days"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:650
+#: templates/surveys/medicines-0.51.xml:693
+#: templates/surveys/medicines-0.51.xml:740
+msgid "1-2 weeks"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:654
+#: templates/surveys/medicines-0.51.xml:697
+#: templates/surveys/medicines-0.51.xml:744
+msgid "2-3 weeks"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:658
+#: templates/surveys/medicines-0.51.xml:701
+#: templates/surveys/medicines-0.51.xml:748
+msgid "3-4 weeks"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:662
+#: templates/surveys/medicines-0.51.xml:705
+#: templates/surveys/medicines-0.51.xml:752
+msgid "1-2 months"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:666
+#: templates/surveys/medicines-0.51.xml:709
+#: templates/surveys/medicines-0.51.xml:756
+msgid "2-3 months"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:670
+#: templates/surveys/medicines-0.51.xml:713
+#: templates/surveys/medicines-0.51.xml:760
+msgid "More than 3 months"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:674
+#: templates/surveys/medicines-0.51.xml:717
+#: templates/surveys/medicines-0.51.xml:764
+msgid "Unknown"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:679
+msgid ""
+"How long will it be until the facility receives more stock of this medicine?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:722
+#, fuzzy
+msgid "How many packs have been ordered for the next restock of this facility?"
+msgstr "Combien de médecins sont stationnés dans cet établissement?"
+
+#: templates/surveys/medicines-0.51.xml:723
+msgid ""
+"If this is unknown, please enter in 8888. If more stock has not yet been "
+"ordered, please enter in 9999."
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:726
+msgid ""
+"How long has it been since the last time this facility received stock of "
+"this medicine?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:769
+msgid "How many packs of this medicine did you receive at your last restock?"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:770
+msgid "If this is unknown, enter 8888"
+msgstr ""
+
+#: templates/surveys/medicines-0.51.xml:773
+#, fuzzy
+msgid ""
+"Please provide any additional comments about availability or restocking not "
+"covered in the questions above."
+msgstr ""
+"S&#39;il vous plaît fournir des commentaires supplémentaires non couverts "
+"par les questions précédentes. &quot;"
+
+#: templates/surveys/medicines-0.51.xml:774
+msgid ""
+"For instance, if medicine in this pack size is out of stock but different "
+"pack sizes are available, please mention this here."
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:5
+msgid "Tendai Interview"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:61
+msgid ""
+"You are about to conduct a community interview. The purpose of this "
+"interview to collect stories about the community's experiences access "
+"medicines."
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:71
+#, fuzzy
+msgid "What is the respondent's name?"
+msgstr "Quelle est leur position?"
+
+#: templates/surveys/tendai-interview-0.10.xml:74
+msgid "Why have you visited the facility today?"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:77
+msgid "How long did the journey to the facility take?"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:80
+msgid "What would you say are the major problem illnesses in your community?"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:83
+msgid ""
+"What are the major difficulties that you experience with regards to your "
+"health situation?"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:86
+msgid ""
+"What has your experience been of this facility in meeting your needs, "
+"including how you think this could be improved?"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:89
+msgid ""
+"Are medicines generally available at local health facilities? If not, what "
+"do you think could be done to improve this?"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:92
+msgid ""
+"What was your experience of getting medicines the last time either yourself "
+"or a member of your family was sick?"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:95
+msgid ""
+"Do you think the medicines available at this health facility are affordable? "
+"If not, then please elaborate with examples."
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:98
+msgid "What costs do you incur when coming to this facility for medicines?"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:101
+msgid ""
+"Is there anything else that you want to share that has not been covered in "
+"the above questions?"
+msgstr ""
+
+#: templates/surveys/tendai-interview-0.10.xml:104
+msgid "Take a picture of the respondent with their consent."
+msgstr ""
+
+#: templates/surveys/tendai-story-0.4.xml:6
+msgid "Tendai Story"
+msgstr ""
+
+#: templates/surveys/tendai-story-0.4.xml:48
+msgid "Tell your story"
+msgstr ""
+
+#: templates/surveys/tendai-story-0.4.xml:50
+msgid "Story Title"
+msgstr ""
+
+#: templates/surveys/tendai-story-0.4.xml:53
+#, fuzzy
+msgid "Photo 1"
+msgstr "Photos"
+
+#: templates/surveys/tendai-story-0.4.xml:56
+#, fuzzy
+msgid "Photo 2"
+msgstr "Photos"
+
+#: templates/surveys/tendai-story-0.4.xml:59
+#, fuzzy
+msgid "What is your story?"
+msgstr "Quelle est leur position?"
+
+#: templates/surveys/tendai-story-0.4.xml:62
+msgid "Record Audio (optional)"
+msgstr ""

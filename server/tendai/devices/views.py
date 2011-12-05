@@ -37,9 +37,9 @@ def formXml(request, country_code, language=None):
         cur_language = translation.get_language()
         if language:
             translation.activate(language)
-         elif countryform_language:
+        elif countryform_language:
             translation.activate(countryform_language.code)
-         else:
+        else:
             translation.activate(country.language.code)
         data = template.render(context)
         translation.activate(cur_language)
