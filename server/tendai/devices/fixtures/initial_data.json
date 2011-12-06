@@ -1447,35 +1447,50 @@
         "pk": 1, 
         "model": "devices.dosageform", 
         "fields": {
-            "name": "tablet"
+            "container": "pack",
+            "containers": "packs",
+            "unit": "tablet/capsule",
+            "units": "tablets/capsules"
         }
     }, 
     {
         "pk": 2, 
         "model": "devices.dosageform", 
         "fields": {
-            "name": "bottle"
+            "container": "bottle",
+            "containers": "bottles",
+            "unit": "millilitre",
+            "units": "millilitres"
         }
     }, 
     {
         "pk": 3, 
         "model": "devices.dosageform", 
         "fields": {
-            "name": "vial"
+            "container": "vial",
+            "containers": "vials",
+            "unit": "gram",
+            "units": "grams"
         }
     }, 
     {
         "pk": 4, 
         "model": "devices.dosageform", 
         "fields": {
-            "name": "ampoule"
+            "container": "ampoule",
+            "containers": "ampoules",
+            "unit": "millilitre",
+            "units": "millilitres"
         }
     }, 
     {
         "pk": 5, 
         "model": "devices.dosageform", 
         "fields": {
-            "name": "unit"
+            "container": "pack",
+            "containers": "pack",
+            "unit": "unit",
+            "units": "units"
         }
     }
 ]

@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 
 from openrosa import models as ormodels
 
@@ -33,18 +34,37 @@ class Organisation(models.Model):
         return self.name
 
 class DosageForm(models.Model):
-    name = models.CharField(max_length=30)
+    container = models.CharField(max_length=30)
+    containers = models.CharField(max_length=30)
+    unit = models.CharField(max_length=30)
+    units = models.CharField(max_length=30, verbose_name="Units (Plural)")
     
     def __unicode__(self):
-        return u"%s" % (self.name)
+        return u"%s (%s)" % (self.container, self.units)
 
 class Medicine(models.Model):
     name = models.CharField(max_length=60)
     form = models.ForeignKey(DosageForm)
     countries = models.ManyToManyField(Country)
     
+    def get_container(self):
+        return _(self.form.container)
+    container=property(get_container)
+        
+    def get_containers(self):
+        return _(self.form.containers)
+    containers=property(get_containers)
+    
+    def get_unit(self):
+        return _(self.form.unit)
+    unit=property(get_unit)
+    
+    def get_units(self):
+        return _(self.form.units)
+    units=property(get_units)
+    
     def __unicode__(self):
-        return u"%s %s" % (self.name, self.form)
+        return u"%s %s" % (self.name, self.form.units)
     
     class Meta:
         unique_together = ('name', 'form',)
