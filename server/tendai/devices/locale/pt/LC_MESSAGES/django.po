@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Tendai Server\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-06 17:49+0200\n"
-"PO-Revision-Date: 2011-12-07 09:23+0200\n"
+"PO-Revision-Date: 2011-12-07 11:16+0200\n"
 "Last-Translator: Etienne Kruger <etienne@acscomputers.co.za>\n"
 "Language-Team: SARPAM <adi@sarpam.net>\n"
 "Language: \n"
@@ -24,7 +24,7 @@ msgstr "Instalações %(country_name)s"
 
 #: templates/surveys/facility-0.20.xml:21
 msgid "Please select a facility"
-msgstr ""
+msgstr "Por favor seleccione um estabelecimento"
 
 #: templates/surveys/facility-0.20.xml:85
 msgid "Please fill in the facility name"
@@ -391,7 +391,7 @@ msgstr "Por favor, garanta que recolhe a localização GPS das instalações"
 
 #: templates/surveys/medicines-0.51.xml:477
 msgid "Please capture the GPS location"
-msgstr ""
+msgstr "Por favor, capturar a localização GPS"
 
 #: templates/surveys/medicines-0.51.xml:480
 msgid "Name of staff member completing this survey"
@@ -416,7 +416,7 @@ msgstr "Por favor, indique se os seguintes medicamentos são normalmente armazen
 #: templates/surveys/medicines-0.51.xml:494
 #, python-format
 msgid "Are %(name)s %(containers)s stocked at this facility?"
-msgstr ""
+msgstr "Os %(containers)s %(name)s são armazenados nestas instalações?"
 
 #: templates/surveys/medicines-0.51.xml:495
 msgid "Not stocked means that this facility does not usually carry this medicine."
@@ -445,7 +445,7 @@ msgstr "Marca do produto mais barato disponível."
 #: templates/surveys/medicines-0.51.xml:525
 #, python-format
 msgid "Divide price of one %(container)s by the number of %(units)s in the %(container)s to determine price per %(unit)s. If multiple products have the cheapest price, choose one."
-msgstr ""
+msgstr "Divida o preço do %(container)s pelo número de %(units)s contidos no %(container)s para determinar o preço por %(unit)s. Se houver mais que um produto com o preço mais baixo, escolha um deles."
 
 #: templates/surveys/medicines-0.51.xml:528
 msgid "Please answer the questions below with reference to the cheapest product mentioned above."
@@ -454,12 +454,12 @@ msgstr "Por favor, responda às perguntas seguintes tendo como referência o pro
 #: templates/surveys/medicines-0.51.xml:531
 #, python-format
 msgid "For this medicine, a pack is defined as a single %(container)s."
-msgstr ""
+msgstr "Para este medicamento, um pacote é definido como uma única %(container)s."
 
 #: templates/surveys/medicines-0.51.xml:534
 #, python-format
 msgid "How many %(units)s in a single %(container)s (pack size)?"
-msgstr ""
+msgstr "Quantos %(units)s num %(container)s (tamanho do pacote)?"
 
 #: templates/surveys/medicines-0.51.xml:537
 msgid "The value above is called the pack size. For the remaining questions on this page, please use this value for the pack size."
@@ -476,7 +476,7 @@ msgstr "Se o medicamento for grátis, introduza 0, por favor."
 #: templates/surveys/medicines-0.51.xml:544
 #, python-format
 msgid "How many %(units)s does the price mentioned above buy?"
-msgstr ""
+msgstr "Quantos %(units)s se podem comprar com o preço mencionado acima?"
 
 #: templates/surveys/medicines-0.51.xml:545
 msgid "This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank."
@@ -501,7 +501,7 @@ msgstr "Por favor, comente informação adicional sobre preço que não tenha si
 #: templates/surveys/medicines-0.51.xml:565
 #, python-format
 msgid "Please take a photo of the %(container)s."
-msgstr ""
+msgstr "Fotografe o %(container)s, por favor."
 
 #: templates/surveys/medicines-0.51.xml:566
 msgid "Please ensure that the label is clearly visible."
