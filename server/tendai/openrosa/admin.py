@@ -20,74 +20,12 @@ import forms
 import views
 from general import utils
 
-re_name = re.compile("title>([^<>]*)<")
-def handle_uploaded_file(f, file):
-    for chunk in f.chunks():
-        file.write(chunk)
-
 class ORSubmissionMediaAdmin(admin.ModelAdmin):
     pass
 
 class ORFormAdmin(admin.ModelAdmin):
     list_display = ('name', 'majorminorversion', 'modified_date', 'active')
     list_filter = ('name', 'active')
-
-    def upload_form(self, request, template_name="openrosa/form_upload.html"):
-
-        if request.method == 'POST':
-            form = forms.UploadORForm(request.POST, request.FILES)
-            if form.is_valid():
-                buf = StringIO()
-                handle_uploaded_file(request.FILES["file"], buf)
-                buf.seek(0)
-                xml = buf.read()
-
-                name = re_name.search(xml).groups()[0]
-                version = form.cleaned_data["majorminorversion"]
-                slug = utils.slugify(name) + "-" + version
-
-                models.ORForm.objects.create(
-                    name=name,
-                    form_id=slug,
-                    majorminorversion=version
-                )
-                
-                # ensure that the data.id attribute correctly identifies the form
-                f = open("%s/%s.xml" % (settings.OPENROSA_FORMS_DIR, slug), "w+")
-                dom = minidom.parseString(xml)
-                data_elements = dom.getElementsByTagName("data")
-                if len(data_elements) == 1:
-                    data_elements[0].attributes["id"].value = slug
-
-                # Horrible code
-                # minidom self-closes empty tags with no option to change this
-                # rather than moving to another xml library, I'm just replacing self-closed tags
-                # with a more verbose representation
-                xml = dom.toxml("utf-8")
-                def foo(match):
-                    m = match.groups()[0]
-                    return "<%s></%s>" % (m, m)
-
-                xml = re.sub("<([^<>\s*]+)\s*/>", foo, xml)
-                f.write(xml)
-                f.close()
-
-                context = RequestContext(request, {
-                    "submission_complete" : True}
-                )
-                self.message_user(request, "Successfully uploaded form")
-                return HttpResponseRedirect("/admin/openrosa/orform")
-        else:
-            form = forms.UploadORForm()
-        context = RequestContext(request, {"form" : form})
-        return render_to_response(template_name, context)
-
-    def get_urls(self):
-        urls = super(ORFormAdmin, self).get_urls()
-        my_urls = patterns('', 
-            url(r'^upload_form/$', self.upload_form, {}, "openrosa_orform_upload_form"),
-        )
-        return my_urls + urls
 
 class ORFormSubmissionAdmin(admin.ModelAdmin):
     list_display = ('created_date', 'device_id', 'subscriber_id', 'sim_id')
@@ -114,7 +52,6 @@ class ORFormSubmissionAdmin(admin.ModelAdmin):
         return views.edit_submission_xml(request, object_id)
 
 
-#admin.site.register(models.ORForm, ORFormAdmin)
-admin.site.register(models.ORForm)
+admin.site.register(models.ORForm, models.ORFormAdmin)
 admin.site.register(models.ORFormSubmission, ORFormSubmissionAdmin)
 admin.site.register(models.ORSubmissionMedia, ORSubmissionMediaAdmin)
