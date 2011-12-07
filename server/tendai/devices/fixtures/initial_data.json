@@ -1443,54 +1443,114 @@
             "value": "pound_sterling"
         }
     },
-{
+    {
         "pk": 1, 
         "model": "devices.dosageform", 
         "fields": {
-            "container": "pack",
-            "containers": "packs",
-            "unit": "tablet/capsule",
-            "units": "tablets/capsules"
+            "units": "tablets/capsules", 
+            "container": "box/bottle/blister pack", 
+            "unit": "tablet/capsule", 
+            "containers": "boxes/bottles/blister packs"
         }
     }, 
     {
         "pk": 2, 
         "model": "devices.dosageform", 
         "fields": {
-            "container": "bottle",
-            "containers": "bottles",
-            "unit": "millilitre",
-            "units": "millilitres"
+            "units": "millilitres", 
+            "container": "bottle", 
+            "unit": "millilitre", 
+            "containers": "bottles"
         }
     }, 
     {
         "pk": 3, 
         "model": "devices.dosageform", 
         "fields": {
-            "container": "vial",
-            "containers": "vials",
-            "unit": "gram",
-            "units": "grams"
+            "units": "grams", 
+            "container": "vial", 
+            "unit": "gram", 
+            "containers": "vials"
         }
     }, 
     {
         "pk": 4, 
         "model": "devices.dosageform", 
         "fields": {
-            "container": "ampoule",
-            "containers": "ampoules",
-            "unit": "millilitre",
-            "units": "millilitres"
+            "units": "millilitres", 
+            "container": "ampoule", 
+            "unit": "millilitre", 
+            "containers": "ampoules"
         }
     }, 
     {
         "pk": 5, 
         "model": "devices.dosageform", 
         "fields": {
-            "container": "pack",
-            "containers": "pack",
-            "unit": "unit",
-            "units": "units"
+            "units": "units", 
+            "container": "pack", 
+            "unit": "unit", 
+            "containers": "pack"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "units": "sachets", 
+            "container": "sachet", 
+            "unit": "sachet", 
+            "containers": "sachets"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "units": "unit", 
+            "container": "infusion", 
+            "unit": "unit", 
+            "containers": "infusions"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "units": "doses", 
+            "container": "inhaler", 
+            "unit": "dose", 
+            "containers": "inhalers"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "units": "grams", 
+            "container": "vial", 
+            "unit": "gram", 
+            "containers": "vials"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "units": "ml", 
+            "container": "vial", 
+            "unit": "ml", 
+            "containers": "vials"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "units": "g", 
+            "container": "ointment", 
+            "unit": "g", 
+            "containers": "ointments"
         }
     }
 ]
