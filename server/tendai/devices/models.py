@@ -1,7 +1,15 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 
 from openrosa import models as ormodels
+
+class Language(models.Model):
+    name = models.CharField(max_length=30, verbose_name="Language")
+    code = models.CharField(max_length=2, verbose_name="ISO639-1 Code")
+    
+    def __unicode__(self):
+        return u"%s (%s)" % (self.name, self.code)
 
 class CountryManager(models.Manager):
     def get_default(self):
@@ -9,7 +17,9 @@ class CountryManager(models.Manager):
 
 class Country(models.Model):
     objects = CountryManager()
-    name = models.CharField(max_length=30)    
+    name = models.CharField(max_length=30)
+    code = models.CharField(max_length=2, verbose_name="ISO 3166-1 alpha-2 Code")
+    language = models.ForeignKey(Language)
     
     def __unicode__(self):
         return self.name
@@ -23,26 +33,38 @@ class Organisation(models.Model):
     def __unicode__(self):
         return self.name
 
-class Language(models.Model):
-    name = models.CharField(max_length=30, verbose_name="Language")
-    code = models.CharField(max_length=2, verbose_name="ISO639-1 Code")
-    
-    def __unicode__(self):
-        return u"%s (%s)" % (self.name, self.code)
-
 class DosageForm(models.Model):
-    name = models.CharField(max_length=30)
+    container = models.CharField(max_length=30)
+    containers = models.CharField(max_length=30, verbose_name="Containers (Plural)")
+    unit = models.CharField(max_length=30)
+    units = models.CharField(max_length=30, verbose_name="Units (Plural)")
     
     def __unicode__(self):
-        return u"%s" % (self.name)
+        return u"%s (%s)" % (self.container, self.units)
 
 class Medicine(models.Model):
     name = models.CharField(max_length=60)
     form = models.ForeignKey(DosageForm)
     countries = models.ManyToManyField(Country)
     
+    def get_container(self):
+        return _(self.form.container)
+    container=property(get_container)
+        
+    def get_containers(self):
+        return _(self.form.containers)
+    containers=property(get_containers)
+    
+    def get_unit(self):
+        return _(self.form.unit)
+    unit=property(get_unit)
+    
+    def get_units(self):
+        return _(self.form.units)
+    units=property(get_units)
+    
     def __unicode__(self):
-        return u"%s %s" % (self.name, self.form)
+        return u"%s %s" % (self.name, self.form.units)
     
     class Meta:
         unique_together = ('name', 'form',)
@@ -100,7 +122,7 @@ class CountryForm(models.Model):
     A model that assigns a form to a number of countries
     """
     countries = models.ManyToManyField(Country)
-    language = models.ForeignKey(Language)
+    language = models.ForeignKey(Language, blank=True, null=True)
     form = models.ForeignKey(ormodels.ORForm)
 
     def __unicode__(self):

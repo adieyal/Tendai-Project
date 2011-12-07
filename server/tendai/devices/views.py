@@ -8,32 +8,42 @@ from django.shortcuts import get_object_or_404
 from django.template import Template, Context, TemplateDoesNotExist
 from django.template.loader import get_template
 from django.db.models import Q
+from django.utils import translation
 
 from openrosa import models as or_models
 from openrosa import forms
 import models
 
-def formXml(request, country_id):
+def formXml(request, country_code, language=None):
     if request.method == "GET":
         form_id = request.GET["formId"]
-
-        orform = get_object_or_404(or_models.ORForm, form_id=form_id)
-
-        country = models.Country.objects.get(id=country_id)
-        language = models.CountryForm.objects.get(form=orform, countries=country).language
-        template_name = os.path.join('surveys', orform.form_id + '.' + language.code + '.xml')
-
+        
+        country = get_object_or_404(models.Country, code=country_code)
+        orform = get_object_or_404(or_models.ORForm, form_id=form_id, countryform__countries=country)
+        countryform_language = orform.countryform_set.all()[0].language
+        template_name = os.path.join('surveys', orform.form_id + '.xml')
+        
         try:
             template = get_template(template_name)
         except TemplateDoesNotExist:
             raise Http404
+        
         context = Context({
             "country" : country,
             "districts" : models.District.objects.filter(country=country).order_by('name'),
             "medicines" : models.Medicine.objects.filter(countries=country).order_by('name'),
             "currencies" : models.Currency.objects.all(),
         })
-        response = HttpResponse(template.render(context), mimetype='text/xml; charset=utf-8')
+        cur_language = translation.get_language()
+        if language:
+            translation.activate(language)
+        elif countryform_language:
+            translation.activate(countryform_language.code)
+        else:
+            translation.activate(country.language.code)
+        data = template.render(context)
+        translation.activate(cur_language)
+        response = HttpResponse(data, mimetype='text/xml; charset=utf-8')
         return response
     raise Http404
 
@@ -59,7 +69,7 @@ def formList(request):
             raise Http404
     
     country_forms = active_forms.filter(countryform__countries=country)
-    url = "http://" + request.get_host() + reverse("openrosa_dynamic_formxml", kwargs={"country_id" : country.id}) +"?formId="
+    url = "http://" + request.get_host() + reverse("openrosa_dynamic_formxml", kwargs={"country_code" : country.code}) +"?formId="
     context = Context({
         "country" : country,
         "forms" : country_forms,

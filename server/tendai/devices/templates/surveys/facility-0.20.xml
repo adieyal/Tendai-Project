@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+{% load i18n %}
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>{% blocktrans with country_name=country.name %}{{ country_name }} Facility{% endblocktrans %}</h:title>
+    <model>
+      <instance>
+        <data id="facility-0.20">
+          <form_version>0.20</form_version>
+
+          <start_time></start_time>
+          <end_time></end_time>
+          <survey_date></survey_date>
+          <device_id></device_id>
+          <subscriber_id></subscriber_id>
+          <sim_id></sim_id>
+          <phone_number></phone_number>
+
+          <section_name>
+            <facility_name></facility_name>
+            <facility_district>{% trans "Please select a facility" %}</facility_district>
+          </section_name>
+
+          <section_contact>
+            <postal_address></postal_address>
+            <phone_number></phone_number>
+            <email></email>
+          </section_contact>
+
+          <section_respondent>
+            <respondent_name></respondent_name>
+            <respondent_position></respondent_position>
+          </section_respondent>
+
+          <section_location>
+            <facility_location></facility_location>
+            <distance_to_town></distance_to_town>
+            <town_name></town_name>
+          </section_location>
+
+          <section_photos>
+            <photo1></photo1>
+            <photo2></photo2>
+            <photo3></photo3>
+          </section_photos>
+
+          <section_general>
+            <type_of_facility></type_of_facility>
+            <facility_type_other></facility_type_other>
+            <facility_description></facility_description>
+          </section_general>
+
+          <section_services>
+            <facility_services></facility_services>
+            <facility_services_other></facility_services_other>
+            <facility_coverage></facility_coverage>
+            <facility_nr_patients></facility_nr_patients>
+            <facility_nurses></facility_nurses>
+            <facility_doctors></facility_doctors>
+          </section_services>
+
+          <section_medicines_list>
+            <list_available></list_available>
+            <list_not_available_why></list_not_available_why>
+            <photo1></photo1>
+            <photo2></photo2>
+            <photo3></photo3>
+          </section_medicines_list>
+
+          <section_comments>
+            <comments></comments>
+          </section_comments>
+
+        </data>
+      </instance>
+
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/data/start_time" type="dateTime"/> 
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/data/end_time" type="dateTime"/> 
+      <!-- <bind jr:preload="today" jr:preloadParams="end" nodeset="/data/survey_date" type="date"/> -->
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/data/device_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/data/subscriber_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/data/sim_id" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/data/phone_number" type="string"/>
+
+      <bind constraint=". != ''" jr:constraintMsg="{% trans "Please fill in the facility name" %}" nodeset="/data/section_name/facility_name" required="true()" type="string"/>
+      <bind constraint=". != 'blank'" jr:constraintMsg="{% trans "Please select a district from the list" %}" nodeset="/data/section_name/facility_district" required="true()" type="select1"/>
+      <bind constraint=". != ''" jr:constraintMsg="{% trans "Please enter in the facility postal address" %}" nodeset="/data/section_contact/postal_address" required="true()" type="string"/>
+      <bind constraint=". != 'blank'" jr:constraintMsg="{% trans "Please select a facility type from the list" %}" nodeset="/data/section_general/type_of_facility" required="true()" type="select1"/>
+
+      <bind nodeset="/data/section_contact/phone_number" type="string"/>
+      <bind nodeset="/data/section_contact/email" type="string"/>
+      <bind nodeset="/data/section_respondent/respondent_name" type="string"/>
+      <bind nodeset="/data/section_respondent/respondent_position" type="string"/>
+      <bind nodeset="/data/section_location/facility_location" required="true()" type="geopoint"/>
+      <bind nodeset="/data/section_location/distance_to_town" type="int"/>
+      <bind nodeset="/data/section_location/town_name" type="string"/>
+      <bind nodeset="/data/section_photos/photo1" type="binary"/>
+      <bind nodeset="/data/section_photos/photo2" type="binary"/>
+      <bind nodeset="/data/section_photos/photo3" type="binary"/>
+      <bind nodeset="/data/section_general/facility_type_other" type="string"/>
+      <bind nodeset="/data/section_general/facility_description" type="string"/>
+      <bind nodeset="/data/section_services/facility_services" type="select"/>
+      <bind nodeset="/data/section_services/facility_services_other" type="string"/>
+      <bind nodeset="/data/section_services/facility_coverage" type="int"/>
+      <bind nodeset="/data/section_services/facility_nr_patients" type="int"/>
+      <bind nodeset="/data/section_services/facility_nurses" type="int"/>
+      <bind nodeset="/data/section_services/facility_doctors" type="int"/>
+      <bind nodeset="/data/section_medicines_list/list_available" type="select1"/>
+      <bind nodeset="/data/section_medicines_list/list_not_available_why" relevant="(/data/section_medicines_list/list_available = 'no')" type="string"/>
+      <bind nodeset="/data/section_medicines_list/photo1" relevant="(/data/section_medicines_list/list_available = 'yes')" type="binary"/>
+      <bind nodeset="/data/section_medicines_list/photo2" relevant="(/data/section_medicines_list/list_available = 'yes' and /data/section_medicines_list/photo1 != '')" type="binary"/>
+      <bind nodeset="/data/section_medicines_list/photo3" relevant="(/data/section_medicines_list/list_available = 'yes' and /data/section_medicines_list/photo2 != '')" type="binary"/>
+      <bind nodeset="/data/section_comments/comments" type="string"/>
+
+    </model>
+  </h:head>
+
+  <h:body>
+
+    <group appearance="field-list">
+      <label>{% trans "Facility Location" %}</label>
+      <input ref="/data/section_name/facility_name">
+        <label>{% trans "Please enter in the facility name." %}</label>
+      </input>
+      <select1 appearance="minimal" ref="/data/section_name/facility_district">
+        <label>{% trans "Please select the district that the health facility is in." %}</label>
+        <item>
+          <label>{% trans "Select a district" %}</label>
+          <value>blank</value>
+        </item>
+	{% for district in districts %}
+        <item>
+          <label>{{ district.name }}</label>
+          <value>{{ district.value }}</value>
+        </item>
+	{% endfor %}
+      </select1>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Facility Contact Details" %}</label>
+      <input ref="/data/section_contact/postal_address">
+        <label>{% trans "Please enter in the facility postal address." %}</label>
+        <hint>{% trans "e.g. 43 James Street, Cotswold, Jamestown, 4631" %}</hint>
+      </input>
+      <input ref="/data/section_contact/phone_number">
+        <label>{% trans "Please enter in the facility contact number." %}</label>
+        <hint>{% trans "Include the international dialing code, e.g. +265112223333. Leave blank if unavailable." %}</hint>
+      </input>
+      <input ref="/data/section_contact/email">
+        <label>{% trans "Please enter facility email address." %}</label>
+        <hint>{% trans "e.g. info@myclinic.net. Leave blank if unavailable." %}</hint>
+      </input>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Respondent Details" %}</label>
+      <input ref="/data/section_respondent/respondent_name">
+        <label>{% trans "Please enter the name of the staff member completing this survey." %}</label>
+      </input>
+      <input ref="/data/section_respondent/respondent_position">
+        <label>{% trans "What is their position?" %}</label>
+        <hint>{% trans "e.g. facility manager, staff nurse, etc." %}</hint>
+      </input>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Location" %}</label>
+      <input ref="/data/section_location/facility_location">
+        <label>{% trans "Please capture GPS Coordinates." %}</label>
+        <hint>{% trans "You will need to be outside in order to do this. Also make sure that your GPS reader is switched on (see the troubleshooting guide for details)." %}</hint>
+      </input>
+      <input ref="/data/section_location/distance_to_town">
+        <label>{% trans "What is the distance (km) to the nearest town?" %}</label>
+        <hint>{% trans "A town is defined as a population > 50,000. If you are currently in a town, enter in 0." %}</hint>
+      </input>
+      <input ref="/data/section_location/town_name">
+        <label>{% trans "What is the name of the nearest town?" %}</label>
+      </input>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Photos" %}</label>
+      <upload mediatype="image/*" ref="/data/section_photos/photo1">
+        <label>{% trans "Please take a photo of the front entrance of the facility." %}</label>
+      </upload>
+      <upload mediatype="image/*" ref="/data/section_photos/photo2">
+        <label>{% trans "Please take a photo of the dispensary." %}</label>
+      </upload>
+      <upload mediatype="image/*" ref="/data/section_photos/photo3">
+        <label>{% trans "Take any other photo of the facility that might be important (optional)." %}</label>
+      </upload>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "General Details" %}</label>
+      <select1 appearance="minimal" ref="/data/section_general/type_of_facility">
+        <label>{% trans "What type of facility is this?" %}</label>
+        <item>
+          <label>{% trans "Select a facility type" %}</label>
+          <value>blank</value>
+        </item>
+        <item>
+          <label>{% trans "Government Hospital" %}</label>
+          <value>government-hospital</value>
+        </item>
+        <item>
+          <label>{% trans "Government Rural Health Centre or Dispensary" %}</label>
+          <value>government-rural-health-centre-or-dispensary</value>
+        </item>
+        <item>
+          <label>{% trans "Council Clinic" %}</label>
+          <value>council-clinic</value>
+        </item>
+        <item>
+          <label>{% trans "Mission or NGO Hospital" %}</label>
+          <value>mission-or-ngo-hospital</value>
+        </item>
+        <item>
+          <label>{% trans "Private Hospital" %}</label>
+          <value>private-hospital</value>
+        </item>
+        <item>
+          <label>{% trans "Private Pharmacy" %}</label>
+          <value>private-pharmacy</value>
+        </item>
+        <item>
+          <label>{% trans "Other" %}</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/section_general/facility_type_other">
+        <label>{% trans "If you specified other above, please explain what type of facility this is." %}</label>
+      </input>
+      <input ref="/data/section_general/facility_description">
+        <label>{% trans "Please provide a short description of the facility." %}</label>
+        <hint>{% trans "(max 100 words)" %}</hint>
+      </input>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Services and Population" %}</label>
+      <select ref="/data/section_services/facility_services">
+        <label>{% trans "Please indicate which services this facility offers." %}</label>
+        <hint>{% trans "Tick all options that apply." %}</hint>
+        <item>
+          <label>{% trans "Outpatients" %}</label>
+          <value>outpatients</value>
+        </item>
+        <item>
+          <label>{% trans "Ante-natal" %}</label>
+          <value>ante-natal</value>
+        </item>
+        <item>
+          <label>{% trans "Well baby clinic" %}</label>
+          <value>well_baby</value>
+        </item>
+        <item>
+          <label>{% trans "Diabetic Clinic" %}</label>
+          <value>diabetic</value>
+        </item>
+        <item>
+          <label>{% trans "Dispensary" %}</label>
+          <value>dispensary</value>
+        </item>
+        <item>
+          <label>{% trans "TB Clinic" %}</label>
+          <value>tb</value>
+        </item>
+        <item>
+          <label>{% trans "HCT/VCT" %}</label>
+          <value>hct/vct</value>
+        </item>
+        <item>
+          <label>{% trans "ARV Dispensing" %}</label>
+          <value>arv</value>
+        </item>
+      </select>
+      <input ref="/data/section_services/facility_services_other">
+        <label>{% trans "Add any other major services offered not listed in the question above." %}</label>
+      </input>
+      <input ref="/data/section_services/facility_coverage">
+        <label>{% trans "What is the catchment population of this facility?" %}</label>
+        <hint>{% trans "Approximate number of patients that this facility services." %}</hint>
+      </input>
+      <input ref="/data/section_services/facility_nr_patients">
+        <label>{% trans "What is the average number of patients serviced daily at this facility?" %}</label>
+      </input>
+      <input ref="/data/section_services/facility_nurses">
+        <label>{% trans "How many nurses are stationed at this facility?" %}</label>
+      </input>
+      <input ref="/data/section_services/facility_doctors">
+        <label>{% trans "How many doctors are stationed at this facility?" %}</label>
+      </input>
+    </group>
+
+    <group>
+      <label>{% trans "Medicines List" %}</label>
+      <select1 ref="/data/section_medicines_list/list_available">
+        <label>{% trans "Is a list of medicines procured by the facility available?" %}</label>
+        <hint>{% trans "If yes, please ask for a copy. This should be delivered to the Tendai project supervisor." %}</hint>
+        <item>
+          <label>{% trans "Yes" %}</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>{% trans "No" %}</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/section_medicines_list/list_not_available_why">
+        <label>{% trans "Please explain why the list is not available." %}</label>
+      </input>
+      <upload mediatype="image/*" ref="/data/section_medicines_list/photo1">
+        <label>{% trans "Please take a photo of medicines list." %}</label>
+        <hint>{% trans "Ensure that the page is readable (page 1)." %}</hint>
+      </upload>
+      <upload mediatype="image/*" ref="/data/section_medicines_list/photo2">
+        <label>{% trans "Please take a photo of medicines list." %}</label>
+        <hint>{% trans "Ensure that the page is readable (page 2)." %}</hint>
+      </upload>
+      <upload mediatype="image/*" ref="/data/section_medicines_list/photo3">
+        <label>{% trans "Please take a photo of medicines list." %}</label>
+        <hint>{% trans "Ensure that the page is readable (page 3)." %}</hint>
+      </upload>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Comments" %}</label>
+      <input ref="/data/section_comments/comments">
+        <label>{% trans "Please provide any additional comments not covered by the previous questions." %}</label>
+      </input>
+    </group>
+
+  </h:body>
+</h:html>
