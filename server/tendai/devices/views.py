@@ -80,7 +80,7 @@ def formList(request):
         {% for form in forms %}
         <xform>
             <formID>{{ form.form_id }}</formID>
-            <name>{{ country.name}} {{ form.name }} ({{ country.language.code }})</name> 
+            <name>{{ country.name}} {{ form.name }}</name> 
             <majorMinorVersion>{{ form.majorminorversion }}</majorMinorVersion> 
             <descriptionText>{{ form.description }}</descriptionText> 
             <downloadUrl>{{ url }}{{ form.form_id }}</downloadUrl>

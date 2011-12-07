@@ -85,8 +85,8 @@
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}" relevant="selected(/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}, 'yes')" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/cheapest_product" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_cheapest_product" readonly="true()" type="string"/>
-      <!-- <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_definition" readonly="true()" type="string"/> -->
-      <!-- <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_size" readonly="true()" type="string"/> -->
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_definition" readonly="true()" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_size" readonly="true()" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/medicine_price_qty" type="int"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/price_comments" type="string"/>
       <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/photo" type="binary"/>
@@ -121,7 +121,7 @@
       <label>{% trans "Please indicate whether the following medicines are usually stocked at this facility." %}</label>
 
       {% for medicine in medicines %}
-      <select1 appearance="minimal" ref="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form.form.unit|slugify }}">
+      <select1 appearance="minimal" ref="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}">
         <label>{% blocktrans with name=medicine.name containers=medicine.containers %}Are {{ name }} {{ containers }} stocked at this facility?{% endblocktrans %}</label>
         <hint>{% trans "Not stocked means that this facility does not usually carry this medicine." %}</hint>
         <item>
@@ -158,15 +158,15 @@
       <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_cheapest_product">
          <label>{% trans "Please answer the questions below with reference to the cheapest product mentioned above." %}</label>
       </input>
-      <!-- <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_definition">
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_definition">
         <label>{% blocktrans with container=medicine.container %}For this medicine, a pack is defined as a single {{ container }}.{% endblocktrans %}</label>
-      </input> -->
+      </input>
       <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/pack_size">
 	 <label>{% blocktrans with container=medicine.container units=medicine.units %}How many {{ units }} in a single {{ container }} (pack size)?{% endblocktrans %}</label>
       </input>
-      <!-- <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_size">
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_size">
         <label>{% trans "The value above is called the pack size. For the remaining questions on this page, please use this value for the pack size." %}</label>
-      </input> -->
+      </input>
       <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/medicine_price">
         <label>{% trans "What is the price paid by the patient?" %}</label>
         <hint>{% trans "If the medicine is free, please enter 0." %}</hint>
