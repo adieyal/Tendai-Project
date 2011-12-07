@@ -703,3 +703,45 @@ msgstr "Qual é a sua história?"
 msgid "Record Audio (optional)"
 msgstr "Gravação Áudio (opcional)"
 
+# Units
+msgid "ointment"
+msgstr "pomada"
+
+msgid "ointments"
+msgstr "pomadas"
+
+msgid "vial"
+msgstr "frasco"
+
+msgid "vials"
+msgstr "frascos"
+
+msgid "inhaler"
+msgstr "inhalador"
+
+msgid "inhalers"
+msgstr "inhaladors"
+
+msgid "sachet"
+msgstr "sachê"
+
+msgid "sachets"
+msgstr "saquetas"
+
+msgid "ampoule"
+msgstr "ampola"
+
+msgid "ampoules"
+msgstr "ampolas"
+
+msgid "bottle"
+msgstr "frasco"
+
+msgid "bottles"
+msgstr "frascos"
+
+msgid "box/bottle/blister pack"
+msgstr "pacote"
+
+msgid "boxes/bottles/blister packs"
+msgstr "embalagens"
