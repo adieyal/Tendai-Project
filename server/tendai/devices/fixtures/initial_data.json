@@ -1552,6 +1552,16 @@
             "unit": "g", 
             "containers": "ointments"
         }
+    },
+    {
+        "pk": 12, 
+        "model": "devices.dosageform", 
+        "fields": {
+            "units": "grams", 
+            "container": "tube or similar container", 
+            "unit": "gram", 
+            "containers": "tubes or similar containers"
+        }
     }
 ]
 

@@ -745,3 +745,9 @@ msgstr "pacote"
 
 msgid "boxes/bottles/blister packs"
 msgstr "embalagens"
+
+msgid "tube or similar container"
+msgstr "tubo ou recipiente similar"
+
+msgid "tubes or similar containers"
+msgstr "tubos ou recipientes semelhantes"

@@ -2,7 +2,7 @@
 
 {% block extrahead %}
     <style>
-        .organisation_list {
+        .country_list {
             width: 250px;
             border: solid thin black;
             float: left;
@@ -18,16 +18,16 @@
 {% block reports_active %}active{% endblock %}
 
 {% block main_content %}
-    {% for organisation in organisations %}
-        <div class="organisation_list">
-        <h1>{{ organisation }}</h1>
+    {% for country in countries %}
+        <div class="country_list">
+        <h1>{{ country }}</h1>
         <table>
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Total</th>
             </tr>
-            {% for worker in organisation.communityworker_set.all %}
+            {% for worker in country.communityworker_set.all %}
             <tr>
                 <td>{{ worker.first_name }}</td>
                 <td>{{ worker.last_name }}</td>
