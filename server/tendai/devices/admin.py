@@ -57,7 +57,7 @@ class CurrencyAdmin(admin.ModelAdmin):
 
 class MedicineAdmin(admin.ModelAdmin):
     list_display = ('name', 'form', 'medicine_countries')
-    list_filter = ('countries',)
+    list_filter = ('countries', 'form')
     ordering = ("name",)
 
     def medicine_countries(self, model):
