@@ -35,7 +35,7 @@ class Organisation(models.Model):
 
 class DosageForm(models.Model):
     container = models.CharField(max_length=30)
-    containers = models.CharField(max_length=30)
+    containers = models.CharField(max_length=30, verbose_name="Containers (Plural)")
     unit = models.CharField(max_length=30)
     units = models.CharField(max_length=30, verbose_name="Units (Plural)")
     
