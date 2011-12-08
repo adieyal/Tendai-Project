@@ -52,6 +52,6 @@ class ORFormSubmissionAdmin(admin.ModelAdmin):
         return views.edit_submission_xml(request, object_id)
 
 
-admin.site.register(models.ORForm, models.ORFormAdmin)
+admin.site.register(models.ORForm, ORFormAdmin)
 admin.site.register(models.ORFormSubmission, ORFormSubmissionAdmin)
 admin.site.register(models.ORSubmissionMedia, ORSubmissionMediaAdmin)
