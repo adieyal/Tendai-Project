@@ -11,7 +11,8 @@ function initMap(){
 
     var facilities = new OpenLayers.Layer.Vector("Facilities", {
         projection: map.displayProjection,
-        strategies: [new OpenLayers.Strategy.Fixed()],
+        strategies: [new OpenLayers.Strategy.Fixed(),
+		     new OpenLayers.Strategy.Refresh({interval: 5000})],
         protocol: new OpenLayers.Protocol.HTTP({
             url: "data.kml",
             format: new OpenLayers.Format.KML({
