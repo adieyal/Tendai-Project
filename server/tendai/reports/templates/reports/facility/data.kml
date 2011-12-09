@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+{% for facility in facilities %}
+  <Placemark>
+    <id>{{ facility.id }}</id>
+    <Point>
+      <coordinates>{{ facility.lon|floatformat:6 }},{{ facility.lat|floatformat:6 }}</coordinates>
+    </Point>
+  </Placemark>
+{% endfor %}
+</kml>

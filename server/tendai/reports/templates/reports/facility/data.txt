@@ -1,0 +1,3 @@
+lat	lon	title	description	icon	iconSize	iconOffset
+{% for facility in facilities %}{{ facility.lat|floatformat:6 }}	{{ facility.lon|floatformat:6 }}	{{ facility.name }}	<img src="{{ facility.photo_url }}" width="160px" /><br /><p>{{ facility.description }}</p>	{{ STATIC_URL }}icons/{{ facility.icon }}.png	16,16	-8,-8 
+{% endfor %}
