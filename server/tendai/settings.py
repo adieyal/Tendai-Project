@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'general',
     'openrosa',
     'devices',
+    'reports',
 )
 
 # A sample logging configuration. The only tangible logging

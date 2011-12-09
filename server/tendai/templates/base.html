@@ -69,6 +69,7 @@
           <ul class="nav">
             <li class="{% block home_active %}{% endblock %}"><a href="/">Home</a></li>
             <li class="{% block reports_active %}{% endblock %}"><a href="{% url devices_view_submissions %} ">Reports</a></li>
+            <li class="{% block facilities_active %}{% endblock %}"><a href="{% url reports_facilities_map %} ">Facilities</a></li>
           </ul>
           <form action="/admin/" class="pull-right" method="post">{% csrf_token %}
             <input class="input-small" name="username" type="text" placeholder="Username">

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block extrahead %}
+{% endblock extrahead %}
+{% block home_active %}active{% endblock %}
+
+{% block page_name %} Facility Map {% endblock page_name %}
+{% block tagline %} All registered facilities {% endblock tagline %}
+{% block main_content_title %}{% endblock main_content_title %}
+
+{% block main_content %}
+    <div id="content">
+      <p>All registered facilities are plotted on the map below. Click on the facility icon for more information about it. Click again to close.</p>
+      <div id="mapdiv"></div>
+      <script src="{{ STATIC_URL }}js/OpenLayers.js"></script>
+      <script>
+	map = new OpenLayers.Map("mapdiv");
+	map.addLayer(new OpenLayers.Layer.OSM());
+	
+	var facilites = new OpenLayers.Layer.Text( "Facilities",
+                                                   { location:"data.txt",
+                                                     projection: map.displayProjection
+                                                   });
+	map.addLayer(facilites);
+ 
+	//Set start centrepoint and zoom    
+	var lonLat = new OpenLayers.LonLat( 21, -25 )
+          .transform(
+            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            map.getProjectionObject() // to Spherical Mercator Projection
+          );
+	var zoom=4;
+	map.setCenter (lonLat, zoom);  
+      </script>
+    </div>
+{% endblock main_content %}
