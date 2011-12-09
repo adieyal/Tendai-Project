@@ -64,13 +64,13 @@ def facilitiesKML(request):
         facility['id'] = submission.id
         facility_type = getTag(dom, 'type_of_facility')
         if 'hospital' in facility_type:
-            facility['icon'] = 'red_dot'
+            facility['color'] = 'red'
         elif 'clinic' in facility_type:
-            facility['icon'] = 'yellow_dot'
+            facility['color'] = 'yellow'
         elif ('pharmacy' in facility_type) or ('dispensary' in facility_type):
-            facility['icon'] = 'green_dot'
+            facility['color'] = 'green'
         else:
-            facility['icon'] = 'blue_dot'
+            facility['color'] = 'blue'
         facilities.append(facility)
     extra_context = {'facilities': facilities}
     return direct_to_template(request, template='reports/facility/data.kml', extra_context=extra_context)
@@ -87,14 +87,5 @@ def facilityInfo(request, submission_id):
     device_id = getTag(dom, 'device_id')
     photo = getTag(dom, 'photo1')
     facility['photo_url'] = reverse('openrosa_media', kwargs={'device_id': device_id, 'filename': photo})
-    facility_type = getTag(dom, 'type_of_facility')
-    if 'hospital' in facility_type:
-        facility['icon'] = 'red_dot'
-    elif 'clinic' in facility_type:
-        facility['icon'] = 'yellow_dot'
-    elif ('pharmacy' in facility_type) or ('dispensary' in facility_type):
-        facility['icon'] = 'green_dot'
-    else:
-        facility['icon'] = 'blue_dot'
     extra_context = {'facility': facility}
     return direct_to_template(request, template='reports/facility/info.html', extra_context=extra_context)

@@ -9,6 +9,21 @@ function initMap(){
     osm = new OpenLayers.Layer.OSM();    
     map.addLayer(osm);
 
+    var styles = new OpenLayers.StyleMap({
+        "default": new OpenLayers.Style({
+            pointRadius: "6",
+            fillColor: "${color}",
+            strokeColor: "#000000",
+            strokeOpacity: 0.6,
+            strokeWidth: 1,
+            graphicZIndex: 1
+        }),
+        "select": new OpenLayers.Style({
+            strokeWidth: 2,
+            graphicZIndex: 2
+        })
+    });
+    
     var facilities = new OpenLayers.Layer.Vector("Facilities", {
         projection: map.displayProjection,
         strategies: [new OpenLayers.Strategy.Fixed(),
@@ -19,7 +34,8 @@ function initMap(){
                 extractStyles: true,
                 extractAttributes: true
             })
-        })
+        }),
+	styleMap: styles
     });
     map.addLayer(facilities);
     

@@ -1,16 +1,14 @@
-<h2>{{ facility.name }}</h2>
-
 <table>
   <tr>
     <td width="220px">
       <img src="{{ facility.photo_url }}" width="200px" />
     </td>
     <td>
+      <h2>{{ facility.name }}</h2><br />
       <p><strong>Doctors:</strong> {{ facility.doctors }}</p>
       <p><strong>Nurses:</strong> {{ facility.nurses }}</p>
       <p><strong>Coverage population:</strong> {{ facility.coverage }}</p>
-      <p><strong>Facility description:</strong></p>
-      <p>{{ facility.description }}</p>
+      <p><strong>Facility description:</strong> {{ facility.description }}</p>
     </td>
   </tr>
 </table>

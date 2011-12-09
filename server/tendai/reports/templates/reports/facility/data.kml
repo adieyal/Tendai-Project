@@ -3,6 +3,7 @@
 {% for facility in facilities %}
   <Placemark>
     <id>{{ facility.id }}</id>
+    <color>{{ facility.color }}</color>
     <Point>
       <coordinates>{{ facility.lon|floatformat:6 }},{{ facility.lat|floatformat:6 }}</coordinates>
     </Point>
