@@ -445,7 +445,7 @@ msgstr "Jina la dawa iliyo ya  bei nafuu zaidi hapa kituoni"
 #: templates/surveys/medicines-0.51.xml:525
 #, python-format
 msgid "Divide price of one %(container)s by the number of %(units)s in the %(container)s to determine price per %(unit)s. If multiple products have the cheapest price, choose one."
-msgstr "Ili kupata bei ya kila '%(container)s', chukua bei ya pakiti ugawe kwa nambari ya '%(container)s' zilizomo. (Kwa mfano, kama bei ya pakiti nzima ya '%(container)s' ishirini na nne (24) ni TShs 24,000, bei ya '%(container)s' moja itakuwa TShs 1,000). Ikitokea kuwa bidhaa zaidi ya moja zina bei sawa (nafuu), chagua moja tu"
+msgstr "Ili kupata bei ya kila '%(unit)s', chukua bei ya pakiti (%(container)s) ugawe kwa nambari ya '%(units)s' zilizomo. (Kwa mfano, kama bei ya pakiti nzima ya 'tablets' ishirini na nne (24) ni TShs 24,000, bei ya 'tablets' moja itakuwa TShs 1,000). Ikitokea kuwa bidhaa zaidi ya moja zina bei sawa (nafuu), chagua moja tu"
 
 #: templates/surveys/medicines-0.51.xml:528
 msgid "Please answer the questions below with reference to the cheapest product mentioned above."
@@ -454,12 +454,12 @@ msgstr "Tafadhali jibu maswali yafuatayo ambayo yanaguzia madawa yenye bei nafuu
 #: templates/surveys/medicines-0.51.xml:531
 #, python-format
 msgid "For this medicine, a pack is defined as a single %(container)s."
-msgstr "Kwa ajili ya dawa hii, pakiti inaelezwa kama moja %(containers)s."
+msgstr "Kwa ajili ya dawa hii, pakiti inaelezwa kama moja %(container)s."
 
 #: templates/surveys/medicines-0.51.xml:534
 #, python-format
 msgid "How many %(units)s in a single %(container)s (pack size)?"
-msgstr "Kuna %(units)s ngapi kwa pakiti ('pack size')"
+msgstr "Kuna %(units)s ngapi kwa pakiti (%(container)s) ('pack size')"
 
 #: templates/surveys/medicines-0.51.xml:537
 msgid "The value above is called the pack size. For the remaining questions on this page, please use this value for the pack size."
@@ -501,7 +501,7 @@ msgstr "Tafadhali toa maoni ya ziada kuhusu bei za dawa ambayo maswali hayajagus
 #: templates/surveys/medicines-0.51.xml:565
 #, python-format
 msgid "Please take a photo of the %(container)s."
-msgstr "Tafadhali chukua picha ya pakiti ya dawa"
+msgstr "Tafadhali chukua picha ya pakiti (%(container)s) ya dawa"
 
 #: templates/surveys/medicines-0.51.xml:566
 msgid "Please ensure that the label is clearly visible."
