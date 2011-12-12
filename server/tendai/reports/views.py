@@ -10,8 +10,8 @@ from django.views.generic.simple import direct_to_template
 from devices import models as dev_models
 from openrosa import models as or_models
 
-def getTag(dom, name):
-    element = dom.getElementsByTagName(name)[0]
+def getTag(dom, name, occurence=0):
+    element = dom.getElementsByTagName(name)[occurence]
     if element:
         if element.firstChild:
             if element.firstChild.nodeType==element.firstChild.TEXT_NODE:
@@ -88,6 +88,12 @@ def facilityInfo(request, submission_id):
         facility['doctors'] = getTag(dom, 'facility_doctors')
         facility['nurses'] = getTag(dom, 'facility_nurses')
         facility['coverage'] = getTag(dom, 'facility_coverage')
+        facility['phone_number'] = getTag(dom, 'phone_number', 1)
+        facility['nr_patients'] = getTag(dom, 'facility_nr_patients')
+        swd = submission.submissionworkerdevice_set.all()[0]
+        facility['chw_name'] = "%s %s" % (swd.community_worker.first_name, swd.community_worker.last_name)
+        facility['chw_organisation'] = swd.community_worker.organisation
+        facility['submission_date'] = submission.created_date
         device_id = getTag(dom, 'device_id')
         photo = getTag(dom, 'photo1')
         if photo:
