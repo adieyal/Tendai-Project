@@ -1,0 +1,24 @@
+<html><body>
+  <div id="mapdiv"></div>
+  <script src="{{ STATIC_URL }}js/OpenLayers.js"></script>
+  <script>
+    map = new OpenLayers.Map("mapdiv");
+    map.addLayer(new OpenLayers.Layer.OSM());
+ 
+    var pois = new OpenLayers.Layer.Text( "My Points",
+                    { location:"data.txt",
+                      projection: map.displayProjection
+                    });
+    map.addLayer(pois);
+ 
+    //Set start centrepoint and zoom    
+    var lonLat = new OpenLayers.LonLat( 21, -25 )
+          .transform(
+            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            map.getProjectionObject() // to Spherical Mercator Projection
+          );
+    var zoom=4;
+    map.setCenter (lonLat, zoom);  
+ 
+  </script>
+</body></html>

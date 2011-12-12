@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="480" height="480">
+<defs>
+<radialGradient id="lgt" gradientUnits="objectBoundingBox">
+<stop offset="0%" stop-color="#9f9"/>
+<stop offset="70%" stop-color="#0e0"/>
+<stop offset="100%" stop-color="#0d0"/>
+</radialGradient>
+</defs>
+<circle cx="240" cy="240" r="220"/><circle cx="240" cy="240" r="200" fill="url(#lgt)"/>
+</svg>

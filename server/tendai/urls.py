@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^openrosa/', include('devices.urls')),
     ('^$', slider_view, {}, "home"),
     ('^stories/$', recent_stories, {}, "recent_stories"),
+    url(r'^reports/', include('reports.urls')),
 )
 
 if settings.DEBUG:

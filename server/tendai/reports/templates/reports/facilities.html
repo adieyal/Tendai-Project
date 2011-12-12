@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block extrahead %}
+      <script src="{{ STATIC_URL }}js/jquery-1.6.4.js" type="text/javascript"></script>
+      <script src="{{ STATIC_URL }}js/OpenLayers.js"></script>
+      <script src="{{ STATIC_URL }}js/facility/map.js"></script>
+      <script>
+        $(document).ready(function() {
+          initMap();
+        });
+      </script>
+      <style>
+	#map {
+	  width: 100%;
+	  height: 400px;
+	}
+      </style>
+{% endblock extrahead %}
+{% block facilities_active %}active{% endblock %}
+
+{% block page_name %} Facility Map {% endblock page_name %}
+{% block tagline %} All registered facilities {% endblock tagline %}
+{% block main_content_title %}{% endblock main_content_title %}
+
+{% block main_content %}
+    <div id="content">
+      <p>All registered facilities are plotted on the map below. Click on the facility icon for more information about it.</p>
+      <div id="map"></div>
+      <div id="facility_info"></div>
+    </div>
+{% endblock main_content %}
