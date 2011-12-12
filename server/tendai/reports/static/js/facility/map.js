@@ -47,12 +47,12 @@ function initMap(){
     map.addControl(select);
     select.activate();
 
-    var center = new OpenLayers.LonLat( 21, -25 )	
+    var center = new OpenLayers.LonLat( 23, -19 )	
         .transform(
             new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
             map.getProjectionObject() // to Spherical Mercator Projection
         );
-    var zoom=4;
+    var zoom=3;
     map.setCenter (center, zoom);
 
     $('#facility_info').hide();

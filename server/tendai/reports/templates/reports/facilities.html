@@ -26,6 +26,20 @@
 {% block main_content %}
     <div id="content">
       <p>All registered facilities are plotted on the map below. Click on the facility icon for more information about it.</p>
+      <div class="row">
+	<div class="span3">
+	  <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/red.png" />Hospital
+	</div>
+	<div class="span3">
+	  <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/yellow.png" />Clinic
+	</div>
+	<div class="span3">
+	  <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/green.png" />Pharmacy or dispensary
+	</div>
+	<div class="span3">
+	  <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/blue.png" />Other
+	</div>
+      </div>
       <div id="map"></div>
       <div id="facility_info"></div>
     </div>
