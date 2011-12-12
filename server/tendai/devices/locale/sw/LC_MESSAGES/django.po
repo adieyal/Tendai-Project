@@ -1,0 +1,753 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Tendai Server\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-06 17:49+0200\n"
+"PO-Revision-Date: 2011-12-07 11:16+0200\n"
+"Last-Translator: Etienne Kruger <etienne@acscomputers.co.za>\n"
+"Language-Team: SARPAM <adi@sarpam.net>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: templates/surveys/facility-0.20.xml:5
+#, python-format
+msgid "%(country_name)s Facility"
+msgstr "Kitui cha %(country_name)s"
+
+#: templates/surveys/facility-0.20.xml:21
+msgid "Please select a facility"
+msgstr ""
+
+#: templates/surveys/facility-0.20.xml:85
+msgid "Please fill in the facility name"
+msgstr "Jaza jina la  kituo"
+
+#: templates/surveys/facility-0.20.xml:86
+msgid "Please select a district from the list"
+msgstr "Chagua jina la wilaya kutoka kwa orodha ambayo umepewa"
+
+#: templates/surveys/facility-0.20.xml:87
+msgid "Please enter in the facility postal address"
+msgstr "Tafadhali jaza anwani (sanduku la posta) ya  kituo"
+
+#: templates/surveys/facility-0.20.xml:88
+msgid "Please select a facility type from the list"
+msgstr "Chagua aina moja kutoka kwa hii orodha ambayo inaelezea  kituo vizuri"
+
+#: templates/surveys/facility-0.20.xml:121
+msgid "Facility Location"
+msgstr "Jina la Kata/Kijiji kwenye  kituo kiko"
+
+#: templates/surveys/facility-0.20.xml:123
+msgid "Please enter in the facility name."
+msgstr "Tafadhali andika jina la  kituo"
+
+#: templates/surveys/facility-0.20.xml:126
+msgid "Please select the district that the health facility is in."
+msgstr "Kituo kipo wilaya gani? Chagua jina."
+
+#: templates/surveys/facility-0.20.xml:128
+msgid "Select a district"
+msgstr "Chagua jina la wilaya"
+
+#: templates/surveys/facility-0.20.xml:141
+msgid "Facility Contact Details"
+msgstr "Anwani ya  Kituo"
+
+#: templates/surveys/facility-0.20.xml:143
+msgid "Please enter in the facility postal address."
+msgstr "Tafadhali jaza sanduku la posta la kituo hiki"
+
+#: templates/surveys/facility-0.20.xml:144
+msgid "e.g. 43 James Street, Cotswold, Jamestown, 4631"
+msgstr "kwa mfano 10 Kipunga Street, Tandika, Dar-al-Salam"
+
+#: templates/surveys/facility-0.20.xml:147
+msgid "Please enter in the facility contact number."
+msgstr "Tafadhali jaza nambari ya simu ya kituo"
+
+#: templates/surveys/facility-0.20.xml:148
+msgid "Include the international dialing code, e.g. +265112223333. Leave blank if unavailable."
+msgstr "Ongezea kodi ya kimataifa kwa nambari ya simu, kwa mfano +255-112223333. Acha pengo kama haipo"
+
+#: templates/surveys/facility-0.20.xml:151
+msgid "Please enter facility email address."
+msgstr "Tafadhali jaza anwani ya baruapepe ya kituo."
+
+#: templates/surveys/facility-0.20.xml:152
+msgid "e.g. info@myclinic.net. Leave blank if unavailable."
+msgstr "kwa mfano abcd@africaonline.co.tz. Acha pengo kama haipo"
+
+#: templates/surveys/facility-0.20.xml:157
+msgid "Respondent Details"
+msgstr "Taarifa/habari kuhusu mhojiwa"
+
+#: templates/surveys/facility-0.20.xml:159
+msgid "Please enter the name of the staff member completing this survey."
+msgstr "Tafadhali andika jina la mfanyi kazi anayehojiwa"
+
+#: templates/surveys/facility-0.20.xml:162
+msgid "What is their position?"
+msgstr "Cheo kazini cha anayehojiwa"
+
+#: templates/surveys/facility-0.20.xml:163
+msgid "e.g. facility manager, staff nurse, etc."
+msgstr "Kwa mfano, mkurugenzi mkuu, karani, na kadhalika"
+
+#: templates/surveys/facility-0.20.xml:168
+msgid "Location"
+msgstr "Eneo"
+
+#: templates/surveys/facility-0.20.xml:170
+msgid "Please capture GPS Coordinates."
+msgstr "Tafadhali nasa kuratibu za GPS za hili eneo"
+
+#: templates/surveys/facility-0.20.xml:171
+msgid "You will need to be outside in order to do this. Also make sure that your GPS reader is switched on (see the troubleshooting guide for details)."
+msgstr "Itakubidi uende nje ndiyo uweze kufanya hili zoezi. Hakikisha umewasha 'GPS reader' yako (tafadhali soma kijitabu kinachoitwa 'troubleshooting guide' kwa maagizo zaidi)."
+
+#: templates/surveys/facility-0.20.xml:174
+msgid "What is the distance (km) to the nearest town?"
+msgstr "Ni umbali gani (km) kutoka hapa mpaka mji ulio karibu zaidi?"
+
+#: templates/surveys/facility-0.20.xml:175
+msgid "A town is defined as a population > 50,000. If you are currently in a town, enter in 0."
+msgstr "Kwa matumizi ya hii hoja, mji ni ule wenye wakaazi zaidi ya 50,000. Kama kituo ulichopo ni mji, Jaza 0."
+
+#: templates/surveys/facility-0.20.xml:178
+msgid "What is the name of the nearest town?"
+msgstr "Mji ulioko karibu zaidi unaitwaje?"
+
+#: templates/surveys/facility-0.20.xml:183
+msgid "Photos"
+msgstr "Picha"
+
+#: templates/surveys/facility-0.20.xml:185
+msgid "Please take a photo of the front entrance of the facility."
+msgstr "Tafadhali chukua picha ya  kituo; picha inayohijika ni ile ya lango kuu lake"
+
+#: templates/surveys/facility-0.20.xml:188
+msgid "Please take a photo of the dispensary."
+msgstr "Tafadhali chukua picha ya kituo cha afya/dispensari/zahanati."
+
+#: templates/surveys/facility-0.20.xml:191
+msgid "Take any other photo of the facility that might be important (optional)."
+msgstr "Chukua picha ingine yeyote unayoona ni ya muhimu katika hii kazi (hii si lazima, unaweza acha tupu)."
+
+#: templates/surveys/facility-0.20.xml:196
+msgid "General Details"
+msgstr "Habari za jumla"
+
+#: templates/surveys/facility-0.20.xml:198
+msgid "What type of facility is this?"
+msgstr "Hiki ni kituo cha aina gani?"
+
+#: templates/surveys/facility-0.20.xml:200
+msgid "Select a facility type"
+msgstr "Chagua aina ya kituo"
+
+#: templates/surveys/facility-0.20.xml:204
+msgid "Government Hospital"
+msgstr "Hospitali ya Serikali"
+
+#: templates/surveys/facility-0.20.xml:208
+msgid "Government Rural Health Centre or Dispensary"
+msgstr "Zahanati au Dispensari ya Serikali"
+
+#: templates/surveys/facility-0.20.xml:212
+msgid "Council Clinic"
+msgstr "Kliniki ya Manispaa au Baraza la mji"
+
+#: templates/surveys/facility-0.20.xml:216
+msgid "Mission or NGO Hospital"
+msgstr "Hospitali ya Wamisionari au ya Mashirika yasiyo ya Kiserikali"
+
+#: templates/surveys/facility-0.20.xml:220
+msgid "Private Hospital"
+msgstr "Hospitali ya Binafsi"
+
+#: templates/surveys/facility-0.20.xml:224
+msgid "Private Pharmacy"
+msgstr "Duka la madawa la kibinafsi (Pharmacy/Chemist)"
+
+#: templates/surveys/facility-0.20.xml:228
+msgid "Other"
+msgstr "Aina nyingine"
+
+#: templates/surveys/facility-0.20.xml:233
+msgid "If you specified other above, please explain what type of facility this is."
+msgstr "Ikiwa umechagua 'aina nyingine' hapo juu, tafadhali Jaza aina uliyomaanisha."
+
+#: templates/surveys/facility-0.20.xml:236
+msgid "Please provide a short description of the facility."
+msgstr "Tafadhali peana habari fupi juu ya  kituo hicho"
+
+#: templates/surveys/facility-0.20.xml:237
+msgid "(max 100 words)"
+msgstr "(hii habari isipite maneno 100)"
+
+#: templates/surveys/facility-0.20.xml:242
+msgid "Services and Population"
+msgstr "Huduma na idadi ya watu"
+
+#: templates/surveys/facility-0.20.xml:244
+msgid "Please indicate which services this facility offers."
+msgstr "Tafadhali jaza huduma zinazotolewa kwa kituo hiki"
+
+#: templates/surveys/facility-0.20.xml:245
+msgid "Tick all options that apply."
+msgstr "Weka alama ya usahihi kwa huduma zenye zinahusika."
+
+#: templates/surveys/facility-0.20.xml:247
+msgid "Outpatients"
+msgstr "Wagonjwa wa kutibiwa na kurudi nyumbani(yaani wasiolazwa)"
+
+#: templates/surveys/facility-0.20.xml:251
+msgid "Ante-natal"
+msgstr "Kliniki ya mama waja wazito"
+
+#: templates/surveys/facility-0.20.xml:255
+msgid "Well baby clinic"
+msgstr "Kliniki ya watoto wachanga"
+
+#: templates/surveys/facility-0.20.xml:259
+msgid "Diabetic Clinic"
+msgstr "Kliniki ya ugonjwa wa kisukari(Diabetes)"
+
+#: templates/surveys/facility-0.20.xml:263
+msgid "Dispensary"
+msgstr "Dispensari/zahanati/kituo cha afya"
+
+#: templates/surveys/facility-0.20.xml:267
+msgid "TB Clinic"
+msgstr "Kliniki ya ugonjwa wa kifua kikuu (TB)"
+
+#: templates/surveys/facility-0.20.xml:271
+msgid "HCT/VCT"
+msgstr "Huduma za jumla kuhusu kupima na kupewa ushauri nasaa (counselling) juu ya ugonjwa wa ukimwi (HCT/VCT)"
+
+#: templates/surveys/facility-0.20.xml:275
+msgid "ARV Dispensing"
+msgstr "Kuwapa madawa ya kurefusha maisha waathiriwa wa ugonjwa wa ukimwi (ARVs)"
+
+#: templates/surveys/facility-0.20.xml:280
+msgid "Add any other major services offered not listed in the question above."
+msgstr "Andika huduma zingine zozote ambazo hazipo kwenye hii orodha"
+
+#: templates/surveys/facility-0.20.xml:283
+msgid "What is the catchment population of this facility?"
+msgstr "Kituo hiki kina hudumia idadi gani ya watu?"
+
+#: templates/surveys/facility-0.20.xml:284
+msgid "Approximate number of patients that this facility services."
+msgstr "Kwa jumla, kituo kinawahudumia wagonjwa wangapi?"
+
+#: templates/surveys/facility-0.20.xml:287
+msgid "What is the average number of patients serviced daily at this facility?"
+msgstr "Kwa jumla kituo, kinawahudumia watu kama wangapi kila siku?"
+
+#: templates/surveys/facility-0.20.xml:290
+msgid "How many nurses are stationed at this facility?"
+msgstr "Kuna wauguzi (nurse) wangapi katika  kituo hiki?"
+
+#: templates/surveys/facility-0.20.xml:293
+msgid "How many doctors are stationed at this facility?"
+msgstr "Kuna madaktari wangapi katika kituo hiki?"
+
+#: templates/surveys/facility-0.20.xml:298
+msgid "Medicines List"
+msgstr "Orodha ya madawa"
+
+#: templates/surveys/facility-0.20.xml:300
+msgid "Is a list of medicines procured by the facility available?"
+msgstr "Orodha ya madawa yanayonunuliwa na hiki kituo ipo?"
+
+#: templates/surveys/facility-0.20.xml:301
+msgid "If yes, please ask for a copy. This should be delivered to the Tendai project supervisor."
+msgstr "Ikiwa ipo, omba upewe hiyo orodha. Hii orodha inatakiwa ipelekwe kwa msimamizi (supervisor) wa Tendai Project."
+
+#: templates/surveys/facility-0.20.xml:303
+#: templates/surveys/medicines-0.51.xml:505
+#: templates/surveys/medicines-0.51.xml:576
+msgid "Yes"
+msgstr "Ndiyo"
+
+#: templates/surveys/facility-0.20.xml:307
+#: templates/surveys/medicines-0.51.xml:509
+#: templates/surveys/medicines-0.51.xml:572
+msgid "No"
+msgstr "La"
+
+#: templates/surveys/facility-0.20.xml:312
+msgid "Please explain why the list is not available."
+msgstr "Tafadhali eleza kwa nini hii orodha ya madawa haipatikani."
+
+#: templates/surveys/facility-0.20.xml:315
+#: templates/surveys/facility-0.20.xml:319
+#: templates/surveys/facility-0.20.xml:323
+msgid "Please take a photo of medicines list."
+msgstr "Tafadhali chukua picha ya orodha ya madawa"
+
+#: templates/surveys/facility-0.20.xml:316
+msgid "Ensure that the page is readable (page 1)."
+msgstr "Hakikisha kuwa maandishi yanasomeka (ukurasa wa 1)."
+
+#: templates/surveys/facility-0.20.xml:320
+msgid "Ensure that the page is readable (page 2)."
+msgstr "Hakikisha kuwa maandishi yanasomeka (ukurasa wa 2)."
+
+#: templates/surveys/facility-0.20.xml:324
+msgid "Ensure that the page is readable (page 3)."
+msgstr "Hakikisha kuwa maandishi yanasomeka (ukurasa wa 3)."
+
+#: templates/surveys/facility-0.20.xml:329
+msgid "Comments"
+msgstr "Maoni"
+
+#: templates/surveys/facility-0.20.xml:331
+msgid "Please provide any additional comments not covered by the previous questions."
+msgstr "Tafadhali toa maoni ye yote muhimu ambayo unaona hayatajwa na maswali ya hapo awali."
+
+#: templates/surveys/medicines-0.51.xml:5
+#, python-format
+msgid "%(country_name)s Medicines"
+msgstr "Madawa ya %(country_name)s"
+
+#: templates/surveys/medicines-0.51.xml:41
+msgid "Select currency"
+msgstr "Chagua hela"
+
+#: templates/surveys/medicines-0.51.xml:435
+msgid "Facility name required"
+msgstr "Jina la kituo linahitajika"
+
+#: templates/surveys/medicines-0.51.xml:436
+msgid "Please enter in the name of the respondent"
+msgstr "Tafadhali jaza jina la mhojiwa"
+
+#: templates/surveys/medicines-0.51.xml:442
+msgid "For each medicine, please answer whether it is stocked or not"
+msgstr "Kwa kila dawa, tafadhali jibu kama kwa kawaida inapatikana au haipatikani kwa kituo hiki"
+
+#: templates/surveys/medicines-0.51.xml:443
+msgid "Pack size required"
+msgstr "'Pack size' inahitajika"
+
+#: templates/surveys/medicines-0.51.xml:444
+msgid "Medicine price required"
+msgstr "Bei ya dawa  inahitajika"
+
+#: templates/surveys/medicines-0.51.xml:445
+msgid "Please select currency"
+msgstr "Tafadhali chagua aina ya hela"
+
+#: templates/surveys/medicines-0.51.xml:446
+msgid "Please indicate whether this medicine is available"
+msgstr "Tafadhali sema kama hii dawa inapatika kituoni wakati huu"
+
+#: templates/surveys/medicines-0.51.xml:447
+msgid "Packs available required"
+msgstr "Viwango vya dawa vyenye viko vinahitajika"
+
+#: templates/surveys/medicines-0.51.xml:448
+msgid "Please select the next restock date"
+msgstr "Tafadhali chagua tarehe yambayo dawa nyingine  zinatarajiwa kupokelewa kituoni"
+
+#: templates/surveys/medicines-0.51.xml:449
+msgid "Please fill in the number of stock ordered"
+msgstr "Tafadhali jaza jumla ya dawa ambazo zinatarajiwa"
+
+#: templates/surveys/medicines-0.51.xml:450
+msgid "Please select the last restock date"
+msgstr "Tafadhali chagua tarehe ambayo dawa zilipokelewa kwa mara ya mwisho hapa kituoni"
+
+#: templates/surveys/medicines-0.51.xml:451
+msgid "Please indicate the number of packs received at the last restock"
+msgstr "Ni pakiti ngapi zilipokelewa hapo mara ya mwisho?"
+
+#: templates/surveys/medicines-0.51.xml:470
+msgid "General Information"
+msgstr "Habari ya jumla"
+
+#: templates/surveys/medicines-0.51.xml:472
+msgid "Name of facility"
+msgstr "Jina la kituo"
+
+#: templates/surveys/medicines-0.51.xml:475
+msgid "GPS Location"
+msgstr "Kuratibu za GPS za kituo"
+
+#: templates/surveys/medicines-0.51.xml:476
+msgid "Please ensure that you capture the GPS location at the facility"
+msgstr "Hakikisha kuwa umenasa kuratibu za GPS za kituo"
+
+#: templates/surveys/medicines-0.51.xml:477
+msgid "Please capture the GPS location"
+msgstr "Tafadhali kukamata eneo GPS"
+
+#: templates/surveys/medicines-0.51.xml:480
+msgid "Name of staff member completing this survey"
+msgstr "Jina la mfanyikazi anayehojiwa"
+
+#: templates/surveys/medicines-0.51.xml:481
+msgid "This should ideally be the clinic manager or someone given the authority by the clinic manager with the necessary expertise and knowledge"
+msgstr "Ni lazima awe meneja wa hii kliniki au mwakilishi aliyeruhusiwa na meneja. Ni lazima mwakilishi awawe mtaalam wa mambo ya madawa"
+
+#: templates/surveys/medicines-0.51.xml:484
+msgid "Position of Respondent"
+msgstr "Cheo kazini cha mhojiwa"
+
+#: templates/surveys/medicines-0.51.xml:485
+msgid "e.g. facility manager, staff nurse, etc"
+msgstr "Kwa mfano, mkurugenzi mkuu, karani, na kadhalika"
+
+#: templates/surveys/medicines-0.51.xml:490
+msgid "Please indicate whether the following medicines are usually stocked at this facility."
+msgstr "Weka alama ya usahihi ikiwa madawa yafwatayo hupatikana kwa  kituo hiki?"
+
+#: templates/surveys/medicines-0.51.xml:494
+#, python-format
+msgid "Are %(name)s %(containers)s stocked at this facility?"
+msgstr "%(containers)s haya %(name)s yanapatikana kwa kituo hiki?"
+
+#: templates/surveys/medicines-0.51.xml:495
+msgid "Not stocked means that this facility does not usually carry this medicine."
+msgstr "Hayapatikani inamaanisha kuwa madawa haya hayapitikani hapa kwa kawaida."
+
+#: templates/surveys/medicines-0.51.xml:497
+msgid "Select option"
+msgstr "Chagua jibu"
+
+#: templates/surveys/medicines-0.51.xml:501
+msgid "Don't know"
+msgstr "Sijui"
+
+#: templates/surveys/medicines-0.51.xml:514
+msgid "Please provide any additional comments below."
+msgstr "Tafadhali kutoa maoni yoyote ya ziada hapo chini."
+
+#: templates/surveys/medicines-0.51.xml:515
+msgid "If not necessary then leave blank."
+msgstr "Acha nafasi tupu kama hauna maoni"
+
+#: templates/surveys/medicines-0.51.xml:524
+msgid "Name of the cheapest product available."
+msgstr "Jina la dawa iliyo ya  bei nafuu zaidi hapa kituoni"
+
+#: templates/surveys/medicines-0.51.xml:525
+#, python-format
+msgid "Divide price of one %(container)s by the number of %(units)s in the %(container)s to determine price per %(unit)s. If multiple products have the cheapest price, choose one."
+msgstr "Ili kupata bei ya kila '%(unit)s', chukua bei ya pakiti (%(container)s) ugawe kwa nambari ya '%(units)s' zilizomo. (Kwa mfano, kama bei ya pakiti nzima ya 'tablets' ishirini na nne (24) ni TShs 24,000, bei ya 'tablets' moja itakuwa TShs 1,000). Ikitokea kuwa bidhaa zaidi ya moja zina bei sawa (nafuu), chagua moja tu"
+
+#: templates/surveys/medicines-0.51.xml:528
+msgid "Please answer the questions below with reference to the cheapest product mentioned above."
+msgstr "Tafadhali jibu maswali yafuatayo ambayo yanaguzia madawa yenye bei nafuu zaidi ambayo yametajwa hapo juu."
+
+#: templates/surveys/medicines-0.51.xml:531
+#, python-format
+msgid "For this medicine, a pack is defined as a single %(container)s."
+msgstr "Kwa ajili ya dawa hii, pakiti inaelezwa kama moja %(container)s."
+
+#: templates/surveys/medicines-0.51.xml:534
+#, python-format
+msgid "How many %(units)s in a single %(container)s (pack size)?"
+msgstr "Kuna %(units)s ngapi kwa pakiti (%(container)s) ('pack size')"
+
+#: templates/surveys/medicines-0.51.xml:537
+msgid "The value above is called the pack size. For the remaining questions on this page, please use this value for the pack size."
+msgstr "Vipimo vyenye umefanyia hesabu hapo juu vinaitwa 'pack size'. Maswali ambayo yamebakia kwa ukurasa huu yanaguzia hiki kipimo (pack size)"
+
+#: templates/surveys/medicines-0.51.xml:540
+msgid "What is the price paid by the patient?"
+msgstr "Mgonjwa hulipa hela ngapi?"
+
+#: templates/surveys/medicines-0.51.xml:541
+msgid "If the medicine is free, please enter 0."
+msgstr "Kama hii dawa hupeanwa bure, jaza 0."
+
+#: templates/surveys/medicines-0.51.xml:544
+#, python-format
+msgid "How many %(units)s does the price mentioned above buy?"
+msgstr "Bei ya hapo juu hununua %(units)s ngapi?"
+
+#: templates/surveys/medicines-0.51.xml:545
+msgid "This might be the same as the pack size but can be different in some cases. If the medicine is free then leave this question blank."
+msgstr "Labda maelezo yafuatayo ni sawa na 'pack size' lakini wakati mwingine huwa tofauti. Kama dawa inapeanwa bure, acha nafasi tupu."
+
+#: templates/surveys/medicines-0.51.xml:548
+msgid "What currency is this price in?"
+msgstr "Hii bei ni kwa hela za nchi gani?"
+
+#: templates/surveys/medicines-0.51.xml:549
+msgid "This should indicate the currency of the price quoted above."
+msgstr "Hii itaonyesha hela ulizotumia hapo juu."
+
+#: templates/surveys/medicines-0.51.xml:551
+msgid "Select Currency"
+msgstr "Chagua aina ya hela"
+
+#: templates/surveys/medicines-0.51.xml:562
+msgid "Please provide any additional comments about price not covered in the questions above."
+msgstr "Tafadhali toa maoni ya ziada kuhusu bei za dawa ambayo maswali hayajagusia."
+
+#: templates/surveys/medicines-0.51.xml:565
+#, python-format
+msgid "Please take a photo of the %(container)s."
+msgstr "Tafadhali chukua picha ya pakiti (%(container)s) ya dawa"
+
+#: templates/surveys/medicines-0.51.xml:566
+msgid "Please ensure that the label is clearly visible."
+msgstr "Tafadhali hakikisha kuwa jina la dawa linaonekana vizuri."
+
+#: templates/surveys/medicines-0.51.xml:569
+msgid "Is this medicine currently in stock?"
+msgstr "Hii dawa, inapatikana kwa kituo wakati huu?"
+
+#: templates/surveys/medicines-0.51.xml:570
+msgid "This applies only to the specified pack size."
+msgstr "Haya maswali yanagusia tu 'pack size' iliyotajwa mbeleni."
+
+#: templates/surveys/medicines-0.51.xml:581
+msgid "If the medicine is in stock, how many full packs are currently in stock?"
+msgstr "Ikiwa hii dawa ipo kituoni, kuna pakiti ngapi sasa?"
+
+#: templates/surveys/medicines-0.51.xml:582
+msgid "Enter 0 if the medicine is out of stock."
+msgstr "Jaza 0 ikiwa dawa imeisha"
+
+#: templates/surveys/medicines-0.51.xml:585
+msgid "If the medicine is out of stock, how long has it been unavailable?"
+msgstr "Ikiwa dawa imesha, iliisha lini?"
+
+#: templates/surveys/medicines-0.51.xml:587
+#: templates/surveys/medicines-0.51.xml:630
+#: templates/surveys/medicines-0.51.xml:677
+msgid "Select period"
+msgstr "Chagua muda"
+
+#: templates/surveys/medicines-0.51.xml:591
+#: templates/surveys/medicines-0.51.xml:634
+#: templates/surveys/medicines-0.51.xml:681
+msgid "1-3 days"
+msgstr "Siku 1-3"
+
+#: templates/surveys/medicines-0.51.xml:595
+#: templates/surveys/medicines-0.51.xml:638
+#: templates/surveys/medicines-0.51.xml:685
+msgid "4-7 days"
+msgstr "Siku 4-7"
+
+#: templates/surveys/medicines-0.51.xml:599
+#: templates/surveys/medicines-0.51.xml:642
+#: templates/surveys/medicines-0.51.xml:689
+msgid "1-2 weeks"
+msgstr "Wiki 1-2"
+
+#: templates/surveys/medicines-0.51.xml:603
+#: templates/surveys/medicines-0.51.xml:646
+#: templates/surveys/medicines-0.51.xml:693
+msgid "2-3 weeks"
+msgstr "Wiki 2-3"
+
+#: templates/surveys/medicines-0.51.xml:607
+#: templates/surveys/medicines-0.51.xml:650
+#: templates/surveys/medicines-0.51.xml:697
+msgid "3-4 weeks"
+msgstr "Wiki 3-4"
+
+#: templates/surveys/medicines-0.51.xml:611
+#: templates/surveys/medicines-0.51.xml:654
+#: templates/surveys/medicines-0.51.xml:701
+msgid "1-2 months"
+msgstr "Mwezi 1-2"
+
+#: templates/surveys/medicines-0.51.xml:615
+#: templates/surveys/medicines-0.51.xml:658
+#: templates/surveys/medicines-0.51.xml:705
+msgid "2-3 months"
+msgstr "Miezi 2-3"
+
+#: templates/surveys/medicines-0.51.xml:619
+#: templates/surveys/medicines-0.51.xml:662
+#: templates/surveys/medicines-0.51.xml:709
+msgid "More than 3 months"
+msgstr "Zaidi ya miezi mitatu(3)"
+
+#: templates/surveys/medicines-0.51.xml:623
+#: templates/surveys/medicines-0.51.xml:666
+#: templates/surveys/medicines-0.51.xml:713
+msgid "Unknown"
+msgstr "Haijulikani"
+
+#: templates/surveys/medicines-0.51.xml:628
+msgid "How long will it be until the facility receives more stock of this medicine?"
+msgstr "Itachukua muda gani ndiyo hii dawa iletwe tena  kituoni?"
+
+#: templates/surveys/medicines-0.51.xml:671
+msgid "How many packs have been ordered for the next restock of this facility?"
+msgstr "Ni pakiti ngapi za hii dawa zimeagizwa?"
+
+#: templates/surveys/medicines-0.51.xml:672
+msgid "If this is unknown, please enter in 8888. If more stock has not yet been ordered, please enter in 9999."
+msgstr "Jaza 8888 ikiwa  nambari ya pakiti haijulikani. Kama dawa haijaagizwa, jaza 9999."
+
+#: templates/surveys/medicines-0.51.xml:675
+msgid "How long has it been since the last time this facility received stock of this medicine?"
+msgstr "Ni lini mwisho hii dawa ilipokelewa hapa kituoni?"
+
+#: templates/surveys/medicines-0.51.xml:718
+msgid "How many packs of this medicine did you receive at your last restock?"
+msgstr "Ni pakiti ngapi za hii dawa zilipokelewa kituoni wakati huo (wakati wa mwisho ilipopokelewa)"
+
+#: templates/surveys/medicines-0.51.xml:719
+msgid "If this is unknown, enter 8888"
+msgstr "Jaza 8888 kama nambari haijulikani"
+
+#: templates/surveys/medicines-0.51.xml:722
+msgid "Please provide any additional comments about availability or restocking not covered in the questions above."
+msgstr "Tafadhali toa maoni ya ziada kuhusu kupokelewa kwa madawa ambayo unaona  hayajagusiwa."
+
+#: templates/surveys/medicines-0.51.xml:723
+msgid "For instance, if medicine in this pack size is out of stock but different pack sizes are available, please mention this here."
+msgstr "Kwa mfano, inaweza kuwa pakiti ya kipimo fulani ya hii dawa haipo lakini vipimo vingine vya hiyo dawa vinapatikana, tafadhali toa habari hiyo "
+
+#: templates/surveys/tendai-interview-0.10.xml:5
+msgid "Tendai Interview"
+msgstr "Hoja ya Tendai"
+
+#: templates/surveys/tendai-interview-0.10.xml:61
+msgid "You are about to conduct a community interview. The purpose of this interview to collect stories about the community's experiences access medicines."
+msgstr "Umekaribia kuanza hoja muhimu kuhusu jamii fulani. Hoja hii inakusudia kukusanya maoni ya watu katika hii jamii kuhusu ugumu au urahisi wa kupatikana kwa madawa."
+
+#: templates/surveys/tendai-interview-0.10.xml:71
+msgid "What is the respondent's name?"
+msgstr "Jina la mhojiwa"
+
+#: templates/surveys/tendai-interview-0.10.xml:74
+msgid "Why have you visited the facility today?"
+msgstr "Ni kwa nini ukakitembelea kituo leo?"
+
+#: templates/surveys/tendai-interview-0.10.xml:77
+msgid "How long did the journey to the facility take?"
+msgstr "Safari ya kuja hapa kituoni ilikuchukua muda gani?"
+
+#: templates/surveys/tendai-interview-0.10.xml:80
+msgid "What would you say are the major problem illnesses in your community?"
+msgstr "Unaweza kusema ni magonjwa gani yanayowaathiri watu mara kwa mara katika kijiji chako?"
+
+#: templates/surveys/tendai-interview-0.10.xml:83
+msgid "What are the major difficulties that you experience with regards to your health situation?"
+msgstr "Matatizo gani unayoweza kusema ndiyo makubwa zaidi kuhusu hali ya afya yako?"
+
+#: templates/surveys/tendai-interview-0.10.xml:86
+msgid "What has your experience been of this facility in meeting your needs, including how you think this could be improved?"
+msgstr "Kwa maoni yako, huduma unazopata kutoka kwa  kituo hiki zinaridhisha? Ikiwa haziridhishi, toa maoni yako kuhusu vile ungetaka huduma ziboreshwe."
+
+#: templates/surveys/tendai-interview-0.10.xml:89
+msgid "Are medicines generally available at local health facilities? If not, what do you think could be done to improve this?"
+msgstr "Kwa maoni yako, madawa hupatikana kwa urahisi kwenye vituo vya afya  eneo hili? Unaona hali hii inawaze kuboreshwaje?"
+
+#: templates/surveys/tendai-interview-0.10.xml:92
+msgid "What was your experience of getting medicines the last time either yourself or a member of your family was sick?"
+msgstr "Mara ya mwisho wewe au mtu kutoka kwa familia yako alipougua, ilikuwa vigumu au rahisi kupata matibabu/dawa?"
+
+#: templates/surveys/tendai-interview-0.10.xml:95
+msgid "Do you think the medicines available at this health facility are affordable? If not, then please elaborate with examples."
+msgstr "Kwa maoni yako, madawa yanayopatikana katika  kituo hiki ni ya bei nafuu au la?  Kama si nafuu, tafadhali toa maelezo zaidi ukitumia mifano."
+
+#: templates/surveys/tendai-interview-0.10.xml:98
+msgid "What costs do you incur when coming to this facility for medicines?"
+msgstr "Ni gharama za aina gani unazopata (kama nauli, chakula cha mchana) unapokuja kupata madawa kutoka kwa  kituo hiki?"
+
+#: templates/surveys/tendai-interview-0.10.xml:101
+msgid "Is there anything else that you want to share that has not been covered in the above questions?"
+msgstr "Kuna jambo lingine ungependa kusema  ambalo ni la muhimu na halijaguziwa katika hoja hii?"
+
+#: templates/surveys/tendai-interview-0.10.xml:104
+msgid "Take a picture of the respondent with their consent."
+msgstr "Chukua picha ya mhojiwa ukiwa na idhini yake."
+
+#: templates/surveys/tendai-story-0.4.xml:6
+msgid "Tendai Story"
+msgstr "Hadithi ya Tendai"
+
+#: templates/surveys/tendai-story-0.4.xml:48
+msgid "Tell your story"
+msgstr "Elezea hadithi yako"
+
+#: templates/surveys/tendai-story-0.4.xml:50
+msgid "Story Title"
+msgstr "Kichwa cha hadithi"
+
+#: templates/surveys/tendai-story-0.4.xml:53
+msgid "Photo 1"
+msgstr "Picha ya kwanza (1)"
+
+#: templates/surveys/tendai-story-0.4.xml:56
+msgid "Photo 2"
+msgstr "Picha ya pili (2)"
+
+#: templates/surveys/tendai-story-0.4.xml:59
+msgid "What is your story?"
+msgstr "Hadithi yako ni gani?"
+
+#: templates/surveys/tendai-story-0.4.xml:62
+msgid "Record Audio (optional)"
+msgstr "Nasa sauti (hii si lazima, unaweza kuacha wazi)"
+
+# Units
+msgid "ointment"
+msgstr "ointment"
+
+msgid "ointments"
+msgstr "ointments"
+
+msgid "vial"
+msgstr "vial"
+
+msgid "vials"
+msgstr "vials"
+
+msgid "inhaler"
+msgstr "inhaler"
+
+msgid "inhalers"
+msgstr "inhalers"
+
+msgid "sachet"
+msgstr "sachet"
+
+msgid "sachets"
+msgstr "sachets"
+
+msgid "ampoule"
+msgstr "ampoule"
+
+msgid "ampoules"
+msgstr "ampoules"
+
+msgid "bottle"
+msgstr "bottle"
+
+msgid "bottles"
+msgstr "bottles"
+
+msgid "box/bottle/blister pack"
+msgstr "box/bottle/blister pack"
+
+msgid "boxes/bottles/blister packs"
+msgstr "boxes/bottles/blister packs"
+
+msgid "tube or similar container"
+msgstr "tube or similar container"
+
+msgid "tubes or similar containers"
+msgstr "tubes or similar containers"
