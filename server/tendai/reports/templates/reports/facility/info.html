@@ -14,10 +14,24 @@
       <p><strong>Coverage population:</strong> {{ facility.coverage }}</p>
       <p><strong>Daily patients:</strong> {{ facility.nr_patients }}</p>
       <p><strong>Phone number:</strong> {{ facility.phone_number }}</p>
-      <p><strong>Facility description:</strong> {{ facility.description }}</p><br />
+      {% if facility.medicines_list_available %}
+      <p><strong>Medicines list:</strong>
+	{% for page in facility.medicines_list %}
+	<a class="colorbox" href="{{ page }}" title="Page {{ forloop.counter }}">Page {{ forloop.counter }}</a> 
+	{% endfor %}
+      </p>
+      {% else %}
+      <p><strong>Medicines list not available:</strong> {{ facility.medicines_list_reason }}</p>
+      {% endif %}
+      <p><strong>Facility description:</strong> {{ facility.description }}</p>
+      <br />
       <em>Collected at: {{ facility.submission_date }}</em><br />
       <em>Recorded by: {{ facility.chw_name }}</em><br />
       <em>Organisation: {{ facility.chw_organisation }}</em>
     </td>
   </tr>
 </table>
+<script>
+  $(".colorbox").colorbox({rel: "medicines_list", width: "90%", height: "90%"});
+</script>
+
