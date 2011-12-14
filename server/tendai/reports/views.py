@@ -19,12 +19,13 @@ def getTag(dom, name, occurence=0):
                 return content
     return ''
 
+# TODO - please merge facilitiesData and facilitiesKML
 def facilitiesData(request):
     facilities = []
     forms = or_models.ORForm.objects.filter(name='Facility Form')
     submissions = []
     for form in forms:
-        submissions.extend(form.orformsubmission_set.all())
+        submissions.extend(form.orformsubmission_set.filter(submissionworkerdevice__active=True))
     for submission in submissions:
         facility = {}
         dom = minidom.parse(submission.get_full_xml_path())
@@ -49,12 +50,15 @@ def facilitiesData(request):
     extra_context = {'facilities': facilities}
     return direct_to_template(request, template='reports/facility/data.txt', extra_context=extra_context)
 
+# TODO - Etienne - could you please use underscores instead of camelcase for function names?
 def facilitiesKML(request):
     facilities = []
     forms = or_models.ORForm.objects.filter(name='Facility Form')
     submissions = []
+    # TODO - wouldn't it be better to do something like:
+    # submissions = ORFormSubmission.objects.filter(form="Facility Form")
     for form in forms:
-        submissions.extend(form.orformsubmission_set.all())
+        submissions.extend(form.orformsubmission_set.filter(submissionworkerdevice__active=True))
     for submission in submissions:
         facility = {}
         try:
