@@ -8,7 +8,10 @@ import json
 def slider_view(request, template_name="home.html", extra_context=None):
     extra_context = extra_context or {}
     story_forms = ORForm.objects.filter(name="Tendai Story")
-    story_submissions =  ORFormSubmission.objects.filter(form__in=story_forms).order_by("-created_date")
+    story_submissions =  ORFormSubmission.objects.filter(
+        form__in=story_forms,
+        submissionworkerdevice__active=True
+    ).order_by("-created_date")
     data = []
     for submission in story_submissions:
         xml = minidom.parse(submission.get_full_xml_path())
