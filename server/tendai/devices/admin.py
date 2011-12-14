@@ -18,10 +18,19 @@ class DeviceAdmin(admin.ModelAdmin):
     def community_worker_organisation(self, obj):
         return obj.community_worker.organisation
 
+def make_active(modeladmin, request, queryset):
+    queryset.update(active=True)
+make_active.short_description = "Active selected submissions"
+
+def make_inactive(modeladmin, request, queryset):
+    queryset.update(active=False)
+make_inactive.short_description = "Deactivate selected submissions"
+
 class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
     list_display = ('community_worker_first_name', 'community_worker_last_name', 'community_worker_organisation', 'submission_type', 'device')
     list_filter = ('active', 'community_worker__first_name', 'community_worker__last_name', 'community_worker__organisation__name', 'device__device_id', 'submission__form__name', 'community_worker__country__name')
     date_hierarchy = "created_date"
+    actions = [make_active, make_inactive]
 
     def community_worker_first_name(self, obj):
         return obj.community_worker.first_name

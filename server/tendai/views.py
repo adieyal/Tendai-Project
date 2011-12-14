@@ -53,6 +53,7 @@ def recent_stories(request, template_name="stories.html", num_stories=100, extra
            "name" : "%s %s" % (swd.community_worker.first_name, swd.community_worker.last_name),
            "organisation" : swd.community_worker.organisation,
            "country" : swd.community_worker.country,
+           "id" : swd.id,
         })
     extra_context["stories"] = data
     return direct_to_template(request, template=template_name, extra_context=extra_context)

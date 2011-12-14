@@ -35,7 +35,7 @@ view plaincopy to clipboardprint?
     display: block;
     margin-bottom: 10px;
 }
-.story .info .recorded_by, .story .info .organisation .country {
+.story .info .recorded_by, .story .info .organisation, .story .info .country {
     display: block;
     font-style: italic; 
 }
