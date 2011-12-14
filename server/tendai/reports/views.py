@@ -83,6 +83,7 @@ def facilityInfo(request, submission_id):
     facility = {}
     try:
         dom = minidom.parse(submission.get_full_xml_path())
+        device_id = getTag(dom, 'device_id')
         facility['name'] = getTag(dom, 'facility_name')
         facility['description'] = getTag(dom, 'facility_description')
         facility['doctors'] = getTag(dom, 'facility_doctors')
@@ -90,11 +91,22 @@ def facilityInfo(request, submission_id):
         facility['coverage'] = getTag(dom, 'facility_coverage')
         facility['phone_number'] = getTag(dom, 'phone_number', 1)
         facility['nr_patients'] = getTag(dom, 'facility_nr_patients')
+        facility['medicines_list_available'] = (getTag(dom, 'list_available')=='yes')
+        if facility['medicines_list_available']:
+            medicines_list = dom.getElementsByTagName('section_medicines_list')[0]
+            facility['medicines_list'] = []
+            for node in medicines_list.childNodes:
+                if 'photo' in node.nodeName:
+                    if node.firstChild:
+                        if node.firstChild.nodeType==node.firstChild.TEXT_NODE:
+                            filename = node.firstChild.data
+                            facility['medicines_list'].append(reverse('openrosa_media', kwargs={'device_id': device_id, 'filename': filename}))
+        else:
+            facility['medicines_list_reason'] = getTag(dom, 'list_not_available_why')
         swd = submission.submissionworkerdevice_set.all()[0]
         facility['chw_name'] = "%s %s" % (swd.community_worker.first_name, swd.community_worker.last_name)
         facility['chw_organisation'] = swd.community_worker.organisation
         facility['submission_date'] = submission.created_date
-        device_id = getTag(dom, 'device_id')
         photo = getTag(dom, 'photo1')
         if photo:
             facility['photo_url'] = reverse('openrosa_media', kwargs={'device_id': device_id, 'filename': photo})
