@@ -32,7 +32,10 @@ def slider_view(request, template_name="home.html", extra_context=None):
 def recent_stories(request, template_name="stories.html", num_stories=100, extra_context=None):
     extra_context = extra_context or {}
     story_forms = ORForm.objects.filter(name="Tendai Story")
-    story_submissions = ORFormSubmission.objects.filter(form__in=story_forms).order_by("-created_date")[0:num_stories]
+    story_submissions = ORFormSubmission.objects.filter(
+        form__in=story_forms,
+        submissionworkerdevice__active=True
+    ).order_by("-created_date")[0:num_stories]
 
     data = []
     for submission in story_submissions:
