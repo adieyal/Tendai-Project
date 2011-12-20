@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.conf import settings
 
 from general.utils import value_or_none, date_or_none
+from general.parser import SubmissionParser
 
 class ORForm(models.Model):
     name = models.CharField(max_length=30)
@@ -43,6 +44,10 @@ class ORFormSubmission(models.Model):
         verbose_name_plural = "OR Form Submissions"
         verbose_name = "OR Form Submission"
 
+    def __init__(self, *args, **kwargs):
+        super(ORFormSubmission, self).__init__(*args, **kwargs)
+        self.content = SubmissionParser.from_file(self.get_full_xml_path())
+    
     def __unicode__(self):
         return "%s (%s)" % (self.form, self.created_date)
 
@@ -52,7 +57,7 @@ class ORFormSubmission(models.Model):
     def get_full_xml_path(self):
         path = os.path.join(settings.OPENROSA_SUBMISSIONS_DIR, self.filename)
         return path
-
+    
     def save(self, *args, **kwargs):
         is_new = self.id == None
         super(ORFormSubmission, self).save(*args, **kwargs)

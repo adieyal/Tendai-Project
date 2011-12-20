@@ -10,112 +10,15 @@ from django.views.generic.simple import direct_to_template
 from devices import models as dev_models
 from openrosa import models as or_models
 
-def getTag(dom, name, occurence=0):
-    element = dom.getElementsByTagName(name)[occurence]
-    if element:
-        if element.firstChild:
-            if element.firstChild.nodeType==element.firstChild.TEXT_NODE:
-                content = element.firstChild.data
-                return content
-    return ''
-
-# TODO - please merge facilitiesData and facilitiesKML
-def facilitiesData(request):
+def facilities_kml(request):
     facilities = []
-    forms = or_models.ORForm.objects.filter(name='Facility Form')
-    submissions = []
-    for form in forms:
-        submissions.extend(form.orformsubmission_set.filter(submissionworkerdevice__active=True))
-    for submission in submissions:
-        facility = {}
-        dom = minidom.parse(submission.get_full_xml_path())
-        gps = getTag(dom, 'facility_location').split()[0:2]
-        facility['lat'] = float(gps[0])
-        facility['lon'] = float(gps[1])
-        facility['name'] = getTag(dom, 'facility_name').replace('\t',' ')
-        facility['description'] = getTag(dom, 'facility_description').replace('\t',' ')
-        device_id = getTag(dom, 'device_id')
-        filename = getTag(dom, 'photo1')
-        facility['photo_url'] = reverse('openrosa_media', kwargs={'device_id': device_id, 'filename': filename})
-        facility_type = getTag(dom, 'type_of_facility')
-        if 'hospital' in facility_type:
-            facility['icon'] = 'red_dot'
-        elif 'clinic' in facility_type:
-            facility['icon'] = 'yellow_dot'
-        elif ('pharmacy' in facility_type) or ('dispensary' in facility_type):
-            facility['icon'] = 'green_dot'
-        else:
-            facility['icon'] = 'blue_dot'
-        facilities.append(facility)
-    extra_context = {'facilities': facilities}
-    return direct_to_template(request, template='reports/facility/data.txt', extra_context=extra_context)
-
-# TODO - Etienne - could you please use underscores instead of camelcase for function names?
-def facilitiesKML(request):
-    facilities = []
-    forms = or_models.ORForm.objects.filter(name='Facility Form')
-    submissions = []
-    # TODO - wouldn't it be better to do something like:
-    # submissions = ORFormSubmission.objects.filter(form="Facility Form")
-    for form in forms:
-        submissions.extend(form.orformsubmission_set.filter(submissionworkerdevice__active=True))
-    for submission in submissions:
-        facility = {}
-        try:
-            dom = minidom.parse(submission.get_full_xml_path())
-            gps = getTag(dom, 'facility_location').split()[0:2]
-            facility['lat'] = float(gps[0])
-            facility['lon'] = float(gps[1])
-            facility['id'] = submission.id
-            facility_type = getTag(dom, 'type_of_facility').lower()
-            if 'hospital' in facility_type:
-                facility['color'] = 'red'
-            elif 'clinic' in facility_type:
-                facility['color'] = 'yellow'
-            elif ('pharmacy' in facility_type) or ('dispensary' in facility_type):
-                facility['color'] = 'green'
-            else:
-                facility['color'] = 'blue'
-            facilities.append(facility)
-        except IOError:
-            pass
-    extra_context = {'facilities': facilities}
+    submissions = or_models.ORFormSubmission.objects.filter(form__name='Facility Form',submissionworkerdevice__active=True)
+    extra_context = {'submissions': submissions}
     return direct_to_template(request, template='reports/facility/data.kml', extra_context=extra_context)
 
-def facilityInfo(request, submission_id):
-    submission = or_models.ORFormSubmission.objects.get(id=submission_id)
-    facility = {}
-    try:
-        dom = minidom.parse(submission.get_full_xml_path())
-        device_id = getTag(dom, 'device_id')
-        facility['name'] = getTag(dom, 'facility_name')
-        facility['description'] = getTag(dom, 'facility_description')
-        facility['doctors'] = getTag(dom, 'facility_doctors')
-        facility['nurses'] = getTag(dom, 'facility_nurses')
-        facility['coverage'] = getTag(dom, 'facility_coverage')
-        facility['phone_number'] = getTag(dom, 'phone_number', 1)
-        facility['nr_patients'] = getTag(dom, 'facility_nr_patients')
-        facility['medicines_list_available'] = (getTag(dom, 'list_available')=='yes')
-        if facility['medicines_list_available']:
-            medicines_list = dom.getElementsByTagName('section_medicines_list')[0]
-            facility['medicines_list'] = []
-            for node in medicines_list.childNodes:
-                if 'photo' in node.nodeName:
-                    if node.firstChild:
-                        if node.firstChild.nodeType==node.firstChild.TEXT_NODE:
-                            filename = node.firstChild.data
-                            facility['medicines_list'].append(reverse('openrosa_media', kwargs={'device_id': device_id, 'filename': filename}))
-        else:
-            facility['medicines_list_reason'] = getTag(dom, 'list_not_available_why')
-        swd = submission.submissionworkerdevice_set.all()[0]
-        facility['chw_name'] = "%s %s" % (swd.community_worker.first_name, swd.community_worker.last_name)
-        facility['chw_organisation'] = swd.community_worker.organisation
-        facility['submission_date'] = submission.created_date
-        photo = getTag(dom, 'photo1')
-        if photo:
-            facility['photo_url'] = reverse('openrosa_media', kwargs={'device_id': device_id, 'filename': photo})
-        extra_context = {'facility': facility}
-        return direct_to_template(request, template='reports/facility/info.html', extra_context=extra_context)
-    except IOError:
-        pass
-    return Http404
+def facility_info(request, submission_id):
+    submission = get_object_or_404(or_models.ORFormSubmission, pk=submission_id)
+    swd = submission.submissionworkerdevice_set.all()[0]
+    extra_context={'submission': submission,
+                   'swd': swd}
+    return direct_to_template(request, template='reports/facility/info.html', extra_context=extra_context)

@@ -9,19 +9,35 @@ class SubmissionParser(object):
 
     @classmethod
     def from_file(cls, filename):
-        dom = minidom.parse(filename)
-        if len(dom.childNodes) != 1:
-            raise XMLError('Expected single root node.')
-        head = dom.firstChild
-        if head.nodeName != 'data':
-            raise XMLError('Expected root node name to be "data".')
-        return cls(head)    
+        try:
+            dom = minidom.parse(filename)
+            if len(dom.childNodes) != 1:
+                raise XMLError('Expected single root node.')
+            head = dom.firstChild
+            if head.nodeName != 'data':
+                raise XMLError('Expected root node name to be "data".')
+            return cls(head)    
+        except IOError:
+            return None
     
     def children(self):
         children = []
         for node in self.head.childNodes:
-            children.append(node.nodeName)
+            if len(node.childNodes) == 0:
+                children.append(None)
+            elif len(node.childNodes) == 1:
+                child = node.firstChild
+                if child.nodeType == child.TEXT_NODE:
+                    children.append(child.data)
+            else:
+                children.append(self.__class__(node))
         return children
+    
+    def nodes(self):
+        nodes = []
+        for node in self.head.childNodes:
+            nodes.append(node.nodeName)
+        return nodes
     
     def __getattr__(self, attr):
         new_head = None
@@ -38,3 +54,7 @@ class SubmissionParser(object):
             if child.nodeType == child.TEXT_NODE:
                 return child.data
         return self.__class__(new_head)
+    
+    def __repr__(self):
+        return 'Parser: %s' % (self.head.nodeName)
+
