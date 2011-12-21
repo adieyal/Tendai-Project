@@ -110,6 +110,7 @@ def facilityInfo(request, submission_id):
         swd = submission.submissionworkerdevice_set.all()[0]
         facility['chw_name'] = "%s %s" % (swd.community_worker.first_name, swd.community_worker.last_name)
         facility['chw_organisation'] = swd.community_worker.organisation
+        facility['swd_id'] = swd.id
         facility['submission_date'] = submission.created_date
         photo = getTag(dom, 'photo1')
         if photo:
