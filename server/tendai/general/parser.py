@@ -55,6 +55,23 @@ class SubmissionParser(object):
                 return child.data
         return self.__class__(new_head)
     
+    def __iter__(self):
+        self._current_node = 0
+        return self
+    
+    def next(self):
+        if self._current_node == len(self.head.childNodes):
+            raise StopIteration
+        next_node = self.head.childNodes[self._current_node]
+        self._current_node += 1
+        if len(next_node.childNodes) == 0:
+            return None
+        if len(next_node.childNodes) == 1:
+            child = next_node.firstChild
+            if child.nodeType == child.TEXT_NODE:
+                return child.data
+        return self.__class__(next_node)
+    
     def __repr__(self):
         return 'Parser: %s' % (self.head.nodeName)
 

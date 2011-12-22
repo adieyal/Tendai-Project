@@ -1,7 +1,7 @@
 <div class="row">
   {% if submission.content %}
   <div class="span3">
-    {% for photo in submission.content.section_photos.children %}
+    {% for photo in submission.content.section_photos %}
     {% if photo %}
     <img src="{% url openrosa_media device_id=submission.content.device_id filename=photo %}" width="100%" />
     {% endif %}
