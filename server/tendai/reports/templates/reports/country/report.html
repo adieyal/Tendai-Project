@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block reports_active %}active{% endblock %}
+
+{% block page_name %}{{ selected_country }}{% endblock %}
+{% block tagline %} Submissions over the last 30 days{% endblock tagline %}
+{% block main_content_title %}{% endblock main_content_title %}
+
+{% block main_content %}
+<ul class="tabs">
+  {% for country in countries %}
+  <li class="{% if country == selected_country %}active{% endif %}">
+    <a href="{% url reports_country country_code=country.code %}">{{ country }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<div id="content">
+  <div class="row">
+    <div class="span14">
+      <table class="condensed-table">
+        <thead>
+          <tr>
+            <th>Community Health Worker</th>
+	    {% with worker=workers|first %}
+	    {% for form, count in worker.get_forms_count.items %}
+            <th>{{ form }}</th>
+	    {% endfor %}
+	    {% endwith %}
+          </tr>
+        </thead>
+        <tbody>
+	  {% for worker in workers %}
+          <tr>
+            <td>{{ worker.get_full_name }}</td>
+	    {% for form, count in worker.get_forms_count.items %}
+            <td>{{ count }}</td>
+	    {% endfor %}
+          </tr>
+	  {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -22,3 +22,12 @@ def facility_info(request, submission_id):
     extra_context={'submission': submission,
                    'swd': swd}
     return direct_to_template(request, template='reports/facility/info.html', extra_context=extra_context)
+
+def country(request, country_code):
+    countries = dev_models.Country.objects.all()
+    country = dev_models.Country.objects.get(code=country_code)
+    workers = dev_models.CommunityWorker.objects.filter(country=country)
+    extra_context={'workers': workers,
+                   'selected_country': country,
+                   'countries': countries}
+    return direct_to_template(request, template='reports/country/report.html', extra_context=extra_context)

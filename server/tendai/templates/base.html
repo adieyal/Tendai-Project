@@ -2,6 +2,8 @@
 <head>
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css" media="screen" />  
+    <script src="{{ STATIC_URL }}js/jquery-1.6.4.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
 
     <style type="text/css">
       /* Override some defaults */
@@ -68,7 +70,14 @@
           <a class="brand" href="#">Tendai</a>
           <ul class="nav">
             <li class="{% block home_active %}{% endblock %}"><a href="/">Home</a></li>
-            <li class="{% block reports_active %}{% endblock %}"><a href="{% url devices_view_submissions %} ">Reports</a></li>
+	    <li class="dropdown {% block reports_active %}{% endblock %}" data-dropdown="dropdown">
+	      <a href="#" class="dropdown-toggle">Reports</a>
+	      <ul class="dropdown-menu">
+		<li><a href="{% url devices_view_submissions %}">Overview</a></li>
+		<li class="divider"></li>
+		<li><a href="{% url reports_country_default %}">By Country</a></li>
+	      </ul>
+	    </li>
             <li class="{% block facilities_active %}{% endblock %}"><a href="{% url reports_facilities_map %} ">Facilities</a></li>
           </ul>
           <form action="/admin/" class="pull-right" method="post">{% csrf_token %}

@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
+from datetime import datetime, timedelta
 
 from openrosa import models as ormodels
 
@@ -93,7 +94,18 @@ class CommunityWorker(models.Model):
     organisation = models.ForeignKey(Organisation)
     phone_number = models.CharField(max_length=30, blank=True, null=True)
     country = models.ForeignKey(Country, blank=True, null=True)
+    
+    def get_full_name(self):
+        return "%s %s" % (self.first_name, self.last_name)
 
+    def get_forms_count(self, days=30):
+        forms = ormodels.ORForm.objects.order_by('name').values('name').distinct()
+        forms_count = {}
+        for form in forms:
+            count = self.submissionworkerdevice_set.filter(submission__form__name=form['name']).filter(created_date__gte=datetime.now()-timedelta(days=days)).count()
+            forms_count[form['name']] = count
+        return forms_count
+    
     def __unicode__(self):
         return "%s %s (%s)" % (self.first_name, self.last_name, self.organisation)
 
