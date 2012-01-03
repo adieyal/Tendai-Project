@@ -1,37 +1,42 @@
-<table>
-  <tr>
-    <td width="220px">
-      {% if facility.photo_url %}
-      <img src="{{ facility.photo_url }}" width="200px" />
-      {% else %}
-      <img src="/static/no_photo.png" width="200px" />
+<div class="row">
+  {% if submission.content %}
+  <div class="span3">
+    {% for photo in submission.content.section_photos %}
+    {% if photo %}
+    <img src="{% url openrosa_media device_id=submission.content.device_id filename=photo %}" width="100%" />
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div class="span11">
+    <h2>{{ submission.content.section_name.facility_name }}</h2><br />
+    <p><strong>Doctors:</strong> {{ submission.content.section_services.facility_doctors }}</p>
+    <p><strong>Nurses:</strong> {{ submission.content.section_services.facility_nurses }}</p>
+    <p><strong>Coverage population:</strong> {{ submission.content.section_services.facility_coverage }}</p>
+    <p><strong>Daily patients:</strong> {{ submission.content.section_services.facility_nr_patients }}</p>
+    <p><strong>Phone number:</strong> {{ submission.content.section_contact.phone_number }}</p>
+    {% if submission.content.section_medicines_list.list_available == "yes" %}
+    <p><strong>Medicines list:</strong>
+      {% if submission.content.section_medicines_list.photo1 %}
+      <a class="colorbox" href="{% url openrosa_media device_id=submission.content.device_id filename=submission.content.section_medicines_list.photo1 %}" title="Page 1">Page 1</a> 
       {% endif %}
-    </td>
-    <td>
-      <h2>{{ facility.name }}</h2><br />
-      <p><strong>ID:</strong> {{ facility.swd_id }}</p>
-      <p><strong>Doctors:</strong> {{ facility.doctors }}</p>
-      <p><strong>Nurses:</strong> {{ facility.nurses }}</p>
-      <p><strong>Coverage population:</strong> {{ facility.coverage }}</p>
-      <p><strong>Daily patients:</strong> {{ facility.nr_patients }}</p>
-      <p><strong>Phone number:</strong> {{ facility.phone_number }}</p>
-      {% if facility.medicines_list_available %}
-      <p><strong>Medicines list:</strong>
-	{% for page in facility.medicines_list %}
-	<a class="colorbox" href="{{ page }}" title="Page {{ forloop.counter }}">Page {{ forloop.counter }}</a> 
-	{% endfor %}
-      </p>
-      {% else %}
-      <p><strong>Medicines list not available:</strong> {{ facility.medicines_list_reason }}</p>
+      {% if submission.content.section_medicines_list.photo2 %}
+      <a class="colorbox" href="{% url openrosa_media device_id=submission.content.device_id filename=submission.content.section_medicines_list.photo2 %}" title="Page 2">Page 2</a> 
       {% endif %}
-      <p><strong>Facility description:</strong> {{ facility.description }}</p>
-      <br />
-      <em>Collected at: {{ facility.submission_date }}</em><br />
-      <em>Recorded by: {{ facility.chw_name }}</em><br />
-      <em>Organisation: {{ facility.chw_organisation }}</em>
-    </td>
-  </tr>
-</table>
+      {% if submission.content.section_medicines_list.photo3 %}
+      <a class="colorbox" href="{% url openrosa_media device_id=submission.content.device_id filename=submission.content.section_medicines_list.photo3 %}" title="Page 3">Page 3</a> 
+      {% endif %}
+    </p>
+    {% else %}
+    <p><strong>Medicines list not available:</strong> {{ submission.content.section_medicines_list.list_not_available_why }}</p>
+    {% endif %}
+    <p><strong>Facility description:</strong> {{ submission.content.section_general.facility_description }}</p>
+    <br />
+    <em>Collected at: {{ submission.created_date }}</em><br />
+    <em>Recorded by: {{ swd.community_worker.first_name }} {{ swd.community_worker.last_name }}</em><br />
+    <em>Organisation: {{ swd.community_worker.organisation }}</em>
+  </div>
+  {% endif %}
+</div>
 <script>
   $(".colorbox").colorbox({rel: "medicines_list", width: "90%", height: "90%"});
 </script>
