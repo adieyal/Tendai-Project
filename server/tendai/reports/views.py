@@ -1,10 +1,7 @@
-from xml.dom import minidom
-from django.conf import settings
 from django.http import HttpResponse, Http404
-from django.core.urlresolvers import reverse
-from django.views.generic.simple import direct_to_template
 from django.shortcuts import get_object_or_404
-from django.template import Template, Context, TemplateDoesNotExist
+from django.template import RequestContext, TemplateDoesNotExist
+from django.template.loader import get_template
 from django.views.generic.simple import direct_to_template
 
 from devices import models as dev_models
@@ -31,3 +28,25 @@ def country(request, country_code):
                    'selected_country': country,
                    'countries': countries}
     return direct_to_template(request, template='reports/country/report.html', extra_context=extra_context)
+
+def submission(request, id):
+    submission = get_object_or_404(or_models.ORFormSubmission, pk=id)
+    swd = submission.submissionworkerdevice_set.all()[0]
+    form_id = submission.form.form_id
+    try:
+        # Get specific form template...
+        template = get_template('reports/submission/' + form_id + '.html')
+    except TemplateDoesNotExist:
+        try:
+            # ...or get general form template...
+            template = get_template('reports/submission/' +
+                                    form_id.rsplit('-',1)[0] +
+                                    '.html')
+        except TemplateDoesNotExist:
+            # ...and if all else fails get the general template.
+            template = get_template('reports/submission/general.html')
+    extra_context={'submission': submission,
+                   'content': submission.content,
+                   'swd': swd}
+    c = RequestContext(request, extra_context)
+    return HttpResponse(template.render(c))

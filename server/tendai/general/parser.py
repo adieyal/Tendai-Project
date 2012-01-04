@@ -14,8 +14,6 @@ class SubmissionParser(object):
             if len(dom.childNodes) != 1:
                 raise XMLError('Expected single root node.')
             head = dom.firstChild
-            if head.nodeName != 'data':
-                raise XMLError('Expected root node name to be "data".')
             return cls(head)    
         except IOError:
             return None
