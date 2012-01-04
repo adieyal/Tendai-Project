@@ -126,9 +126,9 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
 
     'general',
-    'openrosa',
     'devices',
     'reports',
+    'openrosa',
 )
 
 # A sample logging configuration. The only tangible logging

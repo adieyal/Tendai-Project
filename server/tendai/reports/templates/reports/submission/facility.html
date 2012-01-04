@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% with content=submission.content %}
+
+{% block extrahead %}
+      <script src="{{ STATIC_URL }}js/jquery-1.6.4.js" type="text/javascript"></script>
+      <script src="{{ STATIC_URL }}js/jquery.colorbox-min.js" type="text/javascript"></script>
+      <link rel="stylesheet" href="{{ STATIC_URL }}css/colorbox.css" />
+{% endblock extrahead %}
+
+{% block reports_active %}active{% endblock %}
+
+{% block page_name %}{{ submission.form.name }} ({{ submission.form.majorminorversion }}){% endblock %}
+{% block tagline %}{{ submission.created_date }}{% endblock tagline %}
+{% block main_content_title %}{% endblock main_content_title %}
+
+{% block main_content %}
+
+<div id="content">
+  <div class="row">
+    <div class="span3">
+      {% for photo in content.section_photos %}
+      {% if photo %}
+      <img src="{% url openrosa_media device_id=content.device_id filename=photo %}" width="100%" />
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="span11">
+      <!-- General submission information -->
+      <h3>General</h3>
+      <p><strong>Submission form ID:</strong> {{ submission.form.form_id }}</p>
+      <p><strong>Submission form version:</strong> {{ content.form_version }}</p>
+      <br />
+      <p><strong>Start time:</strong> {{ content.start_time }}</p>
+      <p><strong>End time:</strong> {{ content.end_time }}</p>
+      <p><strong>Survey date:</strong> {{ content.survey_date }}</p>
+      <p><strong>Device ID:</strong> {{ content.device_id }}</p>
+      <p><strong>Subscriber ID:</strong> {{ content.subscriber_id }}</p>
+      <p><strong>Phone number:</strong> {{ content.phone_number }}</p>
+      <br />
+      
+      <!-- Facility form specific information -->
+      {% with section=content.section_name %}
+      <h3>Name</h3>
+      <p><strong>Facility name:</strong> {{ section.facility_name }}</p>
+      <p><strong>District:</strong> {{ section.facility_district }}</p>
+      {% endwith %}
+      <br />
+
+      {% with section=content.section_contact %}
+      <h3>Contact details</h3>
+      <p><strong>Postal address:</strong> {{ section.postal_address }}</p>
+      <p><strong>Phone number:</strong> {{ section.phone_number }}</p>
+      <p><strong>Email address:</strong> {{ section.email }}</p>
+      {% endwith %}
+      <br />
+
+      {% with section=content.section_respondent %}
+      <h3>Respondent</h3>
+      <p><strong>Name:</strong> {{ section.respondent_name }}</p>
+      <p><strong>Position:</strong> {{ section.respondent_position }}</p>
+      {% endwith %}
+      <br />
+
+      {% with section=content.section_location %}
+      <h3>Location</h3>
+      <p><strong>GPS:</strong> {{ section.facility_location }}</p>
+      <p><strong>Distance to closest town:</strong> {{ section.distance_to_town }}</p>
+      <p><strong>Closest town:</strong> {{ section.town_name }}</p>
+      {% endwith %}
+      <br />
+
+      {% with section=content.section_general %}
+      <h3>General</h3>
+      <p><strong>Type of facility:</strong> {{ section.type_of_facility }}</p>
+      {% ifequal section.type_of_facility|slugify 'other' %}
+      <p><strong>Type description (other):</strong> {{ section.facility_type_other }}</p>
+      {% endifequal %}
+      <p><strong>Facility description:</strong> {{ section.facility_description }}</p>
+      {% endwith %}
+      <br />
+
+      {% with section=content.section_services %}
+      <h3>Services</h3>
+      <p><strong>Services:</strong> {{ section.facility_services }}</p>
+      <p><strong>Other services:</strong> {{ section.facility_services_other }}</p>
+      <p><strong>Coverage:</strong> {{ section.facility_coverage }}</p>
+      <p><strong>Daily patients:</strong> {{ section.facility_nr_patients }}</p>
+      <p><strong>Nurses:</strong> {{ section.facility_nurses }}</p>
+      <p><strong>Doctors:</strong> {{ section.facility_doctors }}</p>
+      {% endwith %}
+      <br />
+
+      {% with section=content.section_medicines_list %}
+      <h3>Medicines list:</h3>
+      {% if section.list_available == "yes" %}
+      <p>
+	{% if section.photo1 %}
+	<a class="colorbox" href="{% url openrosa_media device_id=submission.content.device_id filename=submission.content.section_medicines_list.photo1 %}" title="Page 1">Page 1</a> 
+	{% endif %}
+	{% if section.photo2 %}
+	<a class="colorbox" href="{% url openrosa_media device_id=submission.content.device_id filename=submission.content.section_medicines_list.photo2 %}" title="Page 2">Page 2</a> 
+	{% endif %}
+	{% if section.photo3 %}
+	<a class="colorbox" href="{% url openrosa_media device_id=submission.content.device_id filename=submission.content.section_medicines_list.photo3 %}" title="Page 3">Page 3</a> 
+	{% endif %}
+      </p>
+      {% else %}
+      <p><strong>Not available:</strong> {{ section.list_not_available_why }}</p>
+      {% endif %}
+      {% endwith %}
+      <br />
+
+      {% with section=content.section_comments %}
+      <h3>Other comments</h3>
+      <p>{{ section.comments }}</p>
+      {% endwith %}
+      <br />
+      
+      <!-- Community health worker information. -->
+      <em>Collected at: {{ submission.created_date }}</em><br />
+      <em>Recorded by: {{ swd.community_worker.first_name }} {{ swd.community_worker.last_name }}</em><br />
+      <em>Organisation: {{ swd.community_worker.organisation }}</em>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  $(".colorbox").colorbox({rel: "medicines_list", width: "90%", height: "90%"});
+</script>
+
+{% endblock %}
+
+{% endwith %}
