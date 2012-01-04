@@ -36,111 +36,144 @@
       <h3>Interview</h3>
       {% if content.A01 %}
       <p><strong>What is the respondent's name?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A01 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A01 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A01 %}">Audio</a></p>      
       {% endif %}
       <br />
 
       {% if content.A02 %}
       <p><strong>Why have you visited the facility today?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A02 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A02 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A02 %}">Audio</a></p>
       {% endif %}
       <br />
 
       {% if content.A03 %}
       <p><strong>How long did the journey to the facility take?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A03 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A03 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A03 %}">Audio</a></p>
       {% endif %}
       <br />
 
       {% if content.A05 %}
       <p><strong>What would you say are the major problem illnesses in your community?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A05 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A05 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A05 %}">Audio</a></p>
       {% endif %}
       <br />
 
       {% if content.A13 %}
       <p><strong>What are the major difficulties that you experience with regards to your health situation?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A13 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A13 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A13 %}">Audio</a></p>
       {% endif %}
       <br />
 
       {% if content.A04 %}
       <p><strong>What has your experience been of this facility in meeting your needs, including how you think this could be improved?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A04 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A04 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A04 %}">Audio</a></p>
       {% endif %}
       <br />
 
       {% if content.A06 %}
       <p><strong>Are medicines generally available at local health facilities? If not, what do you think could be done to improve this?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A06 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A06 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A06 %}">Audio</a></p>
       {% endif %}
       <br />
 
       {% if content.A08 %}
       <p><strong>What was your experience of getting medicines the last time either yourself or a member of your family was sick?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A08 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A08 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A08 %}">Audio</a></p>
       {% endif %}
       <br />
 
       {% if content.A09 %}
       <p><strong>Do you think the medicines available at this health facility are affordable? If not, then please elaborate with examples.</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A09 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A09 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A09 %}">Audio</a></p>
       {% endif %}
       <br />
 
       {% if content.A10 %}
       <p><strong>What costs do you incur when coming to this facility for medicines?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A10 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A10 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A10 %}">Audio</a></p>
       {% endif %}
       <br />
 
       {% if content.A14 %}
       <p><strong>Is there anything else that you want to share that has not been covered in the above questions?</strong></p>
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=content.A14 %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=content.A14 %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A14 %}">Audio</a></p>
       {% endif %}
       <br />
       
