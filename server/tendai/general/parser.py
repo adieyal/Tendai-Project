@@ -71,5 +71,8 @@ class SubmissionParser(object):
         return self.__class__(next_node)
     
     def __repr__(self):
-        return 'Parser: %s' % (self.head.nodeName)
+        return u'Parser: %s' % (self.head.nodeName)
+    
+    def name(self):
+        return u'%s' % (self.head.nodeName)
 

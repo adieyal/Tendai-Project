@@ -43,11 +43,14 @@
       <p><strong>{{ section.story_title }}</strong></p>
       <p>{{ section.story_description }}</p>
       {% if section.story_audio %}
+      <!--
       <audio controls="controls">
 	<source src="{% url openrosa_media device_id=content.device_id filename=section.story_audio %}" type="audio/amr" />
 	<embed src="{% url openrosa_media device_id=content.device_id filename=section.story_audio %}"></embed>
 	Your browser does not support the audio tag.
       </audio>
+      -->
+      <p><a href="{% url openrosa_media device_id=content.device_id filename=section.story_audio %}">Audio</a></p>
       {% endif %}
       {% endwith %}
       <br />

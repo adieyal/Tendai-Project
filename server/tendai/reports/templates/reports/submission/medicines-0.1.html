@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load getattribute %}
+
+{% with content=submission.content %}
+
+{% block reports_active %}active{% endblock %}
+
+{% block page_name %}{{ submission.form.name }} ({{ submission.form.majorminorversion }}){% endblock %}
+{% block tagline %}{{ submission.created_date }}{% endblock tagline %}
+{% block main_content_title %}{% endblock main_content_title %}
+
+{% block main_content %}
+
+<div id="content">
+  <div class="row">
+    <div class="span14">
+      <!-- General submission information -->
+      <h3>General</h3>
+      <p><strong>Submission form ID:</strong> {{ submission.form.form_id }}</p>
+      <p><strong>Submission form version:</strong> {{ content.form_version }}</p>
+      <br />
+      <p><strong>Start time:</strong> {{ content.start_time }}</p>
+      <p><strong>End time:</strong> {{ content.end_time }}</p>
+      <p><strong>Survey date:</strong> {{ content.survey_date }}</p>
+      <p><strong>Device ID:</strong> {{ content.device_id }}</p>
+      <p><strong>Subscriber ID:</strong> {{ content.subscriber_id }}</p>
+      <p><strong>SIM ID:</strong> {{ content.sim_id }}</p>
+      <p><strong>Phone number:</strong> {{ content.phone_number }}</p>
+      <br />
+      
+      <!-- Medicines form specific information -->
+      {% for medicine in content.section_stocked.nodes %}
+      {% ifnotequal medicine|slice:"-9:" '_comments' %}
+      {% ifequal content.section_stocked|getattribute:medicine 'yes' %}
+      {% with medicine_attr="medicine_"|add:medicine %}
+      {% with medicine_info=content|getattribute:medicine_attr %}
+      <div class="row">
+	<div class="span3">
+	  {% if medicine_info.photo %}
+	  <img src="{% url openrosa_media device_id=content.device_id filename=medicine_info.photo %}" width="100%" />
+	  {% endif %}
+	</div>
+	<div class="span11">
+	  <h3>{{ medicine }}</h3>
+	  <p><strong>Cheapest product:</strong> {{ medicine_info.cheapest_product }}</p>
+	  <p><strong>Pack size:</strong> {{ medicine_info.pack_size }}</p>
+	  <p><strong>Price:</strong> {{ medicine_info.medicine_price }} {{medicine_info.currency }}</p>
+	  <p><strong>Quantity:</strong> {{ medicine_info.medicine_price_qty }}</p>
+	  <p><strong>Comments:</strong> {{ medicine_info.price_comments }}</p>
+	  <br />
+	  <p><strong>Is this in stock:</strong> {{ medicine_info.medicine_available }}</p>
+	  <p><strong>Packs available:</strong> {{ medicine_info.packs_available }}</p>
+	  <p><strong>Stockout duration:</strong> {{ medicine_info.stockout_duration }}</p>
+	  <p><strong>Restock date:</strong> {{ medicine_info.restock_date }}</p>
+	  <p><strong>Amount ordered:</strong> {{ medicine_info.restock_ordered }}</p>
+	  <p><strong>Last restock:</strong> {{ medicine_info.last_restock_date }}</p>
+	  <p><strong>Last restock amount:</strong> {{ medicine_info.last_restock_amount }}</p>
+	  <p><strong>Comments:</strong> {{ medicine_info.availability_comments }}</p>
+	</div>
+      </div>
+      {% endwith %}
+      {% endwith %}
+      {% endifequal %}
+      {% else %}
+      <!-- <p><strong>Comments:</strong> {{ medicine }}</p> -->
+      {% endifnotequal %}
+      {% endfor %}
+      
+      <!-- Community health worker information. -->
+      <em>Collected at: {{ submission.created_date }}</em><br />
+      <em>Recorded by: {{ swd.community_worker.first_name }} {{ swd.community_worker.last_name }}</em><br />
+      <em>Organisation: {{ swd.community_worker.organisation }}</em>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% endwith %}
