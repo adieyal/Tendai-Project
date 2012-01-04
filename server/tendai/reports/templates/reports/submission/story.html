@@ -9,14 +9,20 @@
 {% block main_content_title %}{% endblock main_content_title %}
 
 {% block main_content %}
+
 <div id="content">
   <div class="row">
-    <div class="span14">
-      
-      <div class="alert-message warning" data-alert="alert">
-	<p>A specific template to render this submission does not exist. Only some general information from the submission is displayed.</p>
-      </div>
-
+    <div class="span3">
+      {% with section=content.story %}
+      {% if section.story_photo1 %}
+      <img src="{% url openrosa_media device_id=content.device_id filename=section.story_photo1 %}" width="100%" />
+      {% endif %}
+      {% if section.story_photo2 %}
+      <img src="{% url openrosa_media device_id=content.device_id filename=section.story_photo2 %}" width="100%" />
+      {% endif %}
+      {% endwith %}
+    </div>
+    <div class="span11">
       <!-- General submission information -->
       <h3>General</h3>
       <p><strong>Submission form ID:</strong> {{ submission.form.form_id }}</p>
@@ -31,6 +37,21 @@
       <p><strong>Phone number:</strong> {{ content.phone_number }}</p>
       <br />
       
+      <!-- Story form specific information -->
+      {% with section=content.story %}
+      <h3>Story</h3>
+      <p><strong>{{ section.story_title }}</strong></p>
+      <p>{{ section.story_description }}</p>
+      {% if section.story_audio %}
+      <audio controls="controls">
+	<source src="{% url openrosa_media device_id=content.device_id filename=section.story_audio %}" type="audio/amr" />
+	<embed src="{% url openrosa_media device_id=content.device_id filename=section.story_audio %}"></embed>
+	Your browser does not support the audio tag.
+      </audio>
+      {% endif %}
+      {% endwith %}
+      <br />
+      
       <!-- Community health worker information. -->
       <em>Collected at: {{ submission.created_date }}</em><br />
       <em>Recorded by: {{ swd.community_worker.first_name }} {{ swd.community_worker.last_name }}</em><br />
@@ -39,6 +60,7 @@
     </div>
   </div>
 </div>
+
 {% endblock %}
 
 {% endwith %}
