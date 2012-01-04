@@ -7,5 +7,5 @@ urlpatterns = patterns('reports.views',
     (r'^facility/(?P<submission_id>\w+)/$', 'facility_info', {}, 'reports_facilities_info'),
     (r'^country/(?P<country_code>\w+)/$', 'country', {}, 'reports_country'),
     (r'^country/$', 'country', {'country_code': 'za'}, 'reports_country_default'),
-    (r'^submission/(?P<id>\w+)/$', 'submission', {}, 'openrosa_view_submission'),
+    (r'^submission/(?P<id>\w+)/$', 'submission', {}, 'devices_view_swd'),
 )
