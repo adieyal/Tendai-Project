@@ -59,13 +59,13 @@
   <h:body>
     <input ref="/data/A12">
       <label>{% trans "You are about to conduct a community interview. The purpose of this interview to collect stories about the community's experiences access medicines." %}</label>
-      <hint>{% trans "In the following screens, you will be presented with a list of prompts for conducting an interview. Not all of the questions need to be answered. 
+      <hint>{% blocktrans %}In the following screens, you will be presented with a list of prompts for conducting an interview. Not all of the questions need to be answered. 
 
 Also, please try to limit the entire recorded interview to approximately 5 minutes. 
 
 It is suggested that you have an informal conversation with the respondent before attempting this interview. This will give you an idea of the story this person has to tell and will allow you to focus the interview on the story. 
 
-When recording the respondent's responses, please ensure that the phone is close to their mouth so that the sound can recorded clearly." %}</hint>
+When recording the respondent's responses, please ensure that the phone is close to their mouth so that the sound can recorded clearly.{% endblocktrans %}</hint>
     </input>
     <upload ref="/data/A01" mediatype="audio/*">
       <label>{% trans "What is the respondent's name?" %}</label>
