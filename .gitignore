@@ -12,5 +12,7 @@ odk-collect/local.properties
 server/deploy/build
 #Emacs autosave files
 *~
+\#*\#
+.\#*
 #Compiled translations
 *.mo
