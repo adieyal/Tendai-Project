@@ -8,3 +8,11 @@ server/tendai/openrosa/orforms/
 server/tendai/static
 server/tendai/media
 odk-collect/local.properties
+#PIP build directory
+server/deploy/build
+#Emacs autosave files
+*~
+\#*\#
+.\#*
+#Compiled translations
+*.mo

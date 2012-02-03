@@ -44,16 +44,19 @@ def recent_stories(request, template_name="stories.html", num_stories=100, extra
         media1 = None
         if len(media) > 0: media1 = media[0].get_absolute_path()
         swd = submission.submissionworkerdevice_set.all()[0]
-
-        data.append({
-           "title" : value_or_none(xml, "story_title"),
-           "description" : value_or_none(xml, "story_description"),
-           "photo" : media1,
-           "date" : submission.created_date,
-           "name" : "%s %s" % (swd.community_worker.first_name, swd.community_worker.last_name),
-           "organisation" : swd.community_worker.organisation,
-           "country" : swd.community_worker.country,
-           "id" : swd.id,
-        })
+        # If a story fails to be added for any reason it should just be skipped.
+        try:
+            data.append({
+                    "title" : value_or_none(xml, "story_title"),
+                    "description" : value_or_none(xml, "story_description"),
+                    "photo" : media1,
+                    "date" : submission.created_date,
+                    "name" : "%s %s" % (swd.community_worker.first_name, swd.community_worker.last_name),
+                    "organisation" : swd.community_worker.organisation,
+                    "country" : swd.community_worker.country,
+                    "id" : swd.id,
+                    })
+        except:
+            pass
     extra_context["stories"] = data
     return direct_to_template(request, template=template_name, extra_context=extra_context)
