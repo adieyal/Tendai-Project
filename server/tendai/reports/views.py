@@ -41,16 +41,19 @@ def submission(request, id, validate=False):
     if request.GET.get('navigate', None)=='prev':
         return redirect(reverse('devices_verify_swd', kwargs={'id': prev_id}))
     # Validation actions.
-    if request.GET.get('valid', None)=='true':
-        swd.verified = True
-        swd.valid = True
-        swd.save()
-        return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
-    if request.GET.get('valid', None)=='false':
-        swd.verified = True
-        swd.valid = False
-        swd.save()
-        return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
+    if not request.user.is_staff:
+        validate = False
+    if validate:
+        if request.GET.get('valid', None)=='true':
+            swd.verified = True
+            swd.valid = True
+            swd.save()
+            return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
+        if request.GET.get('valid', None)=='false':
+            swd.verified = True
+            swd.valid = False
+            swd.save()
+            return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
 
     form_id = submission.form.form_id
     try:
