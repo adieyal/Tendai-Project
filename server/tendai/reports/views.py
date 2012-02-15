@@ -1,5 +1,6 @@
 from django.http import HttpResponse, Http404
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
+from django.core.urlresolvers import reverse
 from django.template import RequestContext, TemplateDoesNotExist
 from django.template.loader import get_template
 from django.views.generic.simple import direct_to_template
@@ -29,9 +30,28 @@ def country(request, country_code):
                    'countries': countries}
     return direct_to_template(request, template='reports/country/report.html', extra_context=extra_context)
 
-def submission(request, id):
+def submission(request, id, validate=False):
     submission = get_object_or_404(or_models.ORFormSubmission, pk=id)
     swd = submission.submissionworkerdevice_set.all()[0]
+    # Navigation options.
+    next_id = u'%d' % (int(id)+1)
+    prev_id = u'%d' % (int(id)-1)
+    if request.GET.get('navigate', None)=='next':
+        return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
+    if request.GET.get('navigate', None)=='prev':
+        return redirect(reverse('devices_verify_swd', kwargs={'id': prev_id}))
+    # Validation actions.
+    if request.GET.get('valid', None)=='true':
+        swd.verified = True
+        swd.valid = True
+        swd.save()
+        return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
+    if request.GET.get('valid', None)=='false':
+        swd.verified = True
+        swd.valid = False
+        swd.save()
+        return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
+
     form_id = submission.form.form_id
     try:
         # Get specific form template...
@@ -47,6 +67,7 @@ def submission(request, id):
             template = get_template('reports/submission/general.html')
     extra_context={'submission': submission,
                    'content': submission.content,
-                   'swd': swd}
+                   'swd': swd,
+                   'validate': validate}
     c = RequestContext(request, extra_context)
     return HttpResponse(template.render(c))

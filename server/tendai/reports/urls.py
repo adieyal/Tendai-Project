@@ -8,4 +8,5 @@ urlpatterns = patterns('reports.views',
     (r'^country/(?P<country_code>\w+)/$', 'country', {}, 'reports_country'),
     (r'^country/$', 'country', {'country_code': 'za'}, 'reports_country_default'),
     (r'^submission/(?P<id>\w+)/$', 'submission', {}, 'devices_view_swd'),
+    (r'^validate/(?P<id>\w+)/$', 'submission', {'validate': True}, 'devices_verify_swd'),
 )

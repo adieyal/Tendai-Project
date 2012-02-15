@@ -1,0 +1,15 @@
+{% if validate %}
+<div class="row">
+  <div class="span14">
+    <div class="well">
+      <p>
+	<a class="btn" href="?navigate=prev">&laquo; Previous</a>
+	<a class="btn success" href="?valid=true">Valid</a>
+	<a class="btn danger" href="?valid=false">Invalid</a>
+	<a class="btn" href="?navigate=next">Next &raquo;</a>
+      </p>
+      {% if swd.verified %}<p>This submission has been marked as <strong>{% if swd.valid %}valid{% else %}invalid{% endif %}</strong>.</p>{% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
