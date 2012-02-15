@@ -31,15 +31,15 @@ def country(request, country_code):
     return direct_to_template(request, template='reports/country/report.html', extra_context=extra_context)
 
 def submission(request, id, validate=False):
-    submission = get_object_or_404(or_models.ORFormSubmission, pk=id)
-    swd = submission.submissionworkerdevice_set.all()[0]
+    swd = get_object_or_404(dev_models.SubmissionWorkerDevice, pk=id)
+    submission = swd.submission
     # Navigation options.
-    next_id = u'%d' % (int(id)+1)
-    prev_id = u'%d' % (int(id)-1)
+    next_swd = dev_models.SubmissionWorkerDevice.objects.filter(pk__gt=id).exclude(verified=True).order_by('id')[0]
+    prev_swd = dev_models.SubmissionWorkerDevice.objects.filter(pk__lt=id).exclude(verified=True).order_by('-id')[0]
     if request.GET.get('navigate', None)=='next':
-        return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
+        return redirect(reverse('devices_verify_swd', kwargs={'id': next_swd.id}))
     if request.GET.get('navigate', None)=='prev':
-        return redirect(reverse('devices_verify_swd', kwargs={'id': prev_id}))
+        return redirect(reverse('devices_verify_swd', kwargs={'id': prev_swd.id}))
     # Validation actions.
     if not request.user.is_staff:
         validate = False
@@ -48,12 +48,12 @@ def submission(request, id, validate=False):
             swd.verified = True
             swd.valid = True
             swd.save()
-            return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
+            return redirect(reverse('devices_verify_swd', kwargs={'id': next_swd.id}))
         if request.GET.get('valid', None)=='false':
             swd.verified = True
             swd.valid = False
             swd.save()
-            return redirect(reverse('devices_verify_swd', kwargs={'id': next_id}))
+            return redirect(reverse('devices_verify_swd', kwargs={'id': next_swd.id}))
 
     form_id = submission.form.form_id
     try:
@@ -71,6 +71,6 @@ def submission(request, id, validate=False):
     extra_context={'submission': submission,
                    'content': submission.content,
                    'swd': swd,
-                   'validate': validate}
+                   'validate': validate }
     c = RequestContext(request, extra_context)
     return HttpResponse(template.render(c))
