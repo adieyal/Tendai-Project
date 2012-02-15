@@ -30,12 +30,22 @@ def country(request, country_code):
                    'countries': countries}
     return direct_to_template(request, template='reports/country/report.html', extra_context=extra_context)
 
-def submission(request, id, validate=False):
+def submission(request, id=None, validate=False):
+    # Find first unverified entry if none is specified. Redirect there.
+    if not id:
+        first_swd = dev_models.SubmissionWorkerDevice.objects.exclude(verified=True).order_by('id')[0]
+        return redirect(reverse('devices_verify_swd', kwargs={'id': first_swd.id}))
     swd = get_object_or_404(dev_models.SubmissionWorkerDevice, pk=id)
     submission = swd.submission
     # Navigation options.
-    next_swd = dev_models.SubmissionWorkerDevice.objects.filter(pk__gt=id).exclude(verified=True).order_by('id')[0]
-    prev_swd = dev_models.SubmissionWorkerDevice.objects.filter(pk__lt=id).exclude(verified=True).order_by('-id')[0]
+    try:
+        next_swd = dev_models.SubmissionWorkerDevice.objects.filter(pk__gt=id).exclude(verified=True).order_by('id')[0]
+    except:
+        next_swd = swd
+    try:
+        prev_swd = dev_models.SubmissionWorkerDevice.objects.filter(pk__lt=id).exclude(verified=True).order_by('-id')[0]
+    except:
+        prev_swd = swd
     if request.GET.get('navigate', None)=='next':
         return redirect(reverse('devices_verify_swd', kwargs={'id': next_swd.id}))
     if request.GET.get('navigate', None)=='prev':
