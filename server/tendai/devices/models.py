@@ -123,6 +123,8 @@ class SubmissionWorkerDevice(models.Model):
     # I don't like this field but adminmodels can't use date_hierarchy on a related object (submission)
     created_date = models.DateTimeField(auto_now_add=True) 
     active = models.BooleanField(default=True)
+    verified = models.BooleanField(default=False)
+    valid = models.BooleanField(default=True)
 
     def get_absolute_url(self):
         return reverse("devices_view_swd", kwargs={"id" : self.id})
