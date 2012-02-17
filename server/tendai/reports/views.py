@@ -30,26 +30,45 @@ def country(request, country_code):
                    'countries': countries}
     return direct_to_template(request, template='reports/country/report.html', extra_context=extra_context)
 
-def submission(request, id=None, validate=False):
+def submission(request, id=None, validate=False, country=None):
+    if country:
+        country = dev_models.Country.objects.get(code=country)
+        filtered = dev_models.SubmissionWorkerDevice.objects.exclude(verified=True).filter(community_worker__country=country)
+    else:
+        filtered = dev_models.SubmissionWorkerDevice.objects.exclude(verified=True)
+    remaining = filtered.count()
     # Find first unverified entry if none is specified. Redirect there.
     if not id:
-        first_swd = dev_models.SubmissionWorkerDevice.objects.exclude(verified=True).order_by('id')[0]
+        try:
+            first_swd = filtered.order_by('id')[0]
+        except:
+            first_swd = dev_models.SubmissionWorkerDevice.objects.order_by('id')[0]
+        if country:
+            return redirect(reverse('devices_verify_country_swd', kwargs={'id': first_swd.id, 'country': country.code}))
         return redirect(reverse('devices_verify_swd', kwargs={'id': first_swd.id}))
     swd = get_object_or_404(dev_models.SubmissionWorkerDevice, pk=id)
     submission = swd.submission
     # Navigation options.
     try:
-        next_swd = dev_models.SubmissionWorkerDevice.objects.filter(pk__gt=id).exclude(verified=True).order_by('id')[0]
+        next_swd = filtered.filter(pk__gt=id).order_by('id')[0]
     except:
         next_swd = swd
     try:
-        prev_swd = dev_models.SubmissionWorkerDevice.objects.filter(pk__lt=id).exclude(verified=True).order_by('-id')[0]
+        prev_swd = filtered.filter(pk__lt=id).order_by('-id')[0]
     except:
         prev_swd = swd
+    if country:
+        next_url = reverse('devices_verify_country_swd', kwargs={'id': next_swd.id, 'country': country.code})
+        prev_url = reverse('devices_verify_country_swd', kwargs={'id': prev_swd.id, 'country': country.code})
+    else:
+        next_url = reverse('devices_verify_swd', kwargs={'id': next_swd.id})
+        prev_url = reverse('devices_verify_swd', kwargs={'id': prev_swd.id})
+    if country:
+        filtered = filtered.filter(community_worker__country=country)
     if request.GET.get('navigate', None)=='next':
-        return redirect(reverse('devices_verify_swd', kwargs={'id': next_swd.id}))
+        return redirect(next_url)
     if request.GET.get('navigate', None)=='prev':
-        return redirect(reverse('devices_verify_swd', kwargs={'id': prev_swd.id}))
+        return redirect(prev_url)
     # Validation actions.
     if not request.user.is_staff:
         validate = False
@@ -58,12 +77,12 @@ def submission(request, id=None, validate=False):
             swd.verified = True
             swd.valid = True
             swd.save()
-            return redirect(reverse('devices_verify_swd', kwargs={'id': next_swd.id}))
+            return redirect(next_url)
         if request.GET.get('valid', None)=='false':
             swd.verified = True
             swd.valid = False
             swd.save()
-            return redirect(reverse('devices_verify_swd', kwargs={'id': next_swd.id}))
+            return redirect(next_url)
 
     form_id = submission.form.form_id
     try:
@@ -81,6 +100,9 @@ def submission(request, id=None, validate=False):
     extra_context={'submission': submission,
                    'content': submission.content,
                    'swd': swd,
-                   'validate': validate }
+                   'validate': validate,
+                   'remaining': remaining }
+    if country:
+        extra_context['filter'] = country.name
     c = RequestContext(request, extra_context)
     return HttpResponse(template.render(c))
