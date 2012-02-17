@@ -7,6 +7,14 @@
 	<a class="btn success" href="?valid=true">Valid</a>
 	<a class="btn danger" href="?valid=false">Invalid</a>
 	<a class="btn" href="?navigate=next">Next &raquo;</a>
+	<span class="pull-right">
+	  <strong>{{ remaining }}</strong> submissions still need validation.<br/>
+	  {% if filter %}
+	  Only showing submissions for <strong>{{ filter }}</strong>.
+	  {% else %}
+	  Showing all submissions.
+	  {% endif %}
+	</span>
       </p>
       {% if swd.verified %}<p>This submission has been marked as <strong>{% if swd.valid %}valid{% else %}invalid{% endif %}</strong>.</p>{% endif %}
     </div>
