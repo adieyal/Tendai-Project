@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+{% load i18n %}
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Monitor Profile</h:title>
+    <model>
+      <instance>
+        <data id="monitor-profile">
+
+          <start_time></start_time>
+          <end_time></end_time>
+          <survey_date></survey_date>
+          <device_id></device_id>
+          <subscriber_id></subscriber_id>
+          <sim_id></sim_id>
+          <phone_number></phone_number>
+
+          <first_name></first_name>
+	  <last_name></last_name>
+	  <date_of_birth></date_of_birth>
+	  <city></city>
+	  <description></description>
+	  <why_tendai></why_tendai>
+          <photo></photo>
+
+        </data>
+      </instance>
+
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/data/start_time" type="dateTime"/> 
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/data/end_time" type="dateTime"/> 
+      <bind jr:preload="today" jr:preloadParams="end" nodeset="/data/survey_date" type="date"/> 
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/data/device_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/data/subscriber_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/data/sim_id" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/data/phone_number" type="string"/>
+
+      <bind nodeset="/data/first_name" type="string"/>
+      <bind nodeset="/data/last_name" type="string"/>
+      <bind nodeset="/data/date_of_birth" type="date"/>
+      <bind nodeset="/data/city" type="string"/>
+      <bind nodeset="/data/description" type="string"/>
+      <bind nodeset="/data/why_tendai" type="string"/>
+      <bind nodeset="/data/photo" type="binary"/>
+
+    </model>
+
+  </h:head>
+  <h:body>
+    <group appearance="field-list">
+      <input ref="/data/first_name">
+	<label>{% trans "First name" %}</label>
+	<hint>{% trans "Enter your first name(s) as they should appear on your profile." %}</label>
+      </input>
+      <input ref="/data/last_name">
+	<label>{% trans "Last name" %}</label>
+	<hint>{% trans "Enter your last name as it should appear on your profile." %}</label>
+      </input>
+      <input ref="/data/date_of_birth">
+	<label>{% trans "Date of birth" %}</label>
+	<hint>{% trans "Select your date of birth." %}</label>
+      </input>
+      <input ref="/data/city">
+	<label>{% trans "Home town/city" %}</label>
+	<hint>{% trans "Please enter the name of your home town/city." %}</label>
+      </input>
+    </group>
+    <group appearance="field-list">
+      <input ref="/data/description">
+	<label>{% trans "A short description of yourself" %}</label>
+	<hint>{% blocktrans %}Please enter a short description of yourself. This will enable someone looking at your profile to get an idea of who you are. Include information such as what you do for a living and what you enjoy doing in your free time.{% endblocktrans %}</label>
+      </input>
+      <input ref="/data/why_tendai">
+	<label>{% trans "Why did you join Tendai?" %}</label>
+	<hint>{% trans "Please give us a short description of why you decided to join the Tendai program." %}</label>
+      </input>
+    </group>
+    <group appearance="field-list">
+      <upload mediatype="image/*" ref="/data/photo">
+	<label>{% trans "Take a photo of yourself" %}</label>
+	<hint>{% trans "Please take a photo of yourself. This will be used as your Tendai profile photo and should be a portrait head shot." %}</label>
+      </upload>
+    </group>
+  </h:body>
+</h:html>
