@@ -49,35 +49,35 @@
     <group appearance="field-list">
       <input ref="/data/first_name">
 	<label>{% trans "First name" %}</label>
-	<hint>{% trans "Enter your first name(s) as they should appear on your profile." %}</label>
+	<hint>{% trans "Enter your first name(s) as they should appear on your profile." %}</hint>
       </input>
       <input ref="/data/last_name">
 	<label>{% trans "Last name" %}</label>
-	<hint>{% trans "Enter your last name as it should appear on your profile." %}</label>
+	<hint>{% trans "Enter your last name as it should appear on your profile." %}</hint>
       </input>
       <input ref="/data/date_of_birth">
 	<label>{% trans "Date of birth" %}</label>
-	<hint>{% trans "Select your date of birth." %}</label>
+	<hint>{% trans "Select your date of birth." %}</hint>
       </input>
       <input ref="/data/city">
 	<label>{% trans "Home town/city" %}</label>
-	<hint>{% trans "Please enter the name of your home town/city." %}</label>
+	<hint>{% trans "Please enter the name of your home town/city." %}</hint>
       </input>
     </group>
     <group appearance="field-list">
       <input ref="/data/description">
 	<label>{% trans "A short description of yourself" %}</label>
-	<hint>{% blocktrans %}Please enter a short description of yourself. This will enable someone looking at your profile to get an idea of who you are. Include information such as what you do for a living and what you enjoy doing in your free time.{% endblocktrans %}</label>
+	<hint>{% blocktrans %}Please enter a short description of yourself. This will enable someone looking at your profile to get an idea of who you are. Include information such as what you do for a living and what you enjoy doing in your free time.{% endblocktrans %}</hint>
       </input>
       <input ref="/data/why_tendai">
 	<label>{% trans "Why did you join Tendai?" %}</label>
-	<hint>{% trans "Please give us a short description of why you decided to join the Tendai program." %}</label>
+	<hint>{% trans "Please give us a short description of why you decided to join the Tendai program." %}</hint>
       </input>
     </group>
     <group appearance="field-list">
       <upload mediatype="image/*" ref="/data/photo">
 	<label>{% trans "Take a photo of yourself" %}</label>
-	<hint>{% trans "Please take a photo of yourself. This will be used as your Tendai profile photo and should be a portrait head shot." %}</label>
+	<hint>{% trans "Please take a photo of yourself. This will be used as your Tendai profile photo and should be a portrait head shot." %}</hint>
       </upload>
     </group>
   </h:body>
