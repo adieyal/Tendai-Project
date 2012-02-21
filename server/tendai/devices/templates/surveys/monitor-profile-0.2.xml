@@ -58,8 +58,8 @@
 	<hint>{% trans "Select your date of birth." %}</hint>
       </input>
       <input ref="/data/city">
-	<label>{% trans "Home town/city" %}</label>
-	<hint>{% trans "Please enter the name of your home town/city." %}</hint>
+	<label>{% trans "Facility district" %}</label>
+	<hint>{% trans "Please enter the name of your Tendai district" %}</hint>
       </input>
     </group>
     <group appearance="field-list">
