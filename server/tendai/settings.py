@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'general',
     'devices',
     'reports',
+    'scorecards',
     'openrosa',
 )
 
