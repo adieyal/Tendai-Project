@@ -97,6 +97,13 @@ class CommunityWorker(models.Model):
     
     def get_full_name(self):
         return "%s %s" % (self.first_name, self.last_name)
+    
+    def get_name(self):
+        try:
+            first_name = self.first_name.split(' ', 1)[0]
+        except:
+            first_name = self.first_name
+        return "%s %s" % (first_name, self.last_name)
 
     def get_forms_count(self, days=30):
         forms = ormodels.ORForm.objects.order_by('name').values('name').distinct()
