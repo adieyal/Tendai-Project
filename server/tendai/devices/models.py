@@ -117,7 +117,7 @@ class Medicine(models.Model):
                     section = getattr(content, tag_name)
                     stock = section.medicine_available
                 except:
-                    stockout = 'not_found'
+                    stock = 'not_found'
                 if stock == 'No':
                     stockout_yes += 1
                 if stock == 'Yes':
