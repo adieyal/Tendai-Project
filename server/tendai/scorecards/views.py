@@ -166,21 +166,21 @@ def scorecard(request, country, year=2011, month=12):
             set_text(replenish_days % (line), ' ')
     
     #Best stories.
-    text = '//svg:text[@id="story.%d.text"]'
-    image = '//svg:text[@id="story.%d.image"]'
+    text = '//svg:flowPara[@id="story.%d.text"]'
+    image = '//svg:image[@id="story.%d.image"]'
     stories = (1589,1461)
     images = ('356652045028675/1330014282214.jpg',None)
     for number in (0,1):
         try:
-            story = dev_models.SubmissionWorkerDevice.get(pk=stories[number])
-            image_path = images[number]
-            set_text(text % (number), story.content.story_description)
+            story = dev_models.SubmissionWorkerDevice.objects.get(pk=stories[number])
+            image_path = story.submission.orsubmissionmedia_set.all()[1].get_absolute_path()
+            set_text(text % (number), story.submission.content.story.story_description)
             if image:
-                image_file = open(path.join(settings.MEDIA_ROOT, 'openrosa', 'images', image_path))
+                image_file = open(image_path)
                 data = b64encode(image_file.read())
                 set_attr(image, '{%s}href' % (nsmap['xlink']), 'data:image/jpg;base64,%s' % (data))
             else:
-                element=svg.xpath(image,namespaces=nsmap)
+                element = svg.xpath(image % (number),namespaces=nsmap)[0]
                 element.parent().remove(element)
         except:
             pass
