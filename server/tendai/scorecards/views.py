@@ -164,7 +164,27 @@ def scorecard(request, country, year=2011, month=12):
             set_text(level % (line), ' ')
             set_text(stockout_days % (line), ' ')
             set_text(replenish_days % (line), ' ')
-  
+    
+    #Best stories.
+    text = '//svg:text[@id="story.%d.text"]'
+    image = '//svg:text[@id="story.%d.image"]'
+    stories = (1589,1461)
+    images = ('356652045028675/1330014282214.jpg',None)
+    for number in (0,1):
+        try:
+            story = dev_models.SubmissionWorkerDevice.get(pk=stories[number])
+            image_path = images[number]
+            set_text(text % (number), story.content.story_description)
+            if image:
+                image_file = open(path.join(settings.MEDIA_ROOT, 'openrosa', 'images', image_path))
+                data = b64encode(image_file.read())
+                set_attr(image, '{%s}href' % (nsmap['xlink']), 'data:image/jpg;base64,%s' % (data))
+            else:
+                element=svg.xpath(image,namespaces=nsmap)
+                element.parent().remove(element)
+        except:
+            pass
+            
     response = HttpResponse(etree.tostring(svg), mimetype='image/svg+xml')
     filename = 'scorecard_%s.svg' % (country.code.lower())
     response['Content-Disposition'] = 'filename=%s' % (filename)
