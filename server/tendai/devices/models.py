@@ -141,7 +141,7 @@ class Medicine(models.Model):
             if content:
                 try:
                     section = getattr(content, tag_name)
-                    level = section.packs_available
+                    level = int(section.packs_available)
                 except:
                     level = 0
                 if level > 0:
