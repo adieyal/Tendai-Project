@@ -45,6 +45,10 @@ def scorecard(request, country, year=2011, month=12):
     def set_attr(xpath, attr, value):
         element = svg.xpath(xpath, namespaces=nsmap)[0]
         element.set(attr, str(value))
+    def set_all_attr(xpath, attr, value):
+        elements = svg.xpath(xpath, namespaces=nsmap)
+        for element in elements:
+            element.set(attr, str(value))
         
     #Locations lookup file.
     locations_file = open(path.join(settings.STATIC_ROOT, 'locations.csv'))
@@ -173,18 +177,58 @@ def scorecard(request, country, year=2011, month=12):
     for number in (0,1):
         try:
             story = dev_models.SubmissionWorkerDevice.objects.get(pk=stories[number])
-            image_path = story.submission.orsubmissionmedia_set.all()[1].get_absolute_path()
             set_text(text % (number), story.submission.content.story.story_description)
-            if image:
+            try:
+                image_path = story.submission.orsubmissionmedia_set.all()[1].get_absolute_path()
                 image_file = open(image_path)
                 data = b64encode(image_file.read())
-                set_attr(image, '{%s}href' % (nsmap['xlink']), 'data:image/jpg;base64,%s' % (data))
-            else:
+                set_attr(image % (number), '{%s}href' % (nsmap['xlink']), 'data:image/jpg;base64,%s' % (data))
+            except:
                 element = svg.xpath(image % (number),namespaces=nsmap)[0]
-                element.parent().remove(element)
+                element.getparent().remove(element)
         except:
             pass
-            
+    
+    #Stockout map.
+    map_layer = '//svg:g[@id="%s"]'
+    #Ugly hack for ends-with which is not supported in XPath.
+    district = '//svg:g[substring(@id, string-length(@id) - string-length("%s")+ 1, string-length(@id)) = "%s"]/svg:path'
+    #SVG styles.
+    STOCKOUT = 'fill:#c11e1e'
+    MONITORED = 'fill:#f6e1b9'
+    UNMONITORED = 'fill:#fefee9'
+    for svg_country in dev_models.Country.objects.all():
+        if svg_country != country:
+            element = svg.xpath(map_layer % (svg_country.code),namespaces=nsmap)[0]
+            element.getparent().remove(element)
+        else:
+            #Color the map.
+            #Ugly hack for ends-with which is not supported in XPath.
+            ew='//svg:g[substring(@id, string-length(@id) - string-length("%s")+ 1, string-length(@id)) = "%s"]'
+            #Go through all medicine questionnaires and determine stockouts.
+            forms = dev_models.SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form').filter(created_date__year=year, created_date__month=month)
+            districts = set()
+            for form in forms:
+                content = form.submission.content
+                district_name = locations[form.submission.id]['district']
+                if district_name not in districts:
+                    districts.add(district_name)
+                    try:
+                        set_all_attr(district % (district_name, district_name),
+                                     'style', MONITORED)
+                    except:
+                        print 'MONITORED District failure: %s' % (district_name)
+                if content:
+                    sections = [section for section in content.nodes() if section.startswith('medicine-')]
+                    for section in sections:
+                        stock = getattr(content, section).medicine_available
+                        if stock == 'No':
+                            try:
+                                set_all_attr(district % (district_name, district_name),
+                                             'style', STOCKOUT)
+                            except:
+                                print 'STOCKOUT District failure: %s' % (district_name)
+
     response = HttpResponse(etree.tostring(svg), mimetype='image/svg+xml')
     filename = 'scorecard_%s.svg' % (country.code.lower())
     response['Content-Disposition'] = 'filename=%s' % (filename)
