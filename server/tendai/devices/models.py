@@ -118,9 +118,9 @@ class Medicine(models.Model):
                     stockout = section.medicine_available
                 except:
                     stockout = 'not_found'
-                if stockout == 'yes':
+                if stockout == 'Yes':
                     stockout_yes += 1
-                if stockout == 'no':
+                if stockout == 'No':
                     stockout_no += 1
         #Note all integer math. Will be percentage rounded down to whole.
         if (stockout_yes+stockout_no)>0:
