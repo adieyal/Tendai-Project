@@ -115,12 +115,12 @@ class Medicine(models.Model):
             if content:
                 try:
                     section = getattr(content, tag_name)
-                    stockout = section.medicine_available
+                    stock = section.medicine_available
                 except:
                     stockout = 'not_found'
-                if stockout == 'Yes':
+                if stock == 'No':
                     stockout_yes += 1
-                if stockout == 'No':
+                if stock == 'Yes':
                     stockout_no += 1
         #Note all integer math. Will be percentage rounded down to whole.
         if (stockout_yes+stockout_no)>0:
@@ -166,7 +166,11 @@ class Medicine(models.Model):
             if content:
                 try:
                     section = getattr(content, tag_name)
-                    days = VALUE_TO_DAYS[section.stockout_duration]
+                    level = int(section.packs_available)
+                    if level == 0:
+                        days = VALUE_TO_DAYS[section.stockout_duration]
+                    else:
+                        days = 0
                 except:
                     days = 0
                 if days > 0:
@@ -190,7 +194,11 @@ class Medicine(models.Model):
             if content:
                 try:
                     section = getattr(content, tag_name)
-                    days = VALUE_TO_DAYS[section.restock_date]
+                    level = int(section.packs_available)
+                    if level == 0:
+                        days = VALUE_TO_DAYS[section.restock_date]
+                    else:
+                        days = 0
                 except:
                     days = 0
                 if days > 0:

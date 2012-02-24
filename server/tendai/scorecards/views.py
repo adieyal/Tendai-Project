@@ -68,7 +68,7 @@ def scorecard(request, country, year=2011, month=12):
     interviews = '//svg:text[@id="monitor.%d.interviews"]'
     stories = '//svg:text[@id="monitor.%d.stories"]'
     totals = '//svg:text[@id="monitor.%d.totals"]'
-    monitors = dev_models.CommunityWorker.objects.filter(country=country)
+    monitors = dev_models.CommunityWorker.objects.filter(country=country).order_by(first_name)
     most_submissions = -1
     best_monitor = None
     for line in range(22):
@@ -143,7 +143,7 @@ def scorecard(request, country, year=2011, month=12):
     stockout_days = '//svg:text[@id="medicine.%d.stockout_days"]'
     replenish_days = '//svg:text[@id="medicine.%d.replenish_days"]'
     #medicines = dev_models.Medicine.objects.filter(country=country)
-    medicines = country.medicine_set.all()
+    medicines = country.medicine_set.all().order_by(name)
     for line in range(14):
         try:
             medicine = medicines[line]
