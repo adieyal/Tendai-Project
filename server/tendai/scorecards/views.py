@@ -36,8 +36,12 @@ def scorecard(request, country, year=2011, month=12):
     
     #Helpers for XPath based SVG modification.
     def set_text(xpath, value):
+        if type(value) == float:
+            value = '%.1f' % value
+        else:
+            value = str(value)
         element = svg.xpath(xpath, namespaces=nsmap)[0]
-        element.text = str(value)
+        element.text = value
     def set_attr(xpath, attr, value):
         element = svg.xpath(xpath, namespaces=nsmap)[0]
         element.set(attr, str(value))

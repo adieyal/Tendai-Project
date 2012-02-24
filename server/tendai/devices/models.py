@@ -6,6 +6,17 @@ from datetime import datetime, timedelta
 
 from openrosa import models as ormodels
 
+VALUE_TO_DAYS = {'blank_period': 0.0,
+                 '1-3_days': 1.5,
+                 '4-7_days': 5.5,
+                 '1-2_weeks': 10.5,
+                 '2-3_weeks': 17.5,
+                 '3-4_weeks': 24.5,
+                 '1-2_months': 45.0,
+                 '2-3_months': 75.0,
+                 'more_than_3_months': 90.0,
+                 'unknown': 0.0, }
+
 class Language(models.Model):
     name = models.CharField(max_length=30, verbose_name="Language")
     code = models.CharField(max_length=2, verbose_name="ISO639-1 Code")
@@ -78,30 +89,115 @@ class Medicine(models.Model):
             content = form.submission.content
             if content:
                 try:
-                    print tag_name
                     stocked = getattr(content.section_stocked, tag_name)
                 except:
-                    stocked = 'not_selected'
-                print stocked
+                    stocked = 'not_found'
                 if stocked == 'yes':
                     stocked_yes += 1
                 if stocked == 'no':
                     stocked_no += 1
-        #Note all integer math. Will be percentage rounded to whole.
+        #Note all integer math. Will be percentage rounded down to whole.
         if (stocked_yes+stocked_no)>0:
             return (stocked_yes*100)/(stocked_yes+stocked_no)
         return '-'
     
     def stockout(self, country, year=None, month=None):
+        tag_name = 'medicine-' + slugify(self.name) + '-' + slugify(self.form.unit)
+        stockout_yes = 0
+        stockout_no = 0
+        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
+        if year:
+            forms = forms.filter(created_date__year=year)
+        if month:
+            forms = forms.filter(created_date__month=month)
+        for form in forms:
+            content = form.submission.content
+            if content:
+                try:
+                    section = getattr(content, tag_name)
+                    stockout = section.medicine_available
+                except:
+                    stockout = 'not_found'
+                if stockout == 'yes':
+                    stockout_yes += 1
+                if stockout == 'no':
+                    stockout_no += 1
+        #Note all integer math. Will be percentage rounded down to whole.
+        if (stockout_yes+stockout_no)>0:
+            return (stockout_yes*100)/(stockout_yes+stockout_no)
         return '-'
     
     def level(self, country, year=None, month=None):
+        tag_name = 'medicine-' + slugify(self.name) + '-' + slugify(self.form.unit)
+        total_level = 0
+        facilities = 0
+        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
+        if year:
+            forms = forms.filter(created_date__year=year)
+        if month:
+            forms = forms.filter(created_date__month=month)
+        for form in forms:
+            content = form.submission.content
+            if content:
+                try:
+                    section = getattr(content, tag_name)
+                    level = section.packs_available
+                except:
+                    level = 0
+                if level > 0:
+                    total_level += level
+                    facilities += 1
+        #Note all integer math. Will be percentage rounded down to whole.
+        if (facilities)>0:
+            return total_level/facilities
         return '-'
     
     def stockout_days(self, country, year=None, month=None):
+        tag_name = 'medicine-' + slugify(self.name) + '-' + slugify(self.form.unit)
+        total_days = 0
+        facilities = 0
+        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
+        if year:
+            forms = forms.filter(created_date__year=year)
+        if month:
+            forms = forms.filter(created_date__month=month)
+        for form in forms:
+            content = form.submission.content
+            if content:
+                try:
+                    section = getattr(content, tag_name)
+                    days = VALUE_TO_DAYS[section.stockout_duration]
+                except:
+                    days = 0
+                if days > 0:
+                    total_days += days
+                    facilities += 1
+        if (facilities)>0:
+            return total_days/facilities
         return '-'
     
     def replenish_days(self, country, year=None, month=None):
+        tag_name = 'medicine-' + slugify(self.name) + '-' + slugify(self.form.unit)
+        total_days = 0
+        facilities = 0
+        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
+        if year:
+            forms = forms.filter(created_date__year=year)
+        if month:
+            forms = forms.filter(created_date__month=month)
+        for form in forms:
+            content = form.submission.content
+            if content:
+                try:
+                    section = getattr(content, tag_name)
+                    days = VALUE_TO_DAYS[section.restock_date]
+                except:
+                    days = 0
+                if days > 0:
+                    total_days += days
+                    facilities += 1
+        if (facilities)>0:
+            return total_days/facilities
         return '-'
     
     def __unicode__(self):
