@@ -578,10 +578,10 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.154756"
-     inkscape:cx="675.12098"
-     inkscape:cy="582.77594"
-     inkscape:current-layer="layer4"
+     inkscape:zoom="2.309512"
+     inkscape:cx="903.45886"
+     inkscape:cy="623.36689"
+     inkscape:current-layer="layer1"
      id="namedview28786"
      showgrid="false"
      inkscape:window-width="1260"
@@ -605,8 +605,7 @@
      inkscape:label="Fixed Data"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <path
        id="path31187"
        d="M 278.40168,530.6176 H 521.36377 V 49.34953 l -487.435203,0 c -20.633995,0 -27.1074307,6.473435 -27.1074307,27.106148 l 0,621.415192 c 0,20.63399 16.7276337,37.35906 37.3603477,37.35906 H 278.40168 V 530.6176 z"
@@ -1097,7 +1096,7 @@
        style="fill:#e6e7e8" />
     <polygon
        id="polygon31416"
-       points="42.313,25.338 274.568,25.338 272.821,37.793 40.566,37.793 "
+       points="272.821,37.793 40.566,37.793 42.313,25.338 274.568,25.338 "
        style="fill:none"
        transform="matrix(1.2816146,0,0,1.2816146,-9.4182023,-14.569717)" />
     <text
@@ -1878,7 +1877,7 @@
                 </linearGradient>
                 <polygon
                    id="polygon31637"
-                   points="747.859,27.683 729.686,50.861 706.507,32.687 724.682,9.508 "
+                   points="706.507,32.687 724.682,9.508 747.859,27.683 729.686,50.861 "
                    clip-path="url(#SVGID_34_)"
                    style="fill:url(#SVGID_35_)" />
               </g>
@@ -5390,27 +5389,21 @@
        style="fill:none" />
     <text
        id="text33170"
-       x="797.94647"
-       y="69.264664"
-       style="font-size:15.37937546px">
+       x="795.42242"
+       y="72.7286"
+       style="font-size:15.37937546px;text-align:start;text-anchor:start">
       <tspan
          id="tspan33172"
          font-size="5.5"
-         y="69.264664"
-         x="797.94647"
-         style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">% Facilities</tspan>
+         y="72.7286"
+         x="797.18274"
+         style="font-size:7.0488801px;text-align:start;text-anchor:start;fill:#ffffff;font-family:Helvetica-Bold">% Facilities</tspan>
       <tspan
          id="tspan33174"
          font-size="5.5"
-         y="76.954353"
-         x="807.30096"
-         style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Stock</tspan>
-      <tspan
-         id="tspan33176"
-         font-size="5.5"
-         y="84.644043"
-         x="801.56189"
-         style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Available</tspan>
+         y="80.418289"
+         x="806.53723"
+         style="font-size:7.0488801px;text-align:start;text-anchor:start;fill:#ffffff;font-family:Helvetica-Bold">Stocked</tspan>
     </text>
     <rect
        id="rect33178"
@@ -5421,20 +5414,20 @@
        style="fill:none" />
     <text
        id="text33180"
-       x="844.89429"
+       x="844.14795"
        y="72.501259"
        style="font-size:15.37937546px">
       <tspan
          id="tspan33182"
          font-size="5.5"
          y="72.501259"
-         x="844.89429"
+         x="844.14795"
          style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">% Facilities</tspan>
       <tspan
          id="tspan33184"
          font-size="5.5"
          y="80.190941"
-         x="843.14105"
+         x="842.39471"
          style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Out of Stock</tspan>
     </text>
     <rect
@@ -5446,20 +5439,20 @@
        style="fill:none" />
     <text
        id="text33188"
-       x="898.06885"
+       x="897.54858"
        y="72.501259"
        style="font-size:15.37937546px">
       <tspan
          id="tspan33190"
          font-size="5.5"
          y="72.501259"
-         x="898.06885"
+         x="897.54858"
          style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Average</tspan>
       <tspan
          id="tspan33192"
          font-size="5.5"
          y="80.190941"
-         x="892.39001"
+         x="891.86975"
          style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Stock Level</tspan>
     </text>
     <rect
@@ -5471,26 +5464,26 @@
        style="fill:none" />
     <text
        id="text33196"
-       x="945.91541"
+       x="944.60339"
        y="69.264664"
        style="font-size:15.37937546px">
       <tspan
          id="tspan33198"
          font-size="5.5"
          y="69.264664"
-         x="945.91541"
+         x="944.60339"
          style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Average</tspan>
       <tspan
          id="tspan33200"
          font-size="5.5"
          y="76.954353"
-         x="951.60065"
-         style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Time</tspan>
+         x="950.28864"
+         style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Days</tspan>
       <tspan
          id="tspan33202"
          font-size="5.5"
          y="84.644043"
-         x="938.87549"
+         x="937.56348"
          style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Out of Stock</tspan>
     </text>
     <rect
@@ -5502,26 +5495,26 @@
        style="fill:none" />
     <text
        id="text33206"
-       x="993.68811"
+       x="992.88239"
        y="69.264664"
        style="font-size:15.37937546px">
       <tspan
          id="tspan33208"
          font-size="5.5"
          y="69.264664"
-         x="993.68811"
+         x="992.88239"
          style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Average</tspan>
       <tspan
          id="tspan33210"
          font-size="5.5"
          y="76.954353"
-         x="995.0658"
-         style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Time to</tspan>
+         x="994.26007"
+         style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Days to</tspan>
       <tspan
          id="tspan33212"
          font-size="5.5"
          y="84.644043"
-         x="990.75574"
+         x="989.95001"
          style="font-size:7.0488801px;fill:#ffffff;font-family:Helvetica-Bold">Replenish</tspan>
     </text>
     <rect
