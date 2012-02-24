@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 from datetime import datetime, timedelta
 
@@ -63,6 +64,45 @@ class Medicine(models.Model):
     def get_units(self):
         return _(self.form.units)
     units=property(get_units)
+    
+    def stocked(self, country, year=None, month=None):
+        tag_name = slugify(self.name) + '-' + slugify(self.form.unit)
+        stocked_yes = 0
+        stocked_no = 0
+        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
+        if year:
+            forms = forms.filter(created_date__year=year)
+        if month:
+            forms = forms.filter(created_date__month=month)
+        for form in forms:
+            content = form.submission.content
+            if content:
+                try:
+                    print tag_name
+                    stocked = getattr(content.section_stocked, tag_name)
+                except:
+                    stocked = 'not_selected'
+                print stocked
+                if stocked == 'yes':
+                    stocked_yes += 1
+                if stocked == 'no':
+                    stocked_no += 1
+        #Note all integer math. Will be percentage rounded to whole.
+        if (stocked_yes+stocked_no)>0:
+            return (stocked_yes*100)/(stocked_yes+stocked_no)
+        return '-'
+    
+    def stockout(self, country, year=None, month=None):
+        return '-'
+    
+    def level(self, country, year=None, month=None):
+        return '-'
+    
+    def stockout_days(self, country, year=None, month=None):
+        return '-'
+    
+    def replenish_days(self, country, year=None, month=None):
+        return '-'
     
     def __unicode__(self):
         return u"%s %s" % (self.name, self.form.units)

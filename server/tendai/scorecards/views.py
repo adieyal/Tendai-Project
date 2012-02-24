@@ -41,6 +41,18 @@ def scorecard(request, country, year=2011, month=12):
     def set_attr(xpath, attr, value):
         element = svg.xpath(xpath, namespaces=nsmap)[0]
         element.set(attr, str(value))
+        
+    #Locations lookup file.
+    locations_file = open(path.join(settings.STATIC_ROOT, 'locations.csv'))
+    locations_file.readline()
+    locations = {}
+    for line in locations_file.readlines():
+        data = line.split(',')
+        locations[int(data[0])] = {'country': data[3],
+                                   'province': data[4],
+                                   'district': data[5],
+                                   'uid': data[6]}
+    locations_file.close()
     
     #Country name for heading.
     set_text('//svg:text[@id="country.name"]', country.name.upper())
@@ -68,16 +80,17 @@ def scorecard(request, country, year=2011, month=12):
             if forms_count['Total'] > most_submissions:
                 best_monitor = monitor
                 most_submissions = forms_count['Total']
+            #Get unique facilities.
+            forms = dev_models.SubmissionWorkerDevice.objects.filter(submission__form__name='Facility Form', community_worker=monitor)
+            facility_uid = set()
+            for form in forms:
+                facility_uid.add(locations[form.submission.id]['uid'])
         except:
             monitor = None
-        selector = 'monitor.' + str(line) + '.name'
-        monitor_name = svg.xpath('//svg:text[@id="'+selector+'"]',namespaces=nsmap)[0]
-        selector = 'monitor.' + str(line) + '.medicines'
-        monitor_medicines = svg.xpath('//svg:text[@id="'+selector+'"]',namespaces=nsmap)[0]
         
         if monitor:
             set_text(name % (line), monitor.get_name())
-            set_text(facilities % (line), '-')
+            set_text(facilities % (line), len(facility_uid))
             set_text(medicines % (line), forms_count['Medicines Form'])
             set_text(interviews % (line), forms_count['Tendai Interview'])
             set_text(stories % (line), forms_count['Tendai Story'])
@@ -89,7 +102,7 @@ def scorecard(request, country, year=2011, month=12):
             set_text(interviews % (line), ' ')
             set_text(stories % (line), ' ')
             set_text(totals % (line), ' ')
-            
+         
     #Submissions sliders.
     number = '//svg:text[@id="country.submissions.text"]'
     slider = '//svg:g[@id="country.submissions.slider"]'
@@ -118,6 +131,35 @@ def scorecard(request, country, year=2011, month=12):
     data = b64encode(image.read())
     set_attr(photo, '{%s}href' % (nsmap['xlink']), 'data:image/jpg;base64,%s' % (data))
     
+    #Medicines table.
+    name = '//svg:text[@id="medicine.%d.name"]'
+    stocked = '//svg:text[@id="medicine.%d.stocked"]'
+    stockout = '//svg:text[@id="medicine.%d.stockout"]'
+    level = '//svg:text[@id="medicine.%d.level"]'
+    stockout_days = '//svg:text[@id="medicine.%d.stockout_days"]'
+    replenish_days = '//svg:text[@id="medicine.%d.replenish_days"]'
+    #medicines = dev_models.Medicine.objects.filter(country=country)
+    medicines = country.medicine_set.all()
+    for line in range(14):
+        try:
+            medicine = medicines[line]
+        except:
+            medicine = None
+        
+        if medicine:
+            set_text(name % (line), medicine.name)
+            set_text(stocked % (line), medicine.stocked(country, year, month))
+            set_text(stockout % (line), medicine.stockout(country, year, month))
+            set_text(level % (line), medicine.level(country, year, month))
+            set_text(stockout_days % (line), medicine.stockout_days(country, year, month))
+            set_text(replenish_days % (line), medicine.replenish_days(country, year, month))
+        else:
+            set_text(name % (line), ' ')
+            set_text(stocked % (line), ' ')
+            set_text(stockout % (line), ' ')
+            set_text(level % (line), ' ')
+            set_text(stockout_days % (line), ' ')
+            set_text(replenish_days % (line), ' ')
   
     response = HttpResponse(etree.tostring(svg), mimetype='image/svg+xml')
     filename = 'scorecard_%s.svg' % (country.code.lower())

@@ -579,8 +579,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.154756"
-     inkscape:cx="260.31474"
-     inkscape:cy="162.07377"
+     inkscape:cx="675.12098"
+     inkscape:cy="586.83883"
      inkscape:current-layer="layer4"
      id="namedview28786"
      showgrid="false"
@@ -7223,507 +7223,591 @@
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33098"
+       id="medicine.0.name"
        x="573.53998"
-       y="98.316818">Acyclovir</text>
+       y="98.316818"
+       inkscape:label="#text33098">Acyclovir</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33102"
+       id="medicine.1.name"
        x="573.53998"
-       y="114.39647">Artemether + lumefantrine 20 + 120mg</text>
+       y="114.39647"
+       inkscape:label="#text33102">Artemether + lumefantrine 20 + 120mg</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33106"
+       id="medicine.2.name"
        x="573.53998"
-       y="130.47548">Ceftriaxone 250mg pwd for injection</text>
+       y="130.47548"
+       inkscape:label="#text33106">Ceftriaxone 250mg pwd for injection</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33110"
+       id="medicine.4.name"
        x="573.53998"
-       y="162.91956">Cotrimoxazole 480mg</text>
+       y="162.91956"
+       inkscape:label="#text33110">Cotrimoxazole 480mg</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33114"
+       id="medicine.5.name"
        x="573.53998"
-       y="178.99857">Fluconazole 50mg</text>
+       y="178.99857"
+       inkscape:label="#text33114">Fluconazole 50mg</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33118"
+       id="medicine.6.name"
        x="573.53998"
-       y="195.07693">Lamivudine/Stavudine/Nevirapine 30 + 6 +50mg dispersible</text>
+       y="195.07693"
+       inkscape:label="#text33118">Lamivudine/Stavudine/Nevirapine 30 + 6 +50mg dispersible</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33122"
+       id="medicine.7.name"
        x="573.53998"
-       y="211.12582">Misoprostal 200ug</text>
+       y="211.12582"
+       inkscape:label="#text33122">Misoprostal 200ug</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33126"
+       id="medicine.8.name"
        x="573.53998"
-       y="227.2356">Oxytocin 10IU/ml</text>
+       y="227.2356"
+       inkscape:label="#text33126">Oxytocin 10IU/ml</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33130"
+       id="medicine.9.name"
        x="573.53998"
-       y="243.31575">Paracetamol 120mg/5ml</text>
+       y="243.31575"
+       inkscape:label="#text33130">Paracetamol 120mg/5ml</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33134"
+       id="medicine.10.name"
        x="573.53998"
-       y="259.68018">Paracetamol 500mg</text>
+       y="259.68018"
+       inkscape:label="#text33134">Paracetamol 500mg</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33138"
+       id="medicine.11.name"
        x="573.53998"
-       y="275.75919">Rifampicin/isoniazid 150 + 75mg</text>
+       y="275.75919"
+       inkscape:label="#text33138">Rifampicin/isoniazid 150 + 75mg</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33142"
+       id="medicine.12.name"
        x="573.53998"
-       y="291.8382">Vitamin A capsule</text>
+       y="291.8382"
+       inkscape:label="#text33142">Vitamin A capsule</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33146"
+       id="medicine.13.name"
        x="573.53998"
-       y="307.63678">Zinc Sulphate 20mg dispersible</text>
+       y="307.63678"
+       inkscape:label="#text33146">Zinc Sulphate 20mg dispersible</text>
     <text
        style="font-size:7.68968773000000017px;font-family:Helvetica"
        font-size="6"
-       id="text33150"
+       id="medicine.3.name"
        x="573.53998"
-       y="147.12582">Cotrimoxazole 240mg/5ml</text>
+       y="147.12582"
+       inkscape:label="#text33150">Cotrimoxazole 240mg/5ml</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33218"
+       id="medicine.0.stocked"
        x="811.74634"
-       y="99.808746">00</text>
+       y="99.808746"
+       inkscape:label="#text33218">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33222"
+       id="medicine.1.stocked"
        x="811.74634"
-       y="115.38588">00</text>
+       y="115.38588"
+       inkscape:label="#text33222">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33226"
+       id="medicine.2.stocked"
        x="811.74634"
-       y="131.46423">00</text>
+       y="131.46423"
+       inkscape:label="#text33226">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33230"
+       id="medicine.3.stocked"
        x="811.74634"
-       y="148.11459">00</text>
+       y="148.11459"
+       inkscape:label="#text33230">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33234"
+       id="medicine.4.stocked"
        x="811.74634"
-       y="163.90833">00</text>
+       y="163.90833"
+       inkscape:label="#text33234">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33238"
+       id="medicine.5.stocked"
        x="811.74634"
-       y="179.98734">00</text>
+       y="179.98734"
+       inkscape:label="#text33238">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33242"
+       id="medicine.6.stocked"
        x="811.74634"
-       y="196.06685">00</text>
+       y="196.06685"
+       inkscape:label="#text33242">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33246"
+       id="medicine.7.stocked"
        x="811.74634"
-       y="212.11522">00</text>
+       y="212.11522"
+       inkscape:label="#text33246">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33250"
+       id="medicine.8.stocked"
        x="811.74634"
-       y="228.22421">00</text>
+       y="228.22421"
+       inkscape:label="#text33250">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33254"
+       id="medicine.9.stocked"
        x="811.74634"
-       y="244.3045">00</text>
+       y="244.3045"
+       inkscape:label="#text33254">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33258"
+       id="medicine.10.stocked"
        x="811.74634"
-       y="260.66895">00</text>
+       y="260.66895"
+       inkscape:label="#text33258">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33262"
+       id="medicine.11.stocked"
        x="811.74634"
-       y="276.74796">00</text>
+       y="276.74796"
+       inkscape:label="#text33262">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33266"
+       id="medicine.12.stocked"
        x="811.74634"
-       y="292.82693">00</text>
+       y="292.82693"
+       inkscape:label="#text33266">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33270"
+       id="medicine.13.stocked"
        x="811.74634"
-       y="308.62619">00</text>
+       y="308.62619"
+       inkscape:label="#text33270">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33276"
+       id="medicine.0.stockout"
        x="859.3313"
-       y="99.808746">00</text>
+       y="99.808746"
+       inkscape:label="#text33276">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33280"
+       id="medicine.1.stockout"
        x="859.3313"
-       y="115.38588">00</text>
+       y="115.38588"
+       inkscape:label="#text33280">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33284"
+       id="medicine.2.stockout"
        x="859.3313"
-       y="131.46423">00</text>
+       y="131.46423"
+       inkscape:label="#text33284">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33288"
+       id="medicine.3.stockout"
        x="859.3313"
-       y="148.11459">00</text>
+       y="148.11459"
+       inkscape:label="#text33288">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33292"
+       id="medicine.4.stockout"
        x="859.3313"
-       y="163.90833">00</text>
+       y="163.90833"
+       inkscape:label="#text33292">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33296"
+       id="medicine.5.stockout"
        x="859.3313"
-       y="179.98734">00</text>
+       y="179.98734"
+       inkscape:label="#text33296">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33300"
+       id="medicine.6.stockout"
        x="859.3313"
-       y="196.06685">00</text>
+       y="196.06685"
+       inkscape:label="#text33300">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33304"
+       id="medicine.7.stockout"
        x="859.3313"
-       y="212.11522">00</text>
+       y="212.11522"
+       inkscape:label="#text33304">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33308"
+       id="medicine.8.stockout"
        x="859.3313"
-       y="228.22421">00</text>
+       y="228.22421"
+       inkscape:label="#text33308">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33312"
+       id="medicine.9.stockout"
        x="859.3313"
-       y="244.3045">00</text>
+       y="244.3045"
+       inkscape:label="#text33312">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33316"
+       id="medicine.10.stockout"
        x="859.3313"
-       y="260.66895">00</text>
+       y="260.66895"
+       inkscape:label="#text33316">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33320"
+       id="medicine.11.stockout"
        x="859.3313"
-       y="276.74796">00</text>
+       y="276.74796"
+       inkscape:label="#text33320">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33324"
+       id="medicine.12.stockout"
        x="859.3313"
-       y="292.82693">00</text>
+       y="292.82693"
+       inkscape:label="#text33324">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33328"
+       id="medicine.13.stockout"
        x="859.3313"
-       y="308.62619">00</text>
+       y="308.62619"
+       inkscape:label="#text33328">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33334"
+       id="medicine.0.level"
        x="906.9137"
-       y="99.808746">00</text>
+       y="99.808746"
+       inkscape:label="#text33334">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33338"
+       id="medicine.1.level"
        x="906.9137"
-       y="115.38588">00</text>
+       y="115.38588"
+       inkscape:label="#text33338">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33342"
+       id="medicine.2.level"
        x="906.9137"
-       y="131.46423">00</text>
+       y="131.46423"
+       inkscape:label="#text33342">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33346"
+       id="medicine.3.level"
        x="906.9137"
-       y="148.11459">00</text>
+       y="148.11459"
+       inkscape:label="#text33346">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33350"
+       id="medicine.4.level"
        x="906.9137"
-       y="163.90833">00</text>
+       y="163.90833"
+       inkscape:label="#text33350">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33354"
+       id="medicine.5.level"
        x="906.9137"
-       y="179.98734">00</text>
+       y="179.98734"
+       inkscape:label="#text33354">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33358"
+       id="medicine.6.level"
        x="906.9137"
-       y="196.06685">00</text>
+       y="196.06685"
+       inkscape:label="#text33358">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33362"
+       id="medicine.7.level"
        x="906.9137"
-       y="212.11522">00</text>
+       y="212.11522"
+       inkscape:label="#text33362">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33366"
+       id="medicine.8.level"
        x="906.9137"
-       y="228.22421">00</text>
+       y="228.22421"
+       inkscape:label="#text33366">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33370"
+       id="medicine.9.level"
        x="906.9137"
-       y="244.3045">00</text>
+       y="244.3045"
+       inkscape:label="#text33370">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33374"
+       id="medicine.10.level"
        x="906.9137"
-       y="260.66895">00</text>
+       y="260.66895"
+       inkscape:label="#text33374">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33378"
+       id="medicine.11.level"
        x="906.9137"
-       y="276.74796">00</text>
+       y="276.74796"
+       inkscape:label="#text33378">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33382"
+       id="medicine.12.level"
        x="906.9137"
-       y="292.82693">00</text>
+       y="292.82693"
+       inkscape:label="#text33382">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33386"
+       id="medicine.13.level"
        x="906.9137"
-       y="308.62619">00</text>
+       y="308.62619"
+       inkscape:label="#text33386">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33392"
+       id="medicine.0.stockout_days"
        x="954.78406"
-       y="99.808746">00</text>
+       y="99.808746"
+       inkscape:label="#text33392">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33396"
+       id="medicine.1.stockout_days"
        x="954.78406"
-       y="115.38588">00</text>
+       y="115.38588"
+       inkscape:label="#text33396">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33400"
+       id="medicine.2.stockout_days"
        x="954.78406"
-       y="131.46423">00</text>
+       y="131.46423"
+       inkscape:label="#text33400">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33404"
+       id="medicine.3.stockout_days"
        x="954.78406"
-       y="148.11459">00</text>
+       y="148.11459"
+       inkscape:label="#text33404">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33408"
+       id="medicine.4.stockout_days"
        x="954.78406"
-       y="163.90833">00</text>
+       y="163.90833"
+       inkscape:label="#text33408">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33412"
+       id="medicine.5.stockout_days"
        x="954.78406"
-       y="179.98734">00</text>
+       y="179.98734"
+       inkscape:label="#text33412">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33416"
+       id="medicine.6.stockout_days"
        x="954.78406"
-       y="196.06685">00</text>
+       y="196.06685"
+       inkscape:label="#text33416">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33420"
+       id="medicine.7.stockout_days"
        x="954.78406"
-       y="212.11522">00</text>
+       y="212.11522"
+       inkscape:label="#text33420">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33424"
+       id="medicine.8.stockout_days"
        x="954.78406"
-       y="228.22421">00</text>
+       y="228.22421"
+       inkscape:label="#text33424">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33428"
+       id="medicine.9.stockout_days"
        x="954.78406"
-       y="244.3045">00</text>
+       y="244.3045"
+       inkscape:label="#text33428">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33432"
+       id="medicine.10.stockout_days"
        x="954.78406"
-       y="260.66895">00</text>
+       y="260.66895"
+       inkscape:label="#text33432">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33436"
+       id="medicine.11.stockout_days"
        x="954.78406"
-       y="276.74796">00</text>
+       y="276.74796"
+       inkscape:label="#text33436">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33440"
+       id="medicine.12.stockout_days"
        x="954.78406"
-       y="292.82693">00</text>
+       y="292.82693"
+       inkscape:label="#text33440">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33444"
+       id="medicine.13.stockout_days"
        x="954.78406"
-       y="308.62619">00</text>
+       y="308.62619"
+       inkscape:label="#text33444">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33450"
+       id="medicine.0.replenish_days"
        x="1002.5567"
-       y="99.808746">00</text>
+       y="99.808746"
+       inkscape:label="#text33450">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33454"
+       id="medicine.1.replenish_days"
        x="1002.5567"
-       y="115.38588">00</text>
+       y="115.38588"
+       inkscape:label="#text33454">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33458"
+       id="medicine.2.replenish_days"
        x="1002.5567"
-       y="131.46423">00</text>
+       y="131.46423"
+       inkscape:label="#text33458">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33462"
+       id="medicine.3.replenish_days"
        x="1002.5567"
-       y="148.11459">00</text>
+       y="148.11459"
+       inkscape:label="#text33462">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33466"
+       id="medicine.4.replenish_days"
        x="1002.5567"
-       y="163.90833">00</text>
+       y="163.90833"
+       inkscape:label="#text33466">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33470"
+       id="medicine.5.replenish_days"
        x="1002.5567"
-       y="179.98734">00</text>
+       y="179.98734"
+       inkscape:label="#text33470">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33474"
+       id="medicine.6.replenish_days"
        x="1002.5567"
-       y="196.06685">00</text>
+       y="196.06685"
+       inkscape:label="#text33474">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33478"
+       id="medicine.7.replenish_days"
        x="1002.5567"
-       y="212.11522">00</text>
+       y="212.11522"
+       inkscape:label="#text33478">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33482"
+       id="medicine.8.replenish_days"
        x="1002.5567"
-       y="228.22421">00</text>
+       y="228.22421"
+       inkscape:label="#text33482">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33486"
+       id="medicine.9.replenish_days"
        x="1002.5567"
-       y="244.3045">00</text>
+       y="244.3045"
+       inkscape:label="#text33486">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33490"
+       id="medicine.10.replenish_days"
        x="1002.5567"
-       y="260.66895">00</text>
+       y="260.66895"
+       inkscape:label="#text33490">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33494"
+       id="medicine.11.replenish_days"
        x="1002.5567"
-       y="276.74796">00</text>
+       y="276.74796"
+       inkscape:label="#text33494">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33498"
+       id="medicine.12.replenish_days"
        x="1002.5567"
-       y="292.82693">00</text>
+       y="292.82693"
+       inkscape:label="#text33498">00</text>
     <text
        style="font-size:9.06588554000000002px;font-family:Helvetica-Bold"
        font-size="7.0738"
-       id="text33502"
+       id="medicine.13.replenish_days"
        x="1002.5567"
-       y="308.62619">00</text>
+       y="308.62619"
+       inkscape:label="#text33502">00</text>
     <image
        sodipodi:absref="/Users/el/../../../../../Desktop/Screen shot 2012-01-25 at 10.58.08 AM.png"
        id="stockouts.image"
