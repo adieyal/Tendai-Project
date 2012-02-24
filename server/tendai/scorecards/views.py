@@ -210,7 +210,10 @@ def scorecard(request, country, year=2011, month=12):
             districts = set()
             for form in forms:
                 content = form.submission.content
-                district_name = locations[form.submission.id]['district']
+                try:
+                    district_name = locations[form.submission.id]['district']
+                except:
+                    district_name = 'not_in_locations_file'
                 if district_name not in districts:
                     districts.add(district_name)
                     try:
