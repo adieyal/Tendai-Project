@@ -173,9 +173,9 @@ def scorecard(request, country, year=2011, month=12):
     
     #Best stories.
     text = '//svg:flowPara[@id="story.%d.text"]'
-    story_name = '//svg:flowPara[@id="story.%d.name"]'
-    story_date = '//svg:flowPara[@id="story.%d.date"]'
-    story_country = '//svg:flowPara[@id="story.%d.country"]'
+    story_name = '//svg:text[@id="story.%d.name"]'
+    story_date = '//svg:text[@id="story.%d.date"]'
+    story_country = '//svg:text[@id="story.%d.country"]'
     image = '//svg:image[@id="story.%d.image"]'
     stories = (1589,1461)
     images = ('356652045028675/1330014282214.jpg',None)
