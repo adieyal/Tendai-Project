@@ -184,7 +184,7 @@ def scorecard(request, country, year=2011, month=12):
             story = dev_models.SubmissionWorkerDevice.objects.get(pk=stories[number])
             set_text(text % (number), story.submission.content.story.story_description)
             set_text(story_name % (number), story.community_worker.get_name())
-            set_text(story_date % (number), story.created_date)
+            set_text(story_date % (number), story.created_date.strftime('%d %B %Y'))
             set_text(story_country % (number), story.community_worker.country.name)
             try:
                 image_path = story.submission.orsubmissionmedia_set.all()[1].get_absolute_path()
