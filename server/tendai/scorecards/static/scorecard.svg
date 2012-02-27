@@ -578,9 +578,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.54310477"
-     inkscape:cx="650.22258"
-     inkscape:cy="314.55295"
+     inkscape:zoom="1.7699745"
+     inkscape:cx="788.06157"
+     inkscape:cy="555.14151"
      inkscape:current-layer="layer4"
      id="namedview28786"
      showgrid="false"
@@ -7226,103 +7226,117 @@
          id="country.submissions.text">0.0</text>
     </g>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.0.name"
        x="573.53998"
        y="98.316818"
-       inkscape:label="#text33098">Acyclovir</text>
+       inkscape:label="#text33098"
+       sodipodi:linespacing="125%">Acyclovir</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.1.name"
        x="573.53998"
        y="114.39647"
-       inkscape:label="#text33102">Artemether + lumefantrine 20 + 120mg</text>
+       inkscape:label="#text33102"
+       sodipodi:linespacing="125%">Artemether + lumefantrine 20 + 120mg</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.2.name"
        x="573.53998"
        y="130.47548"
-       inkscape:label="#text33106">Ceftriaxone 250mg pwd for injection</text>
+       inkscape:label="#text33106"
+       sodipodi:linespacing="125%">Ceftriaxone 250mg pwd for injection</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.4.name"
        x="573.53998"
        y="162.91956"
-       inkscape:label="#text33110">Cotrimoxazole 480mg</text>
+       inkscape:label="#text33110"
+       sodipodi:linespacing="125%">Cotrimoxazole 480mg</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.5.name"
        x="573.53998"
        y="178.99857"
-       inkscape:label="#text33114">Fluconazole 50mg</text>
+       inkscape:label="#text33114"
+       sodipodi:linespacing="125%">Fluconazole 50mg</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.6.name"
        x="573.53998"
        y="195.07693"
-       inkscape:label="#text33118">Lamivudine/Stavudine/Nevirapine 30 + 6 +50mg dispersible</text>
+       inkscape:label="#text33118"
+       sodipodi:linespacing="125%">Lamivudine/Stavudine/Nevirapine 30 + 6 +50mg dispersible</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.7.name"
        x="573.53998"
        y="211.12582"
-       inkscape:label="#text33122">Misoprostal 200ug</text>
+       inkscape:label="#text33122"
+       sodipodi:linespacing="125%">Misoprostal 200ug</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.8.name"
        x="573.53998"
        y="227.2356"
-       inkscape:label="#text33126">Oxytocin 10IU/ml</text>
+       inkscape:label="#text33126"
+       sodipodi:linespacing="125%">Oxytocin 10IU/ml</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.9.name"
        x="573.53998"
        y="243.31575"
-       inkscape:label="#text33130">Paracetamol 120mg/5ml</text>
+       inkscape:label="#text33130"
+       sodipodi:linespacing="125%">Paracetamol 120mg/5ml</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.10.name"
        x="573.53998"
        y="259.68018"
-       inkscape:label="#text33134">Paracetamol 500mg</text>
+       inkscape:label="#text33134"
+       sodipodi:linespacing="125%">Paracetamol 500mg</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.11.name"
        x="573.53998"
        y="275.75919"
-       inkscape:label="#text33138">Rifampicin/isoniazid 150 + 75mg</text>
+       inkscape:label="#text33138"
+       sodipodi:linespacing="125%">Rifampicin/isoniazid 150 + 75mg</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.12.name"
        x="573.53998"
        y="291.8382"
-       inkscape:label="#text33142">Vitamin A capsule</text>
+       inkscape:label="#text33142"
+       sodipodi:linespacing="125%">Vitamin A capsule</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.13.name"
        x="573.53998"
        y="307.63678"
-       inkscape:label="#text33146">Zinc Sulphate 20mg dispersible</text>
+       inkscape:label="#text33146"
+       sodipodi:linespacing="125%">Zinc Sulphate 20mg dispersible</text>
     <text
-       style="font-size:7.68968773px;font-family:Helvetica"
+       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
        font-size="6"
        id="medicine.3.name"
        x="573.53998"
        y="147.12582"
-       inkscape:label="#text33150">Cotrimoxazole 240mg/5ml</text>
+       inkscape:label="#text33150"
+       sodipodi:linespacing="125%">Cotrimoxazole 240mg/5ml</text>
     <text
        style="font-size:9.06588554px;text-align:center;text-anchor:middle;font-family:Helvetica-Bold"
        font-size="7.0738"
