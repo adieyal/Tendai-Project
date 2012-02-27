@@ -80,7 +80,6 @@ def scorecard(request, country, year=2011, month=12):
     for line in range(22):
         try:
             monitor = monitors[line]
-            forms_count = monitor.get_forms_count(days=70)
             forms_count = {}
             forms = or_models.ORForm.objects.order_by('name').values('name').distinct()
             for form in forms:
@@ -94,7 +93,10 @@ def scorecard(request, country, year=2011, month=12):
             forms = dev_models.SubmissionWorkerDevice.objects.filter(submission__form__name='Facility Form', community_worker=monitor)
             facility_uid = set()
             for form in forms:
-                facility_uid.add(locations[form.submission.id]['uid'])
+                try:
+                    facility_uid.add(locations[form.submission.id]['uid'])
+                except:
+                    pass
         except:
             monitor = None
         
