@@ -101,7 +101,7 @@ class Medicine(models.Model):
             return (stocked_yes*100)/(stocked_yes+stocked_no)
         return '-'
     
-    def stockout(self, country, year=None, month=None):
+    def stock(self, country, year=None, month=None):
         tag_name = 'medicine-' + slugify(self.name) + '-' + slugify(self.form.unit)
         stockout_yes = 0
         stockout_no = 0
@@ -124,7 +124,7 @@ class Medicine(models.Model):
                     stockout_no += 1
         #Note all integer math. Will be percentage rounded down to whole.
         if (stockout_yes+stockout_no)>0:
-            return (stockout_yes*100)/(stockout_yes+stockout_no)
+            return 100-(stockout_yes*100)/(stockout_yes+stockout_no)
         return '-'
     
     def level(self, country, year=None, month=None):

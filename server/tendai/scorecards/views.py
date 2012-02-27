@@ -12,6 +12,8 @@ from base64 import b64encode
 import devices.models as dev_models
 import openrosa.models as or_models
 
+MONTHNAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
 def index(request):
     return Http404
 
@@ -63,7 +65,7 @@ def scorecard(request, country, year=2011, month=12):
     locations_file.close()
     
     #Country name for heading.
-    set_text('//svg:text[@id="country.name"]', country.name.upper())
+    set_text('//svg:text[@id="country.name"]', country.name.upper() + ' - %s %04d' % (MONTHNAMES[month-1].upper(), year))
     
     #Monitors table.
     name = '//svg:text[@id="monitor.%d.name"]'
@@ -157,7 +159,7 @@ def scorecard(request, country, year=2011, month=12):
         if medicine:
             set_text(name % (line), medicine.name)
             set_text(stocked % (line), medicine.stocked(country, year, month))
-            set_text(stockout % (line), medicine.stockout(country, year, month))
+            set_text(stockout % (line), medicine.stock(country, year, month))
             set_text(level % (line), medicine.level(country, year, month))
             set_text(stockout_days % (line), medicine.stockout_days(country, year, month))
             set_text(replenish_days % (line), medicine.replenish_days(country, year, month))
@@ -171,6 +173,9 @@ def scorecard(request, country, year=2011, month=12):
     
     #Best stories.
     text = '//svg:flowPara[@id="story.%d.text"]'
+    story_name = '//svg:flowPara[@id="story.%d.name"]'
+    story_date = '//svg:flowPara[@id="story.%d.date"]'
+    story_country = '//svg:flowPara[@id="story.%d.country"]'
     image = '//svg:image[@id="story.%d.image"]'
     stories = (1589,1461)
     images = ('356652045028675/1330014282214.jpg',None)
@@ -178,6 +183,9 @@ def scorecard(request, country, year=2011, month=12):
         try:
             story = dev_models.SubmissionWorkerDevice.objects.get(pk=stories[number])
             set_text(text % (number), story.submission.content.story.story_description)
+            set_text(story_name % (number), story.community_worker.get_name())
+            set_text(story_date % (number), story.created_date)
+            set_text(story_country % (number), story.community_worker.country.name)
             try:
                 image_path = story.submission.orsubmissionmedia_set.all()[1].get_absolute_path()
                 image_file = open(image_path)
