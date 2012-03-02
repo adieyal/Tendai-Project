@@ -30,6 +30,12 @@
       <p><strong>SIM ID:</strong> {{ content.sim_id }}</p>
       <p><strong>Phone number:</strong> {{ content.phone_number }}</p>
       <br />
+
+      <p><strong>Facility Name:</strong> {{ content.section_general.facility_name }}</p>
+      <p><strong>GPS:</strong> {{ content.section_general.gps }}</p>
+      <p><strong>Staff Name:</strong> {{ content.section_general.staff_name }}</p>
+      <p><strong>Respondent Position:</strong> {{ content.section_general.respondent_position }}</p>
+      <br/>
       
       <!-- Medicines form specific information -->
       {% for medicine in content.section_stocked.nodes %}
