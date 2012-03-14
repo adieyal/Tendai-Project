@@ -27,10 +27,24 @@ def make_inactive(modeladmin, request, queryset):
 make_inactive.short_description = "Deactivate selected submissions"
 
 class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
-    list_display = ('community_worker_first_name', 'community_worker_last_name', 'community_worker_organisation', 'submission_type', 'device')
+    list_display = ('community_worker', 'community_worker_organisation', 'submission_type', 'facility', 'device')
     list_filter = ('active', 'community_worker__first_name', 'community_worker__last_name', 'community_worker__organisation__name', 'device__device_id', 'submission__form__name', 'community_worker__country__name')
     date_hierarchy = "created_date"
     actions = [make_active, make_inactive]
+
+    def facility(self, obj):
+        content = obj.submission.content
+        submission_type = self.submission_type(obj)
+        if not content: return ""
+
+        try:
+            if submission_type == "Facility Form":
+                return content.section_name.facility_name
+            elif submission_type == "Medicines Form":
+                return content.section_general.facility_name
+        except:
+            return "Not Found"
+        return ""
 
     def community_worker_first_name(self, obj):
         return obj.community_worker.first_name
