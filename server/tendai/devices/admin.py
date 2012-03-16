@@ -95,6 +95,9 @@ class MedicineAdmin(admin.ModelAdmin):
         countries = model.countries.order_by("name")
         return ", ".join(country.name for country in countries)
 
+class FacilitySubmissionAdmin(admin.ModelAdmin):
+    list_display = ('submission', 'facility')
+
 admin.site.register(models.Country)
 admin.site.register(models.Organisation)
 admin.site.register(models.DosageForm)
@@ -106,3 +109,4 @@ admin.site.register(models.CommunityWorker, CommunityWorkerAdmin)
 admin.site.register(models.Device, DeviceAdmin)
 admin.site.register(models.SubmissionWorkerDevice, SubmissionWorkerDeviceAdmin)
 admin.site.register(models.CountryForm, CountryFormAdmin)
+admin.site.register(models.FacilitySubmission, FacilitySubmissionAdmin)

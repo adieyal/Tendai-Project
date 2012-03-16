@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 from datetime import datetime, timedelta
+from facility import models as facilitymodels
 
 from openrosa import models as ormodels
 
@@ -282,6 +283,13 @@ class SubmissionWorkerDevice(models.Model):
 
     def __unicode__(self):
         return unicode(self.community_worker)
+
+class FacilitySubmission(models.Model):
+    submission = models.ForeignKey(ormodels.ORFormSubmission, null=True)
+    facility = models.ForeignKey(facilitymodels.Facility, null=True)
+
+    def __unicode__(self):
+        return "%s, %s" % (self.submission, self.facility)
 
 class CountryForm(models.Model):
     """
