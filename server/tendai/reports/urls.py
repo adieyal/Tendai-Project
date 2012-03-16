@@ -12,4 +12,5 @@ urlpatterns = patterns('reports.views',
     (r'^validate/$', 'submission', {'validate': True}, 'devices_verify_swd'),
     (r'^validate/(?P<country>[a-z]{2})/(?P<id>\w+)/$', 'submission', {'validate': True}, 'devices_verify_country_swd'),
     (r'^validate/(?P<country>[a-z]{2})/$', 'submission', {'validate': True}, 'devices_verify_country_swd'),
+    (r'^validate/(?P<country>[a-z]{2})/(?P<submission_type>[^/]+)/$', 'submission', {'validate': True}, 'devices_verify_country_swd'),
 )

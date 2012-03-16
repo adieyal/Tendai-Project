@@ -10,7 +10,7 @@ from openrosa import models as or_models
 
 def facilities_kml(request):
     facilities = []
-    submissions = or_models.ORFormSubmission.objects.filter(form__name='Facility Form',submissionworkerdevice__active=True)
+    submissions = or_models.ORFormSubmission.objects.filter(form__name='Facility Form',submissionworkerdevice__valid=True)
     extra_context = {'submissions': submissions}
     return direct_to_template(request, template='reports/facility/data.kml', extra_context=extra_context)
 
@@ -30,12 +30,16 @@ def country(request, country_code):
                    'countries': countries}
     return direct_to_template(request, template='reports/country/report.html', extra_context=extra_context)
 
-def submission(request, id=None, validate=False, country=None):
+def submission(request, id=None, validate=False, country=None, submission_type=None):
     if country:
         country = dev_models.Country.objects.get(code=country)
         filtered = dev_models.SubmissionWorkerDevice.objects.exclude(verified=True).filter(community_worker__country=country)
     else:
         filtered = dev_models.SubmissionWorkerDevice.objects.exclude(verified=True)
+
+    if submission_type:
+        filtered = filtered.filter(submission__form__name=submission_type)
+    
     remaining = filtered.count()
     # Find first unverified entry if none is specified. Redirect there.
     if not id:
@@ -57,18 +61,30 @@ def submission(request, id=None, validate=False, country=None):
         prev_swd = filtered.filter(pk__lt=id).order_by('-id')[0]
     except:
         prev_swd = swd
+
+    next_kwargs = {'id' : next_swd.id}
+    prev_kwargs = {'id' : prev_swd.id}
+
     if country:
-        next_url = reverse('devices_verify_country_swd', kwargs={'id': next_swd.id, 'country': country.code})
-        prev_url = reverse('devices_verify_country_swd', kwargs={'id': prev_swd.id, 'country': country.code})
-    else:
-        next_url = reverse('devices_verify_swd', kwargs={'id': next_swd.id})
-        prev_url = reverse('devices_verify_swd', kwargs={'id': prev_swd.id})
+        next_kwargs['country'] = country.code
+        prev_kwargs['country'] = country.code
+
+    if submission_type:
+        next_kwargs['submission_type'] = submission_type
+        prev_kwargs['submission_type'] = submission_type
+
+    next_url = reverse('devices_verify_country_swd', kwargs=next_kwargs)
+    prev_url = reverse('devices_verify_country_swd', kwargs=prev_kwargs)
+
     if country:
         filtered = filtered.filter(community_worker__country=country)
+
     if request.GET.get('navigate', None)=='next':
         return redirect(next_url)
+
     if request.GET.get('navigate', None)=='prev':
         return redirect(prev_url)
+
     # Validation actions.
     if not request.user.is_staff:
         validate = False
