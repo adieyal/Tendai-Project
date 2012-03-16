@@ -10,7 +10,7 @@ from openrosa import models as or_models
 
 def facilities_kml(request):
     facilities = []
-    submissions = or_models.ORFormSubmission.objects.filter(form__name='Facility Form',submissionworkerdevice__valid=True)
+    submissions = or_models.ORFormSubmission.objects.filter(form__name='Facility Form', submissionworkerdevice__valid=True)
     extra_context = {'submissions': submissions}
     return direct_to_template(request, template='reports/facility/data.kml', extra_context=extra_context)
 
