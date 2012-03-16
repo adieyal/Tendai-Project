@@ -26,11 +26,19 @@ def make_inactive(modeladmin, request, queryset):
     queryset.update(active=False)
 make_inactive.short_description = "Deactivate selected submissions"
 
+def mark_as_valid(modeladmin, request, queryset):
+    queryset.update(verified=True, valid=True)
+mark_as_valid.short_description = "Mark selected submissions as valid"
+
+def mark_as_invalid(modeladmin, request, queryset):
+    queryset.update(verified=True, valid=False)
+mark_as_invalid.short_description = "Mark selected submissions as invalid"
+
 class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
     list_display = ('community_worker', 'community_worker_organisation', 'submission_type', 'facility', 'device')
     list_filter = ('active', 'community_worker__first_name', 'community_worker__last_name', 'community_worker__organisation__name', 'device__device_id', 'submission__form__name', 'community_worker__country__name')
     date_hierarchy = "created_date"
-    actions = [make_active, make_inactive]
+    actions = [mark_as_invalid, mark_as_valid]
 
     def facility(self, obj):
         content = obj.submission.content
