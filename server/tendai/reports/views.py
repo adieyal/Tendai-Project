@@ -31,93 +31,140 @@ def country(request, country_code):
     return direct_to_template(request, template='reports/country/report.html', extra_context=extra_context)
 
 def submission(request, id=None, validate=False, country=None, submission_type=None):
-    if country:
-        country = dev_models.Country.objects.get(code=country)
-        filtered = dev_models.SubmissionWorkerDevice.objects.exclude(verified=True).filter(community_worker__country=country)
-    else:
-        filtered = dev_models.SubmissionWorkerDevice.objects.exclude(verified=True)
 
-    if submission_type:
-        filtered = filtered.filter(submission__form__name=submission_type)
-    
-    remaining = filtered.count()
+
+    must_mark_as_valid = lambda : request.GET.get("valid", None) == "true"
+    must_mark_as_invalid = lambda : request.GET.get("valid", None) == "false"
+
+    class SubmissionSet(object):
+        def __init__(self):
+            self.filtered = dev_models.SubmissionWorkerDevice.objects.exclude(verified=True)
+            if country:
+                self.filtered = self.filtered.filter(community_worker__country=country)
+
+            if submission_type:
+                self.filtered = self.filtered.filter(submission__form__name=submission_type)
+        @property
+        def count(self):
+            return self.filtered.count()
+
+        @property
+        def submissions(self):
+            return self.filtered
+
+    class SWDFinder(object):
+        def __init__(self, submission_set, id=None): 
+            self.submission_set = submission_set
+            if not id: id = self._first_unverified_swd.id
+            self.id = id
+
+        @property
+        def _first_unverified_swd(self):
+            # Find first unverified entry if none is specified. Redirect there.
+            try:
+                return self.submission_set.submissions.order_by('id')[0]
+            except:
+                return dev_models.SubmissionWorkerDevice.objects.order_by('id')[0]
+
+        @property
+        def next_swd(self):
+            try:
+                return self.submission_set.submissions.filter(pk__gt=self.id).order_by('id')[0]
+            except:
+                return None 
+
+        @property
+        def prev_swd(self):
+            try:
+                return self.submission_set.submissions.filter(pk__lt=self.id).order_by('-id')[0]
+            except:
+                return None 
+
+        @property
+        def current_swd(self):
+            return get_object_or_404(dev_models.SubmissionWorkerDevice, pk=self.id)
+
+    class Router(object):
+        def __init__(self, finder):
+            self.finder = finder
+
+        @property
+        def basic_kwargs(self):
+            kwargs = {}
+            if country:
+                kwargs["country"] = country.code
+
+            if submission_type:
+                kwargs["submission_type"] = submission_type
+            return kwargs
+
+        def _get_url(self, swd):
+            kwargs = self.basic_kwargs
+            kwargs["id"] = swd.id
+            return reverse('devices_verify_country_swd', kwargs=kwargs)
+
+        @property
+        def current_url(self):
+            return self._get_url(self.finder.current_swd)
+
+        @property
+        def prev_url(self):
+            return self._get_url(self.finder.prev_swd or self.finder.current_swd)
+
+        @property
+        def next_url(self):
+            return self._get_url(self.finder.next_swd or self.finder.current_swd)
+
+    if country: country = dev_models.Country.objects.get(code=country)
+
+    submission_set = SubmissionSet()
+    navigator = SWDFinder(submission_set, id)
+    router = Router(navigator)
+
     # Find first unverified entry if none is specified. Redirect there.
-    if not id:
-        try:
-            first_swd = filtered.order_by('id')[0]
-        except:
-            first_swd = dev_models.SubmissionWorkerDevice.objects.order_by('id')[0]
-        if country:
-            return redirect(reverse('devices_verify_country_swd', kwargs={'id': first_swd.id, 'country': country.code}))
-        return redirect(reverse('devices_verify_swd', kwargs={'id': first_swd.id}))
-    swd = get_object_or_404(dev_models.SubmissionWorkerDevice, pk=id)
+    if not id: 
+        print "Redirecting current url: %s" % router.current_url
+        redirect(router.current_url)
+
+    swd = navigator.current_swd
+
+    if request.GET.get('navigate', None) == 'next':
+        print "Redirecting next url: %s" % router.next_url
+        return redirect(router.next_url)
+
+    if request.GET.get('navigate', None) == 'prev':
+        print "Redirecting prev url: %s" % router.prev_url
+        return redirect(router.prev_url)
+
+    if request.user.is_staff and validate and "valid" in request.GET:
+        verified = True
+        valid = True if must_mark_as_valid() else False
+        swd.verified = verified
+        swd.valid = valid
+        swd.save()
+        print "Redirecting validate: %s" % router.next_url
+        return redirect(router.next_url)
+
     submission = swd.submission
-    # Navigation options.
-    try:
-        next_swd = filtered.filter(pk__gt=id).order_by('id')[0]
-    except:
-        next_swd = swd
-    try:
-        prev_swd = filtered.filter(pk__lt=id).order_by('-id')[0]
-    except:
-        prev_swd = swd
+    specific_template = "%s.html" % submission.form.form_id        # specific form template
+    general_form_template = "%s.html" % submission.form.form_id.rsplit('-', 1)[0]  # general form template
+    general_template = "general.html"                              # general template
 
-    next_kwargs = {'id' : next_swd.id}
-    prev_kwargs = {'id' : prev_swd.id}
-
-    if country:
-        next_kwargs['country'] = country.code
-        prev_kwargs['country'] = country.code
-
-    if submission_type:
-        next_kwargs['submission_type'] = submission_type
-        prev_kwargs['submission_type'] = submission_type
-
-    next_url = reverse('devices_verify_country_swd', kwargs=next_kwargs)
-    prev_url = reverse('devices_verify_country_swd', kwargs=prev_kwargs)
-
-    if country:
-        filtered = filtered.filter(community_worker__country=country)
-
-    if request.GET.get('navigate', None)=='next':
-        return redirect(next_url)
-
-    if request.GET.get('navigate', None)=='prev':
-        return redirect(prev_url)
-
-    # Validation actions.
-    if not request.user.is_staff:
-        validate = False
-    if validate:
-        if request.GET.get('valid', None)=='true':
-            swd.verified = True
-            swd.valid = True
-            swd.save()
-            return redirect(next_url)
-        if request.GET.get('valid', None)=='false':
-            swd.verified = True
-            swd.valid = False
-            swd.save()
-            return redirect(next_url)
-
-    form_id = submission.form.form_id
-    try:
-        # Get specific form template...
-        template = get_template('reports/submission/' + form_id + '.html')
-    except TemplateDoesNotExist:
+    for template_name in [specific_template, general_form_template, general_template]:
         try:
-            # ...or get general form template...
-            template = get_template('reports/submission/' +
-                                    form_id.rsplit('-',1)[0] +
-                                    '.html')
-        except TemplateDoesNotExist:
-            # ...and if all else fails get the general template.
-            template = get_template('reports/submission/general.html')
-    extra_context={'submission': submission,
-                   'content': submission.content,
-                   'swd': swd,
-                   'validate': validate,
-                   'remaining': remaining }
+            template = get_template("reports/submission/%s" % template_name)
+            break
+        except TemplateDoesNotExist, e:
+            continue
+
+    extra_context={
+        'submission': submission,
+        'content': submission.content,
+        'swd': swd,
+        'validate': validate,
+        'remaining': submission_set.count 
+    }
+
     if country:
         extra_context['filter'] = country.name
     c = RequestContext(request, extra_context)
