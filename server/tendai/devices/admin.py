@@ -37,7 +37,7 @@ mark_as_invalid.short_description = "Mark selected submissions as invalid"
 class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
     list_display = ('community_worker', 'community_worker_organisation', 'submission_type', 'facility', 'verified', 'valid', 'device')
     list_filter = ('active', 'community_worker__first_name', 'community_worker__last_name', 'community_worker__organisation__name', 'device__device_id', 'submission__form__name', 'community_worker__country__name', 'verified', 'valid')
-    date_hierarchy = "created_date"
+    #date_hierarchy = "created_date"
     actions = [mark_as_invalid, mark_as_valid]
 
     def facility(self, obj):
@@ -95,6 +95,9 @@ class MedicineAdmin(admin.ModelAdmin):
         countries = model.countries.order_by("name")
         return ", ".join(country.name for country in countries)
 
+class FacilitySubmissionAdmin(admin.ModelAdmin):
+    list_display = ('submission', 'facility')
+
 admin.site.register(models.Country)
 admin.site.register(models.Organisation)
 admin.site.register(models.DosageForm)
@@ -106,3 +109,4 @@ admin.site.register(models.CommunityWorker, CommunityWorkerAdmin)
 admin.site.register(models.Device, DeviceAdmin)
 admin.site.register(models.SubmissionWorkerDevice, SubmissionWorkerDeviceAdmin)
 admin.site.register(models.CountryForm, CountryFormAdmin)
+admin.site.register(models.FacilitySubmission, FacilitySubmissionAdmin)

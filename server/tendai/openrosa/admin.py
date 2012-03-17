@@ -30,7 +30,7 @@ class ORFormAdmin(admin.ModelAdmin):
 class ORFormSubmissionAdmin(admin.ModelAdmin):
     list_display = ('created_date', 'device_id', 'subscriber_id', 'sim_id')
     list_filter = ('form', 'device_id', 'subscriber_id', 'sim_id')
-    date_hierarchy = 'created_date'
+    #date_hierarchy = 'created_date'
 
     def __init__(self, *args, **kwargs):
         super(ORFormSubmissionAdmin, self).__init__(*args, **kwargs)
