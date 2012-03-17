@@ -1,61 +1,22 @@
 # encoding: utf-8
+import sys
 import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
 
-from facility.models import Facility
-from devices.models import SubmissionWorkerDevice as SWD, FacilitySubmission
-from django.contrib.gis.geos import Point, fromstr
+from facility.models import Facility, create_facility_from_facility_submission
+from devices.models import SubmissionWorkerDevice as SWD
 
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
         for s in SWD.objects.filter(submission__form__name="Facility Form"):
-            content = s.submission.content
-            coordinates = content.section_location.facility_location
-
-            name = content.section_name.facility_name
-            district = content.section_name.facility_district
-            postal_address = content.section_contact.postal_address
-            phone_number = content.section_contact.phone_number
-            email = content.section_contact.email
-
-            facility_type = getattr(content.section_general, "facility_type", "")
-            facility_type_other = getattr(content.section_general, "facility_type_other", "")
-            description = getattr(content.section_general, "facility_description", "")
-
-            comments = getattr(content.section_comments, "comments", "")
-
-            lat, lng, _, _ = coordinates.split()
-            point = fromstr("POINT(%s %s)" % (lng, lat))
-            print point
-            facility = Facility(
-                name=name,
-                longitude=float(lng),
-                latitude=float(lat),
-                district=district,
-                postal_address=postal_address,
-                phone_number=phone_number,
-                email=email,
-                facility_type=facility_type,
-                facility_type_other=facility_type_other,
-                description=description,
-                comments=comments,
-                point=point
-            )
-            print facility.name
-            facility.save()
-            
-            FacilitySubmission.objects.create(
-                submission=s.submission,
-                facility=facility
-            )
+            facility = create_facility_from_facility_submission(s.submission)
 
     def backwards(self, orm):
         pass
         
-
 
     models = {
         'facility.facility': {
