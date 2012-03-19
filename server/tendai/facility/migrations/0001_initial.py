@@ -22,7 +22,7 @@ class Migration(SchemaMigration):
             ('facility_type_other', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('comments', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('point', self.gf('django.contrib.gis.db.models.fields.PointField')(null=True)),
+            ('point', self.gf('django.contrib.gis.db.models.fields.PointField')(null=True, srid=900913)),
         ))
         db.send_create_signal('facility', ['Facility'])
 

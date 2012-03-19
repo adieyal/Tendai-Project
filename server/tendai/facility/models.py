@@ -28,6 +28,7 @@ def create_facility_from_facility_submission(submission):
 
     lat, lng, _, _ = coordinates.split()
     point = Point(float(lng), float(lat), srid=4326)
+    point.transform(900913)
 
     facility = Facility(
         name=name,
@@ -71,8 +72,8 @@ class Facility(models.Model):
 
     # GeoDjango-specific: a geometry field (MultiPolygonField), and
     # overriding the default manager with a GeoManager instance.
-    point = models.PointField(help_text="Represented as (longitude, latitude)")
-    #point = models.PointField(help_text="Represented as (longitude, latitude)", srid=900913)
+    #point = models.PointField(help_text="Represented as (longitude, latitude)")
+    point = models.PointField(help_text="Represented as (longitude, latitude)", srid=900913, null=True)
     objects = models.GeoManager()
 
     def __unicode__(self):
