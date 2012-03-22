@@ -3,6 +3,20 @@ from olwidget.admin import GeoModelAdmin
 import models
 
 class FacilityAdmin(GeoModelAdmin):
+    options = {
+            'layers': ['ve.hybrid'],
+            'overlayStyle': {
+                'fillColor': '#ffff00',
+                'strokeWidth': 5,
+            },
+            'defaultLon': -72,
+            'defaultLat': 44,
+            'defaultZoom': 4,
+            'mapOptions' : {
+                'displayProjection' : 'EPSG:900913'
+            }
+        }
+
     list_display = ['name', 'community_monitor', 'registered', 'country']
 
     def community_monitor(self, obj):
