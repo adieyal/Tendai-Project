@@ -43,7 +43,7 @@ def recent_stories(request, template_name="stories.html", num_stories=100, extra
         media = ORSubmissionMedia.objects.filter(submission=submission)
         media1 = None
         if len(media) > 0: media1 = media[0].get_absolute_path()
-        swd = submission.submissionworkerdevice_set.all()[0]
+        swd = submission.submissionworkerdevice
         # If a story fails to be added for any reason it should just be skipped.
         try:
             data.append({
