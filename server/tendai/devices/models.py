@@ -271,7 +271,7 @@ class Device(models.Model):
 class SubmissionWorkerDevice(models.Model):
     community_worker = models.ForeignKey(CommunityWorker, null=True)
     device = models.ForeignKey(Device, null=True)
-    submission = models.ForeignKey(ormodels.ORFormSubmission, null=True)
+    submission = models.OneToOneField(ormodels.ORFormSubmission, null=True)
     # I don't like this field but adminmodels can't use date_hierarchy on a related object (submission)
     created_date = models.DateTimeField(auto_now_add=True) 
     active = models.BooleanField(default=True)
