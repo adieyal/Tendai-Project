@@ -2,12 +2,59 @@ from django.contrib.gis.db import models
 from django.dispatch import receiver
 from openrosa.signals import on_submission
 from django.contrib.gis.geos import Point
+from django.contrib.gis.measure import D 
+import fuzzywuzzy.process
 
 @receiver(on_submission)
 def create_new_facility(sender, submission, **kwargs):
     if not submission: return
     if submission.form.name == "Facility Form":
         create_facility_from_facility_submission(submission)
+
+def point_medicines_form_to_facility(mq_submission):
+    from devices.models import FacilitySubmission
+    content = mq_submission.content
+
+    coordinates = content.section_general.gps
+
+    lat, lng, _, _ = coordinates.split()
+    point = Point(float(lng), float(lat), srid=4326)
+    point.transform(900913)
+
+    mq_facility_name = content.section_general.facility_name
+    mq_submission_id = mq_submission.id
+    mq_submitter = mq_submission.submissionworkerdevice.community_worker
+    mq_date = mq_submission.created_date
+
+    nb_facilities = Facility.objects.filter(point__distance_lt=(point, D(m=500)))
+    if nb_facilities.count() == 1:
+        nb_facility = nb_facilities[0]
+        nb_facility_name = nb_facility.name
+        nb_facility_id = nb_facility.id
+        nb_submission = nb_facility.facilitysubmission_set.all()[0].submission
+        nb_submission_id = nb_submission.id
+        nb_swd = nb_submission.submissionworkerdevice
+        nb_submitter = nb_swd.community_worker
+        nb_swd_id = nb_swd.id
+        nb_date = nb_submission.created_date
+
+        _, score = fuzzywuzzy.process.extract(mq_facility_name, [nb_facility.name])[0]
+        if score < 80:
+            print """
+    MQ Name: %(mq_facility_name)s
+    MQ Submission ID: %(mq_submission_id)s
+    MQ Submitter: %(mq_submitter)s
+    MQ Date: %(mq_date)s
+    NB Facility: %(nb_facility_name)s ID: %(nb_facility_id)s
+    NB Submission ID: %(nb_submission_id)s
+    NB SWD ID: %(nb_swd_id)s
+    NB Submitter: %(nb_submitter)s
+    NB Date: %(nb_date)s
+    """ % locals()
+            print ""
+            
+            #if nearby_facility.distance.m <= 50:
+    
 
 def create_facility_from_facility_submission(submission):
     from devices.models import FacilitySubmission
