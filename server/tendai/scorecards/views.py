@@ -21,7 +21,18 @@ def scorecard(request, country, year=2011, month=12):
     country = get_object_or_404(dev_models.Country, code=country)
     year = int(year)
     month = int(month)
-    swds = dev_models.SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(created_date__year=year, created_date__month=month)
+    valid_swds = dev_models.SubmissionWorkerDevice.objects.filter(
+        created_date__year=year, 
+        created_date__month=month, 
+        verified=True, 
+        valid=True
+    )
+
+    country_valid_swds = valid_swds.filter(
+        community_worker__country=country,
+    )
+
+    forms = or_models.ORForm.objects.order_by('name').values('name').distinct()
     
     template = open(path.join(settings.STATIC_ROOT, 'scorecard.svg'))
     svg = etree.XML(template.read())
@@ -77,36 +88,31 @@ def scorecard(request, country, year=2011, month=12):
     monitors = dev_models.CommunityWorker.objects.filter(country=country).order_by('first_name')
     most_submissions = -1
     best_monitor = None
+
     for line in range(22):
         try:
             monitor = monitors[line]
-            forms_count = {}
-            forms = or_models.ORForm.objects.order_by('name').values('name').distinct()
+            my_swds = country_valid_swds.filter(community_worker=monitor)
+            submissions_count = {}
             for form in forms:
-                count = swds.filter(submission__form__name=form['name'], community_worker=monitor).count()
-                forms_count[form['name']] = count
-            forms_count['Total'] = sum([value for key, value in forms_count.items()])
-            if forms_count['Total'] > most_submissions:
+                count = my_swds.filter(submission__form__name=form['name']).count()
+                submissions_count[form['name']] = count
+            submissions_count['Total'] = sum(submissions_count.values())
+            if submissions_count['Total'] > most_submissions:
                 best_monitor = monitor
-                most_submissions = forms_count['Total']
+                most_submissions = submissions_count['Total']
             #Get unique facilities.
-            forms = dev_models.SubmissionWorkerDevice.objects.filter(submission__form__name='Facility Form', community_worker=monitor)
-            facility_uid = set()
-            for form in forms:
-                try:
-                    facility_uid.add(locations[form.submission.id]['uid'])
-                except:
-                    pass
+            facility_submissions = my_swds.filter(submission__form__name='Facility Form').values("submission__facilitysubmission__facility").distinct()
         except:
             monitor = None
         
         if monitor:
             set_text(name % (line), monitor.get_name())
-            set_text(facilities % (line), len(facility_uid))
-            set_text(medicines % (line), forms_count['Medicines Form'])
-            set_text(interviews % (line), forms_count['Tendai Interview'])
-            set_text(stories % (line), forms_count['Tendai Story'])
-            set_text(totals % (line), forms_count['Total'])
+            set_text(facilities % (line), len(facility_submissions))
+            set_text(medicines % (line), submissions_count['Medicines Form'])
+            set_text(interviews % (line), submissions_count['Tendai Interview'])
+            set_text(stories % (line), submissions_count['Tendai Story'])
+            set_text(totals % (line), submissions_count['Total'])
         else:
             set_text(name % (line), ' ')
             set_text(facilities % (line), ' ')
@@ -118,18 +124,18 @@ def scorecard(request, country, year=2011, month=12):
     #Submissions sliders.
     number = '//svg:text[@id="country.submissions.text"]'
     slider = '//svg:g[@id="country.submissions.slider"]'
-    count = swds.filter(community_worker__country=country).count()
+    count = country_valid_swds.count()
     monitors = dev_models.CommunityWorker.objects.filter(country=country).count()
     per_monitor = float(count)/float(monitors)
     set_text(number, '%0.1f' % (per_monitor))
-    set_attr(slider, 'transform', 'translate(%.2f)' % (min(per_monitor,4.0)*44.0))
+    set_attr(slider, 'transform', 'translate(%.2f)' % (min(per_monitor, 4.0) * 44.0))
     number = '//svg:text[@id="average.submissions.text"]'
     slider = '//svg:g[@id="average.submissions.slider"]'
-    count = dev_models.SubmissionWorkerDevice.objects.filter(created_date__year=year, created_date__month=month).count()
+    count = valid_swds.count()
     monitors = dev_models.CommunityWorker.objects.count()
     per_monitor = float(count)/float(monitors)
     set_text(number, '%0.1f' % (per_monitor))
-    set_attr(slider, 'transform', 'translate(%.2f)' % (min(per_monitor,4.0)*44.0))
+    set_attr(slider, 'transform', 'translate(%.2f)' % (min(per_monitor, 4.0) * 44.0))
     
     #Monitor of the month.
     name = '//svg:text[@id="best_monitor.name"]'
@@ -138,7 +144,7 @@ def scorecard(request, country, year=2011, month=12):
     photo = '//svg:image[@id="best_monitor.image"]'
     set_text(name, best_monitor.get_name())
     set_text(organisation, 'Organisation: %s' % best_monitor.organisation.name)
-    set_text(submissions, swds.filter(community_worker=best_monitor).count())
+    set_text(submissions, country_valid_swds.filter(community_worker=best_monitor).count())
     image = open(path.join(settings.STATIC_ROOT, 'user.jpg'))
     data = b64encode(image.read())
     set_attr(photo, '{%s}href' % (nsmap['xlink']), 'data:image/jpg;base64,%s' % (data))
@@ -216,9 +222,9 @@ def scorecard(request, country, year=2011, month=12):
             #Ugly hack for ends-with which is not supported in XPath.
             ew='//svg:g[substring(@id, string-length(@id) - string-length("%s")+ 1, string-length(@id)) = "%s"]'
             #Go through all medicine questionnaires and determine stockouts.
-            forms = dev_models.SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form').filter(created_date__year=year, created_date__month=month)
+            medicine_submissions = country_valid_swds.filter(submission__form__name='Medicines Form')
             districts = set()
-            for form in forms:
+            for form in medicine_submissions:
                 content = form.submission.content
                 try:
                     district_name = locations[form.submission.id]['district']
