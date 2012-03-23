@@ -21,7 +21,7 @@ class FacilityAdmin(GeoModelAdmin):
 
     def community_monitor(self, obj):
         try:
-            return obj.facilitysubmission_set.all()[0].submission.submissionworkerdevice_set.all()[0].community_worker
+            return obj.facilitysubmission_set.all()[0].submission.submissionworkerdevice.community_worker
         except:
             pass
 
@@ -33,7 +33,7 @@ class FacilityAdmin(GeoModelAdmin):
 
     def country(self, obj):
         try:
-            return obj.facilitysubmission_set.all()[0].submission.submissionworkerdevice_set.all()[0].community_worker.country
+            return obj.facilitysubmission_set.all()[0].submission.submissionworkerdevice.community_worker.country
         except:
             pass
 
