@@ -16,7 +16,7 @@ def facilities_kml(request):
 
 def facility_info(request, submission_id):
     submission = get_object_or_404(or_models.ORFormSubmission, pk=submission_id)
-    swd = submission.submissionworkerdevice_set.all()[0]
+    swd = submission.submissionworkerdevice
     extra_context={'submission': submission,
                    'swd': swd}
     return direct_to_template(request, template='reports/facility/info.html', extra_context=extra_context)
