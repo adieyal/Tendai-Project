@@ -250,6 +250,12 @@ class CommunityWorker(models.Model):
             first_name = self.first_name
         return "%s %s" % (first_name, self.last_name)
 
+    @property
+    def my_submissions(self):
+        return SubmissionWorkerDevice.objects.all_valid.filter(
+            community_worker=self
+        )
+
     def get_forms_count(self, days=30):
         forms = ormodels.ORForm.objects.order_by('name').values('name').distinct()
         forms_count = {}
@@ -261,12 +267,47 @@ class CommunityWorker(models.Model):
     def __unicode__(self):
         return "%s %s (%s)" % (self.first_name, self.last_name, self.organisation)
 
+class MonitorSubmissions(object):
+    def __init__(self, monitor):
+        self.monitor = monitor
+
+    @property
+    def all_submissions(self):
+        return self.monitor.my_submissions
+
+    def submissions_by_form(self, form_name):
+        return self.all_submissions.filter(submission__form__name=form_name) 
+
+    @property
+    def facility_submissions(self):
+        return self.submissions_by_form("Facility Form")
+
+    @property
+    def medicines_submissions(self):
+        return self.submissions_by_form("Medicines Form")
+
+    @property
+    def story_submissions(self):
+        return self.submissions_by_form("Tendai Story")
+
+    @property
+    def interview_submissions(self):
+        return self.submissions_by_form("Tendai Interview")
+
+
 class Device(models.Model):
     device_id = models.CharField(max_length=30)
     community_worker = models.ForeignKey(CommunityWorker)
 
     def __unicode__(self):
         return "%s" % self.device_id
+
+class SubmissionWorkerDeviceManager(models.Manager):
+    @property
+    def all_valid(self):
+        return self.all().filter(
+            verified=True, valid=True
+        )
 
 class SubmissionWorkerDevice(models.Model):
     community_worker = models.ForeignKey(CommunityWorker, null=True)
@@ -277,6 +318,8 @@ class SubmissionWorkerDevice(models.Model):
     active = models.BooleanField(default=True)
     verified = models.BooleanField(default=False)
     valid = models.BooleanField(default=True)
+
+    objects = SubmissionWorkerDeviceManager()
 
     def get_absolute_url(self):
         return reverse("devices_view_swd", kwargs={"id" : self.id})
