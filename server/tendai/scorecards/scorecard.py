@@ -2,6 +2,8 @@ from os import path
 from base64 import b64encode
 from lxml import etree
 import devices.models as dev_models
+from facility.models import Coordinates, SubmissionCoordinateFactory
+import facility.models as fac_models
 
 
 class Month(object):
@@ -24,7 +26,8 @@ class SVGEditor(object):
             'dc': 'http://purl.org/dc/elements/1.1/',
             'xlink': 'http://www.w3.org/1999/xlink',
             'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-            'inkscape': 'http://www.inkscape.org/namespaces/inkscape'
+            'inkscape': 'http://www.inkscape.org/namespaces/inkscape',
+            'tendai': "http://tendai.medicinesinfohub.net/namespaces/tendai",
         }
 
     def xpath(self, xpath):
@@ -249,33 +252,120 @@ class ScoreCardGenerator(object):
             if svg_country != country
         ]
 
+        class MapBBox(object):
+            def __init__(self, element):
+                self.element = element
+
+            @property
+            def width(self):
+                return float(self.element.attrib["width"])
+
+            @property
+            def height(self):
+                return float(self.element.attrib["height"])
+
+            @property
+            def x(self):
+                return float(self.element.attrib["x"])
+
+            @property
+            def y(self):
+                return float(self.element.attrib["y"])
+
+        class MapGroup(object):
+            def __init__(self, element):
+                self.element = element 
+                self.namespace = "http://tendai.medicinesinfohub.net/namespaces/tendai"
+
+            def get_attr(self, attr):
+                return self.element.attrib["{%s}%s" % (self.namespace, attr)]
+
+            @property
+            def minx(self):
+                return float(self.get_attr("minx"))
+
+            @property
+            def maxx(self):
+                return float(self.get_attr("maxx"))
+
+            @property
+            def miny(self):
+                return float(self.get_attr("miny"))
+
+            @property
+            def maxy(self):
+                return float(self.get_attr("maxy"))
+
+        class StockoutSpotFactory(object):
+            def __init__(self, parent, map_group, map_box):
+                self.map_group = map_group
+                self.map_box = map_box
+                self.parent = parent
+
+            def convert_to_pixels(self, coordinates):
+                c_width = map_group.maxx - map_group.minx
+                c_height = map_group.maxy - map_group.miny
+                
+                adj_x = coordinates.longitude - map_group.minx
+                adj_y = coordinates.latitude - map_group.miny
+                
+                ratio_x = adj_x / c_width
+                # to compensate for the origin at the top left
+                ratio_y = 1 - adj_y / c_height
+
+                p_x = map_box.width * ratio_x + map_box.x
+                p_y = map_box.height * ratio_y + map_box.y
+                
+                return (p_x, p_y)
+
+            def add_spot(self, coordinates, stockout=True):
+                x, y = self.convert_to_pixels(coordinates)
+                circle = etree.Element("circle")
+                circle.attrib["cx"] = "%s" % x
+                circle.attrib["cy"] = "%s" % y
+                circle.attrib["r"] = "10"
+                #circle.attrib["style"] = "fill:#c11e1e;fill-opacity:0.56086957"
+                if stockout:
+                    circle.attrib["style"] = "fill:url(#red_gradient);fill-opacity:0.96086957"
+                else:
+                    circle.attrib["style"] = "fill:url(#green_gradient);fill-opacity:0.96086957"
+                self.parent.append(circle)
+
         #Color the map.
         #Go through all medicine questionnaires and determine stockouts.
         medicine_submissions = valid_swds_by_country.filter(submission__form__name='Medicines Form')
+        facility_submissions = dev_models.SubmissionWorkerDevice.objects.all_valid.filter(
+            submission__form__name='Facility Form',
+            community_worker__country=country
+            
+        )
         districts = set()
+        xp_map_group = '//svg:g[@id="%s"]/svg:g[@id="%s_map"]' % (country.code, country.code)
+        xp_box = '//svg:g[@id="%s"]/svg:rect[@id="%s_box"]' % (country.code, country.code)
+
+        map_group = MapGroup(self.svgeditor.xpath(xp_map_group)[0])
+        map_box = MapBBox(self.svgeditor.xpath(xp_box)[0])
+        spot_factory = StockoutSpotFactory(map_group.element.getparent(), map_group, map_box)
+
+        for form in facility_submissions:
+            content = form.submission.content
+            if content:
+                coordinates = SubmissionCoordinateFactory.parse(content.section_location.facility_location)
+                spot_factory.add_spot(coordinates, False)
+
         for form in medicine_submissions:
             content = form.submission.content
-            try:
-                district_name = locations[form.submission.id]['district']
-            except:
-                district_name = 'not_in_locations_file'
-            if district_name not in districts:
-                districts.add(district_name)
-                try:
-                    self.svgeditor.set_all_attr(district % (district_name, district_name),
-                                 'style', MONITORED)
-                except:
-                    print 'MONITORED District failure: %s' % (district_name)
+            
             if content:
+                coordinates = SubmissionCoordinateFactory.parse(content.section_general.gps)
                 sections = [section for section in content.nodes() if section.startswith('medicine-')]
                 for section in sections:
                     stock = getattr(content, section).medicine_available
                     if stock == 'No':
-                        try:
-                            self.svgeditor.set_all_attr(district % (district_name, district_name),
-                                         'style', STOCKOUT)
-                        except:
-                            print 'STOCKOUT District failure: %s' % (district_name)
+                        spot_factory.add_spot(coordinates) 
+                        break
+                #else:
+                #    spot_factory.add_spot(coordinates, False) 
     def render_all(self, country, month):
         monitors = dev_models.CommunityWorker.objects.filter(country=country).order_by('first_name')
         valid_swds = dev_models.SubmissionWorkerDevice.objects.all_valid.filter(
@@ -288,7 +378,7 @@ class ScoreCardGenerator(object):
         self.render_monitors_table(monitors, month)
         self.render_submission_sliders(monitors, valid_swds, valid_swds_by_country)
         self.render_monitor_of_the_month(monitors, valid_swds_by_country, month)
-        self.render_medicines_table(country, month)
+        #self.render_medicines_table(country, month)
         self.render_stories()
         self.render_stockout_map(country, valid_swds_by_country)
 
