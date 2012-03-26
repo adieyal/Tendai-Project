@@ -11,14 +11,35 @@ def create_new_facility(sender, submission, **kwargs):
     if submission.form.name == "Facility Form":
         create_facility_from_facility_submission(submission)
 
+class SubmissionCoordinateFactory(object):
+    @staticmethod 
+    def parse(coordinates):
+        c = coordinates.split()
+        return Coordinates(float(c[0]), float(c[1]))
+    
+class Coordinates(object):
+    def __init__(self, lat, lng):
+        self.lat = lat
+        self.lng = lng
+
+    @property
+    def latitude(self):
+        return self.lat
+
+    @property
+    def longitude(self):
+        return self.lng
+
+    def __str__(self):
+        return "[Coordinates] %s %s" % (self.latitude, self.longitude)
+
 def point_medicines_form_to_facility(mq_submission):
     from devices.models import FacilitySubmission
     content = mq_submission.content
 
-    coordinates = content.section_general.gps
+    coordinates = Coordinates(content.section_general.gps)
 
-    lat, lng, _, _ = coordinates.split()
-    point = Point(float(lng), float(lat), srid=4326)
+    point = Point(coordinates.longitude, coordinates.latitude, srid=4326)
     point.transform(900913)
 
     mq_facility_name = content.section_general.facility_name
