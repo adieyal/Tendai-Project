@@ -31,13 +31,37 @@
       <i:pgfRef
          xlink:href="#adobe_illustrator_pgf" />
     </foreignObject>
-    <radialGradient id="red_gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-      <stop id="stop1" offset="0" style="stop-color:#ff0606;stop-opacity:1;" />
-      <stop id="stop2" offset="1" style="stop-color:#ff0606;stop-opacity:0.2;" />
+    <radialGradient
+       id="red_gradient"
+       cx="50%"
+       cy="50%"
+       r="50%"
+       fx="50%"
+       fy="50%">
+      <stop
+         id="stop1"
+         offset="0"
+         style="stop-color:#ff0606;stop-opacity:1;" />
+      <stop
+         id="stop2"
+         offset="1"
+         style="stop-color:#ff0606;stop-opacity:0.2;" />
     </radialGradient>
-    <radialGradient id="green_gradient" cx="50%" cy="50%" r="90%" fx="50%" fy="50%">
-      <stop id="stop1" offset="0" style="stop-color:#00ff00;stop-opacity:1;" />
-      <stop id="stop2" offset="1" style="stop-color:#ffffff;stop-opacity:0.235;" />
+    <radialGradient
+       id="green_gradient"
+       cx="50%"
+       cy="50%"
+       r="90%"
+       fx="50%"
+       fy="50%">
+      <stop
+         id="stop9"
+         offset="0"
+         style="stop-color:#00ff00;stop-opacity:1;" />
+      <stop
+         id="stop11"
+         offset="1"
+         style="stop-color:#ffffff;stop-opacity:0.235;" />
     </radialGradient>
     <radialGradient
        gradientUnits="userSpaceOnUse"
@@ -579,6 +603,58 @@
        y1="401.4512"
        x2="292.54639"
        y2="388.41211" />
+    <radialGradient
+       id="green_gradient-4"
+       cx="0.5"
+       cy="0.5"
+       r="0.89999998"
+       fx="0.5"
+       fy="0.5">
+      <stop
+         id="stop6065"
+         offset="0"
+         style="stop-color:#00ff00;stop-opacity:1;" />
+      <stop
+         id="stop6067"
+         offset="1"
+         style="stop-color:#ffffff;stop-opacity:0.235;" />
+    </radialGradient>
+    <radialGradient
+       gradientUnits="userSpaceOnUse"
+       r="18"
+       fy="457.30008"
+       fx="660.22766"
+       cy="457.30008"
+       cx="660.22766"
+       id="radialGradient7579"
+       xlink:href="#green_gradient-4"
+       inkscape:collect="always" />
+    <radialGradient
+       id="red_gradient-7"
+       cx="0.5"
+       cy="0.5"
+       r="0.5"
+       fx="0.5"
+       fy="0.5">
+      <stop
+         id="stop1-4"
+         offset="0"
+         style="stop-color:#ff0606;stop-opacity:1;" />
+      <stop
+         id="stop2-4"
+         offset="1"
+         style="stop-color:#ff0606;stop-opacity:0.2;" />
+    </radialGradient>
+    <radialGradient
+       gradientUnits="userSpaceOnUse"
+       r="10"
+       fy="425.32718"
+       fx="675.74725"
+       cy="425.32718"
+       cx="675.74725"
+       id="radialGradient7610"
+       xlink:href="#red_gradient-7"
+       inkscape:collect="always" />
   </defs>
   <sodipodi:namedview
      inkscape:document-units="mm"
@@ -588,15 +664,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.251561"
-     inkscape:cx="423.18273"
-     inkscape:cy="60.875365"
-     inkscape:current-layer="za"
+     inkscape:cx="503.76095"
+     inkscape:cy="162.05715"
+     inkscape:current-layer="layer1"
      id="namedview28786"
      showgrid="false"
      inkscape:window-width="1918"
-     inkscape:window-height="1034"
+     inkscape:window-height="1019"
      inkscape:window-x="0"
-     inkscape:window-y="15"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -617,8 +693,7 @@
      inkscape:label="Fixed Data"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <path
        id="path31187"
        d="M 278.40168,530.6176 H 521.36377 V 49.34953 l -487.435203,0 c -20.633995,0 -27.1074307,6.473435 -27.1074307,27.106148 l 0,621.415192 c 0,20.63399 16.7276337,37.35906 37.3603477,37.35906 H 278.40168 V 530.6176 z"
@@ -1109,7 +1184,7 @@
        style="fill:#e6e7e8" />
     <polygon
        id="polygon31416"
-       points="42.313,25.338 274.568,25.338 272.821,37.793 40.566,37.793 "
+       points="40.566,37.793 42.313,25.338 274.568,25.338 272.821,37.793 "
        style="fill:none"
        transform="matrix(1.2816146,0,0,1.2816146,-9.4182023,-14.569717)" />
     <text
@@ -1890,7 +1965,7 @@
                 </linearGradient>
                 <polygon
                    id="polygon31637"
-                   points="747.859,27.683 729.686,50.861 706.507,32.687 724.682,9.508 "
+                   points="724.682,9.508 747.859,27.683 729.686,50.861 706.507,32.687 "
                    clip-path="url(#SVGID_34_)"
                    style="fill:url(#SVGID_35_)" />
               </g>
@@ -6055,36 +6130,25 @@
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="848.79114"
-       y="470.86679"
-       id="text9990"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan9992"
-         x="848.79114"
-         y="470.86679">District not monitored</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="848.79114"
-       y="486.86679"
+       x="858.79114"
+       y="478.86679"
        id="text9994"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan9996"
-         x="848.79114"
-         y="486.86679">District monitored</tspan></text>
+         x="858.79114"
+         y="478.86679">Monitored Facility</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="848.79114"
-       y="502.86679"
+       x="858.79114"
+       y="496.86679"
        id="text9998"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan10000"
-         x="848.79114"
-         y="502.86679">District with stockout</tspan></text>
+         x="858.79114"
+         y="496.86679">Facility with Stockout</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7235,7 +7299,7 @@
          id="country.submissions.text">0.0</text>
     </g>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.0.name"
        x="573.53998"
@@ -7243,7 +7307,7 @@
        inkscape:label="#text33098"
        sodipodi:linespacing="125%">Acyclovir</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.1.name"
        x="573.53998"
@@ -7251,7 +7315,7 @@
        inkscape:label="#text33102"
        sodipodi:linespacing="125%">Artemether + lumefantrine 20 + 120mg</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.2.name"
        x="573.53998"
@@ -7259,7 +7323,7 @@
        inkscape:label="#text33106"
        sodipodi:linespacing="125%">Ceftriaxone 250mg pwd for injection</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.4.name"
        x="573.53998"
@@ -7267,7 +7331,7 @@
        inkscape:label="#text33110"
        sodipodi:linespacing="125%">Cotrimoxazole 480mg</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.5.name"
        x="573.53998"
@@ -7275,7 +7339,7 @@
        inkscape:label="#text33114"
        sodipodi:linespacing="125%">Fluconazole 50mg</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.6.name"
        x="573.53998"
@@ -7283,7 +7347,7 @@
        inkscape:label="#text33118"
        sodipodi:linespacing="125%">Lamivudine/Stavudine/Nevirapine 30 + 6 +50mg dispersible</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.7.name"
        x="573.53998"
@@ -7291,7 +7355,7 @@
        inkscape:label="#text33122"
        sodipodi:linespacing="125%">Misoprostal 200ug</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.8.name"
        x="573.53998"
@@ -7299,7 +7363,7 @@
        inkscape:label="#text33126"
        sodipodi:linespacing="125%">Oxytocin 10IU/ml</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.9.name"
        x="573.53998"
@@ -7307,7 +7371,7 @@
        inkscape:label="#text33130"
        sodipodi:linespacing="125%">Paracetamol 120mg/5ml</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.10.name"
        x="573.53998"
@@ -7315,7 +7379,7 @@
        inkscape:label="#text33134"
        sodipodi:linespacing="125%">Paracetamol 500mg</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.11.name"
        x="573.53998"
@@ -7323,7 +7387,7 @@
        inkscape:label="#text33138"
        sodipodi:linespacing="125%">Rifampicin/isoniazid 150 + 75mg</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.12.name"
        x="573.53998"
@@ -7331,7 +7395,7 @@
        inkscape:label="#text33142"
        sodipodi:linespacing="125%">Vitamin A capsule</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.13.name"
        x="573.53998"
@@ -7339,7 +7403,7 @@
        inkscape:label="#text33146"
        sodipodi:linespacing="125%">Zinc Sulphate 20mg dispersible</text>
     <text
-       style="font-size:7px;font-family:Sans;-inkscape-font-specification:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+       style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
        font-size="6"
        id="medicine.3.name"
        x="573.53998"
@@ -8109,27 +8173,6 @@
        id="best_monitor.organisation"
        sodipodi:linespacing="125%"
        inkscape:label="#text5521">Organisation: KRIPTON</text>
-    <rect
-       style="fill:#f6e1b9;fill-opacity:1;stroke:#000000;stroke-width:0.25;stroke-opacity:1"
-       id="rect9187"
-       width="10.629921"
-       height="10.629921"
-       x="833.2616"
-       y="478.9422" />
-    <rect
-       y="462.9422"
-       x="833.2616"
-       height="10.629921"
-       width="10.629921"
-       id="rect10002"
-       style="fill:#fefee9;fill-opacity:1;stroke:#000000;stroke-width:0.25;stroke-opacity:1" />
-    <rect
-       style="fill:#c11e1e;fill-opacity:1;stroke:#000000;stroke-width:0.25;stroke-opacity:1"
-       id="rect10004"
-       width="10.629921"
-       height="10.629921"
-       x="833.2616"
-       y="494.9422" />
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:italic;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Italic"
@@ -8178,6 +8221,28 @@
        style="font-size:6px;font-style:italic;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Italic"
        xml:space="preserve"
        inkscape:label="#text10712">Date</text>
+    <circle
+       transform="translate(181.51867,15.515693)"
+       cx="660.22766"
+       cy="457.30008"
+       r="10"
+       style="fill:url(#radialGradient7579);fill-opacity:0.96086899;display:inline"
+       id="circle7523"
+       sodipodi:cx="660.22766"
+       sodipodi:cy="457.30008"
+       sodipodi:rx="10"
+       sodipodi:ry="10" />
+    <circle
+       transform="translate(165.99908,68.669635)"
+       cx="675.74725"
+       cy="425.32718"
+       r="10"
+       style="fill:url(#radialGradient7610);fill-opacity:0.96086899;display:inline"
+       id="circle7559"
+       sodipodi:cx="675.74725"
+       sodipodi:cy="425.32718"
+       sodipodi:rx="10"
+       sodipodi:ry="10" />
   </g>
   <g
      inkscape:groupmode="layer"
