@@ -5,7 +5,6 @@ from openrosa.signals import on_submission
 
 @receiver(on_submission, dispatch_uid="devices_on_submission")
 def process_signal(sender, submission, **kwargs):
-    import pdb; pdb.set_trace()
     try:
         device = models.Device.objects.get(device_id=submission.device_id)
         community_worker = device.community_worker
