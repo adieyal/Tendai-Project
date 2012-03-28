@@ -378,7 +378,7 @@ class ScoreCardGenerator(object):
         self.render_monitors_table(monitors, month)
         self.render_submission_sliders(monitors, valid_swds, valid_swds_by_country)
         self.render_monitor_of_the_month(monitors, valid_swds_by_country, month)
-        #self.render_medicines_table(country, month)
+        self.render_medicines_table(country, month)
         self.render_stories()
         self.render_stockout_map(country, valid_swds_by_country)
 
