@@ -29,7 +29,7 @@
             </tr>
 	  </thead>
 	  <tbody>
-            {% for worker in country.communityworker_set.all %}
+            {% for worker in country.communityworker_set.all_active %}
             <tr>
               <td>{{ worker.first_name }}</td>
               <td>{{ worker.last_name }}</td>

@@ -367,7 +367,7 @@ class ScoreCardGenerator(object):
                 #else:
                 #    spot_factory.add_spot(coordinates, False) 
     def render_all(self, country, month):
-        monitors = dev_models.CommunityWorker.objects.filter(country=country).order_by('first_name')
+        monitors = dev_models.CommunityWorker.objects.all_active.filter(country=country).order_by('first_name')
         valid_swds = dev_models.SubmissionWorkerDevice.objects.all_valid.filter(
             created_date__year=month.year, 
             created_date__month=month.month, 

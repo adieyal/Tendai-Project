@@ -24,7 +24,7 @@ def facility_info(request, submission_id):
 def country(request, country_code):
     countries = dev_models.Country.objects.all()
     country = dev_models.Country.objects.get(code=country_code)
-    workers = dev_models.CommunityWorker.objects.filter(country=country)
+    workers = dev_models.CommunityWorker.objects.all_active.filter(country=country)
     extra_context={'workers': workers,
                    'selected_country': country,
                    'countries': countries}

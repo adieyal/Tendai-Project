@@ -233,12 +233,22 @@ class District(models.Model):
     def __unicode__(self):
         return u"%s, %s" % (self.name, self.country)
 
+class CommunityWorkerManager(models.Manager):
+    @property
+    def all_active(self):
+        return self.all().filter(
+            active=True
+        )
+
 class CommunityWorker(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     organisation = models.ForeignKey(Organisation)
     phone_number = models.CharField(max_length=30, blank=True, null=True)
     country = models.ForeignKey(Country, blank=True, null=True)
+    active = models.BooleanField(default=1)
+
+    objects = CommunityWorkerManager()
     
     def get_full_name(self):
         return "%s %s" % (self.first_name, self.last_name)
