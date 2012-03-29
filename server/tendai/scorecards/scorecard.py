@@ -237,7 +237,7 @@ class ScoreCardGenerator(object):
                 if svg_country != country
             ]
 
-        remove_unwanted_countries(svg_country)
+        remove_unwanted_countries(country)
 
         class MapBBox(object):
             def __init__(self, element):
