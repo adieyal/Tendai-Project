@@ -6,16 +6,6 @@ from facility.models import Coordinates, SubmissionCoordinateFactory
 import facility.models as fac_models
 
 
-class Month(object):
-    MONTHNAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    def __init__(self, year, month):
-        self.year = year
-        self.month = month
-
-    @property
-    def month_as_str(self):
-        return Month.MONTHNAMES[self.month - 1]
-
 class SVGEditor(object):
     def __init__(self, svg):
         self.svg = svg
@@ -172,11 +162,11 @@ class ScoreCardGenerator(object):
         def render_medicines_row(medicine, line):
             if medicine:
                 self.svgeditor.set_text(name % (line), medicine.name)
-                self.svgeditor.set_text(stocked % (line), medicine.stocked(country, month.year, month.month))
-                self.svgeditor.set_text(stockout % (line), medicine.stock(country, month.year, month.month))
-                self.svgeditor.set_text(level % (line), medicine.level(country, month.year, month.month))
-                self.svgeditor.set_text(stockout_days % (line), medicine.stockout_days(country, month.year, month.month))
-                self.svgeditor.set_text(replenish_days % (line), medicine.replenish_days(country, month.year, month.month))
+                self.svgeditor.set_text(stocked % (line), medicine.stocked(country, month))
+                self.svgeditor.set_text(stockout % (line), medicine.stock(country, month))
+                self.svgeditor.set_text(level % (line), medicine.level(country, month))
+                self.svgeditor.set_text(stockout_days % (line), medicine.stockout_days(country, month))
+                self.svgeditor.set_text(replenish_days % (line), medicine.replenish_days(country, month))
             else:
                 self.svgeditor.set_text(name % (line), ' ')
                 self.svgeditor.set_text(stocked % (line), ' ')

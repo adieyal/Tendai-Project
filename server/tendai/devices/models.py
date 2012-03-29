@@ -4,6 +4,8 @@ from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 from datetime import datetime, timedelta
 from facility import models as facilitymodels
+from general.utils import Month, count
+
 
 from openrosa import models as ormodels
 
@@ -61,153 +63,128 @@ class Medicine(models.Model):
     form = models.ForeignKey(DosageForm)
     countries = models.ManyToManyField(Country)
     
-    def get_container(self):
+    @property
+    def container(self):
         return _(self.form.container)
-    container=property(get_container)
         
-    def get_containers(self):
+    @property
+    def containers(self):
         return _(self.form.containers)
-    containers=property(get_containers)
     
-    def get_unit(self):
+    @property
+    def unit(self):
         return _(self.form.unit)
-    unit=property(get_unit)
     
-    def get_units(self):
+    @property
+    def units(self):
         return _(self.form.units)
-    units=property(get_units)
-    
-    def stocked(self, country, year=None, month=None):
-        tag_name = slugify(self.name) + '-' + slugify(self.form.unit)
-        stocked_yes = 0
-        stocked_no = 0
-        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
-        if year:
-            forms = forms.filter(created_date__year=year)
+
+    def _medicines_by_country_and_month(self, country, month):
+        forms = SubmissionWorkerDevice.objects.medicines_submissions.filter(
+            community_worker__country=country,
+        )
+
         if month:
-            forms = forms.filter(created_date__month=month)
-        for form in forms:
-            content = form.submission.content
-            if content:
-                try:
-                    stocked = getattr(content.section_stocked, tag_name)
-                except:
-                    stocked = 'not_found'
-                if stocked == 'yes':
-                    stocked_yes += 1
-                if stocked == 'no':
-                    stocked_no += 1
+            forms = forms.filter(
+                created_date__month=month.month,
+                created_date__year=month.year
+            )
+        return forms
+
+    def _medicine_tag_name(self):
+        return 'medicine-%s-%s' % (slugify(self.name), slugify(self.form.unit))
+
+    def _get_medicine_section(self, country, month):
+        forms = self._medicines_by_country_and_month(country, month)
+        tag_name = self._medicine_tag_name()
+        return (
+            getattr(form.submission.content, tag_name) 
+            for form in forms 
+            if form.submission.content and hasattr(form.submission.content, tag_name)
+        )
+
+    def _get_medicine_sections_with_packs(self, country, month):
+        has_packs_available = lambda x : hasattr(x, "packs_available")
+        return filter(has_packs_available, self._get_medicine_section(country, month))
+
+    def _get_medicine_sections_with_medicine_available(self, country, month):
+        has_medicine_available = lambda x : hasattr(x, "medicine_available")
+        return filter(has_medicine_available, self._get_medicine_section(country, month))
+
+    def _perc_yes(self, yes_vals, no_vals):
         #Note all integer math. Will be percentage rounded down to whole.
-        if (stocked_yes+stocked_no)>0:
-            return (stocked_yes*100)/(stocked_yes+stocked_no)
-        return '-'
-    
-    def stock(self, country, year=None, month=None):
-        tag_name = 'medicine-' + slugify(self.name) + '-' + slugify(self.form.unit)
-        stockout_yes = 0
-        stockout_no = 0
-        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
-        if year:
-            forms = forms.filter(created_date__year=year)
-        if month:
-            forms = forms.filter(created_date__month=month)
-        for form in forms:
-            content = form.submission.content
-            if content:
-                try:
-                    section = getattr(content, tag_name)
-                    stock = section.medicine_available
-                except:
-                    stock = 'not_found'
-                if stock == 'No':
-                    stockout_yes += 1
-                if stock == 'Yes':
-                    stockout_no += 1
+        if (yes_vals + no_vals) > 0:
+            return (yes_vals * 100) / (yes_vals + no_vals)
+        else: "-"
+
+    def _safe_div(self, num, denom):
+        if denom > 0:
+            return num / denom
+        return "-"
+
+    def stocked(self, country, month=None):
+        stocked_yes = stocked_no = 0
+        forms = self._medicines_by_country_and_month(country, month)
+        tag_name = self._medicine_tag_name().replace("medicine-", "")
+
+        stocked_sections = [
+            getattr(form.submission.content, "section_stocked")
+            for form in forms
+            if form.submission.content and hasattr(form.submission.content, "section_stocked")
+        ]
+
+        stock_values = [
+            getattr(section, tag_name)
+            for section in stocked_sections
+            if hasattr(section, tag_name)
+        ] 
+
+        stocked_yes = count(stock_values, lambda x : x.lower() == "yes")
+        stocked_no = count(stock_values, lambda x : x.lower() == "no")
+        
+        return self._perc_yes(stocked_yes, stocked_no)
+
+    def stock(self, country, month=None):
+        stockout_yes = stockout_no = 0
+
+        sections_with_medicines = self._get_medicine_sections_with_medicine_available(country, month)
+        stockout_values = [section.medicine_available for section in sections_with_medicines]
+        stocked_yes = count(stockout_values, lambda x : x.lower() == "yes")
+        stocked_no = count(stockout_values, lambda x : x.lower() == "no")
+
         #Note all integer math. Will be percentage rounded down to whole.
-        if (stockout_yes+stockout_no)>0:
-            return 100-(stockout_yes*100)/(stockout_yes+stockout_no)
-        return '-'
+        return self._perc_yes(stocked_yes, stocked_no)
     
-    def level(self, country, year=None, month=None):
-        tag_name = 'medicine-' + slugify(self.name) + '-' + slugify(self.form.unit)
-        total_level = 0
-        facilities = 0
-        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
-        if year:
-            forms = forms.filter(created_date__year=year)
-        if month:
-            forms = forms.filter(created_date__month=month)
-        for form in forms:
-            content = form.submission.content
-            if content:
-                try:
-                    section = getattr(content, tag_name)
-                    level = int(section.packs_available)
-                except:
-                    level = 0
-                if level > 0:
-                    total_level += level
-                    facilities += 1
-        #Note all integer math. Will be percentage rounded down to whole.
-        if (facilities)>0:
-            return total_level/facilities
-        return '-'
+    def level(self, country, month=None):
+        total_level = facilities = 0
+        sections_with_packs = self._get_medicine_sections_with_packs(country, month)
+        packs_available_values = [int(section.packs_available) for section in sections_with_packs]
+
+        total_level = sum(packs_available_values)
+        facilities = count(packs_available_values, lambda x : x > 0)
+
+        return self._safe_div(total_level, facilities)
+
+    def stockout_days(self, country, month=None):
+        sections_with_packs = self._get_medicine_sections_with_packs(country, month)
+        is_stockout = lambda section : int(section.packs_available) == 0
+        zero_levels = filter(is_stockout, sections_with_packs)
+
+        total_days = sum(VALUE_TO_DAYS[section.stockout_duration] for section in zero_levels)
+        facilities = count(zero_levels, lambda section : VALUE_TO_DAYS[section.stockout_duration] > 0)
+
+        return self._safe_div(total_days, facilities)
     
-    def stockout_days(self, country, year=None, month=None):
-        tag_name = 'medicine-' + slugify(self.name) + '-' + slugify(self.form.unit)
-        total_days = 0
-        facilities = 0
-        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
-        if year:
-            forms = forms.filter(created_date__year=year)
-        if month:
-            forms = forms.filter(created_date__month=month)
-        for form in forms:
-            content = form.submission.content
-            if content:
-                try:
-                    section = getattr(content, tag_name)
-                    level = int(section.packs_available)
-                    if level == 0:
-                        days = VALUE_TO_DAYS[section.stockout_duration]
-                    else:
-                        days = 0
-                except:
-                    days = 0
-                if days > 0:
-                    total_days += days
-                    facilities += 1
-        if (facilities)>0:
-            return total_days/facilities
-        return '-'
-    
-    def replenish_days(self, country, year=None, month=None):
-        tag_name = 'medicine-' + slugify(self.name) + '-' + slugify(self.form.unit)
-        total_days = 0
-        facilities = 0
-        forms = SubmissionWorkerDevice.objects.filter(community_worker__country=country).filter(submission__form__name='Medicines Form')
-        if year:
-            forms = forms.filter(created_date__year=year)
-        if month:
-            forms = forms.filter(created_date__month=month)
-        for form in forms:
-            content = form.submission.content
-            if content:
-                try:
-                    section = getattr(content, tag_name)
-                    level = int(section.packs_available)
-                    if level == 0:
-                        days = VALUE_TO_DAYS[section.restock_date]
-                    else:
-                        days = 0
-                except:
-                    days = 0
-                if days > 0:
-                    total_days += days
-                    facilities += 1
-        if (facilities)>0:
-            return total_days/facilities
-        return '-'
+    def replenish_days(self, country, month=None):
+        total_days = facilities = 0
+        sections_with_packs = self._get_medicine_sections_with_packs(country, month)
+        is_stockout = lambda section : int(section.packs_available) == 0
+        zero_levels = filter(is_stockout, sections_with_packs)
+
+        total_days = sum(VALUE_TO_DAYS[section.restock_date] for section in zero_levels)
+        facilities = count(zero_levels, lambda section : VALUE_TO_DAYS[section.restock_date] > 0)
+
+        return self._safe_div(total_days, facilities)
     
     def __unicode__(self):
         return u"%s %s" % (self.name, self.form.units)
@@ -317,6 +294,12 @@ class SubmissionWorkerDeviceManager(models.Manager):
     def all_valid(self):
         return self.all().filter(
             #verified=True, valid=True
+        )
+
+    @property
+    def medicines_submissions(self):
+        return self.all_valid.filter(
+            submission__form__name="Medicines Form"
         )
 
 class SubmissionWorkerDevice(models.Model):
