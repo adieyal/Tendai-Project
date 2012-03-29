@@ -219,58 +219,48 @@ class ScoreCardGenerator(object):
 
     def render_stockout_map(self, country, valid_swds_by_country):
 
-        #Locations lookup file.
-        locations_file = open(path.join(self.resource_dir, 'locations.csv'))
-        locations_file.readline()
-        locations = {}
-        for line in locations_file.readlines():
-            data = line.split(',')
-            locations[int(data[0])] = {'country': data[3],
-                                       'province': data[4],
-                                       'district': data[5],
-                                       'uid': data[6]}
-        locations_file.close()
-
         #Stockout map.
         map_layer = '//svg:g[@id="%s"]'
         #Ugly hacks for ends-with which is not supported in XPath.
+
         district = '//svg:g[substring(@id, string-length(@id) - string-length("%s")+ 1, string-length(@id)) = "%s"]/svg:path'
         ew = '//svg:g[substring(@id, string-length(@id) - string-length("%s")+ 1, string-length(@id)) = "%s"]'
-
-        #SVG styles.
-        STOCKOUT = 'fill:#c11e1e'
-        MONITORED = 'fill:#f6e1b9'
-        UNMONITORED = 'fill:#fefee9'
 
         def remove_country(country):
             element = self.svgeditor.xpath(map_layer % (country.code))[0]
             element.getparent().remove(element)
 
-        [ # All countries are present in the SVG - remove the irrelevant ones
-            remove_country(svg_country) 
-            for svg_country in dev_models.Country.objects.all() 
-            if svg_country != country
-        ]
+        def remove_unwanted_countries(svg_country):
+            [ # All countries are present in the SVG - remove the irrelevant ones
+                remove_country(svg_country) 
+                for svg_country in dev_models.Country.objects.all() 
+                if svg_country != country
+            ]
+
+        remove_unwanted_countries(svg_country)
 
         class MapBBox(object):
             def __init__(self, element):
                 self.element = element
 
+            def _attrib(self, key):
+                return float(self.element.attrib[key])
+
             @property
             def width(self):
-                return float(self.element.attrib["width"])
+                return self._attrib("width")
 
             @property
             def height(self):
-                return float(self.element.attrib["height"])
+                return self._attrib("height")
 
             @property
             def x(self):
-                return float(self.element.attrib["x"])
+                return self._attrib("x")
 
             @property
             def y(self):
-                return float(self.element.attrib["y"])
+                return self._attrib("y")
 
         class MapGroup(object):
             def __init__(self, element):
