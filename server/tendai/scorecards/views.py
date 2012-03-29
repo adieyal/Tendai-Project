@@ -9,14 +9,14 @@ from django.db.models import Count
 
 import devices.models as dev_models
 import openrosa.models as or_models
-from scorecard import ScoreCardGenerator, Month
+from scorecard import ScoreCardGenerator
+from general.utils import Month
 
 
 def index(request):
     return Http404
 
 def scorecard(request, country, year=2011, month=12):
-    year, month = int(year), int(month)
     month = Month(int(year), int(month))
     country = get_object_or_404(dev_models.Country, code=country)
     template = open(path.join(settings.STATIC_ROOT, 'scorecard.svg'))

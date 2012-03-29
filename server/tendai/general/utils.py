@@ -31,3 +31,17 @@ def date_or_none(xml, element_name):
     if value:
         return dateutil.parser.parse(value)
     return None
+
+class Month(object):
+    MONTHNAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    def __init__(self, year, month):
+        self.year = year
+        self.month = month
+
+    @property
+    def month_as_str(self):
+        return Month.MONTHNAMES[self.month - 1]
+
+def count(iterable, func=None):
+    func = func or (lambda x : True)
+    return len(filter(func, iterable))
