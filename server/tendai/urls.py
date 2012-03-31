@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     ('^stories/$', recent_stories, {}, "recent_stories"),
     url(r'^reports/', include('reports.urls')),
     url(r'^scorecards/', include('scorecards.urls')),
+    url(r'^data/', include('data.urls')),
 )
 
 if settings.DEBUG:

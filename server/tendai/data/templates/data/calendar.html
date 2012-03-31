@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ params.country_code|upper }}</title>
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}data/colorbrewer.css"/>
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}data/calendar.css"/>
+    <script src="http://mbostock.github.com/d3/d3.v2.js?2.8.1"></script>
+  </head>
+  <body>
+    <h1>Country: {{ params.country_code|upper }}</h1>
+    <div id="chart"></div>
+    <script src="{% url submissions_per_day_js params.country_code %}"></script>
+  </body>
+</html>

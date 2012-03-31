@@ -133,6 +133,7 @@ INSTALLED_APPS = (
     'scorecards',
     'openrosa',
     'facility',
+    'data',
 )
 
 # A sample logging configuration. The only tangible logging
