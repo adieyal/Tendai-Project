@@ -4,6 +4,7 @@ from lxml import etree
 import devices.models as dev_models
 from facility.models import Coordinates, SubmissionCoordinateFactory
 import facility.models as fac_models
+import models
 
 
 class SVGEditor(object):
@@ -146,7 +147,24 @@ class ScoreCardGenerator(object):
         self.svgeditor.set_text(organisation, 'Organisation: %s' % best_monitor.organisation.name)
         self.svgeditor.set_text(submissions, valid_swds_by_country.filter(community_worker=best_monitor).count())
 
+        #image_path = story.submission.orsubmissionmedia_set.all()[1].get_absolute_path()
+        #image_file = open(image_path)
+        #self.svgeditor.set_image(image % number, image_file)
+
+        monitor_profiles = dev_models.SubmissionWorkerDevice.objects.all_valid.filter(
+            submission__form__name='Monitor Profile',
+            community_worker=best_monitor
+        )
         image = open(path.join(self.resource_dir, 'user.jpg'))
+        if monitor_profiles.count() > 0:
+            try:
+                profile = list(monitor_profiles)[-1]
+                image_path = profile.submission.orsubmissionmedia_set.all()[0].get_absolute_path()
+                image = open(image_path)
+            except:
+                import traceback
+                pass
+                
         self.svgeditor.set_image(photo, image)
 
     def render_medicines_table(self, country, month):
@@ -180,20 +198,23 @@ class ScoreCardGenerator(object):
         # Fill out the rest of the table with blanks
         [render_medicines_row(None, line) for line in range(len(medicines), 14)]
 
-    def render_stories(self):
+    def render_stories(self, swds):
         #Best stories.
         text = '//svg:flowPara[@id="story.%d.text"]'
         story_name = '//svg:text[@id="story.%d.name"]'
         story_date = '//svg:text[@id="story.%d.date"]'
         story_country = '//svg:text[@id="story.%d.country"]'
         image = '//svg:image[@id="story.%d.image"]'
-        stories = (1589, 1461)
+
+        story_submissions = swds.filter(submission__form__name='Tendai Story').exclude(scorecardstory=None)
+        stories = [swd.pk for swd in story_submissions] + [1589, 1461]
+        stories = stories[0:2]
         images = ('356652045028675/1330014282214.jpg', None)
 
         for number in (0, 1):
             try:
                 story = dev_models.SubmissionWorkerDevice.objects.get(pk=stories[number])
-                self.svgeditor.set_text(text % (number), story.submission.content.story.story_description)
+                self.svgeditor.set_text(text % (number), story.scorecardstory_set.all()[0].edited_text)
                 self.svgeditor.set_text(story_name % (number), story.community_worker.get_name())
                 self.svgeditor.set_text(story_date % (number), story.created_date.strftime('%d %B %Y'))
                 self.svgeditor.set_text(story_country % (number), story.community_worker.country.name)
@@ -359,7 +380,7 @@ class ScoreCardGenerator(object):
         self.render_submission_sliders(monitors, valid_swds, valid_swds_by_country)
         self.render_monitor_of_the_month(monitors, valid_swds_by_country, month)
         self.render_medicines_table(country, month)
-        self.render_stories()
+        self.render_stories(valid_swds_by_country)
         self.render_stockout_map(country, valid_swds_by_country)
 
         return etree.tostring(self.svg)
