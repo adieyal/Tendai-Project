@@ -318,7 +318,7 @@ class SubmissionWorkerDevice(models.Model):
         return reverse("devices_view_swd", kwargs={"id" : self.id})
 
     def __unicode__(self):
-        return unicode(self.community_worker)
+        return "[%s] %s" % (self.pk, self.community_worker)
 
 class FacilitySubmission(models.Model):
     submission = models.ForeignKey(ormodels.ORFormSubmission, null=True)
