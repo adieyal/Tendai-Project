@@ -4,6 +4,7 @@ from devices import models as devmodels
 
 class ScorecardStory(models.Model):
     submission_worker_device = models.ForeignKey(devmodels.SubmissionWorkerDevice)
+    edited_text = models.TextField()
 
     def __unicode__(self):
         return unicode(self.submission_worker_device)
