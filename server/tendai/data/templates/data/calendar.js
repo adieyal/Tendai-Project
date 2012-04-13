@@ -14,12 +14,12 @@ var color = d3.scale.quantize()
 
 var svg = d3.select("#chart").selectAll("svg")
     .data(d3.range(2011, 2013))
-  .enter().append("svg")
-    .attr("width", w + m[1] + m[3])
-    .attr("height", h + m[0] + m[2])
-    .attr("class", "RdYlGn")
-  .append("g")
-    .attr("transform", "translate(" + (m[3] + (w - z * 53) / 2) + "," + (m[0] + (h - z * 7) / 2) + ")");
+    .enter().append("svg")
+        .attr("width", w + m[1] + m[3])
+        .attr("height", h + m[0] + m[2])
+        .attr("class", "RdYlGn")
+    .append("g")
+        .attr("transform", "translate(" + (m[3] + (w - z * 53) / 2) + "," + (m[0] + (h - z * 7) / 2) + ")");
 
 svg.append("text")
     .attr("transform", "translate(-6," + z * 3.5 + ")rotate(-90)")
@@ -28,12 +28,12 @@ svg.append("text")
 
 var rect = svg.selectAll("rect.day")
     .data(function(d) { return d3.time.days(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
-  .enter().append("rect")
-    .attr("class", "day")
-    .attr("width", z)
-    .attr("height", z)
-    .attr("x", function(d) { return week(d) * z; })
-    .attr("y", function(d) { return day(d) * z; })
+    .enter().append("rect")
+      .attr("class", "day")
+      .attr("width", z)
+      .attr("height", z)
+      .attr("x", function(d) { return week(d) * z; })
+      .attr("y", function(d) { return day(d) * z; })
     .datum(format);
 
 rect.append("title")
