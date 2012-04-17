@@ -7,8 +7,8 @@
     <id>{{ submission.id }}</id>
     <color>
       {% if "hospital" in submission.content.section_general.type_of_facility|lower %}red{% else %}
-      {% if "clinic" in submission.content.section_general.type_of_facility|lower %}red{% else %}
-      {% if "pharmacy" in submission.content.section_general.type_of_facility|lower %}red{% else %}
+      {% if "clinic" in submission.content.section_general.type_of_facility|lower %}yellow{% else %}
+      {% if "pharmacy" in submission.content.section_general.type_of_facility|lower %}green{% else %}
       {% if "dispensary" in submission.content.section_general.type_of_facility|lower %}red{% else %}
       blue{% endif %}{% endif %}{% endif %}{% endif %}
     </color>
