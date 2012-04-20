@@ -16,3 +16,4 @@ server/deploy/build
 .\#*
 #Compiled translations
 *.mo
+.ve/

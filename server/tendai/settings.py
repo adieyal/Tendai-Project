@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'openrosa',
     'facility',
     'data',
+    'sms',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -165,3 +166,6 @@ OPENROSA_FORMS_DIR = os.path.join(PROJECT_ROOT, "openrosa", "orforms")
 OPENROSA_SUBMISSIONS_DIR = os.path.join(MEDIA_ROOT, "openrosa", "submissions")
 OPENROSA_IMAGES_DIR = os.path.join(MEDIA_ROOT, "openrosa", "submissions", "images")
 
+SMS_USERNAME = "tendai"
+SMS_PASSWORD = "uj3ero7wnd"
+SMS_APIID = 3371674

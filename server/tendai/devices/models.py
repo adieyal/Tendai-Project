@@ -1,3 +1,5 @@
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import slugify
@@ -8,6 +10,7 @@ from general.utils import Month, count
 
 
 from openrosa import models as ormodels
+from sms import models as smsmodels
 
 VALUE_TO_DAYS = {'blank_period': 0.0,
                  '1-3_days': 1.5,
@@ -337,3 +340,13 @@ class CountryForm(models.Model):
 
     def __unicode__(self):
         return unicode("%s" % self.form, "utf-8")
+
+@receiver(post_save, sender=SubmissionWorkerDevice)
+def send_submission_sms(sender, instance, **kwargs):
+    if "created" in kwargs and kwargs["created"]:
+        print sender
+        sms = smsmodels.SMS()
+        #sms.number = instance.community_worker.phone_number
+        sms.number = "+27731390008"
+        sms.message = "Hi %s. Thank you for your %s submission. We appreciate your commitment to the project. The Tendai team." % (instance.community_worker.first_name, instance.submission.form.name)
+        sms.save()
