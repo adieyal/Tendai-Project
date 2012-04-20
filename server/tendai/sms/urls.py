@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls.defaults import *
 
 urlpatterns = patterns('sms.views',
     url(r'^status/(?P<sms_id>\d+)/$', 'status', {}, 'sms_callback'),
