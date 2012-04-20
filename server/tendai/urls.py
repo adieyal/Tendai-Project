@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^reports/', include('reports.urls')),
     url(r'^scorecards/', include('scorecards.urls')),
     url(r'^data/', include('data.urls')),
+    url(r'^sms/', include('sms.urls')),
 )
 
 if settings.DEBUG:
