@@ -344,9 +344,9 @@ class CountryForm(models.Model):
 @receiver(post_save, sender=SubmissionWorkerDevice)
 def send_submission_sms(sender, instance, **kwargs):
     if "created" in kwargs and kwargs["created"]:
-        print sender
-        sms = smsmodels.SMS()
-        #sms.number = instance.community_worker.phone_number
-        sms.number = "+27731390008"
-        sms.message = "Hi %s. Thank you for your %s submission. We appreciate your commitment to the project. The InfoHub team." % (instance.community_worker.first_name, instance.submission.form.name)
-        sms.save()
+        # Only send SMS if phone number starts with '+'.
+        if instance.community_worker.phone_number[0] == "+":
+            sms = smsmodels.SMS()
+            sms.number = instance.community_worker.phone_number
+            sms.message = "Hi %s. Thank you for your %s submission. We appreciate your commitment to the project. The InfoHub team." % (instance.community_worker.first_name, instance.submission.form.name)
+            sms.save()
