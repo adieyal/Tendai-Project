@@ -321,6 +321,8 @@ class ScoreCardGenerator(object):
 
             def add_spot(self, coordinates, stockout=True):
                 x, y = self.convert_to_pixels(coordinates)
+                if x < map_box.x or x > (map_box.x + map_box.width): return
+                if y < map_box.y or y > (map_box.y + map_box.height): return
                 circle = etree.Element("circle")
                 circle.attrib["cx"] = "%s" % x
                 circle.attrib["cy"] = "%s" % y
