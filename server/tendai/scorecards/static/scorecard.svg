@@ -663,16 +663,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.503122"
-     inkscape:cx="825.84649"
-     inkscape:cy="143.63617"
-     inkscape:current-layer="layer4"
+     inkscape:zoom="0.6257805"
+     inkscape:cx="535.75267"
+     inkscape:cy="366.03348"
+     inkscape:current-layer="layer1"
      id="namedview28786"
      showgrid="false"
-     inkscape:window-width="1918"
-     inkscape:window-height="1034"
-     inkscape:window-x="1600"
-     inkscape:window-y="15"
+     inkscape:window-width="838"
+     inkscape:window-height="1029"
+     inkscape:window-x="0"
+     inkscape:window-y="19"
      inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -4449,7 +4449,7 @@
        font-size="7"
        style="font-size:8.97130203px;fill:#ffffff;font-family:Helvetica-Bold"
        x="555.45599"
-       y="341.90433">MAP OF STOCKOUTS</text>
+       y="341.90433">MAP OF STOCK-OUTS</text>
     <rect
        id="rect32719"
        height="9.592885"
@@ -6148,7 +6148,7 @@
          sodipodi:role="line"
          id="tspan10000"
          x="858.79114"
-         y="496.86679">Facility with Stockout</tspan></text>
+         y="496.86679">Facility with Stock-out</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7923,7 +7923,7 @@
            x="835.22882"
            y="360.76187"
            style="font-size:6px" /></flowRegion><flowPara
-         id="flowPara37770">This text is just a placeholder. Some comments about the stockouts for the region will be added here.</flowPara></flowRoot>    <text
+         id="flowPara37770">This text is just a placeholder. Some comments about the stock-outs for the region will be added here.</flowPara></flowRoot>    <text
        id="best_monitor.submissions"
        x="188.61163"
        y="698.91296"
