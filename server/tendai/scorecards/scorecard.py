@@ -180,11 +180,11 @@ class ScoreCardGenerator(object):
         def render_medicines_row(medicine, line):
             if medicine:
                 self.svgeditor.set_text(name % (line), medicine.name)
-                self.svgeditor.set_text(stocked % (line), medicine.stocked(country, month))
-                self.svgeditor.set_text(stockout % (line), medicine.stock(country, month))
-                self.svgeditor.set_text(level % (line), medicine.level(country, month))
-                self.svgeditor.set_text(stockout_days % (line), medicine.stockout_days(country, month))
-                self.svgeditor.set_text(replenish_days % (line), medicine.replenish_days(country, month))
+                self.svgeditor.set_text(stocked % (line), medicine.stocked(country, month) or '-')
+                self.svgeditor.set_text(stockout % (line), medicine.stock(country, month) or '-')
+                self.svgeditor.set_text(level % (line), medicine.level(country, month) or '-')
+                self.svgeditor.set_text(stockout_days % (line), medicine.stockout_days(country, month) or '-')
+                self.svgeditor.set_text(replenish_days % (line), medicine.replenish_days(country, month) or '-')
             else:
                 self.svgeditor.set_text(name % (line), ' ')
                 self.svgeditor.set_text(stocked % (line), ' ')
