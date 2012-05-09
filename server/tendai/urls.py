@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^scorecards/', include('scorecards.urls')),
     url(r'^data/', include('data.urls')),
     url(r'^sms/', include('sms.urls')),
+    url(r'^analysis/medicine/', include('medicine_analysis.urls')),
 )
 
 if settings.DEBUG:
