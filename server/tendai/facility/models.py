@@ -143,7 +143,25 @@ class Facility(models.Model):
     #point = models.PointField(help_text="Represented as (longitude, latitude)")
     point = models.PointField(help_text="Represented as (longitude, latitude)", srid=900913, null=True)
     objects = models.GeoManager()
-
+    
+    @classmethod
+    def from_location(cls, location, name=None):
+        point = Point(float(location[1]), float(location[0]), srid=4326)
+        nearby = cls.objects.filter(point__distance_lt=(point, D(m=100)))
+        if nearby.count() == 0:
+            raise ValueError('No nearby facilities found.')
+        if nearby.count() == 1:
+            return nearby[0]
+        if not name:
+            raise ValueError('More than one facility nearby and no name provided.')
+        match = fuzzywuzzy.process.extractOne(name, [facility.name for facility in nearby])
+        if not match:
+            raise ValueError('More than one facility nearby and no match for name found.')
+        facility, score = match
+        if score < 80:
+            raise ValueError('More than one facility nearby and no close name match found.')
+        return cls.objects.filter(name=facility)[0]
+    
     def __unicode__(self):
         return self.name
 

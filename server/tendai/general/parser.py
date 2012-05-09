@@ -15,7 +15,8 @@ class SubmissionParser(object):
                 raise XMLError('Expected single root node.')
             head = dom.firstChild
             return cls(head)    
-        except IOError:
+        except IOError, e:
+            print 'Error parsing submission: %s' % (e)
             return None
     
     def children(self):

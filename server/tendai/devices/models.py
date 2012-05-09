@@ -7,6 +7,8 @@ from django.utils.translation import ugettext as _
 from datetime import datetime, timedelta
 from facility import models as facilitymodels
 from general.utils import Month, count
+from fuzzywuzzy import fuzz
+import fuzzywuzzy
 
 
 from openrosa import models as ormodels
@@ -188,6 +190,17 @@ class Medicine(models.Model):
         facilities = count(zero_levels, lambda section : VALUE_TO_DAYS[section.restock_date] > 0)
 
         return self._safe_div(total_days, facilities)
+    
+    @classmethod
+    def from_name(cls, name):
+        name = name.replace('-', ' ').lower()
+        meds = [(item, item.name.replace('/','').lower()) for item in cls.objects.all()]
+        best = (None, 0)
+        for med in meds:
+            score = fuzz.partial_ratio(med[1], name)
+            if score > best[1]:
+                best = (med[0], score)
+        return best[0]
     
     def __unicode__(self):
         return u"%s %s" % (self.name, self.form.units)
