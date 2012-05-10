@@ -1,4 +1,4 @@
-from django.db.models import Q
+from django.db.models import Q, Sum
 
 from utils import JSONView, last_day_of_month
 import devices.models
@@ -17,7 +17,8 @@ class CostPerSubmissionView(JSONView):
     
     def cost_per_submission_for_country(self, country):
         submissions = devices.models.SubmissionWorkerDevice.objects.all_valid.filter(community_worker__country=country).count()
-        cost = models.Disbursement.objects.total_for_country(country, self.year, self.month)
+        disbursements = models.Disbursement.objects.prior_to(self.year, self.month).filter(country=country)
+        cost = disbursements.aggregate(Sum('amount'))['amount__sum']
         if cost and submissions:
             return cost/submissions
         return 0.0
@@ -36,13 +37,14 @@ class CostPerMedicineSubmissionView(JSONView):
     
     def cost_per_medicine_submission_for_country(self, country):
         submissions = devices.models.SubmissionWorkerDevice.objects.medicines_submissions.filter(community_worker__country=country).count()
-        cost = models.Disbursement.objects.total_for_country(country, self.year, self.month)
+        disbursements = models.Disbursement.objects.prior_to(self.year, self.month).filter(country=country)
+        cost = disbursements.aggregate(Sum('amount'))['amount__sum']
         if cost and submissions:
             return cost/submissions
         return 0.0
 
 
-class InteractionLevelView(JSONView):
+class MOHInteractionLevelView(JSONView):
     def get_json_data(self, *args, **kwargs):
         data = self.interaction_level()
         return { 'moh_interaction': data }
@@ -54,10 +56,34 @@ class InteractionLevelView(JSONView):
         return data
     
     def interaction_level_for_country(self, country):
-        interaction = models.MOHInteractionLevel.objects.default_for_country(country)
-        if interaction:
-            return { 'level': interaction.level, 'comment': interaction.comment }
+        interaction = models.MOHInteractionLevel.objects.prior_to(self.year, self.month).filter(country=country)
+        if interaction.count():
+            return { 
+                'level': interaction[0].level,
+                'comment': interaction[0].comment,
+                }
         return { 'level': 0, 'comment': '' }
+
+
+class MOHInteractionPointsView(JSONView):
+    def get_json_data(self, *args, **kwargs):
+        data =  self.moh_interaction_points()
+        return { 'moh_interaction_points': data }
+    
+    def moh_interaction_points(self):
+        data = {}
+        for country in devices.models.Country.objects.all():
+            data[country.code] = self.moh_interaction_points_for_country(country)
+        return data
+    
+    def moh_interaction_points_for_country(self, country):
+        points = models.MOHInteraction.objects.prior_to(self.year, self.month).filter(country=country)
+        if points.count() > 0:
+            return {
+                'points': points.aggregate(Sum('points'))['points__sum'],
+                'comment': points[0].comment,
+                }
+        return { 'points': 0, 'comment': '' }
 
 
 class TotalSubmissionsView(JSONView):
@@ -100,9 +126,10 @@ class MedicineSubmissionsView(JSONView):
 
 class CombinedView(JSONView):
     views = [
+        MOHInteractionLevelView,
+        MOHInteractionPointsView,
         CostPerSubmissionView,
         CostPerMedicineSubmissionView,
-        InteractionLevelView,
         TotalSubmissionsView,
         MedicineSubmissionsView,
         ]
