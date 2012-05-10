@@ -137,6 +137,7 @@ INSTALLED_APPS = (
     'sms',
     
     'medicine_analysis',
+    'indicators',
 )
 
 # A sample logging configuration. The only tangible logging
