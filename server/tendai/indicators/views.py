@@ -124,6 +124,36 @@ class MedicineSubmissionsView(JSONView):
         return submissions
 
 
+class ConsecutiveSubmissionsView(JSONView):
+    def get_json_data(self, *args, **kwargs):
+        data = self.submissions()
+        return { 'consecutive_submissions': data }
+    
+    def submissions(self):
+        data = {}
+        for country in devices.models.Country.objects.all():
+            data[country.code] = self.consecutive_submissions_for_country(country)
+        return data
+    
+    def consecutive_submissions_for_country(self, country):
+        submissions = []
+        for months_ago in range(0,3):
+            month = int(self.month) - months_ago
+            year = int(self.year)
+            if month < 1:
+                month += 12
+                year -= 1
+            submissions.append(self.submissions_for_country_in_month(country, year, month))
+        return all(submissions)
+    
+    def submissions_for_country_in_month(self, country, year, month):
+        last_day = last_day_of_month(year, month)
+        query = Q(community_worker__country=country)
+        query &= Q(created_date__year=year, created_date__month=month)
+        submissions = devices.models.SubmissionWorkerDevice.objects.medicines_submissions.filter(query).count()
+        return submissions > 0
+
+
 class CombinedView(JSONView):
     views = [
         MOHInteractionLevelView,
@@ -132,6 +162,7 @@ class CombinedView(JSONView):
         CostPerMedicineSubmissionView,
         TotalSubmissionsView,
         MedicineSubmissionsView,
+        ConsecutiveSubmissionsView,
         ]
     
     def get_json_data(self, *args, **kwargs):
