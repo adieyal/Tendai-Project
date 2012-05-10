@@ -1,6 +1,8 @@
-import json
+import django.utils.simplejson as json
 from django import http
 from django.views.generic import View
+from datetime import date
+import calendar
 
 class JSONResponseMixin(object):
     def render_to_response(self, context):
@@ -15,7 +17,7 @@ class JSONResponseMixin(object):
 
     def convert_context_to_json(self, context):
         "Convert the context dictionary into a JSON object."
-        return json.dumps(context)
+        return json.dumps(context, indent=2)
 
 
 class JSONView(JSONResponseMixin, View):
@@ -29,3 +31,8 @@ class JSONView(JSONResponseMixin, View):
         "Serialize the JSON data into an HTTP response."
         context = self.get_json_data(*args, **kwargs)
         return self.render_to_response(context)
+
+def last_day_of_month(year, month):
+    year = int(year)
+    month = int(month)
+    return date(year, month, calendar.monthrange(year,month)[1])
