@@ -2,20 +2,24 @@ from django.db.models import Q, Sum
 
 from utils import JSONView, last_day_of_month
 import devices.models
+import openrosa.models
 import models
 
-class CostPerSubmissionView(JSONView):
-    def get_json_data(self, *args, **kwargs):
-        data = self.cost_per_submission()
-        return { 'cost_per_submission': data }
+
+class PerCountryView(JSONView):
+    key = 'countrydata'
     
-    def cost_per_submission(self):
+    def get_json_data(self, *args, **kwargs):
         data = {}
         for country in devices.models.Country.objects.all():
-            data[country.code] = self.cost_per_submission_for_country(country)
-        return data
+            data[country.code] = self.data_for_country(country)
+        return { self.key: data }
+
+
+class CostPerSubmissionView(PerCountryView):
+    key = 'cost_per_submission'
     
-    def cost_per_submission_for_country(self, country):
+    def data_for_country(self, country):
         submissions = devices.models.SubmissionWorkerDevice.objects.all_valid.filter(community_worker__country=country).count()
         disbursements = models.Disbursement.objects.prior_to(self.year, self.month).filter(country=country)
         cost = disbursements.aggregate(Sum('amount'))['amount__sum']
@@ -24,18 +28,10 @@ class CostPerSubmissionView(JSONView):
         return 0.0
 
 
-class CostPerMedicineSubmissionView(JSONView):
-    def get_json_data(self, *args, **kwargs):
-        data =  self.cost_per_medicine_submission()
-        return { 'cost_per_medicine_submission': data }
+class CostPerMedicineSubmissionView(PerCountryView):
+    key = 'cost_per_medicine_submission'
     
-    def cost_per_medicine_submission(self):
-        data = {}
-        for country in devices.models.Country.objects.all():
-            data[country.code] = self.cost_per_medicine_submission_for_country(country)
-        return data
-    
-    def cost_per_medicine_submission_for_country(self, country):
+    def data_for_country(self, country):
         submissions = devices.models.SubmissionWorkerDevice.objects.medicines_submissions.filter(community_worker__country=country).count()
         disbursements = models.Disbursement.objects.prior_to(self.year, self.month).filter(country=country)
         cost = disbursements.aggregate(Sum('amount'))['amount__sum']
@@ -44,60 +40,35 @@ class CostPerMedicineSubmissionView(JSONView):
         return 0.0
 
 
-class MOHInteractionLevelView(JSONView):
-    def get_json_data(self, *args, **kwargs):
-        data = self.interaction_level()
-        return { 'moh_interaction': data }
+class MOHInteractionLevelView(PerCountryView):
+    key = 'moh_interaction'
     
-    def interaction_level(self):
-        data = {}
-        for country in devices.models.Country.objects.all():
-            data[country.code] = self.interaction_level_for_country(country)
-        return data
-    
-    def interaction_level_for_country(self, country):
+    def data_for_country(self, country):
         interaction = models.MOHInteractionLevel.objects.prior_to(self.year, self.month).filter(country=country)
         if interaction.count():
             return { 
                 'level': interaction[0].level,
                 'comment': interaction[0].comment,
                 }
-        return { 'level': 0, 'comment': '' }
+        return { 'level': 0, 'comment': 'No reports to date.' }
 
 
-class MOHInteractionPointsView(JSONView):
-    def get_json_data(self, *args, **kwargs):
-        data =  self.moh_interaction_points()
-        return { 'moh_interaction_points': data }
-    
-    def moh_interaction_points(self):
-        data = {}
-        for country in devices.models.Country.objects.all():
-            data[country.code] = self.moh_interaction_points_for_country(country)
-        return data
-    
-    def moh_interaction_points_for_country(self, country):
+class MOHInteractionPointsView(PerCountryView):
+    key = 'moh_interaction_points'
+    def data_for_country(self, country):
         points = models.MOHInteraction.objects.prior_to(self.year, self.month).filter(country=country)
         if points.count() > 0:
             return {
                 'points': points.aggregate(Sum('points'))['points__sum'],
                 'comment': points[0].comment,
                 }
-        return { 'points': 0, 'comment': '' }
+        return { 'points': 0, 'comment': 'No reports to date.' }
 
 
-class TotalSubmissionsView(JSONView):
-    def get_json_data(self, *args, **kwargs):
-        data = self.submissions()
-        return { 'total_submissions': data }
+class TotalSubmissionsView(PerCountryView):
+    key = 'total_submissions'
     
-    def submissions(self):
-        data = {}
-        for country in devices.models.Country.objects.all():
-            data[country.code] = self.submissions_for_country(country)
-        return data
-    
-    def submissions_for_country(self, country):
+    def data_for_country(self, country):
         last_day = last_day_of_month(self.year, self.month)
         query = Q(community_worker__country=country)
         query &= Q(created_date__lte=last_day)
@@ -105,18 +76,10 @@ class TotalSubmissionsView(JSONView):
         return submissions
 
 
-class MedicineSubmissionsView(JSONView):
-    def get_json_data(self, *args, **kwargs):
-        data = self.submissions()
-        return { 'medicine_submissions': data }
+class MedicineSubmissionsView(PerCountryView):
+    key = 'medicine_submissions'
     
-    def submissions(self):
-        data = {}
-        for country in devices.models.Country.objects.all():
-            data[country.code] = self.submissions_for_country(country)
-        return data
-    
-    def submissions_for_country(self, country):
+    def data_for_country(self, country):
         last_day = last_day_of_month(self.year, self.month)
         query = Q(community_worker__country=country)
         query &= Q(created_date__lte=last_day)
@@ -124,18 +87,10 @@ class MedicineSubmissionsView(JSONView):
         return submissions
 
 
-class ConsecutiveSubmissionsView(JSONView):
-    def get_json_data(self, *args, **kwargs):
-        data = self.submissions()
-        return { 'consecutive_submissions': data }
+class ConsecutiveSubmissionsView(PerCountryView):
+    key = 'consecutive_submissions'
     
-    def submissions(self):
-        data = {}
-        for country in devices.models.Country.objects.all():
-            data[country.code] = self.consecutive_submissions_for_country(country)
-        return data
-    
-    def consecutive_submissions_for_country(self, country):
+    def data_for_country(self, country):
         submissions = []
         for months_ago in range(0,3):
             month = int(self.month) - months_ago
@@ -154,6 +109,34 @@ class ConsecutiveSubmissionsView(JSONView):
         return submissions > 0
 
 
+class ProgressView(PerCountryView):
+    key = 'progress'
+    
+    def data_for_country(self, country):
+        reports = models.TendaiProgressReport.objects.prior_to(self.year, self.month).filter(country=country)
+        if reports.count():
+            return {
+                'reporting': {
+                    'satisfactory': reports[0].reporting,
+                    'comment': reports[0].reporting_comment,
+                    },
+                'adjustment': {
+                    'satisfactory': reports[0].adjustment,
+                    'comment': reports[0].adjustment_comment,
+                    }
+                }
+        return {
+                'reporting': {
+                    'satisfactory': True,
+                    'comment': 'No reports to date.',
+                    },
+                'adjustment': {
+                    'satisfactory': True,
+                    'comment': 'No reports to date.',
+                    }
+                }
+
+
 class CombinedView(JSONView):
     views = [
         MOHInteractionLevelView,
@@ -163,6 +146,7 @@ class CombinedView(JSONView):
         TotalSubmissionsView,
         MedicineSubmissionsView,
         ConsecutiveSubmissionsView,
+        ProgressView,
         ]
     
     def get_json_data(self, *args, **kwargs):

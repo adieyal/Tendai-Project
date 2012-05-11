@@ -46,3 +46,17 @@ class Disbursement(models.Model):
     
     class Meta:
         ordering = ('-date',)
+
+
+class TendaiProgressReport(models.Model):
+    country = models.ForeignKey(devices.models.Country)
+    date = models.DateField()
+    reporting = models.BooleanField(verbose_name='Satisfactory')
+    reporting_comment = models.TextField(verbose_name='Comments')
+    adjustment = models.BooleanField(verbose_name='Satisfactory')
+    adjustment_comment = models.TextField(verbose_name='Comments')
+    
+    objects = PriorToManager()
+    
+    class Meta:
+        ordering = ('-date',)
