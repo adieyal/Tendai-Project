@@ -177,7 +177,7 @@ class Facility(models.Model):
     @classmethod
     def from_location(cls, location, name=None):
         point = Point(float(location[1]), float(location[0]), srid=4326)
-        nearby = cls.objects.filter(point__distance_lt=(point, D(m=100)))
+        nearby = cls.objects.filter(point__distance_lt=(point, D(m=500)))
         if nearby.count() == 0:
             raise ValueError('No nearby facilities found.')
         if nearby.count() == 1:
