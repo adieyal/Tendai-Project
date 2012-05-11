@@ -10,6 +10,8 @@ def create_new_facility(sender, submission, **kwargs):
     if not submission: return
     if submission.form.name == "Facility Form":
         create_facility_from_facility_submission(submission)
+    if submission.form.name == "Medicines Form":
+        create_facility_from_medicine_submission(submission)
 
 class SubmissionCoordinateFactory(object):
     @staticmethod 
@@ -76,6 +78,34 @@ def point_medicines_form_to_facility(mq_submission):
             
             #if nearby_facility.distance.m <= 50:
     
+
+def create_facility_from_medicine_submission(submission):
+    from devices.models import FacilitySubmission
+    content = submission.content
+    coordinates = content.section_general.gps
+
+    name = content.section_general.facility_name
+
+    lat, lng, _, _ = coordinates.split()
+    point = Point(float(lng), float(lat), srid=4326)
+    point.transform(900913)
+
+    facility = Facility(
+        name=name,
+        longitude=float(lng),
+        latitude=float(lat),
+        point=point,
+    )
+    facility.save()
+    
+    
+    FacilitySubmission.objects.create(
+        submission=submission,
+        facility=facility
+    )
+    
+    return facility
+
 
 def create_facility_from_facility_submission(submission):
     from devices.models import FacilitySubmission
