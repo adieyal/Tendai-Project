@@ -41,7 +41,7 @@ class CostPerMedicineSubmissionView(PerCountryView):
 
 
 class MOHInteractionLevelView(PerCountryView):
-    key = 'moh_interaction'
+    key = 'moh_interaction_level'
     
     def data_for_country(self, country):
         interaction = models.MOHInteractionLevel.objects.prior_to(self.year, self.month).filter(country=country)
@@ -54,15 +54,18 @@ class MOHInteractionLevelView(PerCountryView):
 
 
 class MOHInteractionPointsView(PerCountryView):
-    key = 'moh_interaction_points'
+    key = 'moh_interaction'
     def data_for_country(self, country):
-        points = models.MOHInteraction.objects.prior_to(self.year, self.month).filter(country=country)
-        if points.count() > 0:
-            return {
-                'points': points.aggregate(Sum('points'))['points__sum'],
-                'comment': points[0].comment,
-                }
-        return { 'points': 0, 'comment': 'No reports to date.' }
+        data = []
+        interactions = models.MOHInteraction.objects.prior_to(self.year, self.month).filter(country=country)
+        if interactions.count() > 0:
+            for interaction in interactions:
+                data.append(
+                    { 'type': interaction.type.id,
+                      'points': interaction.type.points,
+                      'description': interaction.type.description
+                      })
+        return data
 
 
 class TotalSubmissionsView(PerCountryView):

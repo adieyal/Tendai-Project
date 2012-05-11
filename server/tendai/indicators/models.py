@@ -25,9 +25,20 @@ class MOHInteractionLevel(models.Model):
         ordering = ('-date',)
 
 
+class MOHInteractionType(models.Model):
+    description = models.CharField(max_length=32)
+    points = models.IntegerField(
+        help_text='Please enter an integer for the number of points associated with this interaction type.'
+        )
+    
+    def __unicode__(self):
+        return u'%2d points - %s' % (self.points, self.description)
+    class Meta:
+        ordering = ('-points',)
+
 class MOHInteraction(models.Model):
     country = models.ForeignKey(devices.models.Country)
-    points = models.IntegerField()
+    type = models.ForeignKey(MOHInteractionType)
     comment = models.TextField()
     date = models.DateField()
     
@@ -39,7 +50,7 @@ class MOHInteraction(models.Model):
 
 class Disbursement(models.Model):
     country = models.ForeignKey(devices.models.Country)
-    amount = models.FloatField()
+    amount = models.FloatField(help_text='Please enter the amount disbursed in British Pounds.')
     date = models.DateField()
     
     objects = PriorToManager()

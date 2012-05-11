@@ -6,7 +6,11 @@ class MOHInteractionLevelAdmin(admin.ModelAdmin):
     list_filter = ('country',)
 
 class MOHInteractionAdmin(admin.ModelAdmin):
-    list_display = ('country', 'date', 'points',)
+    list_display = ('country', 'date', 'type',)
+    list_filter = ('country',)
+
+class MOHInteractionTypeAdmin(admin.ModelAdmin):
+    list_display = ('country', 'date', 'type',)
     list_filter = ('country',)
 
 class DisbursementAdmin(admin.ModelAdmin):
@@ -35,6 +39,7 @@ class RiskAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.MOHInteractionLevel, MOHInteractionLevelAdmin)
+admin.site.register(models.MOHInteractionType)#, MOHInteractionAdmin)
 admin.site.register(models.MOHInteraction, MOHInteractionAdmin)
 admin.site.register(models.Disbursement, DisbursementAdmin)
 admin.site.register(models.TendaiProgressReport, TendaiProgressReportAdmin)
