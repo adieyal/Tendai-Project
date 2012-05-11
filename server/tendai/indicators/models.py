@@ -60,3 +60,16 @@ class TendaiProgressReport(models.Model):
     
     class Meta:
         ordering = ('-date',)
+
+
+class Risk(models.Model):
+    LEVELS = (('low', 'Low'),
+              ('medium', 'Medium'),
+              ('high', 'High'))
+    country = models.ForeignKey(devices.models.Country)
+    date = models.DateField()
+    level = models.CharField(max_length=6, choices=LEVELS)
+    comment = models.TextField()
+    
+    class Meta:
+        ordering = ('-date',)

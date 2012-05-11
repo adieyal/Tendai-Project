@@ -137,6 +137,22 @@ class ProgressView(PerCountryView):
                 }
 
 
+class RisksView(PerCountryView):
+    key = 'risk'
+    
+    def data_for_country(self, country):
+        risks = models.Risk.objects.filter(date__year=self.year, date__month=self.month, country=country)
+        if risks.count():
+            return {
+                'level': risks[0].level,
+                'comment': risks[0].comment
+                }
+        return {
+                'level': 'low',
+                'comment': 'No situation reported.'
+                }
+
+
 class CombinedView(JSONView):
     views = [
         MOHInteractionLevelView,
@@ -147,6 +163,7 @@ class CombinedView(JSONView):
         MedicineSubmissionsView,
         ConsecutiveSubmissionsView,
         ProgressView,
+        RisksView,
         ]
     
     def get_json_data(self, *args, **kwargs):

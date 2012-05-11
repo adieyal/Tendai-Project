@@ -27,6 +27,10 @@ class TendaiProgressReportAdmin(admin.ModelAdmin):
                 'fields': ('adjustment', 'adjustment_comment')
                 })
         )
+
+class RiskAdmin(admin.ModelAdmin):
+    list_display = ('country', 'date', 'level', 'comment')
+    list_filter = ('country', 'level')
     
 
 
@@ -34,3 +38,4 @@ admin.site.register(models.MOHInteractionLevel, MOHInteractionLevelAdmin)
 admin.site.register(models.MOHInteraction, MOHInteractionAdmin)
 admin.site.register(models.Disbursement, DisbursementAdmin)
 admin.site.register(models.TendaiProgressReport, TendaiProgressReportAdmin)
+admin.site.register(models.Risk, RiskAdmin)
