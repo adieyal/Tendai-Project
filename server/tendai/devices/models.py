@@ -309,7 +309,7 @@ class SubmissionWorkerDeviceManager(models.Manager):
     @property
     def all_valid(self):
         return self.all().filter(
-            #verified=True, valid=True
+            verified=True, valid=True
         )
 
     @property
