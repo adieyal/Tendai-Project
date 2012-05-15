@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
+from django.db.models import Q
 from django.utils import translation
 from facility import models as facilitymodels
 from devices import models as devicemodels
@@ -13,9 +14,10 @@ class Command(BaseCommand):
 
         with transaction.commit_on_success():
             # Create new facilities for all facility submissions without facilities before merging
-            for submission in devicemodels.SubmissionWorkerDevice.objects.filter(
-                submission__form__name="Facility Form", submission__facilitysubmission=None):
-                facilitymodels.create_facility_from_facility_submission(submission.submission)
+            query = Q(submission__form__name="Facility Form") | Q(submission__form__name="Medicines Form")
+            query &= Q(submission__facilitysubmission=None)
+            for submission in devicemodels.SubmissionWorkerDevice.objects.all_valid.filter(query):
+                facilitymodels.create_new_facility(devicemodels.SubmissionWorkerDevice, submission.submission)
                 added_count += 1
 
             for facility in facilities:
@@ -35,6 +37,8 @@ class Command(BaseCommand):
                             if from_facility.pk: 
                                 from_facility.delete()
                                 deleted_count += 1
+                    else:
+                        print "Location match, not name: %s => %s (%d)" % (facility.name, nearby_facility.name, score)
         print "Merged %d submissions" % merged_count
         print "Deleted %d facilities" % deleted_count
         print "Created %d facilities" % added_count

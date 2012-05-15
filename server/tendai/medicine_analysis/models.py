@@ -84,12 +84,14 @@ def get_start_and_end_dates(value, datetime, ago=False):
 
 def create_models_from_submission(submission):
     if submission.form.name != 'Medicines Form':
-        return None
+        return
     with transaction.commit_on_success():
         content = submission.content
         name = content.section_general.facility_name
-        lat, lon, _, _ = content.section_general.gps.split()
-        facility = Facility.from_location((float(lat), float(lon)), name)
+        try:
+            facility = submission.facilitysubmission_set.all()[0].facility
+        except IndexError:
+            raise ValueError('Submission is not linked to a facility.')
         timestamp = iso8601.parse_date(content.start_time)
         meds = [m for m in content.section_stocked.nodes() if not m.endswith('_comments')]
         for m in meds:

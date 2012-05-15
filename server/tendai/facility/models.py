@@ -9,9 +9,15 @@ import fuzzywuzzy.process
 def create_new_facility(sender, submission, **kwargs):
     if not submission: return
     if submission.form.name == "Facility Form":
-        create_facility_from_facility_submission(submission)
+        try:
+            create_facility_from_facility_submission(submission)
+        except:
+            pass
     if submission.form.name == "Medicines Form":
-        create_facility_from_medicine_submission(submission)
+        try:
+            create_facility_from_medicine_submission(submission)
+        except:
+            pass
 
 class SubmissionCoordinateFactory(object):
     @staticmethod 
@@ -86,7 +92,9 @@ def create_facility_from_medicine_submission(submission):
 
     name = content.section_general.facility_name
 
-    lat, lng, _, _ = coordinates.split()
+    lat, lng, _, acc = coordinates.split()
+    if float(acc) > 50:
+        raise ValueError('GPS accuracy too low.')
     point = Point(float(lng), float(lat), srid=4326)
     point.transform(900913)
 
@@ -124,7 +132,9 @@ def create_facility_from_facility_submission(submission):
 
     comments = getattr(content.section_comments, "comments", "")
 
-    lat, lng, _, _ = coordinates.split()
+    lat, lng, _, acc = coordinates.split()
+    if float(acc) > 50:
+        raise ValueError('GPS accuracy too low.')
     point = Point(float(lng), float(lat), srid=4326)
     point.transform(900913)
 
