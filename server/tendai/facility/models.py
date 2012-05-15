@@ -121,6 +121,8 @@ def create_facility_from_facility_submission(submission, force=False):
     coordinates = content.section_location.facility_location
 
     name = content.section_name.facility_name
+    name = ' '.join(name.split())
+    name = name.title()
     district = content.section_name.facility_district
     postal_address = content.section_contact.postal_address
     phone_number = content.section_contact.phone_number
