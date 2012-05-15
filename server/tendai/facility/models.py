@@ -115,7 +115,7 @@ def create_facility_from_medicine_submission(submission):
     return facility
 
 
-def create_facility_from_facility_submission(submission):
+def create_facility_from_facility_submission(submission, force=False):
     from devices.models import FacilitySubmission
     content = submission.content
     coordinates = content.section_location.facility_location
@@ -133,7 +133,7 @@ def create_facility_from_facility_submission(submission):
     comments = getattr(content.section_comments, "comments", "")
 
     lat, lng, _, acc = coordinates.split()
-    if float(acc) > 50:
+    if float(acc) > 50 and not force:
         raise ValueError('GPS accuracy too low.')
     point = Point(float(lng), float(lat), srid=4326)
     point.transform(900913)

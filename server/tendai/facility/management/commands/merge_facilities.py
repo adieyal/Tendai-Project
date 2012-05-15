@@ -17,6 +17,7 @@ class Command(BaseCommand):
             query = Q(submission__form__name="Facility Form") | Q(submission__form__name="Medicines Form")
             query &= Q(submission__facilitysubmission=None)
             for submission in devicemodels.SubmissionWorkerDevice.objects.all_valid.filter(query):
+                print 'Creating: %s' % (submission.id)
                 facilitymodels.create_new_facility(devicemodels.SubmissionWorkerDevice, submission.submission)
                 added_count += 1
 
