@@ -3,6 +3,7 @@ from django.db.models import Q, Sum
 from utils import JSONView, last_day_of_month
 import devices.models
 import openrosa.models
+import facility.models
 import models
 
 
@@ -94,6 +95,9 @@ class ConsecutiveSubmissionsView(PerCountryView):
     key = 'consecutive_submissions'
     
     def data_for_country(self, country):
+        facilities = [f for f in facility.models.Facility.objects.all() if f.country==country]
+        if not facilities:
+            return 0.0
         submissions = []
         for months_ago in range(0,3):
             month = int(self.month) - months_ago
@@ -101,15 +105,19 @@ class ConsecutiveSubmissionsView(PerCountryView):
             if month < 1:
                 month += 12
                 year -= 1
-            submissions.append(self.submissions_for_country_in_month(country, year, month))
-        return all(submissions)
+            facilities_with_submissions = []
+            for f in facilities:
+                if self.submissions_for_facility_in_month(f, year, month):
+                    facilities_with_submissions.append(f)
+            submissions.append(facilities_with_submissions)
+        facilities_with_consecutive = [f for f in submissions[0] if f in submissions[1] and f in submissions[2]]
+        return (float(len(facilities_with_consecutive))/float(len(facilities)))*100.0
     
-    def submissions_for_country_in_month(self, country, year, month):
-        last_day = last_day_of_month(year, month)
-        query = Q(community_worker__country=country)
-        query &= Q(created_date__year=year, created_date__month=month)
-        submissions = devices.models.SubmissionWorkerDevice.objects.medicines_submissions.filter(query).count()
-        return submissions > 0
+    def submissions_for_facility_in_month(self, facility, year, month):
+        query = Q(submission__created_date__year=year, submission__created_date__month=month)
+        query &= Q(submission__form__name='Medicines Form')
+        submissions = facility.facilitysubmission_set.filter(query)
+        return submissions.count() > 0
 
 
 class ProgressView(PerCountryView):

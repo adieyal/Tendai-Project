@@ -185,6 +185,13 @@ class Facility(models.Model):
     #point = models.PointField(help_text="Represented as (longitude, latitude)")
     point = models.PointField(help_text="Represented as (longitude, latitude)", srid=900913, null=True)
     objects = models.GeoManager()
+
+    @property
+    def country(self):
+        try:
+            return self.facilitysubmission_set.all()[0].submission.submissionworkerdevice.community_worker.country
+        except:
+            return None
     
     @classmethod
     def from_location(cls, location, name=None):
