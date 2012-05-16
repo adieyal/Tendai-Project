@@ -4,8 +4,8 @@ from utils import JSONView, last_day_of_month
 import devices.models
 import openrosa.models
 import facility.models
+import medicine_analysis.models
 import models
-
 
 class PerCountryView(JSONView):
     key = 'countrydata'
@@ -95,7 +95,8 @@ class ConsecutiveSubmissionsView(PerCountryView):
     key = 'consecutive_submissions'
     
     def data_for_country(self, country):
-        facilities = [f for f in facility.models.Facility.objects.all() if f.country==country]
+        query = Q(facilitysubmission__submission__submissionworkerdevice__community_worker__country=country)
+        facilities = facility.models.Facility.objects.filter(query)
         if not facilities:
             return 0.0
         submissions = []
@@ -164,6 +165,40 @@ class RisksView(PerCountryView):
                 }
 
 
+class StockOutView(PerCountryView):
+    key = 'stock_available'
+    
+    def data_for_country(self, country):
+        query = Q(timestamp__year=self.year, timestamp__month=self.month)
+        query &= Q(submission__submissionworkerdevice__community_worker__country=country)
+        stock = medicine_analysis.models.MedicineStock.objects.filter(query)
+        out = set([(s.facility, s.medicine) for s in stock if s.amount == 0])
+        all = set([(s.facility, s.medicine) for s in stock])
+        if not all:
+            return None
+        return (float(len(all)-len(out))/float(len(all)))*100.0
+
+
+class MedicineStockOutView(PerCountryView):
+    key = 'facilities_out_of_stock'
+    
+    def data_for_country(self, country):
+        query = Q(timestamp__year=self.year, timestamp__month=self.month)
+        query &= Q(submission__submissionworkerdevice__community_worker__country=country)
+        stock = medicine_analysis.models.MedicineStock.objects.filter(query)
+        out = set([(s.facility, s.medicine) for s in stock if s.amount == 0])
+        all = set([(s.facility, s.medicine) for s in stock])
+        if not all:
+            return None
+        data = {}
+        medicines = set([s.medicine for s in stock])
+        for m in medicines:
+            total = len([s for s in all if s[1] == m])
+            sout = len([s for s in out if s[1] == m])
+            data[m.name] = (float(sout)/float(total))*100.0
+        return data
+
+
 class CombinedView(JSONView):
     views = [
         MOHInteractionLevelView,
@@ -175,6 +210,8 @@ class CombinedView(JSONView):
         ConsecutiveSubmissionsView,
         ProgressView,
         RisksView,
+        StockOutView,
+        MedicineStockOutView,
         ]
     
     def get_json_data(self, *args, **kwargs):
