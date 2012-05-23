@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+{% load i18n %}
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>{% trans "Tendai Review" %}</h:title>
+    <model>
+      <instance>
+        <data id="review-0.1">
+
+          <form_version>0.1</form_version>
+
+          <start_time/>
+          <end_time/>
+          <device_id></device_id>
+          <subscriber_id></subscriber_id>
+          <sim_id></sim_id>
+          <phone_number></phone_number>
+
+          <facility>
+            <name/>
+	    <visits/>
+	    <gps/>
+          </facility>
+
+	  <challenges>
+	    <before/>
+	    <during/>
+	    <after/>
+	    <phone/>
+	    <questionnaires/>
+	  </challenges>
+	  
+	  <improvements/>
+	  <comments/>
+
+        </data>
+      </instance>
+
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/data/start_time" type="dateTime"/> 
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/data/end_time" type="dateTime"/> 
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/data/device_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/data/subscriber_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/data/sim_id" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/data/phone_number" type="string"/>
+
+      <bind constraint=". != ''" jr:constraintMsg="{% trans "Please fill in the facility name." %}" nodeset="/data/facility/name" required="true()" type="string"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Please enter the number of previous visits." %}" nodeset="/data/facility/visits" required="true()" type="int"/>
+      <bind nodeset="/data/facility/gps" required="true()" type="geopoint"/>
+
+      <bind nodeset="/data/challenges/before" type="string"/>
+      <bind nodeset="/data/challenges/during" type="string"/>
+      <bind nodeset="/data/challenges/after" type="string"/>
+      <bind nodeset="/data/challenges/phone" type="string"/>
+      <bind nodeset="/data/challenges/questionnaires" type="string"/>
+
+      <bind nodeset="/data/improvements" type="string"/>
+      <bind nodeset="/data/comments" type="string"/>
+
+    </model>
+  </h:head>
+
+  <h:body>
+
+    <group appearance="field-list">
+      <label>{% trans "Facility" %}</label>
+      <input ref="/data/facility/name">
+        <label>{% trans "What is the name of the facility you are currently visiting?" %}</label>
+      </input>
+      <input ref="/data/facility/gps">
+        <label>{% trans "Capture the GPS coordinates of the facility you are currently visiting." %}</label>
+        <hint>{% trans "You will need to be outside in order to do this. Also make sure that your GPS reader is switched on (see the troubleshooting guide for details)." %}</hint>
+      </input>
+      <input ref="/data/facility/visits">
+        <label>{% trans "Have you visited this facility before? If so, how many times?" %}</label>
+	<hint>{% trans "Please enter the approximate number of times you have visited this facility. Enter 0 if this is your first visit to this facility." %}</hint>
+      </input>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Challenges encountered" %}</label>
+      <input ref="/data/challenges/before">
+        <label>{% trans "Did you encounter any challenges before your visit to the facility?" %}</label>
+      </input>
+      <input ref="/data/challenges/phone">
+        <label>{% trans "Did you experience any problems with your phone while you were at the facility? (for example,
+connectivity, photos, recordings or battery life, etc.)" %}</label>
+      </input>
+      <input ref="/data/challenges/questionnaires">
+        <label>{% trans "Did you encounter any challenges with your questionnaires or submissions while you were at the
+facility?" %}</label>
+      </input>
+      <input ref="/data/challenges/during">
+        <label>{% trans "Did you encounter any other challenges during your visit to the facility?" %}</label>
+      </input>
+      <input ref="/data/challenges/after">
+        <label>{% trans "Did you encounter any challenges after your visit to the facility?" %}</label>
+      </input>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Comments" %}</label>
+      <input ref="/data/improvements">
+        <label>{% trans "Generally, is there anything that needs to be improved before your next visit to the facility?" %}</label>
+      </input>
+      <input ref="/data/comments">
+        <label>{% trans "Do you have any other comments?" %}</label>
+      </input>
+    </group>
+
+  </h:body>
+</h:html>
