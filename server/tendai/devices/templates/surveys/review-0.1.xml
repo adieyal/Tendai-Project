@@ -82,12 +82,10 @@
         <label>{% trans "Did you encounter any challenges before your visit to the facility?" %}</label>
       </input>
       <input ref="/data/challenges/phone">
-        <label>{% trans "Did you experience any problems with your phone while you were at the facility? (for example,
-connectivity, photos, recordings or battery life, etc.)" %}</label>
+        <label>{% trans "Did you experience any problems with your phone while you were at the facility? (for example, connectivity, photos, recordings or battery life, etc.)" %}</label>
       </input>
       <input ref="/data/challenges/questionnaires">
-        <label>{% trans "Did you encounter any challenges with your questionnaires or submissions while you were at the
-facility?" %}</label>
+        <label>{% trans "Did you encounter any challenges with your questionnaires or submissions while you were at the facility?" %}</label>
       </input>
       <input ref="/data/challenges/during">
         <label>{% trans "Did you encounter any other challenges during your visit to the facility?" %}</label>
