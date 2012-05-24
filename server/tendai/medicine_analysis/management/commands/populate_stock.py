@@ -12,6 +12,7 @@ class Command(BaseCommand):
         query = Q(medicinestock=None)
         query &= Q(medicinerestock=None)
         query &= Q(medicinerestockexpectation=None)
+        query &= Q(form__name='Medicines Form')
         with transaction.commit_on_success():
             for submission in openrosa.models.ORFormSubmission.objects.filter(query):
                 try:
