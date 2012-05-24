@@ -7,9 +7,8 @@ class Command(BaseCommand):
         query = Q(submissionworkerdevice__verified=True)
         query &= Q(submissionworkerdevice__valid=True)
         query &= Q(facilitysubmission=None)
-        query &= Q(form__name='Facility Form')
-        facility = openrosa.models.objects.filter(query).filter(form__name='Facility Form').count()
-        medicine = openrosa.models.objects.filter(query).filter(form__name='Medicines Form').count()
+        facility = openrosa.models.ORFormSubmission.objects.filter(query).filter(form__name='Facility Form')
+        medicine = openrosa.models.ORFormSubmission.objects.filter(query).filter(form__name='Medicines Form')
         print 'Facility submissions:'
         for submission in facility:
             print 'Submission: %5d  SWD: %5d' % (submission.id, submission.submissionworkerdevice.id)
