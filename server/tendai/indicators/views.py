@@ -205,6 +205,17 @@ class MedicineStockOutView(PerCountryView):
         return data
 
 
+class MonitoredFacilitiesView(PerCountryView):
+    key = 'facilities'
+    
+    def data_for_country(self, country):
+        query = Q(timestamp__year=self.year, timestamp__month=self.month)
+        query &= Q(submission__submissionworkerdevice__community_worker__country=country)
+        stock = medicine_analysis.models.MedicineStock.objects.filter(query)
+        facilities = set([s.facility for s in stock])
+        return len(facilities)
+
+
 class CombinedView(JSONView):
     views = [
         MOHInteractionLevelView,
@@ -218,6 +229,7 @@ class CombinedView(JSONView):
         RisksView,
         StockOutView,
         MedicineStockOutView,
+        MonitoredFacilitiesView,
         ]
     
     def get_json_data(self, *args, **kwargs):
