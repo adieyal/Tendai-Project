@@ -21,7 +21,10 @@ class CostPerSubmissionView(PerCountryView):
     key = 'cost_per_submission'
     
     def data_for_country(self, country):
-        submissions = devices.models.SubmissionWorkerDevice.objects.all_valid.filter(community_worker__country=country).count()
+        last_day = last_day_of_month(self.year, self.month)
+        query = Q(community_worker__country=country)
+        query &= Q(created_date__lte=last_day)
+        submissions = devices.models.SubmissionWorkerDevice.objects.all_valid.filter(query).count()
         disbursements = models.Disbursement.objects.prior_to(self.year, self.month).filter(country=country)
         cost = disbursements.aggregate(Sum('amount'))['amount__sum']
         if cost and submissions:
@@ -33,7 +36,10 @@ class CostPerMedicineSubmissionView(PerCountryView):
     key = 'cost_per_medicine_submission'
     
     def data_for_country(self, country):
-        submissions = devices.models.SubmissionWorkerDevice.objects.medicines_submissions.filter(community_worker__country=country).count()
+        last_day = last_day_of_month(self.year, self.month)
+        query = Q(community_worker__country=country)
+        query &= Q(created_date__lte=last_day)
+        submissions = devices.models.SubmissionWorkerDevice.objects.medicines_submissions.filter(query).count()
         disbursements = models.Disbursement.objects.prior_to(self.year, self.month).filter(country=country)
         cost = disbursements.aggregate(Sum('amount'))['amount__sum']
         if cost and submissions:
