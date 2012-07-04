@@ -1,43 +1,42 @@
-{% extends "base.html" %}
+{% extends "website/base.html" %}
 
 {% block extrahead %}
-    <style>
-        .country_list {
-            width: 250px;
-            float: left;
-            margin: 5px;
-            padding: 5px;
-        }
-    </style>
+<style>
+  .country_list {
+    width: 250px;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+  }
+</style>
 {% endblock extrahead %}
 
-{% block page_name %} Submissions overview {% endblock page_name %}
-{% block tagline %} {% endblock tagline %}
-{% block main_content_title %}{% endblock main_content_title %}
-{% block reports_active %}active{% endblock %}
-
-{% block main_content %}
+{% block content %}
+<div class="row-fluid">
+  <div class="span12">
     {% for country in countries %}
-        <div class="country_list">
-        <h1>{{ country }}</h1>
-        <table class="condensed-table bordered-table">
-	  <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Total</th>
+    <div class="country_list">
+      <h1>{{ country }}</h1>
+      <table class="table table-condensed table-bordered">
+	<thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Total</th>
             </tr>
-	  </thead>
-	  <tbody>
-            {% for worker in country.communityworker_set.all_active %}
-            <tr>
-              <td>{{ worker.first_name }}</td>
-              <td>{{ worker.last_name }}</td>
-              <td>{{ worker.submissionworkerdevice_set.all.count }}
-            </tr>
-            {% endfor %}
-	  </tbody>
-        </table>
-        </div>
+	</thead>
+	<tbody>
+          {% for worker in country.communityworker_set.all_active %}
+          <tr>
+            <td>{{ worker.first_name }}</td>
+            <td>{{ worker.last_name }}</td>
+            <td>{{ worker.submissionworkerdevice_set.all.count }}
+          </tr>
+          {% endfor %}
+	</tbody>
+      </table>
+    </div>
     {% endfor %}
-{% endblock main_content %}
+  </div>
+</div>
+{% endblock %}
