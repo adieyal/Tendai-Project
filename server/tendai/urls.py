@@ -13,7 +13,7 @@ from views import slider_view, recent_stories
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^openrosa/', include('devices.urls')),
-    ('^$', slider_view, {}, "home"),
+    #('^$', slider_view, {}, "home"),
     ('^stories/$', recent_stories, {}, "recent_stories"),
     url(r'^reports/', include('reports.urls')),
     url(r'^scorecards/', include('scorecards.urls')),
@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^sms/', include('sms.urls')),
     url(r'^analysis/medicine/', include('medicine_analysis.urls')),
     url(r'^dashboard/indicators/', include('indicators.urls')),
+    url('^', include('website.urls')),
 )
 
 if settings.DEBUG:

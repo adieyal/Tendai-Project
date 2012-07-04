@@ -1,0 +1,11 @@
+{% extends 'website/base.html' %}
+{% load markup %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+<div class="span12">
+  {{ page.content|textile }}
+</div>
+{% endblock %}
+

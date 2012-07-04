@@ -104,6 +104,16 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.messages.context_processors.messages',
+    'website.context_processors.menu',
+)
+
 ROOT_URLCONF = 'tendai.urls'
 
 TEMPLATE_DIRS = (
@@ -122,6 +132,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.gis',
+    'django.contrib.markup',
 
     'south',
     'sorl.thumbnail',
@@ -138,6 +149,8 @@ INSTALLED_APPS = (
     
     'medicine_analysis',
     'indicators',
+    
+    'website',
 )
 
 # A sample logging configuration. The only tangible logging

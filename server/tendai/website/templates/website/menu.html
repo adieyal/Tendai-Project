@@ -1,0 +1,28 @@
+<div class="subnav">
+  <ul class="nav nav-pills">
+    {% for item in menu %}
+    {% if item.menuitem_set.all.count %}
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	{{ item.name }}<b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+	{% for subitem in item.submenu %}
+        <li>
+	  <a href="{{ subitem.get_href|default:'#' }}">
+	    {{ subitem.name }}
+	  </a>
+	</li>
+	{% endfor %}
+      </ul>
+    </li>
+    {% else %}
+    <li>
+      <a href="{{ item.get_href|default:'#' }}">
+	{{ item.name }}
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>

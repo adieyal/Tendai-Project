@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row-fluid">
   {% if submission.content %}
   <div class="span3">
     {% for photo in submission.content.section_photos %}
@@ -7,7 +7,7 @@
     {% endif %}
     {% endfor %}
   </div>
-  <div class="span11">
+  <div class="span9">
     <h2>{{ submission.content.section_name.facility_name }}</h2><br />
     <p><strong>Doctors:</strong> {{ submission.content.section_services.facility_doctors }}</p>
     <p><strong>Nurses:</strong> {{ submission.content.section_services.facility_nurses }}</p>

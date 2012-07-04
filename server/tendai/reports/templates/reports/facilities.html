@@ -1,45 +1,47 @@
-{% extends "base.html" %}
+{% extends "website/base.html" %}
 
 
 {% block extrahead %}
-      <script src="{{ STATIC_URL }}js/jquery-1.6.4.js" type="text/javascript"></script>
-      <script src="{{ STATIC_URL }}js/jquery.colorbox-min.js" type="text/javascript"></script>
-      <script src="{{ STATIC_URL }}js/OpenLayers.js"></script>
-      <script src="{{ STATIC_URL }}js/facility/map.js"></script>
-      <script>
-        $(document).ready(function() {
-          initMap();
-        });
-      </script>
-      <link rel="stylesheet" href="{{ STATIC_URL }}css/colorbox.css" />
-      <style>
-	#map {
-	  width: 100%;
-	  height: 400px;
-	}
-      </style>
+<script src="{{ STATIC_URL }}js/jquery-1.6.4.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/jquery.colorbox-min.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/OpenLayers.js"></script>
+<script src="{{ STATIC_URL }}js/facility/map.js"></script>
+<script>
+  $(document).ready(function() {
+    initMap();
+  });
+</script>
+<link rel="stylesheet" href="{{ STATIC_URL }}css/colorbox.css" />
+<style>
+  #map {
+    width: 100%;
+    height: 400px;
+  }
+</style>
 {% endblock extrahead %}
-{% block facilities_active %}active{% endblock %}
 
-{% block page_name %} Facility Map {% endblock page_name %}
-{% block tagline %} All registered facilities {% endblock tagline %}
-{% block main_content_title %}{% endblock main_content_title %}
-
-{% block main_content %}
-    <div id="content">
-      <p>All registered facilities are plotted on the map below. Click on the facility icon for more information about it.</p>
-      <div class="row">
-	<div class="span3">
-	  <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/red.png" />Hospital
-	</div>
-	<div class="span3">
-	  <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/yellow.png" />Clinic
-	</div>
-	<div class="span3">
-	  <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/blue.png" />Other
-	</div>
-      </div>
-      <div id="map"></div>
-      <div id="facility_info"></div>
-    </div>
-{% endblock main_content %}
+{% block content %}
+<div class="row-fluid">
+  <div class="span12">
+    <h1>Facilities monitored across the region</h1>
+    <p>All monitored facilities are plotted on the map below. Click on the facility icon for more information about it.</p>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span3">
+    <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/red.png" />Hospital
+  </div>
+  <div class="span3">
+    <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/yellow.png" />Clinic
+  </div>
+  <div class="span3">
+    <img style="vertical-align:middle;" src="{{ STATIC_URL }}icons/blue.png" />Other
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span12">
+    <div id="map"></div>
+    <div id="facility_info"></div>
+  </div>
+</div>
+{% endblock %}
