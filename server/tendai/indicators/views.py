@@ -7,6 +7,13 @@ import facility.models
 import medicine_analysis.models
 import models
 
+class MonthView(JSONView):
+    def get_json_data(self, *args, **kwargs):
+        MONTH = ['INVALID', 'JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE',
+                 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER']
+        return { 'month': '%s %s' % (MONTH[int(self.month)], self.year) }
+    
+
 class PerCountryView(JSONView):
     key = 'countrydata'
     
@@ -218,6 +225,7 @@ class MonitoredFacilitiesView(PerCountryView):
 
 class CombinedView(JSONView):
     views = [
+        MonthView,
         MOHInteractionLevelView,
         MOHInteractionPointsView,
         CostPerSubmissionView,
