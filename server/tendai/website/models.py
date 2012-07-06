@@ -83,6 +83,9 @@ class Story(models.Model):
         ROOT = path.join(settings.MEDIA_URL, 'openrosa', 'submissions', 'images')
         return self.photo.replace(p, ROOT, 1)
     
+    def get_absolute_url(self):
+        return self.submission.submissionworkerdevice.get_absolute_url()
+    
     def __unicode__(self):
         return u'%s' % (self.heading)
     
