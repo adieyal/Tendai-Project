@@ -112,3 +112,16 @@ p.justify {
 h1 {
     margin-bottom: 20px;
 }
+
+body {
+    background-color: #CED7DC;
+}
+
+.container {
+    background-color: #fff;
+    padding: 0 10px 0 10px;
+}
+
+pre {
+    margin: 20px;
+}
