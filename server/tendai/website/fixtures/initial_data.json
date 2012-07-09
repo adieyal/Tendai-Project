@@ -191,7 +191,7 @@
         "model": "website.menuitem", 
         "fields": {
             "url": "", 
-            "enabled": true, 
+            "enabled": false, 
             "name": "F.A.Q.", 
             "parent": null, 
             "page": 6
@@ -206,6 +206,138 @@
             "name": "Contact Us", 
             "parent": null, 
             "page": 10
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-06-26 10:32:52", 
+            "title": "About SARPAM", 
+            "modified": "2012-07-09 09:40:12", 
+            "content": "h1. SARPAM\r\n\r\np(justify). The Southern Africa Regional Programme on Access to Medicines and Diagnostics (SARPAM) is funded by UKAid, through the UK \"Department for International Development (DFID)\":http://www.dfid.gov.uk, to promote a more efficient and competitive market for essential medicines in the \"SADC\":http://www.sadc.int region.\r\n\r\np(justify). This adds to the initiatives of country governments, the \"SADC Secretariat\":http://www.sadc.int/english/sadc-institutions/sadc-secretariat/, Civil Society, the private sector and other development partners to increase access to high quality, affordable, essential medicines to meet the health needs of poor people in the SADC region. SARPAM is being implemented from July 2011 to December 2014.\r\n\r\nh2. The rationale for pharmaceutical market intervention in the SADC\r\n\r\np(justify). During an inception phase from 2010 to the middle of 2011, surveys were undertaken to establish a baseline understanding of the pharmaceutical marketplace in SADC Member States. This found evidence of market failures that result in uncompetitive drug pricing and unstable availability of medicines, which directly compromises the health and wellbeing of people living in the region, where there is a high burden of treatable disease. For instance, there are significant price disparities between neighbouring countries for the same medicines, and a number of essential medicine products are not obtainable from accredited suppliers.\r\n\r\np(justify). The implementation phase of SARPAM was therefore designed in consultation with Member States, the SADC Secretariat and other stakeholders to respond to these identified needs and priorities \u2013 in particular, to progress key elements of the \"SADC Pharmaceutical Business Plan (PBP)\":http://www.unido.org/fileadmin/user_media/Services/PSD/BEP/SADC%20PHARMACEUTICAL%20BUSINESS%20PLAN%20-APPROVED%20PLAN.pdf.\r\n\r\np(justify). Regional geographical and market integration requires medicines regulation, control, procurement and distribution to be harmonised across Member States because medicines trade between countries is highly regulated. Differing regulatory requirements and controls are part of the reason that significant differences are found in the quality, availability and competitiveness of medicines between countries in the SADC, which does not yet function as a regional pharmaceutical marketplace.\r\n\r\np(justify). The regional health threats of HIV, TB and malaria epidemics can also be more effectively addressed through countries working together (as described in the \"SADC Protocol on Health\":http://www.sadc.int/english/key-documents/protocols/protocol-on-health/) and countries need to manage the increasing burden of non-communicable diseases.\r\n\r\np(justify). Evidence from other regional initiatives suggests that there are substantial gains to be made through regional co-operation on these highly technical pharmaceutical and health issues. Harmonised regulation will establish incentives for pharmaceutical suppliers to enter the market of smaller countries, and lead to a more competitive environment with fewer inter-country variances.", 
+            "template": 3, 
+            "slug": "about-sarpam"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-06-26 10:46:02", 
+            "title": "About Tendai", 
+            "modified": "2012-07-09 09:40:07", 
+            "content": "h1. Tendai\r\n\r\nbc. Tendai means 'thank you' in Shona, an African language native to Zimbabwe.\r\n\r\n!(right)http://test.sarpam.net/wp-content/uploads/2012/02/Tendai-phone-3.png(Tendia uses mobile phones as a data collection device.)!\r\n\r\np(justify).. Through Tendai, community health workers from a network of Civil Society partners use mobile phones to collect data on the availability of medicines at points of access in participating countries (South Africa, Lesotho, Zimbabwe, Mozambique, Malawi, Zambia, DRC and Tanzania). SARPAM co-ordinates the data using customised open-source survey software.\r\n\r\nIndividuals from local communities are trained and sent out to collect first-hand information on medicines availability and pricing. A selection of public sector health facilities and medicines dispensaries are identified in each district to provide a good level of geographic coverage. Each community monitor collects relevant information in their area and submits reports, including GPS co-ordinates, using an inexpensive Android mobile phone. Customised software allows\r\nthe monitors to capture many types of instantly accessible data, including digital surveys, voice recordings and photos that provide insight into the real issues at community level. This data helps highlight the plight of people living with disease and accurately monitors issues around the availability of quality medicines.\r\n\r\nThis data can be shared immediately via the mobile web and sent to the dedicated Tendai project section on the Medicines InfoHub, as well as social networks and mailing lists. The data helps identify problems and monitors interventions and advocacy.\r\n\r\nIn addition Tendai links Civil Society networks with each other and assists in the collection of market intelligence.\r\n\r\n<br/>\"Read more... Tendai: gathering information to drive change\":http://www.medicinesinfohub.net/what-the-experts-say/tendai-gathering-information-to-drive-change/.", 
+            "template": 3, 
+            "slug": "about-tendai"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-06-26 11:37:17", 
+            "title": "Home", 
+            "modified": "2012-07-09 08:54:21", 
+            "content": "p. No real content.", 
+            "template": 2, 
+            "slug": "home"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-06-26 11:40:23", 
+            "title": "Community Monitors", 
+            "modified": "2012-07-09 09:40:00", 
+            "content": "h1. Community Monitors\r\n\r\n\"DRC\":monitors-cd\r\n\"Lesotho\":monitors-ls\r\n\"Malawi\":monitors-mw\r\n\"Mozambique\":monitors-mz\r\n\"South Africa\":monitors-za\r\n\"Tanzania\":monitors-tz\r\n\"Zambia\":monitors-zm\r\n\"Zimbabwe\":monitors-zw", 
+            "template": 3, 
+            "slug": "about-monitors"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-06-26 11:44:51", 
+            "title": "Civil Society Organisations", 
+            "modified": "2012-07-09 09:39:55", 
+            "content": "h1. Civil Society Organisations\r\n\r\n!(right)http://test.sarpam.net/wp-content/uploads/2012/04/PACT-Icons-v3-09.jpg(Civil Society)!\r\n\r\np(justify).. Regional Civil Society organisations and their partner country networks are receiving grants to implement a network of community-level monitors in eight \"SADC\":http://www.sadc.int countries to track the availability and prices of a sample of medicines at primary healthcare facilities, using an innovative smartphone application. This provides a platform through which Civil Society can co-ordinate their activities to influence the pharmaceutical market, including advocacy for better quality medicines and their rational use.\r\n\r\nh4. SARPAM is working with the following Civil Societies on the Tendai project:\r\n\r\n* \"The Community Working Group on Health (CWGH)\":#cwgh\r\n* \"Ecumenical Pharmaceutical Network\":#epn\r\n* \"Health Action International\":#hai\r\n* \"Pan-African Treatment Access Movement\":#patam\r\n* \"Southern and Eastern African Trade Information and Negotiations Institute\":#seatini\r\n* \"Treatment Action Campaign\":#tac\r\n==\r\n<!--\r\n* \"The Community Working Group on Health (CWGH)\":http://www.cwgh.co.zw/\r\n* \"Ecumenical Pharmaceutical Network\":http://www.epnetwork.org/\r\n* \"Health Action International\":http://www.haiafrica.org/index.php\r\n* \"Pan-African Treatment Access Movement\":http://www.patam-africa.org/\r\n* \"Southern and Eastern African Trade Information and Negotiations Institute\":http://www.seatini.org/index.html\r\n* \"Treatment Action Campaign\":http://www.tac.org.za/community/\r\n-->\r\n==\r\n\r\nh2(#cwgh). The Community Working Group on Health\r\n\r\np(justify).. The Community Working Group on Health is a network of civic/community based organisation that was formed in early 1998 to take up health issues of common concern.\r\n\r\nThere are approximately thirty-five (35) organisations in the CWGH including national membership organisations that have branches across the country, while others have areas specific membership (such as the residents associations).\r\n\r\nThe Executive committee of the CWGH comprises seven civic groups: Zimbabwe Diabetic Association, the Students and Youths Working on Reproductive Health Action Team (SAYWHAT), Zimbabwe Homeless People\u2019s Federation (ZHPF), Women\u2019s AIDS Support Network (WASN), Bulawayo United Resident Association (BURA), Zhombe AIDS Aid Organisation, Zimbabwe Diabetic Association (ZDA), and the Carelight Counselors.\r\n\r\nThe CWGH has local committees made of civic organisations at local level, set up in the process of the Civic Education Programme on Health. The CWGH was registered as a trust in 2002.\r\n\r\n<br/>\"Read more...\":http://www.cwgh.co.zw/\r\n\r\nh2(#epn). Ecumenical Pharmaceutical Network\r\n\r\np(justify).. Ecumenical Pharmaceutical Network (EPN) is a Christian, not for profit, independent organization committed to the provision of quality pharmaceutical services as a means to achieving global goals and targets on health and access to medicines.\r\n\r\nEPN is a worldwide network of associations, institutions, and individuals who have an interest or are involved in the delivery of just and compassionate quality pharmaceutical services.\r\n\r\nh4. Strategic priority areas\r\n\r\np(justify).. EPN's strategy seeks to strengthen the Church pharmaceutical sector and enhance interventions that improve people\u2019s access to quality pharmaceutical services, informed by EPN\u2019s experience of supporting church pharmaceutical system for over two decades. EPN strengthens the church health systems by focusing on the following strategic areas:\r\n\r\n* \"Access to and rational use of medicines\":http://www.epnetwork.org/access-to-and-rational-use-of-medicines\r\n* \"HIV and AIDS care and treatment\":http://www.epnetwork.org/hiv-and-aids-care-and-treatment\r\n* \"Professionalisation of pharmaceutical services\":http://www.epnetwork.org/professionalisation-of-pharmaceutical-services\r\n* \"Pharmaceutical information sharing\":http://www.epnetwork.org/pharmaceutical-information-sharing\r\n\r\n<br/>\"Read more...\":http://www.epnetwork.org/\r\n\r\nh2(#hai). Health Action International\r\n\r\np(justify).. Health Action International (HAI) Africa is a growing regional network of consumers, NGOs, health care providers, academics and individuals in more than 20 countries in Sub-Saharan Africa promoting increased access to essential medicines, the essential medicines concept and the rational use of both modern and traditional medicines. (Image copyright WHO/P. Virot)\r\n\r\nHAI Africa's strength is the sharing of accurate information and collaborating together for policy changes and improved health for all. HAI Africa promotes the rational use of medicines: that all medicines marketed should meet real medical needs; have therapeutic advantages; be acceptably safe and offer value for money.\u2028\u2028\r\n\r\nAt a time when the market is increasingly flooded with non-essential, ineffective and even dangerous medicines, HAI Africa promotes the essential medicines concept (that less than 350 medicines are necessary to treat more than 90 percent of health problems requiring medicines).\u2028\u2028\r\n\r\nHAI Africa is a member of HAI global network that includes three other regions: \"HAI Europe and North America\":http://www.haiweb.org/01_about_europe_a.htm, based in Amsterdam, The Netherlands, \"HAI Latin America\":http://www.haiweb.org/ based in Lima, Peru and \"HAI Asia/Pacific\":http://www.haiap.org/, based in Colombo, Sri Lanka.\r\n\r\n<br/>\"Read more...\":http://www.haiafrica.org/index.php\r\n\r\nh2(#patam). Pan-African Treatment Access Movement\r\n\r\np(justify).. PATAM works to scale up HIV/AIDS treatment, care and support through lobbying national governments and bilateral and multilateral stakeholders. The movement is made up of individuals and organisations who subscribe to PATAM's principles and objectives.\r\n\r\nh4. PATAM Objectives:\r\n\r\n* to promote and support national and sub-regional treatment access movement initiatives;\r\n* to lead Africa-wide global and local advocacy efforts to address political commitments and policies, thus ensuring access to treatment;\r\n* to promote activist-led field research on access to treatment at the grass-root level in African countries;\r\n* to advocate for implementation and monitor progress of HIV/AIDS treatment efforts at the grass root level;\r\n* to empower PLWHA and community activists to express demand for treatment overcome social, economic and political barriers to treatment access and possess sufficient treatment knowledge to be involved in their own healthcare decisions;\r\n* to advocate for more resources for treatment from international donors and African countries;\r\n* to build alliances with regional and international bodies to help make universal access sustainable;\r\n\r\n<br/>\"Read more...\":http://www.patam-africa.org/\r\n\r\nh2(#seatini). Southern and Eastern African Trade Information and Negotiations Institute\r\n\r\np(justify).. The Southern and Eastern African Trade Information and Negotiations Institute (SEATINI) is an African initiative to strengthen Africa's capacity to take a more effective part in the emerging global trading system and to better manage the process of Globalisation. SEATINI deal specifically with issues and debates around the World Trade Organisation and Africa's relationships to it.\r\n\r\nh4. The Southern and Eastern African Trade Information and Negotiations Institute (SEATINI) seeks:\r\n\r\n* to enable Southern and Eastern African senior level policy makers to discuss matters of concern to them in a relatively free atmosphere (free from \"mandated\" positions) in order to clarify matters for themselves. The objective of the exercise is to prepare African policy makers to better manage the process of globalization;\r\n* to help build the long-term capacity of African countries on trade-related matters through building an information network using the electronic and print media;\r\n* to help develop a documentation centre to build on institutional memory and learning.\r\n* to monitor develop in the area of trade and trade-related matters;\r\n* to monitor and evaluate the results of African negotiations on trade and trade-related matters;\r\n* to help raise awareness and bring into the discourse the concerns of the private sector and of the civil society into trade-related matters;\r\n* to undertake scientific research into contemporary issues arising out of the demands of globalization, the new multilateral trading regime, regionalism, and national responses to these.\r\n\r\nh4. At a broader level, SEATINI seeks to:\r\n\r\n* to network with academics, policy makers, NGOs and civil society movements concerned about the forces and effects of globalization on Africa and the Third World generally;\r\n* to help democratise international economic decision-making organisations, such as the IMF, the World Bank and the WTO;\r\n* to contribute to the fight for social justice, democracy and good governance, without partisan, sectarian or sexism.\r\n\r\n<br/>\"Read more...\":http://www.seatini.org/index.html\r\n\r\nh2(#tac). Treatment Action Campaign\r\n\r\np(justify).. Founded on 10 December 1998 in Cape Town, South Africa, The Treatment Action Campaign (TAC) advocates for increased access to treatment, care and support services for people living with HIV and campaigns to reduce new HIV infections.\r\n\r\nWith more than 16,000 members, 267 branches and 72 full time staff members, TAC has become the leading civil society force behind comprehensive health care services for people living with HIV/AIDS in South Africa. Since 1998, TAC has held government accountable for health care service delivery; campaigned against official AIDS denialism; challenged the world\u2019s leading pharmaceutical companies to make treatment more affordable and cultivated community leadership on HIV and AIDS.\r\n\r\nTAC\u2019s efforts have resulted in many life-saving interventions, including the implementation of country-wide mother-to-child transmission prevention and antiretroviral treatment programmes. For their efforts TAC has received world-wide acclaim and numerous international accolades, including a nomination for a Nobel Peace Prize in 2004. On 30 August 2006 the New York Times named TAC, \u201cthe world\u2019s most effective AIDS group\u201d.\r\n\r\n<br/>\"Read more...\":http://www.tac.org.za/community/", 
+            "template": 3, 
+            "slug": "about-civilsociety"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-06-26 12:33:57", 
+            "title": "Frequently Asked Questions", 
+            "modified": "2012-07-09 08:49:49", 
+            "content": "h1. Frequently Asked Questions\r\n\r\nh3. No questions yet.\r\n\r\np(justify). We do not have any questions yet. Please feel free to ask us a question so that we can add it here. To ask a question file a request by following the link on our \"contact page\":/page/contact-us.", 
+            "template": 1, 
+            "slug": "faq"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-07-03 16:45:57", 
+            "title": "SADC", 
+            "modified": "2012-07-09 09:39:44", 
+            "content": "h1. SADC\r\n\r\n!(right)http://test.sarpam.net/wp-content/uploads/2012/02/SADC-logo.png(SADC)!\r\n\r\np(justify).. The \"Southern African Development Community (SADC)\":http://www.sadc.int/ started as the Frontline States, the objective of which was political liberation in Southern Africa. The SADC was preceded by the Southern African Development Co-ordination Conference (SADCC), which was formed in Lusaka, Zambia on April 1 1980 with the adoption of the Lusaka Declaration (Southern Africa: Towards Economic Liberation).\r\n\r\nThe formation of the SADCC was the culmination of a long process of consultations by the leaders of the then-only-majority-ruled countries of Southern Africa (Angola, Botswana, Lesotho, Mozambique, Swaziland, United Republic of Tanzania and Zambia) working together as the Frontline States.\r\n\r\nThe SADC has 15 Member States, namely: Angola, Botswana, Democratic Republic of Congo (DRC), Lesotho, Madagascar, Malawi, Mauritius, Mozambique, Namibia, Seychelles, South Africa, Swaziland, United Republic of Tanzania, Zambia and Zimbabwe.\r\n\r\nPopulation: 257, 726,000\r\nGross Domestic Product: 471,118 US$ billion\r\n\r\nThe SADC\u2019s vision is that of a common future, a future within a regional community that will ensure economic wellbeing, improvement of standards of living and quality of life, freedom, social justice and peace and security for the people of Southern Africa. This shared vision is anchored on the common values and principles and the historical and cultural affinities that exist between the people of Southern Africa.\r\n\r\nThe SADC mission is to promote sustainable and equitable economic growth and socio-economic development through efficient productive systems, deeper co-operation and integration, good governance and durable peace and security, so that the region emerges as a competitive and effective player in international relations and the world economy.\r\n\r\n<br/>\"Read more...\":http://www.sadc.int/", 
+            "template": 3, 
+            "slug": "partners-sadc"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-07-03 16:50:15", 
+            "title": "DfID / UKAid", 
+            "modified": "2012-07-09 09:37:09", 
+            "content": "h1. DfID / UKAid\r\n\r\np(right).. !http://test.sarpam.net/wp-content/uploads/2012/02/logo-dfid-latest-resized.gif(DFiD)!\r\n!http://test.sarpam.net/wp-content/uploads/2012/02/ukaid_logo_sml.gif(UKAid)!\r\n\r\np(justify).. When the \"Department for International Development (DFID)\":http://www.dfid.gov.uk/ was set up in 1997, it made fighting world poverty its top priority. This marked a turning point for Britain\u2019s aid programme, which until then had mainly involved economic development.\r\n\r\nIn its manifesto the government elected in May 1997 pledged to create a new department for international development headed by a cabinet minister. Previously the aid programme was managed by the Overseas Development Administration (ODA), a wing of the \"Foreign and Commonwealth Office\":http://www.fco.gov.uk/en/.\r\n\r\nAmong its key objectives, \"DFID\":http://www.dfid.gov.uk/ set out to make global development a national priority and promote it to audiences in the UK and overseas, while fostering a new \u2018aid relationship\u2019 with governments of developing countries.\r\n\r\nIn the autumn of 1997, DFID published its first white paper with the focus on eliminating world poverty. Three other white papers, issued in 2000, 2006 and 2009 reinforced the first white paper\u2019s message.\r\n\r\nTwo acts of parliament have since helped to put development higher on the national agenda. The International Development Act 2002 clarified the purpose of aid spending as poverty reduction; while International Development (Reporting and Transparency) Act 2006 defined DFID\u2019s annual reporting to Parliament through its Annual Report.\r\n\r\n<br/>\"Read more...\":http://www.dfid.gov.uk/", 
+            "template": 3, 
+            "slug": "partners-dfid-ukaid"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-07-03 16:58:24", 
+            "title": "GGSA / GC", 
+            "modified": "2012-07-09 09:39:39", 
+            "content": "h1. GGSA / GC\r\n\r\np(justify).. The GreaterGood group develops the sector for social change by facilitating the full spectrum of giving and social investment in South Africa.\r\n\r\nGreaterGood South Africa is a public service organisation connecting givers with good causes and activating the public to give responsibly. We do this with:\r\n\r\n# An online community for givers and causes - \"myggsa.co.za\":http://myggsa.co.za/\r\n# Resources and support for civil society organisations on \"thefundingsite.co.za\":http://www.thefundingsite.co.za/\r\n# Public call-to-action campaigns: \"Gifts4Good\":http://wwwgifts4good.co.za/, Make Christmas Matter and Do It Day.\r\n# News, advice, debate and thought leadership in our newsletters, blogs and in the media.\r\n\r\nGreaterCapital provides social advisory services and investment opportunities to corporate, development agency and public sector clients. Our integrated solutions include:\r\n\r\n* Social investment opportunities listed on the SA Social Investment Exchange (SASIX) - \"sasix.co.za\":http://www.sasix.co.za/\r\n* Strategy development\r\n* Social investment identification and due diligence\r\n* Monitoring and evaluation\r\n* Grant or fund management and administration\r\n* Research and impact analysis\r\n* Employee engagement advisory services\r\n* CSI response handling and administration\r\n\r\n<br/>\"Read more...\":http://www.greatergoodsa.co.za/", 
+            "template": 3, 
+            "slug": "partners-ggsa-gc"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-07-03 17:03:32", 
+            "title": "Contact us", 
+            "modified": "2012-07-09 09:39:32", 
+            "content": "h1. Contact Us\r\n\r\np(justify).. The Southern African Regional Programme on Access to Medicines and Diagnostics (SARPAM) is managed by the Responsible Action Consortium, led by Re-Action! (Southern Africa).\r\n\r\n24 Bolton Road,\r\nParkwood,\r\nJohannesburg,\r\nSouth Africa\r\n\r\nTel: +27 11 880 6993/4\r\nEmail: \"(email)sarpam__at__sarpam.net\":mailto:sarpam__at__sarpam.net?subject=RE:Tendai\r\nTwitter: \"sarpam2013\":http://twitter.com/sarpam2013\r\nFacebook: SARPAM\r\nSkype: SARPAM1\r\n\r\n\r\nHow can we help? \"File a request.\":https://medicines.zendesk.com/anonymous_requests/new\r\n\r\n==\r\n<script>\r\n  var e = document.getElementsByClassName('email')[0];\r\n  var t = e.innerText.replace('__at__','@');\r\n  var u = e.attributes.href.value.replace('__at__','@');\r\n  e.innerText = t;\r\n  e.attributes.href.value = u;\r\n</script>\r\n==", 
+            "template": 3, 
+            "slug": "contact-us"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "website.page", 
+        "fields": {
+            "created": "2012-07-04 10:30:22", 
+            "title": "Stock-outs", 
+            "modified": "2012-07-04 10:30:22", 
+            "content": "h1. Medicine stock-outs across the region\r\n\r\np. Unfortunately we have not populated this page yet, but will do so in the near future. Please check back soon.", 
+            "template": 1, 
+            "slug": "stock-outs"
         }
     }, 
     {
@@ -225,135 +357,11 @@
         }
     }, 
     {
-        "pk": 1, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-06-26 10:32:52", 
-            "title": "About SARPAM", 
-            "modified": "2012-07-03 21:28:51", 
-            "content": "h1. SARPAM\r\n\r\np(justify). The Southern Africa Regional Programme on Access to Medicines and Diagnostics (SARPAM) is funded by UKAid, through the UK \"Department for International Development (DFID)\":http://www.dfid.gov.uk, to promote a more efficient and competitive market for essential medicines in the \"SADC\":http://www.sadc.int region.\r\n\r\np(justify). This adds to the initiatives of country governments, the \"SADC Secretariat\":http://www.sadc.int/english/sadc-institutions/sadc-secretariat/, Civil Society, the private sector and other development partners to increase access to high quality, affordable, essential medicines to meet the health needs of poor people in the SADC region. SARPAM is being implemented from July 2011 to December 2014.\r\n\r\nh2. The rationale for pharmaceutical market intervention in the SADC\r\n\r\np(justify). During an inception phase from 2010 to the middle of 2011, surveys were undertaken to establish a baseline understanding of the pharmaceutical marketplace in SADC Member States. This found evidence of market failures that result in uncompetitive drug pricing and unstable availability of medicines, which directly compromises the health and wellbeing of people living in the region, where there is a high burden of treatable disease. For instance, there are significant price disparities between neighbouring countries for the same medicines, and a number of essential medicine products are not obtainable from accredited suppliers.\r\n\r\np(justify). The implementation phase of SARPAM was therefore designed in consultation with Member States, the SADC Secretariat and other stakeholders to respond to these identified needs and priorities \u2013 in particular, to progress key elements of the \"SADC Pharmaceutical Business Plan (PBP)\":http://www.unido.org/fileadmin/user_media/Services/PSD/BEP/SADC%20PHARMACEUTICAL%20BUSINESS%20PLAN%20-APPROVED%20PLAN.pdf.\r\n\r\np(justify). Regional geographical and market integration requires medicines regulation, control, procurement and distribution to be harmonised across Member States because medicines trade between countries is highly regulated. Differing regulatory requirements and controls are part of the reason that significant differences are found in the quality, availability and competitiveness of medicines between countries in the SADC, which does not yet function as a regional pharmaceutical marketplace.\r\n\r\np(justify). The regional health threats of HIV, TB and malaria epidemics can also be more effectively addressed through countries working together (as described in the \"SADC Protocol on Health\":http://www.sadc.int/english/key-documents/protocols/protocol-on-health/) and countries need to manage the increasing burden of non-communicable diseases.\r\n\r\np(justify). Evidence from other regional initiatives suggests that there are substantial gains to be made through regional co-operation on these highly technical pharmaceutical and health issues. Harmonised regulation will establish incentives for pharmaceutical suppliers to enter the market of smaller countries, and lead to a more competitive environment with fewer inter-country variances.", 
-            "template": 1, 
-            "slug": "about-sarpam"
-        }
-    }, 
-    {
-        "pk": 2, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-06-26 10:46:02", 
-            "title": "About Tendai", 
-            "modified": "2012-07-03 21:28:55", 
-            "content": "h1. Tendai\r\n\r\nbc. Tendai means 'thank you' in Shona, an African language native to Zimbabwe.\r\n\r\n!(right)http://test.sarpam.net/wp-content/uploads/2012/02/Tendai-phone-3.png(Tendia uses mobile phones as a data collection device.)!\r\n\r\np(justify). Through Tendai, community health workers from a network of Civil Society partners use mobile phones to collect data on the availability of medicines at points of access in participating countries (South Africa, Lesotho, Zimbabwe, Mozambique, Malawi, Zambia, DRC and Tanzania). SARPAM co-ordinates the data using customised open-source survey software.\r\n\r\np(justify). Individuals from local communities are trained and sent out to collect first-hand information on medicines availability and pricing. A selection of public sector health facilities and medicines dispensaries are identified in each district to provide a good level of geographic coverage. Each community monitor collects relevant information in their area and submits reports, including GPS co-ordinates, using an inexpensive Android mobile phone. Customised software allows\r\nthe monitors to capture many types of instantly accessible data, including digital surveys, voice recordings and photos that provide insight into the real issues at community level. This data helps highlight the plight of people living with disease and accurately monitors issues around the availability of quality medicines.\r\n\r\np(justify). This data can be shared immediately via the mobile web and sent to the dedicated Tendai project section on the Medicines InfoHub, as well as social networks and mailing lists. The data helps identify problems and monitors interventions and advocacy.\r\n\r\np(justify). In addition Tendai links Civil Society networks with each other and assists in the collection of market intelligence.\r\n\r\np(justify). Read more... \"Tendai: gathering information to drive change\":http://www.medicinesinfohub.net/what-the-experts-say/tendai-gathering-information-to-drive-change/.", 
-            "template": 1, 
-            "slug": "about-tendai"
-        }
-    }, 
-    {
         "pk": 3, 
-        "model": "website.page", 
+        "model": "website.template", 
         "fields": {
-            "created": "2012-06-26 11:37:17", 
-            "title": "Home", 
-            "modified": "2012-07-03 21:28:41", 
-            "content": "p. No real content.", 
-            "template": 2, 
-            "slug": "home"
-        }
-    }, 
-    {
-        "pk": 4, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-06-26 11:40:23", 
-            "title": "Community Monitors", 
-            "modified": "2012-07-03 21:29:21", 
-            "content": "h1. Community Monitors\r\n\r\n\"DRC\":monitors-cd\r\n\"Lesotho\":monitors-ls\r\n\"Malawi\":monitors-mw\r\n\"Mozambique\":monitors-mz\r\n\"South Africa\":monitors-za\r\n\"Tanzania\":monitors-tz\r\n\"Zambia\":monitors-zm\r\n\"Zimbabwe\":monitors-zw", 
-            "template": 1, 
-            "slug": "about-monitors"
-        }
-    }, 
-    {
-        "pk": 5, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-06-26 11:44:51", 
-            "title": "Civil Society Orginazations", 
-            "modified": "2012-07-03 21:28:23", 
-            "content": "h1. Civil Society Orginazations\r\n\r\n!(right)http://test.sarpam.net/wp-content/uploads/2012/04/PACT-Icons-v3-09.jpg(Civil Society)!\r\n\r\np(justify).. Regional Civil Society organisations and their partner country networks are receiving grants to implement a network of community-level monitors in eight \"SADC\":http://www.sadc.int countries to track the availability and prices of a sample of medicines at primary healthcare facilities, using an innovative smartphone application. This provides a platform through which Civil Society can co-ordinate their activities to influence the pharmaceutical market, including advocacy for better quality medicines and their rational use.\r\n\r\nh4. SARPAM is working with the following Civil Societies on the Tendai project:\r\n\r\n* \"The Community Working Group on Health (CWGH)\":#cwgh\r\n* \"Ecumenical Pharmaceutical Network\":#epn\r\n* \"Health Action International\":#hai\r\n* \"Pan-African Treatment Access Movement\":#patam\r\n* \"Southern and Eastern African Trade Information and Negotiations Institute\":#seatini\r\n* \"Treatment Action Campaign\":#tac\r\n==\r\n<!--\r\n* \"The Community Working Group on Health (CWGH)\":http://www.cwgh.co.zw/\r\n* \"Ecumenical Pharmaceutical Network\":http://www.epnetwork.org/\r\n* \"Health Action International\":http://www.haiafrica.org/index.php\r\n* \"Pan-African Treatment Access Movement\":http://www.patam-africa.org/\r\n* \"Southern and Eastern African Trade Information and Negotiations Institute\":http://www.seatini.org/index.html\r\n* \"Treatment Action Campaign\":http://www.tac.org.za/community/\r\n-->\r\n==\r\n\r\nh2(#cwgh). The Community Working Group on Health\r\n\r\np(justify).. The Community Working Group on Health is a network of civic/community based organisation that was formed in early 1998 to take up health issues of common concern.\r\n\r\nThere are approximately thirty-five (35) organisations in the CWGH including national membership organisations that have branches across the country, while others have areas specific membership (such as the residents associations).\r\n\r\nThe Executive committee of the CWGH comprises seven civic groups: Zimbabwe Diabetic Association, the Students and Youths Working on Reproductive Health Action Team (SAYWHAT), Zimbabwe Homeless People\u2019s Federation (ZHPF), Women\u2019s AIDS Support Network (WASN), Bulawayo United Resident Association (BURA), Zhombe AIDS Aid Organisation, Zimbabwe Diabetic Association (ZDA), and the Carelight Counselors.\r\n\r\nThe CWGH has local committees made of civic organisations at local level, set up in the process of the Civic Education Programme on Health. The CWGH was registered as a trust in 2002.\r\n\r\n\"Read more...\":http://www.cwgh.co.zw/\r\n\r\nh2(#epn). Ecumenical Pharmaceutical Network\r\n\r\np(justify).. Ecumenical Pharmaceutical Network (EPN) is a Christian, not for profit, independent organization committed to the provision of quality pharmaceutical services as a means to achieving global goals and targets on health and access to medicines.\r\n\r\nEPN is a worldwide network of associations, institutions, and individuals who have an interest or are involved in the delivery of just and compassionate quality pharmaceutical services.\r\n\r\nh4. Strategic priority areas\r\n\r\np(justify).. EPN's strategy seeks to strengthen the Church pharmaceutical sector and enhance interventions that improve people\u2019s access to quality pharmaceutical services, informed by EPN\u2019s experience of supporting church pharmaceutical system for over two decades. EPN strengthens the church health systems by focusing on the following strategic areas:\r\n\r\n* \"Access to and rational use of medicines\":http://www.epnetwork.org/access-to-and-rational-use-of-medicines\r\n* \"HIV and AIDS care and treatment\":http://www.epnetwork.org/hiv-and-aids-care-and-treatment\r\n* \"Professionalisation of pharmaceutical services\":http://www.epnetwork.org/professionalisation-of-pharmaceutical-services\r\n* \"Pharmaceutical information sharing\":http://www.epnetwork.org/pharmaceutical-information-sharing\r\n\r\n\"Read more...\":http://www.epnetwork.org/\r\n\r\nh2(#hai). Health Action International\r\n\r\np(justify).. Health Action International (HAI) Africa is a growing regional network of consumers, NGOs, health care providers, academics and individuals in more than 20 countries in Sub-Saharan Africa promoting increased access to essential medicines, the essential medicines concept and the rational use of both modern and traditional medicines. (Image copyright WHO/P. Virot)\r\n\r\nHAI Africa's strength is the sharing of accurate information and collaborating together for policy changes and improved health for all. HAI Africa promotes the rational use of medicines: that all medicines marketed should meet real medical needs; have therapeutic advantages; be acceptably safe and offer value for money.\u2028\u2028\r\n\r\nAt a time when the market is increasingly flooded with non-essential, ineffective and even dangerous medicines, HAI Africa promotes the essential medicines concept (that less than 350 medicines are necessary to treat more than 90 percent of health problems requiring medicines).\u2028\u2028\r\n\r\nHAI Africa is a member of HAI global network that includes three other regions: \"HAI Europe and North America\":http://www.haiweb.org/01_about_europe_a.htm, based in Amsterdam, The Netherlands, \"HAI Latin America\":http://www.haiweb.org/ based in Lima, Peru and \"HAI Asia/Pacific\":http://www.haiap.org/, based in Colombo, Sri Lanka.\r\n\r\n\"Read more...\":http://www.haiafrica.org/index.php\r\n\r\nh2(#patam). Pan-African Treatment Access Movement\r\n\r\np(justify).. PATAM works to scale up HIV/AIDS treatment, care and support through lobbying national governments and bilateral and multilateral stakeholders. The movement is made up of individuals and organisations who subscribe to PATAM's principles and objectives.\r\n\r\nh4. PATAM Objectives:\r\n\r\n* to promote and support national and sub-regional treatment access movement initiatives;\r\n* to lead Africa-wide global and local advocacy efforts to address political commitments and policies, thus ensuring access to treatment;\r\n* to promote activist-led field research on access to treatment at the grass-root level in African countries;\r\n* to advocate for implementation and monitor progress of HIV/AIDS treatment efforts at the grass root level;\r\n* to empower PLWHA and community activists to express demand for treatment overcome social, economic and political barriers to treatment access and possess sufficient treatment knowledge to be involved in their own healthcare decisions;\r\n* to advocate for more resources for treatment from international donors and African countries;\r\n* to build alliances with regional and international bodies to help make universal access sustainable;\r\n\r\n\"Read more...\":http://www.patam-africa.org/\r\n\r\nh2(#seatini). Southern and Eastern African Trade Information and Negotiations Institute\r\n\r\np(justify).. The Southern and Eastern African Trade Information and Negotiations Institute (SEATINI) is an African initiative to strengthen Africa's capacity to take a more effective part in the emerging global trading system and to better manage the process of Globalisation. SEATINI deal specifically with issues and debates around the World Trade Organisation and Africa's relationships to it.\r\n\r\nh4. The Southern and Eastern African Trade Information and Negotiations Institute (SEATINI) seeks:\r\n\r\n* to enable Southern and Eastern African senior level policy makers to discuss matters of concern to them in a relatively free atmosphere (free from \"mandated\" positions) in order to clarify matters for themselves. The objective of the exercise is to prepare African policy makers to better manage the process of globalization;\r\n* to help build the long-term capacity of African countries on trade-related matters through building an information network using the electronic and print media;\r\n* to help develop a documentation centre to build on institutional memory and learning.\r\n* to monitor develop in the area of trade and trade-related matters;\r\n* to monitor and evaluate the results of African negotiations on trade and trade-related matters;\r\n* to help raise awareness and bring into the discourse the concerns of the private sector and of the civil society into trade-related matters;\r\n* to undertake scientific research into contemporary issues arising out of the demands of globalization, the new multilateral trading regime, regionalism, and national responses to these.\r\n\r\nh4. At a broader level, SEATINI seeks to:\r\n\r\n* to network with academics, policy makers, NGOs and civil society movements concerned about the forces and effects of globalization on Africa and the Third World generally;\r\n* to help democratise international economic decision-making organisations, such as the IMF, the World Bank and the WTO;\r\n* to contribute to the fight for social justice, democracy and good governance, without partisan, sectarian or sexism.\r\n\r\n\"Read more...\":http://www.seatini.org/index.html\"\r\n\r\nh2(#tac). Treatment Action Campaign\r\n\r\np(justify).. Founded on 10 December 1998 in Cape Town, South Africa, The Treatment Action Campaign (TAC) advocates for increased access to treatment, care and support services for people living with HIV and campaigns to reduce new HIV infections.\r\n\r\nWith more than 16,000 members, 267 branches and 72 full time staff members, TAC has become the leading civil society force behind comprehensive health care services for people living with HIV/AIDS in South Africa. Since 1998, TAC has held government accountable for health care service delivery; campaigned against official AIDS denialism; challenged the world\u2019s leading pharmaceutical companies to make treatment more affordable and cultivated community leadership on HIV and AIDS.\r\n\r\nTAC\u2019s efforts have resulted in many life-saving interventions, including the implementation of country-wide mother-to-child transmission prevention and antiretroviral treatment programmes. For their efforts TAC has received world-wide acclaim and numerous international accolades, including a nomination for a Nobel Peace Prize in 2004. On 30 August 2006 the New York Times named TAC, \u201cthe world\u2019s most effective AIDS group\u201d.\r\n\r\n\"Read more...\":http://www.tac.org.za/community/", 
-            "template": 1, 
-            "slug": "about-civilsociety"
-        }
-    }, 
-    {
-        "pk": 6, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-06-26 12:33:57", 
-            "title": "Frequently Asked Questions", 
-            "modified": "2012-07-03 21:28:19", 
-            "content": "h1. Frequently Asked Questions\r\n\r\nh3. No questions yet.\r\n\r\np(justify). We do not have any questions yet. Please feel free to ask us a question so that we can add it here. To ask a question file a request by following the link on our \"contact page\":/page/contact-us.", 
-            "template": 1, 
-            "slug": "faq"
-        }
-    }, 
-    {
-        "pk": 7, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-07-03 16:45:57", 
-            "title": "SADC", 
-            "modified": "2012-07-03 21:28:01", 
-            "content": "h1. SADC\r\n\r\n!(right)http://test.sarpam.net/wp-content/uploads/2012/02/SADC-logo.png(SADC)!\r\n\r\np(justify).. The \"Southern African Development Community (SADC)\":http://www.sadc.int/ started as the Frontline States, the objective of which was political liberation in Southern Africa. The SADC was preceded by the Southern African Development Co-ordination Conference (SADCC), which was formed in Lusaka, Zambia on April 1 1980 with the adoption of the Lusaka Declaration (Southern Africa: Towards Economic Liberation).\r\n\r\nThe formation of the SADCC was the culmination of a long process of consultations by the leaders of the then-only-majority-ruled countries of Southern Africa (Angola, Botswana, Lesotho, Mozambique, Swaziland, United Republic of Tanzania and Zambia) working together as the Frontline States.\r\n\r\nThe SADC has 15 Member States, namely: Angola, Botswana, Democratic Republic of Congo (DRC), Lesotho, Madagascar, Malawi, Mauritius, Mozambique, Namibia, Seychelles, South Africa, Swaziland, United Republic of Tanzania, Zambia and Zimbabwe.\r\n\r\nPopulation: 257, 726,000\r\nGross Domestic Product: 471,118 US$ billion\r\n\r\nThe SADC\u2019s vision is that of a common future, a future within a regional community that will ensure economic wellbeing, improvement of standards of living and quality of life, freedom, social justice and peace and security for the people of Southern Africa. This shared vision is anchored on the common values and principles and the historical and cultural affinities that exist between the people of Southern Africa.\r\n\r\nThe SADC mission is to promote sustainable and equitable economic growth and socio-economic development through efficient productive systems, deeper co-operation and integration, good governance and durable peace and security, so that the region emerges as a competitive and effective player in international relations and the world economy.\r\n\r\n\"Read more...\":http://www.sadc.int/", 
-            "template": 1, 
-            "slug": "partners-sadc"
-        }
-    }, 
-    {
-        "pk": 8, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-07-03 16:50:15", 
-            "title": "DfID / UKAid", 
-            "modified": "2012-07-03 21:27:58", 
-            "content": "h1. DfID / UKAid\r\n\r\np(right).. !http://test.sarpam.net/wp-content/uploads/2012/02/logo-dfid-latest-resized.gif(DFiD)! !http://test.sarpam.net/wp-content/uploads/2012/02/ukaid_logo_sml.gif(UKAid)!\r\n\r\np(justify).. When the \"Department for International Development (DFID)\":http://www.dfid.gov.uk/ was set up in 1997, it made fighting world poverty its top priority. This marked a turning point for Britain\u2019s aid programme, which until then had mainly involved economic development.\r\n\r\nIn its manifesto the government elected in May 1997 pledged to create a new department for international development headed by a cabinet minister. Previously the aid programme was managed by the Overseas Development Administration (ODA), a wing of the \"Foreign and Commonwealth Office\":http://www.fco.gov.uk/en/.\r\n\r\nAmong its key objectives, \"DFID\":http://www.dfid.gov.uk/ set out to make global development a national priority and promote it to audiences in the UK and overseas, while fostering a new \u2018aid relationship\u2019 with governments of developing countries.\r\n\r\nIn the autumn of 1997, DFID published its first white paper with the focus on eliminating world poverty. Three other white papers, issued in 2000, 2006 and 2009 reinforced the first white paper\u2019s message.\r\n\r\nTwo acts of parliament have since helped to put development higher on the national agenda. The International Development Act 2002 clarified the purpose of aid spending as poverty reduction; while International Development (Reporting and Transparency) Act 2006 defined DFID\u2019s annual reporting to Parliament through its Annual Report.\r\n\r\n\"Read more...\":http://www.dfid.gov.uk/", 
-            "template": 1, 
-            "slug": "partners-dfid-ukaid"
-        }
-    }, 
-    {
-        "pk": 9, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-07-03 16:58:24", 
-            "title": "GGSA / GC", 
-            "modified": "2012-07-03 21:27:47", 
-            "content": "h1. GGSA / GC\r\n\r\np(justify).. The GreaterGood group develops the sector for social change by facilitating the full spectrum of giving and social investment in South Africa.\r\n\r\nGreaterGood South Africa is a public service organisation connecting givers with good causes and activating the public to give responsibly. We do this with:\r\n\r\n# An online community for givers and causes - \"myggsa.co.za\":http://myggsa.co.za/\r\n# Resources and support for civil society organisations on \"thefundingsite.co.za\":http://www.thefundingsite.co.za/\r\n# Public call-to-action campaigns: \"Gifts4Good\":http://wwwgifts4good.co.za/, Make Christmas Matter and Do It Day.\r\n# News, advice, debate and thought leadership in our newsletters, blogs and in the media.\r\n\r\nGreaterCapital provides social advisory services and investment opportunities to corporate, development agency and public sector clients. Our integrated solutions include:\r\n\r\n* Social investment opportunities listed on the SA Social Investment Exchange (SASIX) - \"sasix.co.za\":http://www.sasix.co.za/\r\n* Strategy development\r\n* Social investment identification and due diligence\r\n* Monitoring and evaluation\r\n* Grant or fund management and administration\r\n* Research and impact analysis\r\n* Employee engagement advisory services\r\n* CSI response handling and administration\r\n\r\n\"Read more...\":http://www.greatergoodsa.co.za/", 
-            "template": 1, 
-            "slug": "partners-ggsa-gc"
-        }
-    }, 
-    {
-        "pk": 10, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-07-03 17:03:32", 
-            "title": "Contact us", 
-            "modified": "2012-07-03 21:30:15", 
-            "content": "h1. Contact Us\r\n\r\np(justify).. The Southern African Regional Programme on Access to Medicines and Diagnostics (SARPAM) is managed by the Responsible Action Consortium, led by Re-Action! (Southern Africa).\r\n\r\n24 Bolton Road,\r\nParkwood,\r\nJohannesburg,\r\nSouth Africa\r\n\r\nTel: +27 11 880 6993/4\r\nEmail: \"(email)sarpam__at__sarpam.net\":mailto:sarpam__at__sarpam.net?subject=RE:Tendai\r\nTwitter: \"sarpam2013\":http://twitter.com/sarpam2013\r\nFacebook: SARPAM\r\nSkype: SARPAM1\r\n\r\n\r\nHow can we help? \"File a request.\":https://medicines.zendesk.com/anonymous_requests/new\r\n\r\n==\r\n<script>\r\n  var e = document.getElementsByClassName('email')[0];\r\n  var t = e.innerText.replace('__at__','@');\r\n  var u = e.attributes.href.value.replace('__at__','@');\r\n  e.innerText = t;\r\n  e.attributes.href.value = u;\r\n</script>\r\n==", 
-            "template": 1, 
-            "slug": "contact-us"
-        }
-    }, 
-    {
-        "pk": 11, 
-        "model": "website.page", 
-        "fields": {
-            "created": "2012-07-04 10:30:22", 
-            "title": "Stock-outs", 
-            "modified": "2012-07-04 10:30:22", 
-            "content": "h1. Medicine stock-outs across the region\r\n\r\np. Unfortunately we have not populated this page yet, but will do so in the near future. Please check back soon.", 
-            "template": 1, 
-            "slug": "stock-outs"
+            "path": "website/sidebar_right.html", 
+            "name": "Sidebar Right - Activity Feed"
         }
     }
 ]
