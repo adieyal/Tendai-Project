@@ -108,3 +108,7 @@ p.justify {
     text-align:justify;
     text-justify:inter-word;
 }
+
+h1 {
+    margin-bottom: 20px;
+}
