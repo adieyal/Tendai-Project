@@ -49,6 +49,9 @@
 		    .text(function(d) { return d.heading; });
 		d.append('p')
 		    .text(function(d) { return d.content; });
+		d.append('p')
+		    .classed('footer', true)
+		    .text(function(d) { return d.monitor + ', ' + d.country; });
 	    });
 	}	    
     };

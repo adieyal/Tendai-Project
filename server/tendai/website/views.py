@@ -30,5 +30,6 @@ def stories(request):
             'content': s.content,
             'photo': s.imageurl,
             'monitor': s.monitor.get_name(),
+            'country': s.country.name,
             } for s in stories[:count]]            
     return http.HttpResponse(json.dumps(data, indent=2), content_type='application/json')
