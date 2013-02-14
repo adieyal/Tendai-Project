@@ -2,7 +2,7 @@
 import os, site, sys
 
 # Tell wsgi to add the Python site-packages to its path.
-site.addsitedir('/home/sarpam/.virtualenvs/tendai/lib/python2.7/site-packages')
+site.addsitedir('/var/www/tendai.medicinesinfohub.net/env/lib/python2.7/site-packages')
 
 # Fix markdown.py (and potentially others) using stdout
 sys.stdout = sys.stderr
