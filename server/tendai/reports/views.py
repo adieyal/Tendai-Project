@@ -146,9 +146,11 @@ def submission(request, id=None, validate=False, country=None, submission_type=N
         return redirect(router.next_url)
 
     submission = swd.submission
-    specific_template = "%s.html" % submission.form.form_id        # specific form template
-    general_form_template = "%s.html" % submission.form.form_id.rsplit('-', 1)[0]  # general form template
-    general_template = "general.html"                              # general template
+    versioned_form_name = submission.form.form_id
+    general_form_name = versioned_form_name.rsplit('-', 1)[0]
+    specific_template = "%s.html" % versioned_form_name
+    general_form_template = "%s.html" % general_form_name
+    general_template = "general.html"
 
     for template_name in [specific_template, general_form_template, general_template]:
         try:
