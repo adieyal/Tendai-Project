@@ -156,6 +156,13 @@ def view_facility(request, xml, template_name="forms/facility_survey.html", extr
 
     return direct_to_template(request, template=template_name, extra_context=extra_context)
 
+def view_feedback(request, xml, template_name="forms/monitors_feedback.html", extra_context=None):
+    extra_context = extra_context or {}
+
+    extra_context["main"] = get_leaf_map(xml, "data")
+
+    return direct_to_template(request, template=template_name, extra_context=extra_context)
+
 def view_interview_survey(request, xml, template_name="forms/interview_survey.html", extra_context=None):
     extra_context = extra_context or {}
     extra_context["main"] = get_leaf_map(xml, "data")
@@ -181,5 +188,8 @@ form_view_lookup = {
     },
     "Zimbabwe Facility" : {
         "0.1" : view_facility,
-    }
+    },
+    "Monitors Feedback" : {
+        "0.1" : view_feedback,
+    },
 }
