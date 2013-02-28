@@ -161,16 +161,37 @@ INSTALLED_APPS = (
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters' : {
+        'verbose': {
+            'format': '%(name)s %(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'sms_log' : {
+            'level' : 'DEBUG',
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'filename' : os.path.join(PROJECT_ROOT, 'sms.log'),
+            'maxBytes' : 50000,
+            'backupCount' : 2,
+            'formatter' : 'verbose'
         }
     },
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
+            'propagate': True,
+        },
+        'sms' : {
+            'handlers' : ['sms_log'],
+            'level' : 'DEBUG',
             'propagate': True,
         },
     }
@@ -182,6 +203,6 @@ OPENROSA_FORMS_DIR = os.path.join(PROJECT_ROOT, "openrosa", "orforms")
 OPENROSA_SUBMISSIONS_DIR = os.path.join(MEDIA_ROOT, "openrosa", "submissions")
 OPENROSA_IMAGES_DIR = os.path.join(MEDIA_ROOT, "openrosa", "submissions", "images")
 
-SMS_USERNAME = "tendai"
-SMS_PASSWORD = "uj3ero7wnd"
-SMS_APIID = 3371674
+SMS_USERNAME = "sarpam"
+SMS_PASSWORD = "DGILRUo2"
+SMS_APIID = 3414587
