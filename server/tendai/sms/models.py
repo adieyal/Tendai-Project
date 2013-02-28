@@ -5,6 +5,8 @@ import logging
 import re
 import urllib2
 
+logger = logging.getLogger(__name__)
+
 url = "http://api.clickatell.com/http/sendmsg"
 username = settings.SMS_USERNAME
 password = settings.SMS_PASSWORD
@@ -107,6 +109,7 @@ class SMS(models.Model):
                 "cliMsgId" : self.id,
                 "callback" : "3", # enabled intermediary and final message status updates
                 })
+            logger.info("%s?%s" % (url, params))
             result = urllib2.urlopen(url, params).read()
             expected = re.compile("^ID: (.*)$")
             match = expected.match(result)
@@ -115,7 +118,7 @@ class SMS(models.Model):
             self.sent = True
             self.save()
         except ClickatellException:
-            logging.exception("Error occurred when sending sms: %s" % self.id)
+            logger.exception("Error occurred when sending sms: %s" % self.id)
             raise SMSException("Error occurred when sending sms - please check log.")
     
     def __unicode__(self):
