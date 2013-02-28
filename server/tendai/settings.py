@@ -191,7 +191,7 @@ LOGGING = {
         },
         'sms' : {
             'handlers' : ['sms_log'],
-            'level' : 'DEBUG',
+            'level' : 'ERROR',
             'propagate': True,
         },
     }
