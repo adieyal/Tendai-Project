@@ -4,7 +4,7 @@ import models
 class SMSAdmin(admin.ModelAdmin):
     list_display = ('number', 'message', 'created', 'sent')
     list_filter = ('sent', 'number')
-    fields = ('number', 'message')
+    fields = ('number', 'message', 'sent')
     def get_readonly_fields(self, request, obj=None):
         if obj:
             return ['number', 'message']
@@ -12,7 +12,7 @@ class SMSAdmin(admin.ModelAdmin):
             return []
 
 class StatusAdmin(admin.ModelAdmin):
-    list_display = ('number', 'status',)
+    list_display = ('number', 'status', 'timestamp')
     readonly_fields = ('sms', 'code', 'status', 'description')
     #list_filter = ('status',)
 
