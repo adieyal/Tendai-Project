@@ -1,13 +1,48 @@
 from django.contrib import admin
+from django import forms
+from django.utils.safestring import mark_safe
 import models
+
+# Widget from django tree features/select-filter. Some adjustments made.
+class FilteredSelectSingle(forms.Select):
+    """
+    A Select with a JavaScript filter interface.
+    """
+    class Media:
+        js = ("admin/js/fkfilter.js",)
+        css = { 'all': ("admin/css/filteredselect.css",) }
+
+    def __init__(self, verbose_name, attrs=None, choices=()):
+        self.verbose_name = verbose_name
+        super(FilteredSelectSingle, self).__init__(attrs, choices)
+
+    def render(self, name, value, attrs={}, choices=()):
+        attrs['class'] = 'selectfilter'
+        output = [super(FilteredSelectSingle, self).render(
+            name, value, attrs, choices)]
+        output.append((
+            '<script type="text/javascript">'
+            'django.jQuery(document).ready(function(){'
+            'django.jQuery("#id_%s").fk_filter("%s")'
+            '});'
+            '</script>'
+        ) % (name, self.verbose_name.replace('"', '\\"'),));
+        return mark_safe(u''.join(output))
 
 class CommunityWorkerAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'organisation', 'phone_number', 'country', 'active')
     list_filter = ('first_name', 'last_name', 'organisation', 'country', 'active')
 
+class DeviceAdminForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(DeviceAdminForm, self).__init__(*args, **kwargs)
+        self.fields['community_worker'].widget.widget = FilteredSelectSingle(verbose_name='community worker')
+
+
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ('device_id', 'community_worker_first_name', 'community_worker_last_name', 'community_worker_organisation')
     list_filter = ('community_worker__first_name', 'community_worker__last_name', 'community_worker__organisation__name')
+    form = DeviceAdminForm
 
     def community_worker_first_name(self, obj):
         return obj.community_worker.first_name
