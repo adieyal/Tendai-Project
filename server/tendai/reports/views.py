@@ -1,3 +1,4 @@
+import logging
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404, redirect
 from django.core.urlresolvers import reverse
@@ -7,6 +8,8 @@ from django.views.generic.simple import direct_to_template
 
 from devices import models as dev_models
 from openrosa import models as or_models
+
+logger = logging.getLogger(__name__)
 
 def facilities_kml(request):
     facilities = []
@@ -67,6 +70,20 @@ def submission(request, id=None, validate=False, country=None, submission_type=N
                 return dev_models.SubmissionWorkerDevice.objects.order_by('id')[0]
 
         @property
+        def first_swd(self):
+            try:
+                return self.submission_set.submissions.all().order_by('id')[0]
+            except:
+                return None 
+
+        @property
+        def last_swd(self):
+            try:
+                return self.submission_set.submissions.all().order_by('-id')[0]
+            except:
+                return None 
+
+        @property
         def next_swd(self):
             try:
                 return self.submission_set.submissions.filter(pk__gt=self.id).order_by('id')[0]
@@ -115,6 +132,14 @@ def submission(request, id=None, validate=False, country=None, submission_type=N
         def next_url(self):
             return self._get_url(self.finder.next_swd or self.finder.current_swd)
 
+        @property
+        def first_url(self):
+            return self._get_url(self.finder.first_swd or self.finder.current_swd)
+
+        @property
+        def last_url(self):
+            return self._get_url(self.finder.last_swd or self.finder.current_swd)
+
     if country: country = dev_models.Country.objects.get(code=country)
 
     submission_set = SubmissionSet()
@@ -123,18 +148,27 @@ def submission(request, id=None, validate=False, country=None, submission_type=N
 
     # Find first unverified entry if none is specified. Redirect there.
     if not id: 
-        print "Redirecting current url: %s" % router.current_url
+        logger.info("Redirecting current url: %s" % router.current_url)
         redirect(router.current_url)
 
     swd = navigator.current_swd
 
-    if request.GET.get('navigate', None) == 'next':
-        print "Redirecting next url: %s" % router.next_url
-        return redirect(router.next_url)
+    # This might be a little more inefficient since each
+    # url needs to be calculated whereas a series of if-thens
+    # would be more efficient - but until this is a problem
+    # I prefer to go with elegant over gross
+    routes = {
+        "next" : router.next_url,
+        "prev" : router.prev_url,
+        "first" : router.first_url,
+        "last" : router.last_url,
+    }
 
-    if request.GET.get('navigate', None) == 'prev':
-        print "Redirecting prev url: %s" % router.prev_url
-        return redirect(router.prev_url)
+    request_route = request.GET.get("navigate", None)
+    route = routes.get(request_route, None)
+    if route:
+        logger.info("Redirecting next url: %s" % route)
+        return redirect(route)
 
     if request.user.is_staff and validate and "valid" in request.GET:
         verified = True
@@ -142,7 +176,7 @@ def submission(request, id=None, validate=False, country=None, submission_type=N
         swd.verified = verified
         swd.valid = valid
         swd.save()
-        print "Redirecting validate: %s" % router.next_url
+        logger.info("Redirecting validate: %s" % router.next_url)
         return redirect(router.next_url)
 
     submission = swd.submission
