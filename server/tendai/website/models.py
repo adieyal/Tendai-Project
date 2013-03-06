@@ -78,10 +78,9 @@ class Story(models.Model):
     @property
     def imageurl(self):
         p = self._meta.get_field('photo').path
-        print path
-        print self.photo
         ROOT = path.join(settings.MEDIA_URL, 'openrosa', 'submissions', 'images')
-        return self.photo.replace(p, ROOT, 1)
+   	m = self.photo.replace('/home/sarpam/code/tendai/server/tendai/media/openrosa/submissions/images', ROOT, 1)
+        return m.replace(p, ROOT, 1)
     
     def get_absolute_url(self):
         return self.submission.submissionworkerdevice.get_absolute_url()
