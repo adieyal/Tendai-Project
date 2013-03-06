@@ -3,19 +3,9 @@
 {% load url from future %}
 
 
-{% block content %}<div id="content-main">
-<form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.module_name }}_form">{% csrf_token %}
-<div>
-
-{% for fieldset in adminform %}
-  {% include "admin/includes/fieldset.html" %}
-  <br/>
-  <label for="id_photo">Photo:</label>
-  <div id="id_photo"><img width="326" height="544" src="{{ original.imageurl }}"/></div>
-{% endfor %}
-
-
-
-</div>
-</form></div>
+{% block after_field_sets %}
+    <br/>
+    <label for="id_photo">Photo:</label>
+    <div id="id_photo"><img width="326" height="544" src="{{ original.imageurl }}"/></div>
 {% endblock %}
+
