@@ -17,6 +17,7 @@ class PageAdmin(admin.ModelAdmin):
 class StoryAdmin(admin.ModelAdmin):
     list_display = ('heading', 'monitor', 'country', 'submission_id', 'status')
     list_filter = ('status', 'country')
+    exclude = ("submission", "photo")
     
     def submission_id(self, object):
         return object.submission.id
