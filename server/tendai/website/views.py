@@ -21,7 +21,7 @@ def page(request, slug=None, page_id=None):
 def stories(request):
     country = request.GET.get('country', None)
     count = request.GET.get('count', 5)
-    stories = models.Story.objects.filter(status='p')
+    stories = models.Story.objects.filter(status='p').order_by("-submission__end_time")
     if country and country != 'all':
         stories = stories.filter(country__code=country)
     data = [{
@@ -31,5 +31,6 @@ def stories(request):
             'photo': s.imageurl,
             'monitor': s.monitor.get_name(),
             'country': s.country.name,
-            } for s in stories[:count]]            
+            'date': str(s.submission.end_time),
+            } for s in stories[0:count]]            
     return http.HttpResponse(json.dumps(data, indent=2), content_type='application/json')
