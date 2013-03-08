@@ -65,6 +65,7 @@ class Story(models.Model):
     STATES = (('n', 'New'),
               ('e', 'Edited'),
               ('p', 'Published'),
+              ('q', 'Pending'),
               ('r', 'Rejected'))
     RESOURCES = path.join(settings.MEDIA_ROOT, 'openrosa', 'submissions', 'images')
     submission = models.ForeignKey(openrosa.models.ORFormSubmission)
