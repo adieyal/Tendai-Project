@@ -43,7 +43,7 @@
                 var story = items.enter()
                     .append('div')
                         .classed('story', true)
-                    .style('background-image', function(d) { return 'url('+d.photo+')' });
+                    .style('background-image', function(d) { return 'url('+d.thumbnail+')' });
                 items.exit()
                     .remove();
                 var d = story.append('div')

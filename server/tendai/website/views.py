@@ -3,6 +3,9 @@ from django.shortcuts import get_object_or_404, redirect
 from django.conf import settings
 from django import http
 import json
+from sorl.thumbnail import get_thumbnail
+from sorl.thumbnail.helpers import ThumbnailError
+
 
 import models
 
@@ -24,11 +27,18 @@ def stories(request):
     stories = models.Story.objects.filter(status='p').order_by("-submission__end_time")
     if country and country != 'all':
         stories = stories.filter(country__code=country)
+
+    def thumbnail(url, size):
+        try:
+            return get_thumbnail(s.photo, size).url
+        except ThumbnailError:
+            return ""
     data = [{
             'id': s.id,
             'heading': s.heading,
             'content': s.content,
             'photo': s.imageurl,
+            'thumbnail': thumbnail(s.photo, '240x240'),
             'monitor': s.monitor.get_name(),
             'country': s.country.name,
             'date': str(s.submission.end_time),
