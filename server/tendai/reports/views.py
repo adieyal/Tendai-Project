@@ -9,6 +9,9 @@ from django.views.generic.simple import direct_to_template
 from devices import models as dev_models
 from openrosa import models as or_models
 
+from sorl.thumbnail import get_thumbnail
+from sorl.thumbnail.helpers import ThumbnailError
+
 logger = logging.getLogger(__name__)
 
 def facilities_kml(request):
@@ -17,11 +20,25 @@ def facilities_kml(request):
     extra_context = {'submissions': submissions}
     return direct_to_template(request, template='reports/facility/data.kml', extra_context=extra_context)
 
+def thumbnail(url, size):
+    try:
+        return get_thumbnail(url, size).url
+    except ThumbnailError, e:
+        logger.error("Could not create thumbnail: %s", e.message)
+        return ""
+
 def facility_info(request, submission_id):
     submission = get_object_or_404(or_models.ORFormSubmission, pk=submission_id)
     swd = submission.submissionworkerdevice
-    extra_context={'submission': submission,
-                   'swd': swd}
+    photos = or_models.ORSubmissionMedia.objects.filter(
+        filename__in=list(submission.content.section_photos)
+    )
+    extra_context={
+        'submission': submission,
+        'swd': swd,
+        'photos' : photos,
+        'thumbnails' : [thumbnail(photo.get_absolute_path(), 'x270') for photo in photos],
+    }
     return direct_to_template(request, template='reports/facility/info.html', extra_context=extra_context)
 
 def country(request, country_code):
