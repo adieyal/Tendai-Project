@@ -30,7 +30,7 @@ def stories(request):
 
     def thumbnail(url, size):
         try:
-            return get_thumbnail(s.photo, size).url
+            return get_thumbnail(url, size).url
         except ThumbnailError:
             return ""
     data = [{
