@@ -74,6 +74,7 @@ class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
     list_filter = ('active', 'community_worker__first_name', 'community_worker__last_name', 'community_worker__organisation__name', 'device__device_id', 'submission__form__name', 'community_worker__country__name', 'verified', 'valid', 'created_date')
     #date_hierarchy = "created_date"
     actions = [mark_as_invalid, mark_as_valid]
+    exclude = ('submission',)
 
     def facility(self, obj):
         content = obj.submission.content
