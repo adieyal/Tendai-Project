@@ -133,6 +133,8 @@ class MedicineAdmin(admin.ModelAdmin):
 
 class FacilitySubmissionAdmin(admin.ModelAdmin):
     list_display = ('submission', 'facility')
+    list_filter = ('facility',)
+    exclude = ('submission',)
 
 admin.site.register(models.Country)
 admin.site.register(models.Organisation)
