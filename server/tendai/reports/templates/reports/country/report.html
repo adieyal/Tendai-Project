@@ -1,4 +1,5 @@
 {% extends "website/base.html" %}
+{% load workerforms %}
 
 {% block reports_active %}active{% endblock %}
 
@@ -9,7 +10,7 @@
 {% block content %}
 <div class="row-fluid">
   <div class="span12">
-    <h1>Number of submissions per monitor</h1>
+    <h1>Number of submissions per monitor for {{ last_month|date:"M Y" }} </h1>
   </div>
 </div>
 
@@ -18,7 +19,7 @@
     <ul class="nav nav-tabs">
       {% for country in countries %}
       <li class="{% if country == selected_country %}active{% endif %}">
-	<a href="{% url reports_country country_code=country.code %}">{{ country }}</a>
+        <a href="{% url reports_country country_code=country.code %}">{{ country }}</a>
       </li>
       {% endfor %}
     </ul>
@@ -31,22 +32,21 @@
       <thead>
         <tr>
           <th>Community Health Worker</th>
-	  {% with worker=workers|first %}
-	  {% for form, count in worker.get_forms_count.items %}
-          <th>{{ form }}</th>
-	  {% endfor %}
-	  {% endwith %}
+          {% for form in forms %}
+              <th>{{ form }}</th>
+          {% endfor %}
         </tr>
       </thead>
       <tbody>
-	{% for worker in workers %}
-        <tr>
-          <td>{{ worker.get_full_name }}</td>
-	  {% for form, count in worker.get_forms_count.items %}
-          <td>{{ count }}</td>
-	  {% endfor %}
-        </tr>
-	{% endfor %}
+      {% for worker in workers %}
+          <tr>
+            <td>{{ worker.get_full_name }}</td>
+
+            {% for form in forms %}
+            <td>{{ worker|workerforms:form|previous_month_submissions|length }}</td>
+            {% endfor %}
+          </tr>
+      {% endfor %}
       </tbody>
     </table>
   </div>

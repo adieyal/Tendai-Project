@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 {% load general_extras %}
 <kml xmlns="http://www.opengis.net/kml/2.2">
+{% comment %}
 {% for submission in submissions %}
   {% if submission.content %}
   <Placemark>
@@ -20,5 +21,24 @@
     </Point>
   </Placemark>
   {% endif %}
+{% endfor %}
+{% endcomment %}
+{% for facility in facilities %}
+  <Placemark>
+    <id>{{ facility.facilitysubmission_set.all.0.submission.id }}</id>
+    <color>
+      {% if "hospital" in facility.facility_type|lower %}red{% else %}
+      {% if "clinic" in facility.facility_type|lower %}yellow{% else %}
+      {% if "pharmacy" in facility.facility_type|lower %}green{% else %}
+      {% if "dispensary" in facility.facility_type|lower %}yellow{% else %}
+      blue{% endif %}{% endif %}{% endif %}{% endif %}
+    </color>
+    <Point>
+      <coordinates>
+        {{ facility.longitude|floatformat:6 }},
+        {{ facility.latitude|floatformat:6 }}
+      </coordinates>
+    </Point>
+  </Placemark>
 {% endfor %}
 </kml>

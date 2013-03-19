@@ -11,13 +11,18 @@ from openrosa import models as or_models
 
 from sorl.thumbnail import get_thumbnail
 from sorl.thumbnail.helpers import ThumbnailError
+from facility.models import Facility
+import datetime
 
 logger = logging.getLogger(__name__)
 
 def facilities_kml(request):
     facilities = []
     submissions = or_models.ORFormSubmission.objects.filter(form__name='Facility Form', submissionworkerdevice__valid=True)
-    extra_context = {'submissions': submissions}
+    extra_context = {
+        'submissions': submissions,
+        'facilities' : Facility.objects.all()
+    }
     return direct_to_template(request, template='reports/facility/data.kml', extra_context=extra_context)
 
 def thumbnail(url, size):
@@ -42,13 +47,27 @@ def facility_info(request, submission_id):
     return direct_to_template(request, template='reports/facility/info.html', extra_context=extra_context)
 
 def country(request, country_code):
+    # TODO this should be extended to take a month as an argument
+    last_month = datetime.datetime.utcnow().replace(day=1) - datetime.timedelta(days=1)
+
     countries = dev_models.Country.objects.all()
     country = dev_models.Country.objects.get(code=country_code)
     workers = dev_models.CommunityWorker.objects.all_active.filter(country=country)
-    extra_context={'workers': workers,
-                   'selected_country': country,
-                   'countries': countries}
-    return direct_to_template(request, template='reports/country/report.html', extra_context=extra_context)
+
+    forms = or_models.ORForm.objects.order_by('name').values('name').distinct()
+    extra_context={
+        'workers': workers,
+        'selected_country': country,
+        'countries': countries,
+        'forms' : [form["name"] for form in forms],
+        'last_month' : last_month # TODO - this is ugly - it should come from a month argument
+    }
+
+    return direct_to_template(
+        request,
+        template='reports/country/report.html',
+        extra_context=extra_context
+    )
 
 def submission(request, id=None, validate=False, country=None, submission_type=None):
 
