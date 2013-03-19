@@ -1,4 +1,5 @@
 import logging
+import csv
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404, redirect
 from django.core.urlresolvers import reverse
@@ -13,6 +14,7 @@ from sorl.thumbnail import get_thumbnail
 from sorl.thumbnail.helpers import ThumbnailError
 from facility.models import Facility
 import datetime
+from website.models import Story
 
 logger = logging.getLogger(__name__)
 
@@ -241,3 +243,37 @@ def submission(request, id=None, validate=False, country=None, submission_type=N
         extra_context['filter'] = country.name
     c = RequestContext(request, extra_context)
     return HttpResponse(template.render(c))
+
+def export_reports(request, extra_context=None):
+    extra_context = extra_context or {}
+    countries = dev_models.Country.objects.all()
+    stories = {}
+    for country in countries:
+        stories[country] = Story.objects.published.filter(country=country)
+
+    extra_context["stories"] = stories.items()
+
+    return direct_to_template(
+        request,
+        "reports/export_reports.html", extra_context=extra_context
+    )
+
+def export_stories(request, country, extra_context=None):
+    extra_context = extra_context or {}
+    stories = Story.objects.published.filter(country__code=country)
+    
+    response = HttpResponse(content_type="text/csv")
+    response["Content-Disposition"] = 'attachement; filename="story_%s.csv"' % country
+
+    writer = csv.writer(response)
+    writer.writerow(["Submitted Date", "Heading", "Content", "Monitor", "URL on Site"])  
+    for story in stories:
+        writer.writerow([
+            story.submission.end_time,
+            story.heading.encode("utf8"),
+            story.content.encode("utf8"),
+            story.monitor.get_full_name().encode("utf8"),
+            story.get_absolute_url()
+        ])
+
+    return response

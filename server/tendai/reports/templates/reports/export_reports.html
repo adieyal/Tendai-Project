@@ -1,0 +1,27 @@
+{% extends "website/base.html" %}
+
+
+{% block content %}
+<div class="row-fluid">
+  <div class="span12">
+    <h1>Export Stories</h1>
+    <p>All published stories in excel format</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th># Stories</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for story in stories %}
+            <tr>
+            <td><a href="{% url export_stories story.0.code %}">{{ story.0 }}</a></td>
+            <td>{{ story.1|length }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
