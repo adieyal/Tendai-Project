@@ -177,6 +177,12 @@ class Facility(models.Model):
 
     facility_type = models.CharField(max_length=50, null=True, blank=True)
     facility_type_other = models.CharField(max_length=50, null=True, blank=True)
+    distance_to_town = models.PositiveIntegerField(null=True, blank=True)
+    closest_town = models.CharField(max_length=50, null=True, blank=True)
+    population_coverage = models.PositiveIntegerField(null=True, blank=True)
+    daily_patients = models.PositiveIntegerField(null=True, blank=True)
+    nurses = models.PositiveIntegerField(null=True, blank=True)
+    doctors = models.PositiveIntegerField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     comments = models.TextField(null=True, blank=True)
 
