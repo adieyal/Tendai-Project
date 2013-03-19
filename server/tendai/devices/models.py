@@ -259,14 +259,6 @@ class CommunityWorker(models.Model):
             community_worker=self
         )
 
-    def get_forms_count(self, days=30):
-        forms = ormodels.ORForm.objects.order_by('name').values('name').distinct()
-        forms_count = {}
-        for form in forms:
-            count = self.submissionworkerdevice_set.filter(submission__form__name=form['name']).filter(created_date__gte=datetime.now()-timedelta(days=days)).count()
-            forms_count[form['name']] = count
-        return forms_count
-    
     def __unicode__(self):
         return "%s %s (%s)" % (self.first_name, self.last_name, self.organisation)
 
