@@ -33,6 +33,8 @@ def stories(request):
             return get_thumbnail(url, size).url
         except ThumbnailError:
             return ""
+        except IOError:
+            return ""
     data = [{
             'id': s.id,
             'heading': s.heading,
