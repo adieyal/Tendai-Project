@@ -62,6 +62,11 @@ class Page(models.Model):
     def __unicode__(self):
         return self.title
 
+class StoryManager(models.Manager):
+    @property
+    def published(self):
+        return self.filter(status="p")
+
 class Story(models.Model):
     STATES = (('n', 'New'),
               ('e', 'Edited'),
@@ -76,6 +81,8 @@ class Story(models.Model):
     monitor = models.ForeignKey(devices.models.CommunityWorker)
     country = models.ForeignKey(devices.models.Country)
     status = models.CharField(max_length=1, choices=STATES)
+
+    objects = StoryManager()
     
     @property
     def imageurl(self):
@@ -88,6 +95,6 @@ class Story(models.Model):
     
     def __unicode__(self):
         return u'%s' % (self.heading)
-    
+
     class Meta:
         verbose_name_plural = 'Stories'
