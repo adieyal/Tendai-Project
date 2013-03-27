@@ -20,7 +20,7 @@ def formXml(request):
     if request.method == "GET":
         form_id = request.GET["formId"] 
         orform = get_object_or_404(models.ORForm, form_id=form_id)
-	form_path = os.path.join(settings.OPENROSA_FORMS_DIR, orform.get_filename())
+        form_path = os.path.join(settings.OPENROSA_FORMS_DIR, orform.get_filename())
         if not os.path.exists(form_path):
             raise Http404
         f = open(form_path)
