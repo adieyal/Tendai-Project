@@ -69,12 +69,19 @@ def mark_as_invalid(modeladmin, request, queryset):
     queryset.update(verified=True, valid=False)
 mark_as_invalid.short_description = "Mark selected submissions as invalid"
 
+class SubmissionWorkerDeviceAdminForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(SubmissionWorkerDeviceAdminForm, self).__init__(*args, **kwargs)
+        self.fields['community_worker'].widget.widget = FilteredSelectSingle(verbose_name='community worker')
+
 class SubmissionWorkerDeviceAdmin(admin.ModelAdmin):
     list_display = ('community_worker', 'community_worker_organisation', 'submission_type', 'facility', 'verified', 'valid', 'device', 'created_date')
     list_filter = ('active', 'community_worker__first_name', 'community_worker__last_name', 'community_worker__organisation__name', 'device__device_id', 'submission__form__name', 'community_worker__country__name', 'verified', 'valid', 'created_date')
     #date_hierarchy = "created_date"
     actions = [mark_as_invalid, mark_as_valid]
     exclude = ('submission',)
+
+    form = SubmissionWorkerDeviceAdminForm
 
     def facility(self, obj):
         content = obj.submission.content
