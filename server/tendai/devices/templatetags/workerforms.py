@@ -6,9 +6,11 @@ register = template.Library()
 @register.filter
 def workerforms(worker, form=None):
     if form:
-        return worker.my_submissions.filter(submission__form__name=form)
+        submissions =  worker.my_submissions.filter(submission__form__name=form)
     else:
-        return worker.my_submissions
+        submissions = worker.my_submissions
+
+    return submissions
 
 @register.filter
 def previous_month_submissions(submissions):
@@ -25,3 +27,4 @@ def previous_month_submissions(submissions):
     start_of_prev_month = end_of_prev_month.replace(**timeargs)
 
     return submissions.filter(created_date__gte=start_of_prev_month, created_date__lte=end_of_prev_month)
+

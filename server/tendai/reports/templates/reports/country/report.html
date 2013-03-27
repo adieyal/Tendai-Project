@@ -1,5 +1,6 @@
 {% extends "website/base.html" %}
 {% load workerforms %}
+{% load submissions_for_month %}
 
 {% block reports_active %}active{% endblock %}
 
@@ -10,7 +11,7 @@
 {% block content %}
 <div class="row-fluid">
   <div class="span12">
-    <h1>Number of submissions per monitor for {{ last_month|date:"M Y" }} </h1>
+    <h1>Number of submissions per monitor for {{ mydate }} </h1>
   </div>
 </div>
 
@@ -43,7 +44,9 @@
             <td>{{ worker.get_full_name }}</td>
 
             {% for form in forms %}
-            <td>{{ worker|workerforms:form|previous_month_submissions|length }}</td>
+            {% with month|add:","|add:year as mymonth %}
+            <td>{{ worker|workerforms:form|submissions_for_month:mymonth|length }}</td>
+            {% endwith %}
             {% endfor %}
           </tr>
       {% endfor %}

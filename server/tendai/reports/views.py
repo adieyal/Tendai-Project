@@ -50,7 +50,14 @@ def facility_info(request, submission_id):
 
 def country(request, country_code):
     # TODO this should be extended to take a month as an argument
-    last_month = datetime.datetime.utcnow().replace(day=1) - datetime.timedelta(days=1)
+    month = request.GET.get("month", None)
+    year = request.GET.get("year", None)
+    
+    if month == None or year == None:
+        mydate = datetime.datetime.utcnow().replace(day=1) - datetime.timedelta(days=1)
+        month = mydate.month
+        year = mydate.year
+    
 
     countries = dev_models.Country.objects.all()
     country = dev_models.Country.objects.get(code=country_code)
@@ -62,7 +69,8 @@ def country(request, country_code):
         'selected_country': country,
         'countries': countries,
         'forms' : [form["name"] for form in forms],
-        'last_month' : last_month # TODO - this is ugly - it should come from a month argument
+        'month' : month, # TODO - this is ugly - it should come from a month argument
+        'year' : year, # TODO - this is ugly - it should come from a month argument
     }
 
     return direct_to_template(
