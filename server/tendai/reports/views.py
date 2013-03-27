@@ -49,7 +49,6 @@ def facility_info(request, submission_id):
     return direct_to_template(request, template='reports/facility/info.html', extra_context=extra_context)
 
 def country(request, country_code):
-    # TODO this should be extended to take a month as an argument
     month = request.GET.get("month", None)
     year = request.GET.get("year", None)
     
@@ -69,8 +68,8 @@ def country(request, country_code):
         'selected_country': country,
         'countries': countries,
         'forms' : [form["name"] for form in forms],
-        'month' : month, # TODO - this is ugly - it should come from a month argument
-        'year' : year, # TODO - this is ugly - it should come from a month argument
+        'month' : month,
+        'year' : year,
     }
 
     return direct_to_template(
