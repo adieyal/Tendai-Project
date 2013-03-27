@@ -70,6 +70,7 @@ def country(request, country_code):
         'forms' : [form["name"] for form in forms],
         'month' : month,
         'year' : year,
+        'mydate' : datetime.datetime(int(year), int(month), 1)
     }
 
     return direct_to_template(
