@@ -231,7 +231,6 @@ def submission(request, id=None, validate=False, country=None, submission_type=N
     specific_template = "%s.html" % versioned_form_name
     general_form_template = "%s.html" % general_form_name
     general_template = "general.html"
-
     for template_name in [specific_template, general_form_template, general_template]:
         try:
             template = get_template("reports/submission/%s" % template_name)
