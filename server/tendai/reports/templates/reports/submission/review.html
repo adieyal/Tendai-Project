@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load general_extras %}
+
+{% with content=submission.content %}
+
+{% block reports_active %}active{% endblock %}
+
+{% block page_name %}{{ submission.form.name }} ({{ submission.form.majorminorversion }}){% endblock %}
+{% block tagline %}{{ submission.created_date }}{% endblock tagline %}
+{% block main_content_title %}{% endblock main_content_title %}
+
+{% block main_content %}
+
+<div id="content">
+
+  {% include "reports/validate_nav.html" %}
+
+  <div class="row">
+    <div class="span12">
+      <!-- General submission information -->
+      <h3>General</h3>
+      <p><em>Submission form ID:</em> {{ submission.form.form_id }}</p>
+      <p><em>Submission form version:</em> {{ content.form_version }}</p>
+      <br />
+      <p><em>Start time:</em> {{ content.start_time }}</p>
+      <p><em>End time:</em> {{ content.end_time }}</p>
+      <p><em>Survey date:</em> {{ content.survey_date }}</p>
+      <p><em>Device ID:</em> {{ content.device_id }}</p>
+      <p><em>Subscriber ID:</em> {{ content.subscriber_id }}</p>
+      <p><em>SIM ID:</em> {{ content.sim_id }}</p>
+      <p><em>Phone number:</em> {{ content.phone_number }}</p>
+      <br />
+      
+      {% with section=content.facility %}
+      <h2>Facility</h2>
+      <p><em>Name:</em> {{ section.name }}</p>
+      <p><em>Visits:</em> {{ section.visits }}</p>
+      <p><em>GPS:</em> {{ section.gps|field:0 }}</p>
+      {% with lat=section.gps|field:0|floatformat:6 long=section.gps|field:1|floatformat:6 %}
+          <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?q={{ lat }},{{ long }}&t=h&amp;z=12&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/?q={{ lat }},{{ long }}" style="text-align:left">View Larger Map</a></small>
+      {% endwith %}
+      {% endwith %}
+
+      {% with section=content.challenges %}
+        <h2>Challenges</h2>
+        <p><em>Before:</em> {{ section.before }}</p>
+        <p><em>During:</em> {{ section.during }}</p>
+        <p><em>After:</em> {{ section.after }}</p>
+        <p><em>Phone:</em> {{ section.phone }}</p>
+        <p><em>Questionnaires:</em> {{ challenges.questionnaires }}</p>
+      {% endwith %}
+
+        <h2>Improvements and comments</h2>
+        <p><em>Improvements:</em> {{ content.improvements }}</p>
+        <p><em>Comments:</em> {{ content.comments }}</p>
+
+      <!-- Community health worker information. -->
+      <em>Collected at: {{ submission.created_date }}</em><br />
+      <em>Recorded by: {{ swd.community_worker.first_name }} {{ swd.community_worker.last_name }}</em><br />
+      <em>Organisation: {{ swd.community_worker.organisation }}</em>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% endwith %}
+
+
+
+        <div class="section">
+        <h2>Other</h2>
+        <ul>
+            <li>Improvements: {{ main.improvements }}</li>
+            <li>Comments: {{ main.comments }}</li>
+        </ul>
+        </div> 
+    </body>
+</html>
