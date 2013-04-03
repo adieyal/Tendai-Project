@@ -68,8 +68,8 @@ def country(request, country_code):
         'selected_country': country,
         'countries': countries,
         'forms' : [form["name"] for form in forms],
-        'month' : month,
-        'year' : year,
+        'month' : str(month),
+        'year' : str(year),
         'mydate' : datetime.datetime(int(year), int(month), 1)
     }
 
