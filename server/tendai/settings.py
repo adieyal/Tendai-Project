@@ -209,7 +209,12 @@ LOGGING = {
         },
         'medicine_analysis' : {
             'handlers' : ['all_log'],
-            'level' : 'ERROR',
+            'level' : 'WARN',
+            'propagate': True,
+        },
+        'facility' : {
+            'handlers' : ['all_log'],
+            'level' : 'WARN',
             'propagate': True,
         },
     }
