@@ -81,7 +81,6 @@ def country(request, country_code):
 
 def submission(request, id=None, validate=False, country=None, submission_type=None):
 
-
     must_mark_as_valid = lambda : request.GET.get("valid", None) == "true"
     must_mark_as_invalid = lambda : request.GET.get("valid", None) == "false"
 
@@ -226,6 +225,7 @@ def submission(request, id=None, validate=False, country=None, submission_type=N
         return redirect(router.next_url)
 
     submission = swd.submission
+    logger.info(submission.filename)
     versioned_form_name = submission.form.form_id
     general_form_name = versioned_form_name.rsplit('-', 1)[0]
     specific_template = "%s.html" % versioned_form_name
