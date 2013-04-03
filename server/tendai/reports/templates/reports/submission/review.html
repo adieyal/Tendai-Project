@@ -35,7 +35,7 @@
       <h2>Facility</h2>
       <p><em>Name:</em> {{ section.name }}</p>
       <p><em>Visits:</em> {{ section.visits }}</p>
-      <p><em>GPS:</em> {{ section.gps|field:0 }}</p>
+      <p><em>GPS:</em> {{ section.gps }}</p>
       {% with lat=section.gps|field:0|floatformat:6 long=section.gps|field:1|floatformat:6 %}
           <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?q={{ lat }},{{ long }}&t=h&amp;z=12&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/?q={{ lat }},{{ long }}" style="text-align:left">View Larger Map</a></small>
       {% endwith %}
