@@ -181,6 +181,14 @@ LOGGING = {
             'maxBytes' : 50000,
             'backupCount' : 2,
             'formatter' : 'verbose'
+        },
+        'all_log' : {
+            'level' : 'INFO',
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'filename' : os.path.join(PROJECT_ROOT, 'all.log'),
+            'maxBytes' : 50000,
+            'backupCount' : 2,
+            'formatter' : 'verbose'
         }
     },
     'loggers': {
@@ -192,6 +200,11 @@ LOGGING = {
         'sms' : {
             'handlers' : ['sms_log'],
             'level' : 'ERROR',
+            'propagate': True,
+        },
+        'reports' : {
+            'handlers' : ['all_log'],
+            'level' : 'INFO',
             'propagate': True,
         },
     }
