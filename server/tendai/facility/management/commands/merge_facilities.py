@@ -8,6 +8,10 @@ from django.contrib.gis.measure import D
 import fuzzywuzzy.process
 
 class Command(BaseCommand):
+    """
+    Create facilities for all new facility and medicines submissions then try to consolidate facilities
+    in order to remove duplicates
+    """
     def handle(self, *args, **options):
         facilities = facilitymodels.Facility.objects.all() 
         merged_count = deleted_count = added_count = 0
@@ -16,10 +20,11 @@ class Command(BaseCommand):
             # Create new facilities for all facility submissions without facilities before merging
             query = Q(submission__form__name="Facility Form") | Q(submission__form__name="Medicines Form")
             query &= Q(submission__facilitysubmission=None)
-            for submission in devicemodels.SubmissionWorkerDevice.objects.all_valid.filter(query):
-                print 'Creating: %s' % (submission.id)
-                facilitymodels.create_new_facility(devicemodels.SubmissionWorkerDevice, submission.submission)
-                added_count += 1
+            for swd in devicemodels.SubmissionWorkerDevice.objects.all_valid.filter(query):
+                print 'Creating SWD: %s' % (swd.id)
+                facility = facilitymodels.create_new_facility(devicemodels.SubmissionWorkerDevice, swd.submission)
+                if facility:
+                    added_count += 1
 
             for facility in facilities:
                 point = facility.point
