@@ -204,7 +204,12 @@ LOGGING = {
         },
         'reports' : {
             'handlers' : ['all_log'],
-            'level' : 'INFO',
+            'level' : 'ERROR',
+            'propagate': True,
+        },
+        'medicine_analysis' : {
+            'handlers' : ['all_log'],
+            'level' : 'ERROR',
             'propagate': True,
         },
     }

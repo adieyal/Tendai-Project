@@ -1,0 +1,30 @@
+{% extends "website/base.html" %}
+
+{% block tagline %}Stockout Reports{% endblock tagline %}
+{% block main_content_title %}{% endblock main_content_title %}
+
+{% block content %}
+<div class="row-fluid">
+  <div class="span12">
+    <h1>Stockout Reports</h1>
+  </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table table-condensed">
+            <tr>
+                <th>Country</th>
+                <th>Download report</th>
+            </tr>
+            {% for country in country_list %}
+            <tr>
+                <td>{{ country }}</td>
+                <td><a href="{% url reports_stockout country.code %}">Download</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

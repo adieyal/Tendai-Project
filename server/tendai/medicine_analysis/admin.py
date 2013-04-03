@@ -13,6 +13,18 @@ class MedicineRestockAdmin(admin.ModelAdmin):
     list_display = ('medicine', 'facility', 'timestamp', 'start', 'end', 'amount', 'inconsistent')
     list_filter = ('medicine', 'facility')
 
+class MedicineStockoutAdmin(admin.ModelAdmin):
+    list_display = ('medicine', 'facility', 'submission_id', 'country')
+    list_filter = ('medicine', 'facility', 'submission__end_time')
+    exclude = ('submission',)
+
+    def submission_id(self, object):
+        return object.submission.id
+
+    def country(self, object):
+        return object.submission.submissionworkerdevice.community_worker.country
+
 admin.site.register(models.MedicineStock, MedicineStockAdmin)
 admin.site.register(models.MedicineRestockExpectation, MedicineRestockExpectationAdmin)
 admin.site.register(models.MedicineRestock, MedicineRestockAdmin)
+admin.site.register(models.MedicineStockout, MedicineStockoutAdmin)

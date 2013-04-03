@@ -58,6 +58,13 @@ class MedicineRestock(models.Model):
         verbose_name_plural = 'Medicine Restock Events'
         ordering = ('-timestamp',)
 
+class MedicineStockout(models.Model):
+    medicine = models.ForeignKey(Medicine)
+    facility = models.ForeignKey(Facility)
+    submission = models.ForeignKey(ORFormSubmission)
+
+    def __unicode__(self):
+        return "Stockout of %s at %s in %s" % (self.medicine, self.facility, self.submission.end_time.month)
 
 VALUE_TO_TIMEDELTA = {'blank_period': None,
                       '1-3_days': (timedelta(days=1), timedelta(days=3)),

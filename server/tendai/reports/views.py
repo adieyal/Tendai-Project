@@ -9,6 +9,7 @@ from django.views.generic.simple import direct_to_template
 
 from devices import models as dev_models
 from openrosa import models as or_models
+from medicine_analysis import models as med_models
 
 from sorl.thumbnail import get_thumbnail
 from sorl.thumbnail.helpers import ThumbnailError
@@ -250,6 +251,29 @@ def submission(request, id=None, validate=False, country=None, submission_type=N
         extra_context['filter'] = country.name
     c = RequestContext(request, extra_context)
     return HttpResponse(template.render(c))
+
+def stockout_reports(request, country_code):
+    country = dev_models.Country.objects.get(code=country_code)
+    stockouts = med_models.MedicineStockout.objects.filter(
+        submission__submissionworkerdevice__community_worker__country=country
+    )
+    
+    response = HttpResponse(content_type="text/csv")
+    response["Content-Disposition"] = 'attachement; filename="stockouts_%s.csv"' % country
+
+    writer = csv.writer(response)
+    writer.writerow(["Date", "Medicine", "Facility", "Monitor"])  
+    for stockout in stockouts:
+        writer.writerow([
+            "%s/%s" % (
+                stockout.submission.end_time.month,
+                stockout.submission.end_time.year,
+            ),
+            stockout.medicine,
+            stockout.facility,
+            stockout.submission.submissionworkerdevice.community_worker 
+        ])
+    return response
 
 def export_reports(request, extra_context=None):
     extra_context = extra_context or {}
