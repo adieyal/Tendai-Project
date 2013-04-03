@@ -16,7 +16,12 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         created = 0
         errors = 0
-        submissions = ORFormSubmission.objects.filter(form__name="Medicines Form", medicinestockout=None)
+        submissions = ORFormSubmission.objects.filter(
+            form__name="Medicines Form",
+            medicinestockout=None,
+            submissionworkerdevice__valid=True,
+            submissionworkerdevice__verified=True
+        )
         for submission in submissions:
             content = submission.content
                 
