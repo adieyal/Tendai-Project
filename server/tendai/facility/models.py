@@ -4,20 +4,23 @@ from openrosa.signals import on_submission
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import D 
 import fuzzywuzzy.process
+import logging
+
+logger = logging.getLogger(__name__)
 
 @receiver(on_submission)
 def create_new_facility(sender, submission, **kwargs):
     if not submission: return
     if submission.form.name == "Facility Form":
         try:
-            create_facility_from_facility_submission(submission)
+            return create_facility_from_facility_submission(submission)
         except:
-            pass
+            logger.exception("Error creating facility for submission id: %d" % submission.id)
     if submission.form.name == "Medicines Form":
         try:
-            create_facility_from_medicine_submission(submission)
+            return create_facility_from_medicine_submission(submission)
         except:
-            pass
+            logger.exception("Error creating facility for submission id: %d" % submission.id)
 
 class SubmissionCoordinateFactory(object):
     @staticmethod 
@@ -93,8 +96,8 @@ def create_facility_from_medicine_submission(submission):
     name = content.section_general.facility_name
 
     lat, lng, _, acc = coordinates.split()
-    if float(acc) > 50:
-        raise ValueError('GPS accuracy too low.')
+    #if float(acc) > 50:
+    #    raise ValueError('GPS accuracy too low.')
     point = Point(float(lng), float(lat), srid=4326)
     point.transform(900913)
 
@@ -135,8 +138,8 @@ def create_facility_from_facility_submission(submission, force=False):
     comments = getattr(content.section_comments, "comments", "")
 
     lat, lng, _, acc = coordinates.split()
-    if float(acc) > 50 and not force:
-        raise ValueError('GPS accuracy too low.')
+    #if float(acc) > 50 and not force:
+    #    raise ValueError('GPS accuracy too low.')
     point = Point(float(lng), float(lat), srid=4326)
     point.transform(900913)
 
