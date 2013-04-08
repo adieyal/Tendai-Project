@@ -217,6 +217,11 @@ LOGGING = {
             'level' : 'WARN',
             'propagate': True,
         },
+        'openrosa' : {
+            'handlers' : ['all_log'],
+            'level' : 'WARN',
+            'propagate': True,
+        },
     }
 }
 

@@ -15,6 +15,9 @@ import models
 import forms
 from general.utils import value_or_none
 import signals
+import logging
+
+logger = logging.getLogger(__name__)
 
 def formXml(request):
     if request.method == "GET":
@@ -62,6 +65,8 @@ def submission(request):
     def handle_uploaded_file(f, file):
         for chunk in f.chunks():
             file.write(chunk)
+        if file.tell() == 0:
+            logger.warn("file: %s is empty" % file.name) 
         file.close()
 
     def create_media_folder(xml):
