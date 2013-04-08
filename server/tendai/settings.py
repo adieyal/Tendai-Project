@@ -189,6 +189,14 @@ LOGGING = {
             'maxBytes' : 50000,
             'backupCount' : 2,
             'formatter' : 'verbose'
+        },
+        'scorecard' : {
+            'level' : 'INFO',
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'filename' : os.path.join(PROJECT_ROOT, 'scorecard.log'),
+            'maxBytes' : 50000,
+            'backupCount' : 2,
+            'formatter' : 'verbose'
         }
     },
     'loggers': {
@@ -219,6 +227,11 @@ LOGGING = {
         },
         'openrosa' : {
             'handlers' : ['all_log'],
+            'level' : 'WARN',
+            'propagate': True,
+        },
+        'scorecards' : {
+            'handlers' : ['scorecard'],
             'level' : 'WARN',
             'propagate': True,
         },

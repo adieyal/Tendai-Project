@@ -5,7 +5,9 @@ import devices.models as dev_models
 from facility.models import Coordinates, SubmissionCoordinateFactory
 import facility.models as fac_models
 import models
+import logging
 
+logger = logging.getLogger(__name__)
 
 class SVGEditor(object):
     def __init__(self, svg):
@@ -238,7 +240,10 @@ class ScoreCardGenerator(object):
         ew = '//svg:g[substring(@id, string-length(@id) - string-length("%s")+ 1, string-length(@id)) = "%s"]'
 
         def remove_country(country):
-            element = self.svgeditor.xpath(map_layer % (country.code))[0]
+            layers = self.svgeditor.xpath(map_layer % country.code)
+            if len(layers) == 0:
+                return
+            element = layers[0]
             element.getparent().remove(element)
 
         def remove_unwanted_countries(svg_country):
