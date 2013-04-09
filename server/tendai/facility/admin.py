@@ -1,6 +1,8 @@
 from django.contrib.gis import admin
 from olwidget.admin import GeoModelAdmin
 import models
+from facility.management.commands.merge_facilities import Command as MergeCommand
+
 
 class FacilityAdmin(GeoModelAdmin):
     options = {
@@ -17,7 +19,28 @@ class FacilityAdmin(GeoModelAdmin):
             }
         }
 
+    def merge_facilities(self, request, queryset):
+        """
+        Merge all the facilities in the queryset into one
+        """
+        merged = deleted = 0
+        command = MergeCommand()
+        num_facilities = queryset.count()
+        if queryset.count() > 1:
+            first = queryset[0] 
+            for facility in queryset:
+                if facility == first: continue
+                (m, d) = command.merge_facilities(facility, first)
+                merged += m
+                deleted += d
+            
+            self.message_user(request, "Successfully merged %d facilities and moved %d submissions" % (num_facilities, merged))
+        else:
+            self.message_user(request, "Expected at least two facilities to merge")
+
     list_display = ['name', 'community_monitor', 'registered', 'country']
+    actions = ['merge_facilities']
+    merge_facilities.short_description = "Merge selected facilities"
 
     def community_monitor(self, obj):
         try:
