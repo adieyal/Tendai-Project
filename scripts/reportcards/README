@@ -1,0 +1,3 @@
+Modify load.sh for the year / month and run. 
+
+It pulls a bunch of SVGs. Modify them as required (add map comments, add stories and their photos etc) in Inkscape and run convert.sh to get PDFs.
