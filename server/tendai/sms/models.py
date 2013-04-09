@@ -85,7 +85,7 @@ class Status(models.Model):
 
 
 class SMS(models.Model):
-    number = models.CharField(max_length=12)
+    number = models.CharField(max_length=15)
     message = models.CharField(max_length=160)
     created = models.DateTimeField(auto_now_add=True)
     sent = models.BooleanField(default=False)
