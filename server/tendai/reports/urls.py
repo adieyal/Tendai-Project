@@ -1,7 +1,8 @@
 from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
-from devices.models import Country
+from devices.models import Country, CommunityWorker
 from django.views.generic.list_detail import object_list
+from django.views.generic.list_detail import object_detail
 
 urlpatterns = patterns('reports.views',
     (r'^facility/map/$', direct_to_template, {'template': 'reports/facilities.html'}, 'reports_facilities_map'),
@@ -30,4 +31,20 @@ urlpatterns = patterns('reports.views',
     (r'^validate/(?P<country>[a-z]{2})/$', 'submission', {'validate': True}, 'devices_verify_country_swd'),
     (r'^validate/(?P<submission_type>[^/]+)/$', 'submission', {'validate': True}, 'devices_verify_country_swd'),
     (r'^validate/(?P<submission_type>[^/]+)/(?P<id>\d+)/$', 'submission', {'validate': True}, 'devices_verify_country_swd'),
+    (r'^view/submissions/$', direct_to_template, {
+        "template" : "reports/list_of_monitors_for_submissions.html",
+        "extra_context" : {
+            "countries" : Country.objects.order_by("name"),
+        }
+    }, 'view_monitor_list_for_submissions'),
+    (
+        r'^view/submissions/(?P<object_id>\d+)/$', object_detail, 
+        {
+            "queryset" : CommunityWorker.objects.filter(active=True),
+            "template_object_name" : "community_worker",
+            "template_name" : "reports/monitor_submissions.html"
+        },
+        'monitor_submissions'
+    ),
+    (r'^view/submission/(?P<id>\d+)/$', 'submission', {'validate': False}, 'view_submission'),
 )

@@ -311,7 +311,7 @@ class SubmissionWorkerDeviceManager(models.Manager):
         )
 
 class SubmissionWorkerDevice(models.Model):
-    community_worker = models.ForeignKey(CommunityWorker, null=True)
+    community_worker = models.ForeignKey(CommunityWorker, null=True, related_name="submissions")
     device = models.ForeignKey(Device, null=True)
     submission = models.OneToOneField(ormodels.ORFormSubmission, null=True)
     # I don't like this field but adminmodels can't use date_hierarchy on a related object (submission)

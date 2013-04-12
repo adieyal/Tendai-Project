@@ -1,0 +1,50 @@
+{% extends "website/base.html" %}
+
+{% block extrahead %}
+<script src="{{ STATIC_URL}}js/jquery.tablesorter.min.js"></script>
+<script >
+  $(document).ready(function() {
+      $("#submissions").tablesorter({
+        headers: { 
+            // assign the secound column (we start counting zero) 
+            0: { 
+                // disable it by setting the property sorter to false 
+                sorter: false 
+            }, 
+        } 
+      });
+  });
+</script>
+<link rel="stylesheet" href="{{ STATIC_URL}}css/tablesorter.css" type="text/css" media="print, projection, screen" />
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row-fluid">
+  <div class="span12">
+    <h1>{{ community_worker }}</h1>
+  </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12">
+        <table id="submissions" class="table table-condensed tablesorter">
+            <thead>
+                <tr>
+                <th>Show report</th>
+                <th>Submission Type</th>
+                <th>Date Submitted</th>
+                </tr>
+            </thead>
+            {% for submission in community_worker.submissions.all_valid %}
+            <tr>
+                <td><a href="{% url view_submission submission.id %}">View</a></td>
+                <td>{{ submission.submission.form.name }}</td>
+                <td>{{ submission.created_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

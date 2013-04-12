@@ -1,0 +1,52 @@
+{% extends "website/base.html" %}
+
+{% block extrahead %}
+<script src="{{ STATIC_URL}}js/jquery.tablesorter.min.js"></script>
+<script >
+  $(document).ready(function() {
+      $(".monitors").tablesorter();
+  });
+</script>
+<link rel="stylesheet" href="{{ STATIC_URL}}css/tablesorter.css" type="text/css" media="print, projection, screen" />
+
+{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+  <div class="span12">
+    <h1>View Monitors' Submissions</h1>
+    <p>Select a monitor to view all their submissions</p>
+  </div>
+</div>
+{% for country in countries %}
+{% if country.monitors.all_active.count > 0 %}
+<div class="row-fluid">
+    <div class="span12">
+        <h2>{{ country.name }}</h2>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12">
+    <table class="monitors table table-condensed tablesorter">
+        <thead>
+            <tr>
+                <th>Monitor Name</th>
+                <th>Total Submissions</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for monitor in country.monitors.all_active %}
+        <tr>
+            <td><a href="{% url monitor_submissions monitor.id %}">{{ monitor }}</a></td>
+            <td>{{ monitor.submissions.all_valid.count }}</td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
