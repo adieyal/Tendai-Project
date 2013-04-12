@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+{% load i18n %}
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>{% blocktrans with country_name=country.name %}{{ country_name }} Medicines{% endblocktrans %}</h:title>
+    <model>
+      <instance>
+        <data id="medicines-0.52">
+          <form_version>0.52</form_version>
+
+          <start_time></start_time>
+          <end_time></end_time>
+          <survey_date></survey_date>
+          <device_id></device_id>
+          <subscriber_id></subscriber_id>
+          <sim_id></sim_id>
+          <phone_number></phone_number>
+
+          <section_general>
+            <facility_name></facility_name>
+            <gps></gps>
+            <staff_name></staff_name>
+            <respondent_position></respondent_position>
+          </section_general>
+          <section_stocked>
+	    {% for medicine in medicines %}
+            <{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }} />
+            <{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}_comments />
+	    {% endfor %}
+          </section_stocked>
+
+	  {% for medicine in medicines %}
+          <medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}>
+            <cheapest_product />
+            <label_cheapest_product />
+            <label_pack_definition />
+            <pack_size />
+            <label_pack_size />
+            <price_comments />
+            <photo />
+            <medicine_available />
+            <packs_available />
+            <stockout_duration />
+            <restock_date />
+            <restock_ordered />
+            <last_restock_date />
+            <last_restock_amount />
+            <availability_comments />
+          </medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}>
+	  {% endfor %}
+
+        </data>
+      </instance>
+      
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/data/start_time" type="dateTime"/> 
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/data/end_time" type="dateTime"/> 
+      <!-- <bind jr:preload="today" jr:preloadParams="end" nodeset="/data/survey_date" type="date"/> --> 
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/data/device_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/data/subscriber_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/data/sim_id" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/data/phone_number" type="string"/>
+
+      <bind constraint=". != ''" jr:constraintMsg="{% trans "Facility name required" %}" nodeset="/data/section_general/facility_name" required="true()" type="string"/>
+      <bind constraint=". != ''" jr:constraintMsg="{% trans "Please enter in the name of the respondent" %}" nodeset="/data/section_general/staff_name" required="true()" type="string"/>
+
+      <bind nodeset="/data/section_general/gps" required="true()" type="geopoint"/>
+      <bind nodeset="/data/section_general/respondent_position" type="string"/>
+
+      {% for medicine in medicines %}
+      <bind constraint=". != 'not_selected'" jr:constraintMsg="{% trans "For each medicine, please answer whether it is stocked or not" %}" nodeset="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Pack size required" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/pack_size" required="true()" type="int"/>
+      <bind constraint=". != ''" jr:constraintMsg="{% trans "Please indicate whether this medicine is available" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/medicine_available" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Packs available required" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/packs_available" required="true()" type="int"/>
+      <bind constraint=". != 'blank_period'" jr:constraintMsg="{% trans "Please select the next restock date" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/restock_date" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Please fill in the number of stock ordered" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/restock_ordered" required="true()" type="int"/>
+      <bind constraint=". != 'blank_period'" jr:constraintMsg="{% trans "Please select the last restock date" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/last_restock_date" required="true()" type="select1"/>
+      <bind constraint=". != -999" jr:constraintMsg="{% trans "Please indicate the number of packs received at the last restock" %}" nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/last_restock_amount" required="true()" type="int"/>
+      
+      <bind nodeset="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}_comments" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}" relevant="selected(/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}, 'yes')" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/cheapest_product" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_cheapest_product" readonly="true()" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_definition" readonly="true()" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_size" readonly="true()" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/price_comments" type="string"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/photo" type="binary"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/stockout_duration" type="select1"/>
+      <bind nodeset="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/availability_comments" type="string"/>
+      {% endfor %}
+
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="field-list">
+      <label>{% trans "General Information" %}</label>
+      <input ref="/data/section_general/facility_name">
+        <label>{% trans "Name of facility" %}</label>
+      </input>
+      <input ref="/data/section_general/gps">
+        <label>{% trans "GPS Location" %}</label>
+        <hint>{% trans "Please ensure that you capture the GPS location at the facility" %}</hint>
+	<alert>{% trans "Please capture the GPS location" %}</alert>
+      </input>
+      <input ref="/data/section_general/staff_name">
+        <label>{% trans "Name of staff member completing this survey" %}</label>
+        <hint>{% trans "This should ideally be the clinic manager or someone given the authority by the clinic manager with the necessary expertise and knowledge" %}</hint>
+      </input>
+      <input ref="/data/section_general/respondent_position">
+        <label>{% trans "Position of Respondent" %}</label>
+        <hint>{% trans "e.g. facility manager, staff nurse, etc" %}</hint>
+      </input>
+    </group>
+
+    <group appearance="field-list">
+      <label>{% trans "Please indicate whether the following medicines are usually stocked at this facility." %}</label>
+
+      {% for medicine in medicines %}
+      <select1 appearance="minimal" ref="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}">
+        <label>{% blocktrans with name=medicine.name containers=medicine.containers %}Are {{ name }} {{ containers }} stocked at this facility?{% endblocktrans %}</label>
+        <hint>{% trans "Not stocked means that this facility does not usually carry this medicine." %}</hint>
+        <item>
+          <label>{% trans "Select option" %}</label>
+          <value>not_selected</value>
+        </item>
+        <item>
+          <label>{% trans "Don't know" %}</label>
+          <value>dont_know</value>
+        </item>
+        <item>
+          <label>{% trans "Yes" %}</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>{% trans "No" %}</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/section_stocked/{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}_comments">
+        <label>{% trans "Please provide any additional comments below." %}</label>
+        <hint>{% trans "If not necessary then leave blank." %}</hint>
+      </input>
+      {% endfor %}
+    </group>
+       
+    {% for medicine in medicines %}
+    <group appearance="field-list">
+      <label>{{ medicine.name }} {{ medicine.containers }}</label>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/cheapest_product">
+        <label>{% trans "Brand name of product (if available)" %}</label>
+	<hint>{% blocktrans with container=medicine.container unit=medicine.unit units=medicine.units %}If the medicine has a brand name or manufacturer/supplier recorded, please include it here.{% endblocktrans %}</hint>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_cheapest_product">
+         <label>{% trans "Please answer the questions below with reference to the product mentioned above." %}</label>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_definition">
+        <label>{% blocktrans with container=medicine.container %}For this medicine, a pack is defined as a single {{ container }}.{% endblocktrans %}</label>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/pack_size">
+	 <label>{% blocktrans with container=medicine.container units=medicine.units %}How many {{ units }} in a single {{ container }} (pack size)?{% endblocktrans %}</label>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/label_pack_size">
+        <label>{% trans "The value above is called the pack size. For the remaining questions on this page, please use this value for the pack size." %}</label>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/price_comments">
+        <label>{% trans "Please provide any additional comments about price not covered in the questions above." %}</label>
+      </input>
+      <upload mediatype="image/*" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/photo">
+        <label>{% blocktrans with container=medicine.container %}Please take a photo of the {{ container }}.{% endblocktrans %}</label>
+        <hint>{% trans "Please ensure that the label is clearly visible." %}</hint>
+      </upload>
+      <select1 ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/medicine_available">
+        <label>{% trans "Is this medicine currently in stock?" %}</label>
+        <hint>{% trans "This applies only to the specified pack size." %}</hint>
+        <item>
+          <label>{% trans "No" %}</label>
+          <value>No</value>
+        </item>
+        <item>
+          <label>{% trans "Yes" %}</label>
+          <value>Yes</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/packs_available">
+        <label>{% trans "If the medicine is in stock, how many full packs are currently in stock?" %}</label>
+        <hint>{% trans "Enter 0 if the medicine is out of stock." %}</hint>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/stockout_duration">
+        <label>{% trans "If the medicine is out of stock, how long has it been unavailable?" %}</label>
+        <item>
+          <label>{% trans "Select period" %}</label>
+          <value>blank_period</value>
+        </item>
+        <item>
+          <label>{% trans "1-3 days" %}</label>
+          <value>1-3_days</value>
+        </item>
+        <item>
+          <label>{% trans "4-7 days" %}</label>
+          <value>4-7_days</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 weeks" %}</label>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 weeks" %}</label>
+          <value>2-3_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "3-4 weeks" %}</label>
+          <value>3-4_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 months" %}</label>
+          <value>1-2_months</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 months" %}</label>
+          <value>2-3_months</value>
+        </item>
+        <item>
+          <label>{% trans "More than 3 months" %}</label>
+          <value>more_than_3_months</value>
+        </item>
+        <item>
+          <label>{% trans "Unknown" %}</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/restock_date">
+        <label>{% trans "How long will it be until the facility receives more stock of this medicine?" %}</label>
+        <item>
+          <label>{% trans "Select period" %}</label>
+          <value>blank_period</value>
+        </item>
+        <item>
+          <label>{% trans "1-3 days" %}</label>
+          <value>1-3_days</value>
+        </item>
+        <item>
+          <label>{% trans "4-7 days" %}</label>
+          <value>4-7_days</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 weeks" %}</label>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 weeks" %}</label>
+          <value>2-3_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "3-4 weeks" %}</label>
+          <value>3-4_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 months" %}</label>
+          <value>1-2_months</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 months" %}</label>
+          <value>2-3_months</value>
+        </item>
+        <item>
+          <label>{% trans "More than 3 months" %}</label>
+          <value>more_than_3_months</value>
+        </item>
+        <item>
+          <label>{% trans "Unknown" %}</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/restock_ordered">
+        <label>{% trans "How many packs have been ordered for the next restock of this facility?" %}</label>
+        <hint>{% trans "If this is unknown, please enter in 8888. If more stock has not yet been ordered, please enter in 9999." %}</hint>
+      </input>
+      <select1 appearance="minimal" ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/last_restock_date">
+        <label>{% trans "How long has it been since the last time this facility received stock of this medicine?" %}</label>
+        <item>
+          <label>{% trans "Select period" %}</label>
+          <value>blank_period</value>
+        </item>
+        <item>
+          <label>{% trans "1-3 days" %}</label>
+          <value>1-3_days</value>
+        </item>
+        <item>
+          <label>{% trans "4-7 days" %}</label>
+          <value>4-7_days</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 weeks" %}</label>
+          <value>1-2_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 weeks" %}</label>
+          <value>2-3_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "3-4 weeks" %}</label>
+          <value>3-4_weeks</value>
+        </item>
+        <item>
+          <label>{% trans "1-2 months" %}</label>
+          <value>1-2_months</value>
+        </item>
+        <item>
+          <label>{% trans "2-3 months" %}</label>
+          <value>2-3_months</value>
+        </item>
+        <item>
+          <label>{% trans "More than 3 months" %}</label>
+          <value>more_than_3_months</value>
+        </item>
+        <item>
+          <label>{% trans "Unknown" %}</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/last_restock_amount">
+        <label>{% trans "How many packs of this medicine did you receive at your last restock?" %}</label>
+        <hint>{% trans "If this is unknown, enter 8888" %}</hint>
+      </input>
+      <input ref="/data/medicine-{{ medicine.name|slugify }}-{{ medicine.form.unit|slugify }}/availability_comments">
+        <label>{% trans "Please provide any additional comments about availability or restocking not covered in the questions above." %}</label>
+        <hint>{% trans "For instance, if medicine in this pack size is out of stock but different pack sizes are available, please mention this here." %}</hint>
+      </input>
+    </group>
+    {% endfor %}
+
+  </h:body>
+</h:html>

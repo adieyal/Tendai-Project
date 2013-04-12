@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?><h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Training Survey</h:title>
+    <model>
+      <instance>
+        <data id="training-survey-0.10">
+
+          <start_time></start_time>
+          <end_time></end_time>
+          <survey_date></survey_date>
+          <device_id></device_id>
+          <subscriber_id></subscriber_id>
+          <sim_id></sim_id>
+          <phone_number></phone_number>
+
+          <name></name>
+          <ratings>
+            <r0></r0>
+
+            <r1></r1>
+            <r2></r2>
+            <r3></r3>
+            <r4></r4>
+            <r5></r5>
+          </ratings>
+          <negative_comments></negative_comments>
+          <positive_comments></positive_comments>
+          <photo></photo>
+
+          <recording></recording>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="eng">
+          <text id="/data/name:label">
+            <value>Please enter in your name.</value>
+          </text>
+
+          <text id="/data/name:hint">
+            <value></value>
+          </text>
+          <text id="/data/negative_comments:label">
+            <value>Please comment on the negative aspects of the Tendai workshop.</value>
+          </text>
+          <text id="/data/negative_comments:hint">
+            <value></value>
+
+          </text>
+          <text id="/data/positive_comments:label">
+            <value>Please comment on the positive aspects of the Tendai workshop.</value>
+          </text>
+          <text id="/data/positive_comments:hint">
+            <value></value>
+          </text>
+          <text id="/data/photo:label">
+
+            <value>Please take a photo</value>
+          </text>
+          <text id="/data/photo:hint">
+            <value>Take a photo of anything you like - this question ensures the correct configuration of the phone.</value>
+          </text>
+          <text id="/data/recording:label">
+            <value>Please record the following &quot;one, two, three&quot;</value>
+
+          </text>
+          <text id="/data/recording:hint">
+            <value></value>
+          </text>
+        </translation>
+      </itext>
+
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/data/start_time" type="dateTime"/> 
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/data/end_time" type="dateTime"/> 
+      <bind jr:preload="today" jr:preloadParams="end" nodeset="/data/survey_date" type="date"/> 
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/data/device_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/data/subscriber_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/data/sim_id" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/data/phone_number" type="string"/>
+
+      <bind nodeset="/data/name" type="string"/>
+      <bind nodeset="/data/negative_comments" type="string"/>
+      <bind nodeset="/data/positive_comments" type="string"/>
+
+      <bind nodeset="/data/photo" type="binary"/>
+      <bind nodeset="/data/recording" type="binary"/>
+      <bind nodeset="/data/ratings/r0" type="select1"/>
+      <bind nodeset="/data/ratings/r1" type="select1"/>
+      <bind nodeset="/data/ratings/r2" type="select1"/>
+      <bind nodeset="/data/ratings/r3" type="select1"/>
+      <bind nodeset="/data/ratings/r4" type="select1"/>
+      <bind nodeset="/data/ratings/r5" type="select1"/>
+    </model>
+
+  </h:head>
+  <h:body>
+    <input ref="/data/name">
+      <label ref="jr:itext('/data/name:label')"/>
+      <hint ref="jr:itext('/data/name:hint')"/>
+    </input>
+    <group appearance="field-list" ref="ratings">
+      <label>Please evaluate the following aspects of the workshop training</label>
+
+      <select1 appearance="label" ref="/data/ratings/r0">
+        <label></label>
+        <item>
+          <label>Agree</label>
+          <value>agree</value>
+        </item>
+        <item>
+          <label>Disagree</label>
+
+          <value>disagree</value>
+        </item>
+      </select1>
+      <select1 appearance="list-nolabel" ref="/data/ratings/r1">
+        <label>Training was adequate</label>
+        <item>
+          <label>Agree</label>
+
+          <value>agree</value>
+        </item>
+        <item>
+          <label>Disagree</label>
+          <value>disagree</value>
+        </item>
+      </select1>
+
+      <select1 appearance="list-nolabel" ref="/data/ratings/r2">
+        <label>Sufficient time was allocated to training</label>
+        <item>
+          <label>Agree</label>
+          <value>agree</value>
+        </item>
+        <item>
+
+          <label>Disagree</label>
+          <value>disagree</value>
+        </item>
+      </select1>
+      <select1 appearance="list-nolabel" ref="/data/ratings/r3">
+        <label>I feel confident that I will be able to collect data for Tendai</label>
+        <item>
+
+          <label>Agree</label>
+          <value>agree</value>
+        </item>
+        <item>
+          <label>Disagree</label>
+          <value>disagree</value>
+        </item>
+
+      </select1>
+      <select1 appearance="list-nolabel" ref="/data/ratings/r4">
+        <label>The phone is easy to use.</label>
+        <item>
+          <label>Agree</label>
+          <value>agree</value>
+        </item>
+
+        <item>
+          <label>Disagree</label>
+          <value>disagree</value>
+        </item>
+      </select1>
+      <select1 appearance="list-nolabel" ref="/data/ratings/r5">
+        <label>The questionnaires are easy to understand</label>
+
+        <item>
+          <label>Agree</label>
+          <value>agree</value>
+        </item>
+        <item>
+          <label>Disagree</label>
+          <value>disagree</value>
+
+        </item>
+      </select1>
+    </group>
+
+    <input ref="/data/negative_comments">
+      <label ref="jr:itext('/data/negative_comments:label')"/>
+      <hint ref="jr:itext('/data/negative_comments:hint')"/>
+    </input>
+    <input ref="/data/positive_comments">
+
+      <label ref="jr:itext('/data/positive_comments:label')"/>
+      <hint ref="jr:itext('/data/positive_comments:hint')"/>
+    </input>
+    <upload mediatype="image/*" ref="/data/photo">
+      <label ref="jr:itext('/data/photo:label')"/>
+      <hint ref="jr:itext('/data/photo:hint')"/>
+    </upload>
+    <upload mediatype="audio/*" ref="/data/recording">
+      <label ref="jr:itext('/data/recording:label')"/>
+
+      <hint ref="jr:itext('/data/recording:hint')"/>
+    </upload>
+  </h:body>
+</h:html>
