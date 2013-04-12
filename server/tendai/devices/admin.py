@@ -1,7 +1,9 @@
+from django.http import HttpResponse, Http404
 from django.contrib import admin
 from django import forms
 from django.utils.safestring import mark_safe
 import models
+import csv
 
 # Widget from django tree features/select-filter. Some adjustments made.
 class FilteredSelectSingle(forms.Select):
@@ -32,6 +34,32 @@ class FilteredSelectSingle(forms.Select):
 class CommunityWorkerAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'organisation', 'phone_number', 'country', 'active')
     list_filter = ('first_name', 'last_name', 'organisation', 'country', 'active')
+
+    def export_worker_report(self, request, queryset):
+        """
+        Export a report of all community workers, their device IDS, phone numbers and activity status 
+        """
+        community_workers = queryset
+        headers = ["First Name", "Last Name", "Country", "Organisation", "Phone Number", "IMEI", "Active"]
+        
+        response = HttpResponse(content_type="text/csv")
+        response["Content-Disposition"] = 'attachement; filename="monitor_status.csv"'
+        writer = csv.writer(response)
+        writer.writerow(headers)
+        for cm in community_workers:
+            for device in cm.device_set.all():
+                writer.writerow([
+                    cm.first_name,
+                    cm.last_name,
+                    str(cm.country),
+                    str(cm.organisation),
+                    cm.phone_number,
+                    device.device_id,
+                    cm.active,
+                ])
+        return response
+    export_worker_report.short_description = "Export community worker report"
+    actions = ['export_worker_report']
 
 class DeviceAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
