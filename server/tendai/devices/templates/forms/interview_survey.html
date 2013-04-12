@@ -82,5 +82,10 @@
         <img src="{% url openrosa_media main.device_id main.A11 %}"/>
         {% endif %}
 
+        {% if main.summary %}
+        <p>Summary of interview</p>
+        {{ main.summary }}
+        {% endif %}
+
     </body>
 </html>

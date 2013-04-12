@@ -179,6 +179,12 @@
       <p><a href="{% url openrosa_media device_id=content.device_id filename=content.A14 %}">Audio</a></p>
       {% endif %}
       <br />
+
+      {% if content.summary %}
+      <p><strong>Summary of interview</strong></p>
+      <p>{{ content.summary }}"</p>
+      {% endif %}
+      <br />
       
       <!-- Community health worker information. -->
       <em>Collected at: {{ submission.created_date }}</em><br />
