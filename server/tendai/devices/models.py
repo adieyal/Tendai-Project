@@ -238,7 +238,7 @@ class CommunityWorker(models.Model):
     last_name = models.CharField(max_length=30)
     organisation = models.ForeignKey(Organisation)
     phone_number = models.CharField(max_length=30, blank=True, null=True)
-    country = models.ForeignKey(Country, blank=True, null=True)
+    country = models.ForeignKey(Country, blank=True, null=True, related_name="monitors")
     active = models.BooleanField(default=1)
 
     objects = CommunityWorkerManager()
