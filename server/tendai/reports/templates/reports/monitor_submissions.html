@@ -35,13 +35,17 @@
                 <th>Show report</th>
                 <th>Submission Type</th>
                 <th>Date Submitted</th>
+                <th>Verified</th>
+                <th>Valid</th>
                 </tr>
             </thead>
-            {% for submission in community_worker.submissions.all_valid %}
+            {% for submission in community_worker.submissions.all %}
             <tr>
                 <td><a href="{% url view_submission submission.id %}">View</a></td>
                 <td>{{ submission.submission.form.name }}</td>
                 <td>{{ submission.created_date }}</td>
+                <td>{{ submission.verified|yesno:"Yes,No" }}</td>
+                <td>{{ submission.valid|yesno:"Yes,No" }}</td>
             </tr>
             {% endfor %}
         </table>
