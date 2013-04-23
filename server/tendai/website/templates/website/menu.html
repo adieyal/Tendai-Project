@@ -8,11 +8,14 @@
       </a>
       <ul class="dropdown-menu">
 	{% for subitem in item.submenu %}
+        {% if subitem.name == "Separator" %}
+        <li class="divider">
+        </li>
+        {% else %}
         <li>
-	  <a href="{{ subitem.get_href|default:'#' }}">
-	    {{ subitem.name }}
-	  </a>
-	</li>
+            <a href="{{ subitem.get_href|default:'#' }}">{{ subitem.name }}</a>
+        </li>
+        {% endif %}
 	{% endfor %}
       </ul>
     </li>

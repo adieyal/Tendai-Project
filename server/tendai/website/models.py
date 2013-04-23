@@ -6,12 +6,16 @@ from django.conf import settings
 import devices.models
 import openrosa.models
 
+class MenuItemManager(models.Manager):
+    pass
+
 class MenuItem(models.Model):
-    name = models.CharField(max_length=32)
+    name = models.CharField(max_length=32, help_text="Set name to be divider in order to 'Separator' between menu sections")
     parent = models.ForeignKey('MenuItem', blank=True, null=True)
     url = models.CharField(max_length=200, blank=True, null=True, verbose_name='Redirect URL', help_text='This menu item will redirect to this URL if it is entered.')
     page = models.ForeignKey('Page', blank=True, null=True)
     enabled = models.BooleanField(default=True)
+    order = models.IntegerField(default=0, null=False)
     
     @property
     def link(self):
@@ -27,7 +31,7 @@ class MenuItem(models.Model):
     
     @property
     def submenu(self):
-        return self.menuitem_set.filter(enabled=True)
+        return self.menuitem_set.filter(enabled=True).order_by("order")
     
     def get_href(self):
         if self.url:

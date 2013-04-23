@@ -1,8 +1,31 @@
 from django.contrib import admin
+from django.http import HttpResponse, Http404
 import models
 
 class MenuItemAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'url', 'page', 'enabled')
+    def increase_order(self, request, queryset):
+        """
+        Move selected items up.
+        """
+        for item in queryset:
+            if item.order > 0:
+                item.order = item.order - 1
+                item.save()
+
+    increase_order.short_description = "Push menu items up"
+
+    def decrease_order(self, request, queryset):
+        """
+        Move selected items up.
+        """
+        for item in queryset:
+            item.order = item.order + 1
+            item.save()
+
+    decrease_order.short_description = "Push menu items down"
+    actions = ['decrease_order', 'increase_order']
+
+    list_display = ('__unicode__', 'url', 'page', 'enabled', 'order')
 
 class TemplateAdmin(admin.ModelAdmin):
     list_display = ('name', 'path')
