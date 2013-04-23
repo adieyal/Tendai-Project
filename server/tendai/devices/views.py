@@ -169,6 +169,12 @@ def view_interview_survey(request, xml, template_name="forms/interview_survey.ht
 
     return direct_to_template(request, template=template_name, extra_context=extra_context)
 
+def view_submissions(request, template_name="devices/submissions_overview.html", extra_context=None):
+    extra_context = extra_context or {}
+    extra_context["countries"] = models.Country.objects.all()
+    return direct_to_template(request, template=template_name, extra_context=extra_context)
+
+
 form_view_lookup = {
     "Training Survey" : {
         "0.8" : view_training_survey,
