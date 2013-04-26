@@ -165,7 +165,7 @@ class Medicine(models.Model):
         sections_with_packs = self._get_medicine_sections_with_packs(country, month)
         packs_available_values = [int(section.packs_available) for section in sections_with_packs]
 
-        total_level = sum(packs_available_values)
+        total_level = sum(v for v in packs_available_values if v not in [8888, 9999] )
         facilities = count(packs_available_values, lambda x : x > 0)
 
         return self._safe_div(total_level, facilities)
