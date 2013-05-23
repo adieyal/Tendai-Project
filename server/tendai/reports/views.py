@@ -262,16 +262,17 @@ def stockout_reports(request, country_code):
     response["Content-Disposition"] = 'attachement; filename="stockouts_%s.csv"' % country
 
     writer = csv.writer(response)
-    writer.writerow(["Date", "Medicine", "Facility", "Monitor"])  
+    writer.writerow(["Date", "Medicine", "Facility", "Monitor", "Count"])  
     for stockout in stockouts:
         writer.writerow([
             "%s/%s" % (
-                stockout.submission.end_time.month,
                 stockout.submission.end_time.year,
+                stockout.submission.end_time.strftime("%m"),
             ),
             stockout.medicine,
             stockout.facility,
-            stockout.submission.submissionworkerdevice.community_worker 
+            stockout.submission.submissionworkerdevice.community_worker,
+            "1",
         ])
     return response
 
