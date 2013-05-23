@@ -22,6 +22,13 @@ def formXml(request, country_code, language=None):
         orform = get_object_or_404(or_models.ORForm, form_id=form_id, countryform__countries=country)
         countryform_language = orform.countryform_set.all()[0].language
         template_name = os.path.join('surveys', orform.form_id + '.xml')
+
+
+        medformmeds = models.MedicineFormMedicines.objects.filter(countryform__form=orform)
+        if medformmeds.count() > 0:
+            medicines = medformmeds[0].medicine.all().order_by("name")
+        else:
+            medicines = models.Medicine.objects.filter(countries=country).order_by('name')
         
         try:
             template = get_template(template_name)
@@ -31,7 +38,8 @@ def formXml(request, country_code, language=None):
         context = Context({
             "country" : country,
             "districts" : models.District.objects.filter(country=country).order_by('name'),
-            "medicines" : models.Medicine.objects.filter(countries=country).order_by('name'),
+            "medicines" : medicines,
+            "form" : orform,
             "currencies" : models.Currency.objects.all(),
         })
         cur_language = translation.get_language()
