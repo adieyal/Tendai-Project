@@ -63,6 +63,7 @@ class DosageForm(models.Model):
     def __unicode__(self):
         return u"%s (%s)" % (self.container, self.units)
 
+
 class Medicine(models.Model):
     name = models.CharField(max_length=60)
     form = models.ForeignKey(DosageForm)
@@ -356,3 +357,19 @@ def send_submission_sms(sender, instance, **kwargs):
             sms.number = number
             sms.message = "Hi %s. Thank you for your %s submission. We appreciate your commitment to the project. The InfoHub team." % (instance.community_worker.first_name, instance.submission.form.name)
             sms.save()
+
+
+class MedicineFormMedicines(models.Model):
+    """
+    Class used to allocate specific medicines to specific forms. This is useful in the case where one country has multiple medicines forms. When creating the medicines form those medicines listed in this table will be allocated to that specific form. In the implementation, if a form is not listed here, then all the medicines listed in that country will be used instead. 
+
+    I'm not really happy with this class because without the comment, it is not clear what it does but I'm not sure how to implement it in any other way. It also introduces redundancy in the country field with the medicines table.
+    """
+    countryform = models.ForeignKey(CountryForm)
+    medicine = models.ManyToManyField(Medicine)
+
+    class Meta:
+        verbose_name_plural = "Medicine Form Medicines"
+
+    def __unicode__(self):
+        return u"%s" % (self.countryform)
