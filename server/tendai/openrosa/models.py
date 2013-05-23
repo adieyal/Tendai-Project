@@ -8,7 +8,7 @@ from general.utils import value_or_none, date_or_none
 from general.parser import SubmissionParser
 
 class ORForm(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=100)
     form_id = models.CharField(max_length=30, verbose_name="Form ID")
     majorminorversion = models.CharField(max_length=10, verbose_name="Major Minor Version")
     description = models.CharField(max_length=10, null=True, blank=True)
