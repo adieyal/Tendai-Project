@@ -15,7 +15,7 @@ class MedicineRestockAdmin(admin.ModelAdmin):
 
 class MedicineStockoutAdmin(admin.ModelAdmin):
     list_display = ('medicine', 'facility', 'submission_id', 'country')
-    list_filter = ('medicine', 'facility', 'submission__end_time')
+    list_filter = ('medicine', 'facility', 'submission__end_time', 'submission__submissionworkerdevice__community_worker__country')
     exclude = ('submission',)
 
     def submission_id(self, object):
