@@ -5,7 +5,9 @@ import devices.models as dev_models
 from facility.models import Coordinates, SubmissionCoordinateFactory
 import facility.models as fac_models
 import models
+from medicine_analysis.models import MedicineStockout
 import logging
+from collections import defaultdict
 
 logger = logging.getLogger(__name__)
 
@@ -34,6 +36,19 @@ class SVGEditor(object):
             value = str(value)
         element = self.xpath(xpath)[0]
         element.text = value
+
+    def set_flowtext(self, xpath, value):
+        """
+        Add flow paragraphs to a flow region.
+        xpath should point to the parent element
+        i.e. the flowRoot
+        """
+        lines = str(value).split("\n")
+        element = self.xpath(xpath)[0]
+        for line in lines:
+            para = etree.Element("flowPara")
+            para.text = line
+            element.append(para)
 
     def set_attr(self, xpath, attr, value):
         element = self.xpath(xpath)[0]
@@ -202,7 +217,7 @@ class ScoreCardGenerator(object):
 
     def render_stories(self, swds):
         #Best stories.
-        text = '//svg:flowPara[@id="story.%d.text"]'
+        text = '//svg:flowPa#ra[@id="story.%d.text"]'
         story_name = '//svg:text[@id="story.%d.name"]'
         story_date = '//svg:text[@id="story.%d.date"]'
         story_country = '//svg:text[@id="story.%d.country"]'
@@ -213,23 +228,56 @@ class ScoreCardGenerator(object):
         stories = stories[0:2]
         images = ('356652045028675/1330014282214.jpg', None)
 
-        for number in (0, 1):
+        for number, story in enumerate(stories):
+            self.svgeditor.set_text(text % (number), story.scorecardstory_set.all()[0].edited_text)
+            self.svgeditor.set_text(story_name % (number), story.community_worker.get_name())
+            self.svgeditor.set_text(story_date % (number), story.created_date.strftime('%d %B %Y'))
+            self.svgeditor.set_text(story_country % (number), story.community_worker.country.name)
             try:
-                story = dev_models.SubmissionWorkerDevice.objects.get(pk=stories[number])
-                self.svgeditor.set_text(text % (number), story.scorecardstory_set.all()[0].edited_text)
-                self.svgeditor.set_text(story_name % (number), story.community_worker.get_name())
-                self.svgeditor.set_text(story_date % (number), story.created_date.strftime('%d %B %Y'))
-                self.svgeditor.set_text(story_country % (number), story.community_worker.country.name)
-                try:
-                    image_path = story.submission.orsubmissionmedia_set.all()[1].get_absolute_path()
-                    image_file = open(image_path)
-                    self.svgeditor.set_image(image % number, image_file)
-                except:
-                    element = self.svgeditor.xpath(image % (number))[0]
-                    element.getparent().remove(element)
+                image_path = story.submission.orsubmissionmedia_set.all()[1].get_absolute_path()
+                image_file = open(image_path)
+                self.svgeditor.set_image(image % number, image_file)
             except:
-                pass
+                element = self.svgeditor.xpath(image % (number))[0]
+                element.getparent().remove(element)
 
+    def render_stockout_text(self, country, month):
+        flow_root = '//svg:flowRoot[@id="stockouts.text"]'
+        flow_para = '//svg:flowPara[@id="stockouts.text.remove"]'
+
+        flow_para_element = self.svgeditor.xpath(flow_para)[0]
+        flow_para_element.getparent().remove(flow_para_element)
+
+        stockouts = MedicineStockout.objects.filter(
+            submission__end_time__year=month.year,
+            submission__end_time__month=month.month,
+            submission__submissionworkerdevice__community_worker__country=country,
+        ).order_by("facility", "medicine")
+
+        stockout_text = ""
+        current_facility = None
+        medicines = []
+        stockouts_dict = defaultdict(set)
+        for stockout in stockouts:
+            stockouts_dict[stockout.facility.name].add(stockout.medicine.name)
+            medicines.append(stockout.medicine.name) 
+
+        flow_root_element = self.svgeditor.xpath(flow_root)[0]
+        for facility, medicines in sorted(stockouts_dict.items(), key=lambda x : x[0]):
+            new_para = etree.Element("flowPara")
+
+            bold_span = etree.Element("flowSpan")
+            bold_span.text = "%s: " % facility
+            bold_span.set("style", "font-weight:bold")
+            new_para.append(bold_span)
+
+            medicines_str = ", ".join(sorted(medicines))
+            normal_span = etree.Element("flowSpan")
+            normal_span.text = medicines_str
+            new_para.append(normal_span)
+
+            flow_root_element.append(new_para)
+        
     def render_stockout_map(self, country, valid_swds_by_country):
 
         #Stockout map.
@@ -389,5 +437,6 @@ class ScoreCardGenerator(object):
         self.render_medicines_table(country, month)
         self.render_stories(valid_swds_by_country)
         self.render_stockout_map(country, valid_swds_by_country)
+        self.render_stockout_text(country, month)
 
         return etree.tostring(self.svg)
