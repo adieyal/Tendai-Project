@@ -215,26 +215,43 @@ class ScoreCardGenerator(object):
         # Fill out the rest of the table with blanks
         [render_medicines_row(None, line) for line in range(len(medicines), 14)]
 
-    def render_stories(self, swds):
+    def render_stories(self, country, swds):
         #Best stories.
-        text = '//svg:flowPa#ra[@id="story.%d.text"]'
+        text_delete = '//svg:flowPara[@id="story.%d.text"]'
+        text = '//svg:flowRoot[@id="story.%d.textroot"]'
         story_name = '//svg:text[@id="story.%d.name"]'
         story_date = '//svg:text[@id="story.%d.date"]'
         story_country = '//svg:text[@id="story.%d.country"]'
         image = '//svg:image[@id="story.%d.image"]'
 
-        story_submissions = swds.filter(submission__form__name='Tendai Story').exclude(scorecardstory=None)
-        stories = [swd.pk for swd in story_submissions] + [1589, 1461]
-        stories = stories[0:2]
+        story_submissions = swds.filter(
+            submission__form__name='Tendai Story'
+        ).exclude(scorecardstory=None)
+
+        stories = models.ScorecardStory.objects.filter(
+            submission_worker_device__created_date__year=2013,
+            submission_worker_device__created_date__month=4,
+            submission_worker_device__community_worker__country=country
+        )
         images = ('356652045028675/1330014282214.jpg', None)
 
         for number, story in enumerate(stories):
-            self.svgeditor.set_text(text % (number), story.scorecardstory_set.all()[0].edited_text)
-            self.svgeditor.set_text(story_name % (number), story.community_worker.get_name())
-            self.svgeditor.set_text(story_date % (number), story.created_date.strftime('%d %B %Y'))
-            self.svgeditor.set_text(story_country % (number), story.community_worker.country.name)
+            placeholder_text = self.svgeditor.xpath(text_delete % (number))[0]
+            placeholder_text.getparent().remove(placeholder_text)
+
+            community_worker = story.submission_worker_device.community_worker
+            submission = story.submission_worker_device.submission
+            self.svgeditor.set_flowtext(text % number, story.edited_text)
+            self.svgeditor.set_text( story_name % (number), community_worker.get_name())
+
+            self.svgeditor.set_text(
+                story_date % (number),
+                story.submission_worker_device.created_date.strftime('%d %B %Y')
+            )
+
+            self.svgeditor.set_text(story_country % (number), community_worker.country.name)
             try:
-                image_path = story.submission.orsubmissionmedia_set.all()[1].get_absolute_path()
+                image_path = submission.orsubmissionmedia_set.all()[1].get_absolute_path()
                 image_file = open(image_path)
                 self.svgeditor.set_image(image % number, image_file)
             except:
@@ -435,7 +452,7 @@ class ScoreCardGenerator(object):
         self.render_submission_sliders(monitors, valid_swds, valid_swds_by_country)
         self.render_monitor_of_the_month(monitors, valid_swds_by_country, month)
         self.render_medicines_table(country, month)
-        self.render_stories(valid_swds_by_country)
+        self.render_stories(country, valid_swds_by_country)
         self.render_stockout_map(country, valid_swds_by_country)
         self.render_stockout_text(country, month)
 
