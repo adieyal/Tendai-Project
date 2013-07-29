@@ -215,7 +215,7 @@ class ScoreCardGenerator(object):
         # Fill out the rest of the table with blanks
         [render_medicines_row(None, line) for line in range(len(medicines), 14)]
 
-    def render_stories(self, country, swds):
+    def render_stories(self, country, month, swds):
         #Best stories.
         text_delete = '//svg:flowPara[@id="story.%d.text"]'
         text = '//svg:flowRoot[@id="story.%d.textroot"]'
@@ -229,8 +229,8 @@ class ScoreCardGenerator(object):
         ).exclude(scorecardstory=None)
 
         stories = models.ScorecardStory.objects.filter(
-            submission_worker_device__created_date__year=2013,
-            submission_worker_device__created_date__month=4,
+            submission_worker_device__created_date__year=month.year,
+            submission_worker_device__created_date__month=month.month,
             submission_worker_device__community_worker__country=country
         )
         images = ('356652045028675/1330014282214.jpg', None)
@@ -251,7 +251,7 @@ class ScoreCardGenerator(object):
 
             self.svgeditor.set_text(story_country % (number), community_worker.country.name)
             try:
-                image_path = submission.orsubmissionmedia_set.all()[1].get_absolute_path()
+                image_path = submission.orsubmissionmedia_set.all()[0].get_absolute_path()
                 image_file = open(image_path)
                 self.svgeditor.set_image(image % number, image_file)
             except:
@@ -452,7 +452,7 @@ class ScoreCardGenerator(object):
         self.render_submission_sliders(monitors, valid_swds, valid_swds_by_country)
         self.render_monitor_of_the_month(monitors, valid_swds_by_country, month)
         self.render_medicines_table(country, month)
-        self.render_stories(country, valid_swds_by_country)
+        self.render_stories(country, month, valid_swds_by_country)
         self.render_stockout_map(country, valid_swds_by_country)
         self.render_stockout_text(country, month)
 
