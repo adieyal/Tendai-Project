@@ -43,7 +43,7 @@ class SVGEditor(object):
         xpath should point to the parent element
         i.e. the flowRoot
         """
-        lines = str(value).split("\n")
+        lines = unicode(value).split("\n")
         element = self.xpath(xpath)[0]
         for line in lines:
             para = etree.Element("flowPara")
