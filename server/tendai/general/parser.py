@@ -1,4 +1,5 @@
 from xml.dom import minidom
+from xml.parsers.expat import ExpatError
 
 class XMLError(ValueError):
     pass
@@ -15,7 +16,7 @@ class SubmissionParser(object):
                 raise XMLError('Expected single root node.')
             head = dom.firstChild
             return cls(head)    
-        except IOError, e:
+        except (ExpatError, IOError), e:
             print 'Error parsing submission: %s' % (e)
             return None
     
