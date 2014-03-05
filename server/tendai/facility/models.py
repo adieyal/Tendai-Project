@@ -119,8 +119,12 @@ def create_facility_from_medicine_submission(submission):
 
 
 def create_facility_from_facility_submission(submission, force=False):
+    
     from devices.models import FacilitySubmission
     content = submission.content
+    if not hasattr(content, "selection_location"):
+        return None
+
     coordinates = content.section_location.facility_location
 
     name = content.section_name.facility_name
