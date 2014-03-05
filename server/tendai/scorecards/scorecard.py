@@ -34,8 +34,11 @@ class SVGEditor(object):
             value = '%.1f' % value
         else:
             value = str(value)
-        element = self.xpath(xpath)[0]
-        element.text = value
+        xp = self.xpath(xpath)
+
+        if xp:
+            element = self.xpath(xpath)[0]
+            element.text = value
 
     def set_flowtext(self, xpath, value):
         """
