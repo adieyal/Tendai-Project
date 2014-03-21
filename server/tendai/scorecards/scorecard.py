@@ -196,6 +196,8 @@ class ScoreCardGenerator(object):
         stockout_days = '//svg:text[@id="medicine.%d.stockout_days"]'
         replenish_days = '//svg:text[@id="medicine.%d.replenish_days"]'
         medicines = country.medicine_set.all().order_by('name')
+        # uncomment this line to generate South African reports. Sucky I know. The 2 should be changed to 0 or 1 for different forms.
+        #medicines = dev_models.MedicineFormMedicines.objects.all()[2].medicine.all()
 
         def render_medicines_row(medicine, line):
             if medicine:
