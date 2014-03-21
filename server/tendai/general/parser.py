@@ -19,6 +19,12 @@ class SubmissionParser(object):
         except (ExpatError, IOError), e:
             print 'Error parsing submission: %s' % (e)
             return None
+
+    @property
+    def sections(self):
+        for child in self.children():
+            if type(child) == SubmissionParser:
+                yield child
     
     def children(self):
         children = []
