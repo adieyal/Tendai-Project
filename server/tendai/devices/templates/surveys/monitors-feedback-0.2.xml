@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>{{ country.name }} Advocacy Form</h:title>
+    <model>
+      <instance>
+        <data id="monitors-feedback-0.2">
+          <form_version>0.2</form_version>
+
+          <start_time></start_time>
+          <end_time></end_time>
+          <survey_date></survey_date>
+          <device_id></device_id>
+          <subscriber_id></subscriber_id>
+          <sim_id></sim_id>
+          <phone_number></phone_number>
+
+          <report_title></report_title>
+          <district_coordinator></district_coordinator>
+          <health_facility_name></health_facility_name>
+          <last_monitoring_date></last_monitoring_date>
+          <report_period></report_period>
+          <campaign_activities></campaign_activities>
+          <advocacy_activities></advocacy_activities>
+        </data>
+      </instance>
+      <itext>
+          <translation lang="eng">
+            
+            <text id="report_title:label">
+                <value>Case Study Report</value>
+            </text>
+            <text id="/data/district_coordinator:label">
+                <value>Please enter the name of your district coordinator.</value>
+            </text>
+            <text id="/data/health_facility_name:label">
+                <value>Please enter the name of your health facility.</value>
+            </text>
+            <text id="/data/last_monitoring_date:label">
+                <value>When was this facility last monitored?</value>
+            </text>
+            <text id="/data/last_monitoring_date:hint">
+                <value>e.g. 2012-05-21</value>
+            </text>
+            <text id="report_coverage:label">
+                <value>What period is covered by this report</value>
+            </text>
+            <text id="/data/report_period:label">
+                <value>Period covered by the report</value>
+            </text>
+            <text id="/data/report_period:hint">
+                <value>e.g. March 2012 - June 2012</value>
+            </text>
+            <text id="/data/campaign_activities:label">
+                <value>List the campaign activities held during the covered period.</value>
+            </text>
+            <text id="/data/advocacy_activities:label">
+                <value>List the advocacy activities held during the covered period.</value>
+            </text>
+          </translation>
+      </itext>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/data/start_time" type="dateTime"/> 
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/data/end_time" type="dateTime"/> 
+      <!-- <bind jr:preload="today" jr:preloadParams="end" nodeset="/data/survey_date" type="date"/> -->
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/data/device_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/data/subscriber_id" type="string"/> 
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/data/sim_id" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/data/phone_number" type="string"/>
+      <bind constraint=". != 'blank'" jr:constraintMsg="Please enter the name of your district coordinator" nodeset="/data/district_coordinator" required="true()" type="string"/>
+      <bind constraint=". != 'blank'" jr:constraintMsg="Please enter the name of your health facility" nodeset="/data/health_facility_name" required="true()" type="string"/>
+      <bind nodeset="/data/last_monitoring_date" required="true()" type="string"/>
+      <bind nodeset="/data/report_period" required="true()" type="string"/>
+      <bind nodeset="/data/campaign_activities" required="true()" type="string"/>
+      <bind nodeset="/data/advocacy_activities" required="true()" type="string"/>
+
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="field-list">
+        <label ref="jr:itext('report_title:label')"/>
+        <input ref="/data/district_coordinator">
+            <label ref="jr:itext('/data/district_coordinator:label')"/>
+        </input>
+        <input ref="/data/health_facility_name">
+            <label ref="jr:itext('/data/health_facility_name:label')"/>
+        </input>
+        <input ref="/data/last_monitoring_date">
+            <label ref="jr:itext('/data/last_monitoring_date:label')"/>
+            <hint ref="jr:itext('/data/last_monitoring_date:hint')"/>
+        </input>
+        <input ref="/data/report_period">
+            <label ref="jr:itext('/data/report_period:label')"/>
+            <label ref="jr:itext('/data/report_period:hint')"/>
+        </input>
+        <input ref="/data/campaign_activities">
+            <label ref="jr:itext('/data/campaign_activities:label')"/>
+        </input>
+        <input ref="/data/advocacy_activities">
+            <label ref="jr:itext('/data/advocacy_activities:label')"/>
+        </input>
+    </group>
+
+  </h:body>
+</h:html>
