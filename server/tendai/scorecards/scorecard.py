@@ -422,6 +422,7 @@ class ScoreCardGenerator(object):
         xp_box = '//svg:g[@id="%s"]/svg:rect[@id="%s_box"]' % (country.code, country.code)
 
         map_group = MapGroup(self.svgeditor.xpath(xp_map_group)[0])
+        logger.warn("xpbox: %s" % xp_box)
         map_box = MapBBox(self.svgeditor.xpath(xp_box)[0])
         spot_factory = StockoutSpotFactory(map_group.element.getparent(), map_group, map_box)
 
