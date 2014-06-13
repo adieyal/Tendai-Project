@@ -80,51 +80,59 @@ def submission(request):
             os.mkdir(path)
         return path    
 
-    if request.method == "GET":
-        response =  HttpResponse("", status=204) 
-        url = "http://" + request.get_host() + reverse("openrosa_submission")
-        response["Location"] = url
-    elif request.method == "POST":
+    try:
+        if request.method == "GET":
+            response =  HttpResponse("", status=204) 
+            url = "http://" + request.get_host() + reverse("openrosa_submission")
+            response["Location"] = url
+        elif request.method == "POST":
 
-        form = forms.UploadORInstance(request.POST, request.FILES)
-        if form.is_valid():
-            f = tempfile.NamedTemporaryFile(
-                prefix="submission_", suffix=".xml", 
-                dir=settings.OPENROSA_SUBMISSIONS_DIR, delete=False)
+            form = forms.UploadORInstance(request.POST, request.FILES)
+            if form.is_valid():
+                f = tempfile.NamedTemporaryFile(
+                    prefix="submission_", suffix=".xml", 
+                    dir=settings.OPENROSA_SUBMISSIONS_DIR, delete=False)
 
-            handle_uploaded_file(request.FILES["xml_submission_file"], f)
-            dom = minidom.parse(f.name)
+                handle_uploaded_file(request.FILES["xml_submission_file"], f)
+                dom = minidom.parse(f.name)
 
-            data_elements = dom.getElementsByTagName("data")
-            orform = None
-            form_name = None
-            if len(data_elements) == 1:
-                form_name = data_elements[0].attributes["id"].value
-                orforms = models.ORForm.objects.filter(form_id=form_name)
-                if len(orforms) == 1:
-                   orform = orforms[0]
+                data_elements = dom.getElementsByTagName("data")
+                orform = None
+                form_name = None
+                if len(data_elements) == 1:
+                    form_name = data_elements[0].attributes["id"].value
+                    orforms = models.ORForm.objects.filter(form_id=form_name)
+                    if len(orforms) == 1:
+                       orform = orforms[0]
 
-            filename = os.path.basename(f.name)
-            new_model, _ = models.ORFormSubmission.objects.get_or_create(
-                form=orform,
-                filename=filename
-            )
+                filename = os.path.basename(f.name)
+                new_model, _ = models.ORFormSubmission.objects.get_or_create(
+                    form=orform,
+                    filename=filename
+                )
 
-            media_dir = create_media_folder(dom)
-            for filename, stream in request.FILES.items():
-                if filename != "xml_submission_file":
-                    media_path = os.path.join(media_dir, filename)
-                    media_file = open(media_path, "w")
-                    handle_uploaded_file(stream, media_file)
-                    new_media, _ = models.ORSubmissionMedia.objects.get_or_create(
-                        submission=new_model,
-                        filename=filename
-                    )
+                media_dir = create_media_folder(dom)
+                for filename, stream in request.FILES.items():
+                    if filename != "xml_submission_file":
+                        media_path = os.path.join(media_dir, filename)
+                        media_file = open(media_path, "w")
+                        handle_uploaded_file(stream, media_file)
+                        new_media, _ = models.ORSubmissionMedia.objects.get_or_create(
+                            submission=new_model,
+                            filename=filename
+                        )
 
-        signals.on_submission.send_robust(sender=models.ORFormSubmission, submission=new_model)
-        response = HttpResponse("", status=202) 
+            signals.on_submission.send_robust(sender=models.ORFormSubmission, submission=new_model)
+            response = HttpResponse("", status=202) 
         
-    return response
+        return response
+    except Exception:
+        import traceback
+        f = open("/tmp/err.log", "w")
+        traceback.print_exc(file=f)
+        f.close()
+        log.exception("Error processing submission")
+        response = HttpResponse("", status=500) 
 
 def view_submission(request, id=None):
     if request.method == "GET":

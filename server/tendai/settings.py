@@ -9,6 +9,8 @@ ADMINS = (
     ('Adi Eyal', 'adi@sarpam.net'),
 )
 
+INTERNAL_IPS = ('192.168.122.1', '127.0.0.1', '105.208.238.103')
+
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -102,6 +104,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+#    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -133,6 +136,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.gis',
     'django.contrib.markup',
+#    'debug_toolbar',
 
     'south',
     'sorl.thumbnail',
@@ -247,3 +251,4 @@ OPENROSA_IMAGES_DIR = os.path.join(MEDIA_ROOT, "openrosa", "submissions", "image
 SMS_USERNAME = "sarpam"
 SMS_PASSWORD = "DGILRUo2"
 SMS_APIID = 3414587
+DEBUG_TOOLBAR_PATCH_SETTINGS = False

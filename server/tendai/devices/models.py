@@ -327,6 +327,7 @@ class SubmissionWorkerDevice(models.Model):
         return reverse("devices_view_swd", kwargs={"id" : self.id})
 
     def __unicode__(self):
+        return str(self.pk)
         return "[%s] %s" % (self.pk, self.community_worker)
 
 class FacilitySubmission(models.Model):
