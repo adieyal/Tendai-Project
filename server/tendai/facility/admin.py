@@ -3,7 +3,6 @@ from olwidget.admin import GeoModelAdmin
 import models
 from facility.management.commands.merge_facilities import Command as MergeCommand
 
-
 class FacilityAdmin(GeoModelAdmin):
     options = {
             'layers': ['ve.hybrid'],

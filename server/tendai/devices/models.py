@@ -311,6 +311,12 @@ class SubmissionWorkerDeviceManager(models.Manager):
             submission__form__name="Medicines Form"
         )
 
+    @property
+    def story_submissions(self):
+        return self.all_valid.filter(
+            submission__form__name="Tendai Story"
+        )
+
 class SubmissionWorkerDevice(models.Model):
     community_worker = models.ForeignKey(CommunityWorker, null=True, related_name="submissions")
     device = models.ForeignKey(Device, null=True)

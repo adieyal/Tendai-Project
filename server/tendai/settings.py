@@ -1,7 +1,7 @@
 import os
 import sys
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
 
